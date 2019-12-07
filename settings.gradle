@@ -1,2 +1,4 @@
 rootProject.name='SpaceX'
 include ':app'
+include ':core'
+include ':buildSrc'
