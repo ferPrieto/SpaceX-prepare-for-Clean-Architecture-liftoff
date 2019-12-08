@@ -35,6 +35,10 @@ object Versions {
     const val kotlin = "1.3.60"
     const val timber = "4.7.1"
     const val coreTesting = "1.1.1"
+    const val rxJava = "2.2.7"
+    const val rxKotlin = "2.3.0"
+    const val rxAndroid = "2.1.1"
+    const val rxBinding = "2.2.0"
 }
 
 object BuildDependencies {
@@ -74,6 +78,14 @@ object Dependencies {
         }
     }
 
+    object Rx {
+        const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
+        const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}"
+        const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+        const val rxBinding =
+            "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:${Versions.rxBinding}"
+    }
+
     object Dagger {
         const val dagger =
             "com.google.dagger:dagger:${Versions.dagger}"
@@ -109,12 +121,13 @@ object TestDependencies {
             "android.arch.core:core-testing:${Versions.coreTesting}"
     }
 
-    object  JUnit{
+    object JUnit {
         const val junit =
             "junit:junit:${Versions.junit}"
         const val junitPlatformRunner =
             "org.junit.platform:junit-platform-runner:${Versions.junitPlatformRunner}"
     }
+
     const val commonsCodec =
         "commons-codec:commons-codec:${Versions.commonsCodec}"
     const val livedataTesting =
