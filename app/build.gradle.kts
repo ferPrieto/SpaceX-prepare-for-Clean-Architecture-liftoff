@@ -1,8 +1,8 @@
-import org.gradle.kotlin.dsl.testImplementation
+import prieto.fernando.android.plugin.BuildType
 
 plugins {
     id("com.android.application")
-    id("com.karmarama.android.plugin")
+    id("prieto.fernando.android.plugin")
 }
 
 androidPlugin {
@@ -25,5 +25,13 @@ android {
 }
 
 dependencies {
+    implementation(project(ProjectModules.core))
 
+    implementation(Dependencies.AndroidX.fragmentKtx)
+
+    implementation(Dependencies.AndroidX.constraintlayout)
+    implementation(Dependencies.AndroidX.legacySupport)
+    implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
+    implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
+    implementation(Dependencies.AndroidX.Navigation.uiKtx)
 }
