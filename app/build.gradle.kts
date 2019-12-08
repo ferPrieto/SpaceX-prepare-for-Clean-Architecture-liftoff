@@ -26,6 +26,7 @@ android {
 
 dependencies {
     implementation(project(ProjectModules.core))
+    implementation(project(ProjectModules.navigation))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
 

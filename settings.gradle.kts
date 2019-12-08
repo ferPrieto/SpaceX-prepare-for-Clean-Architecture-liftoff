@@ -3,5 +3,6 @@ rootProject.buildFileName = "build.gradle.kts"
 
 include(
     ":app",
-    ProjectModules.core
+    ProjectModules.core,
+    ProjectModules.navigation
 )
