@@ -4,5 +4,7 @@ rootProject.buildFileName = "build.gradle.kts"
 include(
     ":app",
     ProjectModules.core,
-    ProjectModules.navigation
+    ProjectModules.navigation,
+    ProjectModules.api,
+    ProjectModules.repository
 )
