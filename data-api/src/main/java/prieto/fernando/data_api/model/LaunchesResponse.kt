@@ -13,14 +13,14 @@ class LaunchesResponse(
     val launchSuccess: Boolean
 )
 
-class RocketResponse(
+data class RocketResponse(
     @SerializedName("rocket_name")
     val rocketName: String,
     @SerializedName("rocket_type")
     val rocketType: String
 )
 
-class LinksResponse(
+data class LinksResponse(
     @SerializedName("mission_patch_small")
     val missionPatchSmall: String,
     val wikipedia: String,

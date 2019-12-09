@@ -28,6 +28,7 @@ dependencies {
     implementation(project(ProjectModules.core))
     implementation(project(ProjectModules.navigation))
     implementation(project(ProjectModules.api))
+    implementation(project(ProjectModules.repository))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
 

@@ -2,6 +2,8 @@ object ProjectModules {
     const val core = ":core"
     const val navigation = ":navigation"
     const val api = ":data-api"
+    const val repository = ":data-repository"
+    const val domain = ":domain"
 }
 
 object AndroidSettings {

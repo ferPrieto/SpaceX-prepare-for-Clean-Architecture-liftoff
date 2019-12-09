@@ -5,5 +5,7 @@ include(
     ":app",
     ProjectModules.core,
     ProjectModules.navigation,
-    ProjectModules.api
+    ProjectModules.api,
+    ProjectModules.repository,
+    ProjectModules.domain
 )

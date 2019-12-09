@@ -4,6 +4,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(ProjectModules.repository))
+
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Retrofit.retrofitConverterGson)
     implementation(Dependencies.Retrofit.retrofitRxjava2Adapter)
