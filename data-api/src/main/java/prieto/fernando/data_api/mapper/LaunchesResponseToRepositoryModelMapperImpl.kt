@@ -7,13 +7,13 @@ import prieto.fernando.data_repository.model.LinksRepositoryModel
 import prieto.fernando.data_repository.model.RocketRepositoryModel
 import javax.inject.Inject
 
-interface CompanyLaunchesResponseToRepositoryModelMapper {
+interface LaunchesResponseToRepositoryModelMapper {
     fun toRepositoryModel(launchesResponse: LaunchesResponse): LaunchesRepositoryModel
 }
 
 @Reusable
-class CompanyLaunchesResponseToRepositoryModelMapperImpl @Inject constructor() :
-    CompanyLaunchesResponseToRepositoryModelMapper {
+class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor() :
+    LaunchesResponseToRepositoryModelMapper {
     override fun toRepositoryModel(launchesResponse: LaunchesResponse): LaunchesRepositoryModel {
         val linksRepositoryModel = LinksRepositoryModel(
             missionPatchSmall = launchesResponse.links.missionPatchSmall,
