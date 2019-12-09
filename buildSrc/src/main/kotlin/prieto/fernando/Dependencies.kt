@@ -4,6 +4,7 @@ object ProjectModules {
     const val api = ":data-api"
     const val repository = ":data-repository"
     const val domain = ":domain"
+    const val presentation = ":presentation"
 }
 
 object AndroidSettings {
