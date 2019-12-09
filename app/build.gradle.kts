@@ -28,6 +28,7 @@ dependencies {
     implementation(project(ProjectModules.core))
     implementation(project(ProjectModules.navigation))
     implementation(project(ProjectModules.api))
+    implementation(project(ProjectModules.presentation))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
 
@@ -36,4 +37,8 @@ dependencies {
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
+
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.retrofitConverterGson)
+    implementation(Dependencies.Retrofit.retrofitRxjava2Adapter)
 }
