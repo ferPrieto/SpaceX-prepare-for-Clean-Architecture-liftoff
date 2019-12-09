@@ -1,12 +1,11 @@
 object ProjectModules {
     const val core = ":core"
     const val navigation = ":navigation"
-    const val coreAndroidTest = ":core-android-test"
+    const val api = ":data-api"
 }
 
 object AndroidSettings {
     const val appVersionName = "0.1"
-
     const val compileSdk = 29
     const val buildTools = "29.0.2"
     const val minSdk = 26
@@ -39,6 +38,10 @@ object Versions {
     const val rxKotlin = "2.3.0"
     const val rxAndroid = "2.1.1"
     const val rxBinding = "2.2.0"
+    const val retrofit = "2.5.0"
+    const val retrofitConverterGson = "2.4.0"
+    const val retrofitRxjava2Adapter = "1.0.0"
+    const val okhttpLoggingInterceptor = "4.2.1"
 }
 
 object BuildDependencies {
@@ -98,6 +101,17 @@ object Dependencies {
         const val daggerAndroidProcessor =
             "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     }
+
+    object Retrofit {
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+        const val retrofitConverterGson =
+            "com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}"
+        const val retrofitRxjava2Adapter =
+            "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${Versions.retrofitRxjava2Adapter}"
+    }
+
+    const val okHttpLoggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
 }
 
 object TestDependencies {
