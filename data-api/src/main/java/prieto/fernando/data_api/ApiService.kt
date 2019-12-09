@@ -7,9 +7,9 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("/info")
+    @GET("info")
     fun getCompanyInfo(): Single<CompanyInfoResponse>
 
-    @GET("/launches")
+    @GET("launches")
     fun getAllLaunches(): Single<LaunchesResponse>
 }

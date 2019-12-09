@@ -1,20 +1,29 @@
 package prieto.fernando.data_api.model
 
-class LaunchesResponse (
-    val mission_name : String,
-    val launch_date_local : String,
-    val rocket : RocketResponse,
+import com.google.gson.annotations.SerializedName
+
+class LaunchesResponse(
+    @SerializedName("mission_name")
+    val missionName: String,
+    @SerializedName("launch_date_local")
+    val launchDateLocal: String,
+    val rocket: RocketResponse,
     val links: LinksResponse,
-    val launch_success : Boolean
+    @SerializedName("launch_success")
+    val launchSuccess: Boolean
 )
 
 class RocketResponse(
-    val rocket_name :String,
-    val rocket_type: String
+    @SerializedName("rocket_name")
+    val rocketName: String,
+    @SerializedName("rocket_type")
+    val rocketType: String
 )
 
 class LinksResponse(
-    val mission_patch_small : String,
+    @SerializedName("mission_patch_small")
+    val missionPatchSmall: String,
     val wikipedia: String,
-    val video_link: String
+    @SerializedName("video_link")
+    val videoLink: String
 )
