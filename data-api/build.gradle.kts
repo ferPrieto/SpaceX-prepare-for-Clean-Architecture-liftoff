@@ -8,4 +8,6 @@ dependencies {
     implementation(Dependencies.Retrofit.retrofitConverterGson)
     implementation(Dependencies.Retrofit.retrofitRxjava2Adapter)
     implementation(Dependencies.okHttpLoggingInterceptor)
+
+    implementation(Dependencies.Dagger.daggerAndroid)
 }
