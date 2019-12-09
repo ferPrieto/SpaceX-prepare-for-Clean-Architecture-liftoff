@@ -28,7 +28,7 @@ dependencies {
     implementation(project(ProjectModules.core))
     implementation(project(ProjectModules.navigation))
     implementation(project(ProjectModules.api))
-    implementation(project(ProjectModules.repository))
+    implementation(project(ProjectModules.presentation))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
 
