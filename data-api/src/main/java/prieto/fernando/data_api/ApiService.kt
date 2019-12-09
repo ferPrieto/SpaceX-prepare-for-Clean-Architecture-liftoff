@@ -6,7 +6,6 @@ import prieto.fernando.data_api.model.LaunchesResponse
 import retrofit2.http.GET
 
 interface ApiService {
-
     @GET("info")
     fun getCompanyInfo(): Single<CompanyInfoResponse>
 

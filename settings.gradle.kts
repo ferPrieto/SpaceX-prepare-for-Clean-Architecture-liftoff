@@ -6,5 +6,6 @@ include(
     ProjectModules.core,
     ProjectModules.navigation,
     ProjectModules.api,
-    ProjectModules.repository
+    ProjectModules.repository,
+    ProjectModules.domain
 )

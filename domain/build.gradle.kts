@@ -4,7 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(ProjectModules.domain))
 
     implementation(Dependencies.Rx.rxAndroid)
     implementation(Dependencies.Rx.rxJava)
