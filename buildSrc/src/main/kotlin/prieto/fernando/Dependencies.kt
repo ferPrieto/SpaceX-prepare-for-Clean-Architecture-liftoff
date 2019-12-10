@@ -46,6 +46,7 @@ object Versions {
     const val retrofitRxjava2Adapter = "1.0.0"
     const val okhttpLoggingInterceptor = "4.2.1"
     const val archComponents = "2.1.0"
+    const val picasso = "2.71828"
 }
 
 object BuildDependencies {
@@ -125,6 +126,9 @@ object Dependencies {
 
     const val okHttpLoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
+
+    const val picasso =
+        "com.squareup.picasso:picasso:${Versions.picasso}"
 }
 
 object TestDependencies {
