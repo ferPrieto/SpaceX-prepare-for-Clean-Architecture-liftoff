@@ -8,15 +8,20 @@
         android:id="@+id/launches_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/launches_title"
+        android:textSize="@dimen/letter_large"
+        android:layout_marginStart="@dimen/grid_small"
+        android:layout_marginTop="@dimen/grid_large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_description"
-        android:text="@string/launches_title" />
+        app:layout_constraintTop_toBottomOf="@+id/company_description" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/launches_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_semi_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/launches_title"
@@ -29,9 +34,9 @@
         android:layout_gravity="center_horizontal"
         android:theme="@style/progressBar"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/launches_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/launches_title"
         tools:visibility="visible" />
 
 </merge>

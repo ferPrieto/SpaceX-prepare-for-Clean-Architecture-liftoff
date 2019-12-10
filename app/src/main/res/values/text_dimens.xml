@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="letter_giant">44sp</dimen>
+    <dimen name="letter_super_huge">36sp</dimen>
+    <dimen name="letter_huge">30sp</dimen>
+    <dimen name="letter_large">24sp</dimen>
+    <dimen name="letter_semi_large">18sp</dimen>
+    <dimen name="letter_normal">15sp</dimen>
+    <dimen name="letter_small">12sp</dimen>
+</resources>
