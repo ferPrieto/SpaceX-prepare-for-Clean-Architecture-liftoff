@@ -14,7 +14,7 @@ class CompanyInfoDomainToUiModelMapperImpl @Inject constructor() :
         CompanyInfoUiModel(
             name = companyInfoDomainModel.name,
             founder = companyInfoDomainModel.founder,
-            founded = companyInfoDomainModel.founded,
+            foundedYear = companyInfoDomainModel.founded,
             employees = companyInfoDomainModel.employees,
             launchSites = companyInfoDomainModel.launchSites,
             valuation = companyInfoDomainModel.valuation
