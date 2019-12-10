@@ -9,5 +9,7 @@
     </string>
     <string name="company_data_from">Days from now</string>
     <string name="company_data_since">Days since now</string>
+    <string name="launches_title">LAUNCHES</string>
+    <string name="company_title">COMPANY</string>
 
 </resources>

@@ -11,7 +11,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_description"
-        tools:text="LAUNCHES" />
+        android:text="@string/launches_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/launches_recycler_view"
@@ -21,5 +21,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/launches_title"
         tools:listitem="@layout/item_launch" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/progressBar"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/launches_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
 </merge>
