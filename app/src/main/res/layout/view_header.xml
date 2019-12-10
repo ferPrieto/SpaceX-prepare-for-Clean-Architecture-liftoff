@@ -8,10 +8,10 @@
         android:id="@+id/company_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/company_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="COMPANY" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/company_description"
@@ -22,4 +22,15 @@
         app:layout_constraintTop_toBottomOf="@+id/company_title"
         tools:text="SpaceX was founded by Elon Musk in 2002. It has now 7000 employees, 3 launch sites, and is valued at USD 27500000000" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/progressBar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </merge>

@@ -19,17 +19,19 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel(), MainViewModelInputs {
     private val launchUiModelRetrieved: MutableLiveData<List<LaunchUiModel>> = MutableLiveData()
     private val companyInfoUiModelRetrieved: MutableLiveData<CompanyInfoUiModel> = MutableLiveData()
-    private val loading: MutableLiveData<Boolean> = MutableLiveData()
+    private val loadingBody: MutableLiveData<Boolean> = MutableLiveData()
+    private val loadingHeader: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun loading(): LiveData<Boolean> = loading
+    fun loadingBody(): LiveData<Boolean> = loadingBody
+    fun loadingHeader(): LiveData<Boolean> = loadingHeader
     fun onLaunchesUiModelRetrieved(): LiveData<List<LaunchUiModel>> = launchUiModelRetrieved
     fun onCompanyInfoUiModelRetrieved(): LiveData<CompanyInfoUiModel> = companyInfoUiModelRetrieved
 
     override fun launches() {
         getLaunches.execute()
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
-            .doOnSubscribe { loading.postValue(true) }
-            .doFinally { loading.postValue(false) }
+            .doOnSubscribe { loadingBody.postValue(true) }
+            .doFinally { loadingBody.postValue(false) }
             .subscribe({ launchesUiModel ->
                 launchUiModelRetrieved.postValue(launchesUiModel)
             }, { throwable ->
@@ -40,8 +42,8 @@ class MainViewModel @Inject constructor(
     override fun companyInfo() {
         getCompanyInfo.execute()
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
-            .doOnSubscribe { loading.postValue(true) }
-            .doFinally { loading.postValue(false) }
+            .doOnSubscribe { loadingHeader.postValue(true) }
+            .doFinally { loadingHeader.postValue(false) }
             .subscribe({ companyInfo ->
                 companyInfoUiModelRetrieved.postValue(companyInfo)
             }, { throwable ->

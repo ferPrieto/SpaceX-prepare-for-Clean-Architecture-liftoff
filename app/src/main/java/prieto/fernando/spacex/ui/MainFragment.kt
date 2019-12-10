@@ -9,7 +9,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.view_header.*
+import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
+import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
+import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 import prieto.fernando.core.ui.BaseFragment
 import prieto.fernando.presentation.MainViewModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel
@@ -55,14 +57,14 @@ class MainFragment : BaseFragment<MainViewModel>(), ClickListener {
         ViewModelProviders.of(this, vmFactory).get(MainViewModel::class.java).apply {
             observe(onLaunchesUiModelRetrieved(), ::bindLaunches)
             observe(onCompanyInfoUiModelRetrieved(), ::bindCompany)
-            observe(loading(), ::showLoading)
+            observe(loadingHeader(), ::showLoadingHeader)
+            observe(loadingBody(), ::showLoadingBody)
         }
     }
 
     private fun bindCompany(companyInfoUiModel: CompanyInfoUiModel?) {
         companyInfoUiModel?.let { companyInfo ->
-            company_title.text = companyInfo.name
-            company_description.text = getDescriptionText(companyInfo)
+            companyDescription.text = getDescriptionText(companyInfo)
         }
     }
 
@@ -84,10 +86,25 @@ class MainFragment : BaseFragment<MainViewModel>(), ClickListener {
         }
     }
 
-    private fun showLoading(loading: Boolean?) {
-
+    private fun showLoadingBody(loading: Boolean?) {
+        loading?.let {
+            progressBarBody.visibility = if (loading) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
     }
 
+    private fun showLoadingHeader(loading: Boolean?) {
+        loading?.let {
+            progressBarHeader.visibility = if (loading) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+    }
 }
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) -> Unit) =
