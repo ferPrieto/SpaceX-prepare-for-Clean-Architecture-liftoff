@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.item_launch.view.*
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
+import kotlinx.android.synthetic.main.item_launch.view.mission_patch as missionPatch
 import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_date_time as launchDetailsDateTime
 import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_days as launchDetailsDays
 import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_mission as launchDetailsMission
@@ -43,21 +46,29 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
 
     class LaunchHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(launchUiModel: LaunchUiModel, clickListener: ClickListener) {
-            //todo itemView.missionPatch.drawable
-            //todo itemView.view_success = drawable with boolean
+
+            Picasso.get()
+                .load(launchUiModel.links.missionPatchSmall)
+                .resize(150, 150)
+                .centerCrop()
+                .into(itemView.missionPatch)
             itemView.launchDetailsMission.value = launchUiModel.missionName
             itemView.launchDetailsDateTime.value = launchUiModel.launchDate
             itemView.launchDetailsNameTime.value =
                 "${launchUiModel.rocket.rocketName}/${launchUiModel.rocket.rocketType}"
-            itemView.launchDetailsDays.title = getTitleSinceFrom(launchUiModel, itemView.context)
+            itemView.launchDetailsDays.title =
+                getTitleSinceFrom(launchUiModel.isPastLaunch, itemView.context)
             itemView.launchDetailsDays.value = "+/-${launchUiModel.differenceOfDays}"
+            val successDrawable = getSuccessDrawable(launchUiModel.launchSuccess, itemView.context)
+            itemView.view_success.setImageDrawable(successDrawable)
+
             itemView.setOnClickListener {
                 clickListener.onItemClicked(getAvailableLink(launchUiModel))
             }
         }
 
-        private fun getTitleSinceFrom(launchUiModel: LaunchUiModel, context: Context) =
-            if (launchUiModel.isPastLaunch) {
+        private fun getTitleSinceFrom(isPastLaunch: Boolean, context: Context) =
+            if (isPastLaunch) {
                 context.getString(R.string.company_data_since)
             } else {
                 context.getString(R.string.company_data_from)
@@ -70,5 +81,12 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
                 else -> ""
             }
         }
+
+        private fun getSuccessDrawable(launchSuccess: Boolean, context: Context) =
+            if (launchSuccess) {
+                context.getDrawable(R.drawable.ic_check)
+            } else {
+                context.getDrawable(R.drawable.ic_clear)
+            }
     }
 }
