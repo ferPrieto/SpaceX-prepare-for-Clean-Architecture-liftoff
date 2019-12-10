@@ -22,8 +22,8 @@ data class RocketResponse(
 
 data class LinksResponse(
     @SerializedName("mission_patch_small")
-    val missionPatchSmall: String,
-    val wikipedia: String,
+    val missionPatchSmall: String?,
+    val wikipedia: String?,
     @SerializedName("video_link")
-    val videoLink: String
+    val videoLink: String?
 )

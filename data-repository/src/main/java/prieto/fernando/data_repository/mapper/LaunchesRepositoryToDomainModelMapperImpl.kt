@@ -1,37 +1,38 @@
 package prieto.fernando.data_repository.mapper
 
-import dagger.Reusable
-import prieto.fernando.data_repository.model.LaunchesRepositoryModel
-import prieto.fernando.domain.model.LaunchesDomainModel
+import prieto.fernando.data_repository.model.LaunchRepositoryModel
+import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
 import javax.inject.Inject
 
 interface LaunchesRepositoryToDomainModelMapper {
-    fun toDomainModel(launchesRepositoryModel: LaunchesRepositoryModel): LaunchesDomainModel
+    fun toDomainModel(launchesRepositoryModel: List<LaunchRepositoryModel>): List<LaunchDomainModel>
 }
 
-@Reusable
 class LaunchesRepositoryToDomainModelMapperImpl @Inject constructor() :
     LaunchesRepositoryToDomainModelMapper {
-    override fun toDomainModel(launchesRepositoryModel: LaunchesRepositoryModel): LaunchesDomainModel {
-        val linksDomainModel = LinksDomainModel(
-            missionPatchSmall = launchesRepositoryModel.links.missionPatchSmall,
-            wikipedia = launchesRepositoryModel.links.wikipedia,
-            videoLink = launchesRepositoryModel.links.videoLink
-        )
+    override fun toDomainModel(
+        launchesRepositoryModel: List<LaunchRepositoryModel>
+    ): List<LaunchDomainModel> =
+        launchesRepositoryModel.map { launchRepositoryModel ->
+            val linksDomainModel = LinksDomainModel(
+                missionPatchSmall = launchRepositoryModel.links.missionPatchSmall,
+                wikipedia = launchRepositoryModel.links.wikipedia,
+                videoLink = launchRepositoryModel.links.videoLink
+            )
 
-        val rocketDomainModel = RocketDomainModel(
-            rocketName = launchesRepositoryModel.rocket.rocketName,
-            rocketType = launchesRepositoryModel.rocket.rocketType
-        )
+            val rocketDomainModel = RocketDomainModel(
+                rocketName = launchRepositoryModel.rocket.rocketName,
+                rocketType = launchRepositoryModel.rocket.rocketType
+            )
 
-        return LaunchesDomainModel(
-            missionName = launchesRepositoryModel.missionName,
-            launchDateLocal = launchesRepositoryModel.launchDateLocal,
-            rocket = rocketDomainModel,
-            links = linksDomainModel,
-            launchSuccess = launchesRepositoryModel.launchSuccess
-        )
-    }
+            LaunchDomainModel(
+                missionName = launchRepositoryModel.missionName,
+                launchDateLocal = launchRepositoryModel.launchDateLocal,
+                rocket = rocketDomainModel,
+                links = linksDomainModel,
+                launchSuccess = launchRepositoryModel.launchSuccess
+            )
+        }
 }

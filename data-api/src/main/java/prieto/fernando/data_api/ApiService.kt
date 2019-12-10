@@ -10,5 +10,5 @@ interface ApiService {
     fun getCompanyInfo(): Single<CompanyInfoResponse>
 
     @GET("launches")
-    fun getAllLaunches(): Single<LaunchesResponse>
+    fun getAllLaunches(): Single<List<LaunchesResponse>>
 }

@@ -2,19 +2,45 @@ package prieto.fernando.data_api.di
 
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import okhttp3.OkHttpClient
 import prieto.fernando.data_api.ApiService
+import prieto.fernando.data_api.data.SpaceXRemoteSourceImpl
+import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
+import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapperImpl
+import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
+import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapperImpl
+import prieto.fernando.data_repository.SpaceXRemoteSource
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
 class ApiModule {
+    @Singleton
+    @Provides
+    fun provideSpaceXRemoteSource(
+        apiService: ApiService,
+        companyInfoRepositoryMapper: CompanyInfoResponseToRepositoryModelMapper,
+        launchesRepositoryMapper: LaunchesResponseToRepositoryModelMapper
+    ): SpaceXRemoteSource =
+        SpaceXRemoteSourceImpl(apiService, companyInfoRepositoryMapper, launchesRepositoryMapper)
+
+    @Reusable
+    @Provides
+    fun provideCompanyInfoResponseToRepositoryModelMapper(): CompanyInfoResponseToRepositoryModelMapper =
+        CompanyInfoResponseToRepositoryModelMapperImpl()
+
+    @Reusable
+    @Provides
+    fun provideLaunchesResponseToRepositoryModelMapper(): LaunchesResponseToRepositoryModelMapper =
+        LaunchesResponseToRepositoryModelMapperImpl()
+
     @Module
     companion object {
         @Provides
         @JvmStatic
         @Singleton
-        internal fun provideApi(retrofit: Retrofit) =
+        internal fun provideApi(retrofit: Retrofit): ApiService =
             retrofit.create(ApiService::class.java)
 
         @Provides
@@ -23,7 +49,7 @@ class ApiModule {
         internal fun provideRetrofit(
             httpBuilder: OkHttpClient.Builder,
             retrofitBuilder: Retrofit.Builder
-        ) = retrofitBuilder
+        ): Retrofit = retrofitBuilder
             .client(httpBuilder.build())
             .build()
     }

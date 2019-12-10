@@ -9,5 +9,5 @@ data class CompanyInfoResponse(
     val employees: String,
     @SerializedName("launch_sites")
     val launchSites: Int,
-    val valuation: Int
+    val valuation: Long
 )

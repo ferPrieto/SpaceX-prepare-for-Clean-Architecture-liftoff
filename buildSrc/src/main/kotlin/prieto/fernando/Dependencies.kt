@@ -45,6 +45,7 @@ object Versions {
     const val retrofitConverterGson = "2.4.0"
     const val retrofitRxjava2Adapter = "1.0.0"
     const val okhttpLoggingInterceptor = "4.2.1"
+    const val archComponents = "2.1.0"
 }
 
 object BuildDependencies {
@@ -75,6 +76,15 @@ object Dependencies {
             "androidx.legacy:legacy-support-v4:${Versions.legacySupportV4}"
         const val lifecycleLivedataKtx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLivedataKtx}"
+        const val lifecycleCompiler =
+            "androidx.lifecycle:lifecycle-compiler:${Versions.archComponents}"
+        const val archViewModel =
+            "androidx.lifecycle:lifecycle-viewmodel:${Versions.archComponents}"
+        const val archComponents =
+            "androidx.lifecycle:lifecycle-extensions:${Versions.archComponents}"
+        const val archComponentsCompiler =
+            "android.arch.lifecycle:compiler:${Versions.archComponents}"
+
 
         object Navigation {
             const val fragmentKtx =

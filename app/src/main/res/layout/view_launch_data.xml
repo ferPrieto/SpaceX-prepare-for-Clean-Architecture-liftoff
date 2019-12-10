@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+        android:id="@+id/launch_details_mission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/launch_data_mission"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+        android:id="@+id/launch_details_date_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/launch_data_date_time"
+        app:layout_constraintTop_toBottomOf="@+id/launch_details_mission"/>
+
+    <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+        android:id="@+id/launch_details_name_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/launch_data_rocket"
+        app:layout_constraintTop_toBottomOf="@+id/launch_details_date_time" />
+
+    <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+        android:id="@+id/launch_details_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/launch_data_days"
+        app:layout_constraintTop_toBottomOf="@+id/launch_details_name_time"/>
+</merge>
