@@ -6,10 +6,10 @@ plugins {
 dependencies {
     implementation(project(ProjectModules.repository))
 
-    implementation(Dependencies.Retrofit.retrofit)
-    implementation(Dependencies.Retrofit.retrofitConverterGson)
-    implementation(Dependencies.Retrofit.retrofitRxjava2Adapter)
-    implementation(Dependencies.okHttpLoggingInterceptor)
+    api(Dependencies.Retrofit.retrofit)
+    api(Dependencies.Retrofit.retrofitConverterGson)
+    api(Dependencies.Retrofit.retrofitRxjava2Adapter)
+    api(Dependencies.okHttpLoggingInterceptor)
 
     implementation(Dependencies.Dagger.daggerAndroid)
 }

@@ -10,7 +10,6 @@ import prieto.fernando.data_repository.model.LaunchesRepositoryModel
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class SpaceXRemoteSourceImpl @Inject constructor(
     private val apiService: ApiService,
     private val companyInfoRepositoryMapper: CompanyInfoResponseToRepositoryModelMapper,

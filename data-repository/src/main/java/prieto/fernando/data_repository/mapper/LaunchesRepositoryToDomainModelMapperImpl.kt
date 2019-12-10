@@ -1,6 +1,5 @@
 package prieto.fernando.data_repository.mapper
 
-import dagger.Reusable
 import prieto.fernando.data_repository.model.LaunchesRepositoryModel
 import prieto.fernando.domain.model.LaunchesDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
@@ -11,7 +10,6 @@ interface LaunchesRepositoryToDomainModelMapper {
     fun toDomainModel(launchesRepositoryModel: LaunchesRepositoryModel): LaunchesDomainModel
 }
 
-@Reusable
 class LaunchesRepositoryToDomainModelMapperImpl @Inject constructor() :
     LaunchesRepositoryToDomainModelMapper {
     override fun toDomainModel(launchesRepositoryModel: LaunchesRepositoryModel): LaunchesDomainModel {

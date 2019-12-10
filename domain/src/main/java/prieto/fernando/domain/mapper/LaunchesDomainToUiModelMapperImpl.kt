@@ -1,6 +1,5 @@
 package prieto.fernando.domain.mapper
 
-import dagger.Reusable
 import prieto.fernando.domain.model.LaunchesDomainModel
 import prieto.fernando.presentation.model.LaunchesUiModel
 import prieto.fernando.presentation.model.LinksUiModel
@@ -11,7 +10,6 @@ interface LaunchesDomainToUiModelMapper {
     fun toUiModel(launchesDomainModel: LaunchesDomainModel): LaunchesUiModel
 }
 
-@Reusable
 class LaunchesDomainToUiModelMapperImpl @Inject constructor() :
     LaunchesDomainToUiModelMapper {
     override fun toUiModel(launchesDomainModel: LaunchesDomainModel): LaunchesUiModel {

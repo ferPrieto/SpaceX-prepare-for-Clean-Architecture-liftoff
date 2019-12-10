@@ -1,6 +1,5 @@
 package prieto.fernando.data_repository.repository
 
-import dagger.Reusable
 import io.reactivex.Single
 import prieto.fernando.data_repository.SpaceXRemoteSource
 import prieto.fernando.data_repository.mapper.CompanyInfoRepositoryToDomainModelMapper
@@ -10,7 +9,6 @@ import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.domain.model.LaunchesDomainModel
 import javax.inject.Inject
 
-@Reusable
 class SpaceXRepositoryImpl @Inject constructor(
     private val spaceXRemoteSource: SpaceXRemoteSource,
     private val companyInfoDomainMapper: CompanyInfoRepositoryToDomainModelMapper,

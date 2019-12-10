@@ -29,12 +29,16 @@ dependencies {
     implementation(project(ProjectModules.navigation))
     implementation(project(ProjectModules.api))
     implementation(project(ProjectModules.presentation))
+    implementation(project(ProjectModules.domain))
+    implementation(project(ProjectModules.repository))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
+    implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
+    annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
+    implementation(Dependencies.AndroidX.archComponents)
 
     implementation(Dependencies.AndroidX.constraintlayout)
     implementation(Dependencies.AndroidX.legacySupport)
-    implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
 }
