@@ -4,10 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import prieto.fernando.domain.SpaceXRepository
-import prieto.fernando.domain.mapper.CompanyInfoDomainToUiModelMapper
-import prieto.fernando.domain.mapper.CompanyInfoDomainToUiModelMapperImpl
-import prieto.fernando.domain.mapper.LaunchesDomainToUiModelMapper
-import prieto.fernando.domain.mapper.LaunchesDomainToUiModelMapperImpl
+import prieto.fernando.domain.mapper.*
 import prieto.fernando.domain.usecase.GetCompanyInfoImpl
 import prieto.fernando.domain.usecase.GetLaunchesImpl
 import prieto.fernando.presentation.GetCompanyInfo
@@ -31,8 +28,15 @@ class DomainModule {
 
     @Provides
     @Reusable
-    fun provideLaunchesDomainToUiModelMapper(): LaunchesDomainToUiModelMapper =
-        LaunchesDomainToUiModelMapperImpl()
+    fun provideLaunchesDomainToUiModelMapper(
+        dateTransformer: DateTransformer
+    ): LaunchesDomainToUiModelMapper =
+        LaunchesDomainToUiModelMapperImpl(dateTransformer)
+
+    @Provides
+    @Reusable
+    fun provideDateTransformer(): DateTransformer =
+        DateTransformerImpl()
 
     @Provides
     @Reusable

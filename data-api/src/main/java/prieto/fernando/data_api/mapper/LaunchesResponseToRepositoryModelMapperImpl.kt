@@ -14,28 +14,33 @@ interface LaunchesResponseToRepositoryModelMapper {
 const val DEFAULT_PATCH = "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png"
 
 @Reusable
-class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor() :
+class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor(
+    private val dateFormatter: DateFormatter
+) :
     LaunchesResponseToRepositoryModelMapper {
     override fun toRepositoryModel(
         launchesResponse: List<LaunchesResponse>
-    ): List<LaunchRepositoryModel> = launchesResponse.map { launchResponse ->
-        val linksRepositoryModel = LinksRepositoryModel(
-            missionPatchSmall = launchResponse.links.missionPatchSmall ?: DEFAULT_PATCH,
-            wikipedia = launchResponse.links.wikipedia ?: "",
-            videoLink = launchResponse.links.videoLink ?: ""
-        )
+    ): List<LaunchRepositoryModel> {
+        return launchesResponse.map { launchResponse ->
 
-        val rocketRepositoryModel = RocketRepositoryModel(
-            rocketName = launchResponse.rocket.rocketName,
-            rocketType = launchResponse.rocket.rocketType
-        )
+            val linksRepositoryModel = LinksRepositoryModel(
+                missionPatchSmall = launchResponse.links.missionPatchSmall ?: DEFAULT_PATCH,
+                wikipedia = launchResponse.links.wikipedia ?: "",
+                videoLink = launchResponse.links.videoLink ?: ""
+            )
 
-        LaunchRepositoryModel(
-            missionName = launchResponse.missionName,
-            launchDateLocal = launchResponse.launchDateLocal,
-            rocket = rocketRepositoryModel,
-            links = linksRepositoryModel,
-            launchSuccess = launchResponse.launchSuccess
-        )
+            val rocketRepositoryModel = RocketRepositoryModel(
+                rocketName = launchResponse.rocket.rocketName,
+                rocketType = launchResponse.rocket.rocketType
+            )
+
+            LaunchRepositoryModel(
+                missionName = launchResponse.missionName,
+                launchDateLocal = dateFormatter.format(launchResponse.launchDate),
+                rocket = rocketRepositoryModel,
+                links = linksRepositoryModel,
+                launchSuccess = launchResponse.launchSuccess
+            )
+        }
     }
 }

@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 class LaunchesResponse(
     @SerializedName("mission_name")
     val missionName: String,
-    @SerializedName("launch_date_local")
-    val launchDateLocal: String,
+    @SerializedName("launch_date_utc")
+    val launchDate: String,
     val rocket: RocketResponse,
     val links: LinksResponse,
     @SerializedName("launch_success")

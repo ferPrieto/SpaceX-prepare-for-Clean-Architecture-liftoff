@@ -1,5 +1,6 @@
 package prieto.fernando.spacex.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,15 +46,22 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
             //todo itemView.missionPatch.drawable
             //todo itemView.view_success = drawable with boolean
             itemView.launchDetailsMission.value = launchUiModel.missionName
-            itemView.launchDetailsDateTime.value = launchUiModel.launchDateLocal
+            itemView.launchDetailsDateTime.value = launchUiModel.launchDate
             itemView.launchDetailsNameTime.value =
                 "${launchUiModel.rocket.rocketName}/${launchUiModel.rocket.rocketType}"
-            itemView.launchDetailsDays.title = "Days {since/from" // todo:
-            itemView.launchDetailsDays.value = "+/- daysValue"
+            itemView.launchDetailsDays.title = getTitleSinceFrom(launchUiModel, itemView.context)
+            itemView.launchDetailsDays.value = "+/-${launchUiModel.differenceOfDays}"
             itemView.setOnClickListener {
                 clickListener.onItemClicked(getAvailableLink(launchUiModel))
             }
         }
+
+        private fun getTitleSinceFrom(launchUiModel: LaunchUiModel, context: Context) =
+            if (launchUiModel.isPastLaunch) {
+                context.getString(R.string.company_data_since)
+            } else {
+                context.getString(R.string.company_data_from)
+            }
 
         private fun getAvailableLink(launchUiModel: LaunchUiModel) = with(launchUiModel.links) {
             when {

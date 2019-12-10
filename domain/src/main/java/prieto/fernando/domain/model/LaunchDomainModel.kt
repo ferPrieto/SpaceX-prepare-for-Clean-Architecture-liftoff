@@ -1,8 +1,10 @@
 package prieto.fernando.domain.model
 
+import java.util.*
+
 data class LaunchDomainModel(
     val missionName: String,
-    val launchDateLocal: String,
+    val launchDate: Date,
     val rocket: RocketDomainModel,
     val links: LinksDomainModel,
     val launchSuccess: Boolean

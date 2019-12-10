@@ -10,7 +10,9 @@ interface LaunchesDomainToUiModelMapper {
     fun toUiModel(launchesDomainModel: List<LaunchDomainModel>): List<LaunchUiModel>
 }
 
-class LaunchesDomainToUiModelMapperImpl @Inject constructor() :
+class LaunchesDomainToUiModelMapperImpl @Inject constructor(
+    private val dateTransformer: DateTransformer
+) :
     LaunchesDomainToUiModelMapper {
     override fun toUiModel(launchesDomainModel: List<LaunchDomainModel>): List<LaunchUiModel> =
         launchesDomainModel.map { launchDomainModel ->
@@ -27,10 +29,12 @@ class LaunchesDomainToUiModelMapperImpl @Inject constructor() :
 
             LaunchUiModel(
                 missionName = launchDomainModel.missionName,
-                launchDateLocal = launchDomainModel.launchDateLocal,
+                launchDate = dateTransformer.dateToDateString(launchDomainModel.launchDate),
                 rocket = rocketUiModel,
                 links = linksUiModel,
-                launchSuccess = launchDomainModel.launchSuccess
+                launchSuccess = launchDomainModel.launchSuccess,
+                isPastLaunch = dateTransformer.isPast(launchDomainModel.launchDate),
+                differenceOfDays = dateTransformer.getDifferenceOfDays(launchDomainModel.launchDate)
             )
         }
 }

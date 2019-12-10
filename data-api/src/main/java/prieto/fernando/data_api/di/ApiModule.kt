@@ -6,10 +6,7 @@ import dagger.Reusable
 import okhttp3.OkHttpClient
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.data.SpaceXRemoteSourceImpl
-import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
-import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapperImpl
-import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
-import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapperImpl
+import prieto.fernando.data_api.mapper.*
 import prieto.fernando.data_repository.SpaceXRemoteSource
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -32,8 +29,15 @@ class ApiModule {
 
     @Reusable
     @Provides
-    fun provideLaunchesResponseToRepositoryModelMapper(): LaunchesResponseToRepositoryModelMapper =
-        LaunchesResponseToRepositoryModelMapperImpl()
+    fun provideLaunchesResponseToRepositoryModelMapper(
+        dateFormatter: DateFormatter
+    ): LaunchesResponseToRepositoryModelMapper =
+        LaunchesResponseToRepositoryModelMapperImpl(dateFormatter)
+
+    @Provides
+    @Reusable
+    fun provideDateFormatter(): DateFormatter =
+        DateFormatterImpl()
 
     @Module
     companion object {
