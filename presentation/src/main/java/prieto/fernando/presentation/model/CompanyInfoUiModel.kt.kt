@@ -6,5 +6,5 @@ data class CompanyInfoUiModel(
     val founded: String,
     val employees: String,
     val launchSites: Int,
-    val valuation: Int
+    val valuation: Long
 )

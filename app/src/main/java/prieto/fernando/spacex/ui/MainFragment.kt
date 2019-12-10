@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import prieto.fernando.core.ui.BaseFragment
 import prieto.fernando.presentation.MainViewModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel
-import prieto.fernando.presentation.model.LaunchesUiModel
+import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
 
 class MainFragment : BaseFragment<MainViewModel>() {
@@ -22,7 +22,8 @@ class MainFragment : BaseFragment<MainViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel
+        viewModel.launches()
+        viewModel.companyInfo()
     }
 
     override val viewModel: MainViewModel by lazy {
@@ -37,7 +38,7 @@ class MainFragment : BaseFragment<MainViewModel>() {
 
     }
 
-    private fun bindLaunches(launchesUiModel: LaunchesUiModel?) {
+    private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
 
     }
 

@@ -1,19 +1,19 @@
-package prieto.fernando.presentation.model
+package prieto.fernando.data_repository.model
 
-data class LaunchesUiModel(
+data class LaunchRepositoryModel(
     val missionName: String,
     val launchDateLocal: String,
-    val rocket: RocketUiModel,
-    val links: LinksUiModel,
+    val rocket: RocketRepositoryModel,
+    val links: LinksRepositoryModel,
     val launchSuccess: Boolean
 )
 
-data class RocketUiModel(
+data class RocketRepositoryModel(
     val rocketName: String,
     val rocketType: String
 )
 
-data class LinksUiModel(
+data class LinksRepositoryModel(
     val missionPatchSmall: String,
     val wikipedia: String,
     val videoLink: String

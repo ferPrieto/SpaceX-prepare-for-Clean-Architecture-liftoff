@@ -1,35 +1,36 @@
 package prieto.fernando.domain.mapper
 
-import prieto.fernando.domain.model.LaunchesDomainModel
-import prieto.fernando.presentation.model.LaunchesUiModel
+import prieto.fernando.domain.model.LaunchDomainModel
+import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.presentation.model.LinksUiModel
 import prieto.fernando.presentation.model.RocketUiModel
 import javax.inject.Inject
 
 interface LaunchesDomainToUiModelMapper {
-    fun toUiModel(launchesDomainModel: LaunchesDomainModel): LaunchesUiModel
+    fun toUiModel(launchesDomainModel: List<LaunchDomainModel>): List<LaunchUiModel>
 }
 
 class LaunchesDomainToUiModelMapperImpl @Inject constructor() :
     LaunchesDomainToUiModelMapper {
-    override fun toUiModel(launchesDomainModel: LaunchesDomainModel): LaunchesUiModel {
-        val linksUiModel = LinksUiModel(
-            missionPatchSmall = launchesDomainModel.links.missionPatchSmall,
-            wikipedia = launchesDomainModel.links.wikipedia,
-            videoLink = launchesDomainModel.links.videoLink
-        )
+    override fun toUiModel(launchesDomainModel: List<LaunchDomainModel>): List<LaunchUiModel> =
+        launchesDomainModel.map { launchDomainModel ->
+            val linksUiModel = LinksUiModel(
+                missionPatchSmall = launchDomainModel.links.missionPatchSmall,
+                wikipedia = launchDomainModel.links.wikipedia,
+                videoLink = launchDomainModel.links.videoLink
+            )
 
-        val rocketUiModel = RocketUiModel(
-            rocketName = launchesDomainModel.rocket.rocketName,
-            rocketType = launchesDomainModel.rocket.rocketType
-        )
+            val rocketUiModel = RocketUiModel(
+                rocketName = launchDomainModel.rocket.rocketName,
+                rocketType = launchDomainModel.rocket.rocketType
+            )
 
-        return LaunchesUiModel(
-            missionName = launchesDomainModel.missionName,
-            launchDateLocal = launchesDomainModel.launchDateLocal,
-            rocket = rocketUiModel,
-            links = linksUiModel,
-            launchSuccess = launchesDomainModel.launchSuccess
-        )
-    }
+            LaunchUiModel(
+                missionName = launchDomainModel.missionName,
+                launchDateLocal = launchDomainModel.launchDateLocal,
+                rocket = rocketUiModel,
+                links = linksUiModel,
+                launchSuccess = launchDomainModel.launchSuccess
+            )
+        }
 }
