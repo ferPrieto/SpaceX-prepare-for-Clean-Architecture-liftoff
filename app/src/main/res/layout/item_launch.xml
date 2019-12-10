@@ -26,13 +26,43 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@android:drawable/ic_menu_zoom" />
 
-        <include
-            layout="@layout/view_launch_data"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/launch_details_container"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@id/view_success"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/view_success"
             app:layout_constraintStart_toEndOf="@+id/mission_patch"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+                android:id="@+id/launch_details_mission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@string/launch_data_mission" />
+
+            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+                android:id="@+id/launch_details_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_details_mission"
+                app:title="@string/launch_data_date_time" />
+
+            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+                android:id="@+id/launch_details_name_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_details_date_time"
+                app:title="@string/launch_data_rocket" />
+
+            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+                android:id="@+id/launch_details_days"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_details_name_time"
+                app:title="@string/launch_data_days" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/view_success"

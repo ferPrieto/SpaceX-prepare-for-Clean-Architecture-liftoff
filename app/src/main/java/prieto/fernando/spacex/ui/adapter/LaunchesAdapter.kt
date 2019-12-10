@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_launch.view.*
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
+import kotlinx.android.synthetic.main.item_launch.view.launch_details_date_time as launchDetailsDateTime
+import kotlinx.android.synthetic.main.item_launch.view.launch_details_days as launchDetailsDays
+import kotlinx.android.synthetic.main.item_launch.view.launch_details_mission as launchDetailsMission
+import kotlinx.android.synthetic.main.item_launch.view.launch_details_name_time as launchDetailsNameTime
 import kotlinx.android.synthetic.main.item_launch.view.mission_patch as missionPatch
-import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_date_time as launchDetailsDateTime
-import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_days as launchDetailsDays
-import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_mission as launchDetailsMission
-import kotlinx.android.synthetic.main.view_launch_data.view.launch_details_name_time as launchDetailsNameTime
+import kotlinx.android.synthetic.main.item_launch.view.view_success as viewSuccess
 
 interface BindableAdapter<T> {
     fun setData(data: T)
@@ -60,7 +60,7 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
                 getTitleSinceFrom(launchUiModel.isPastLaunch, itemView.context)
             itemView.launchDetailsDays.value = "+/-${launchUiModel.differenceOfDays}"
             val successDrawable = getSuccessDrawable(launchUiModel.launchSuccess, itemView.context)
-            itemView.view_success.setImageDrawable(successDrawable)
+            itemView.viewSuccess.setImageDrawable(successDrawable)
 
             itemView.setOnClickListener {
                 clickListener.onItemClicked(getAvailableLink(launchUiModel))
