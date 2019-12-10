@@ -29,7 +29,7 @@ class LaunchesRepositoryToDomainModelMapperImpl @Inject constructor() :
 
             LaunchDomainModel(
                 missionName = launchRepositoryModel.missionName,
-                launchDateLocal = launchRepositoryModel.launchDateLocal,
+                launchDate = launchRepositoryModel.launchDateLocal,
                 rocket = rocketDomainModel,
                 links = linksDomainModel,
                 launchSuccess = launchRepositoryModel.launchSuccess

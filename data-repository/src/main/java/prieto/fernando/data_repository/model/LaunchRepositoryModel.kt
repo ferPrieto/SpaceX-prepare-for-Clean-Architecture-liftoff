@@ -1,8 +1,10 @@
 package prieto.fernando.data_repository.model
 
+import java.util.*
+
 data class LaunchRepositoryModel(
     val missionName: String,
-    val launchDateLocal: String,
+    val launchDateLocal: Date,
     val rocket: RocketRepositoryModel,
     val links: LinksRepositoryModel,
     val launchSuccess: Boolean
