@@ -12,5 +12,4 @@ dependencies {
     api(Dependencies.okHttpLoggingInterceptor)
 
     implementation(Dependencies.Dagger.daggerAndroid)
-    testImplementation(TestDependencies.AndroidX.coreTesting)
 }
