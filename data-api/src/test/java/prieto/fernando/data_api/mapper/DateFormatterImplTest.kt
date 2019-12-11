@@ -1,17 +1,17 @@
 package prieto.fernando.data_api.mapper
 
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
 class DateFormatterImplTest(
     private val givenDateValue: String,
-    private val expected: Date
+    private val expected: DateTime
 ) {
     companion object {
         @JvmStatic
@@ -27,7 +27,7 @@ class DateFormatterImplTest(
         }
 
         private fun buildDate(dateValue: String) =
-            SimpleDateFormat("dd-MM-yyyy").parse(dateValue) ?: Date()
+            DateTimeFormat.forPattern("dd-MM-yyyy").parseDateTime(dateValue)
     }
 
     private lateinit var cut: DateFormatterImpl
@@ -38,7 +38,7 @@ class DateFormatterImplTest(
     }
 
     @Test
-    fun `Given dateValue when format then return expected result`() {
+    fun `Given dateValue when format then returns expected result`() {
         // When
         val actualValue = cut.format(givenDateValue)
 

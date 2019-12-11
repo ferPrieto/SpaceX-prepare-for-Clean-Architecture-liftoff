@@ -30,13 +30,17 @@ class DomainModule {
     @Reusable
     fun provideLaunchesDomainToUiModelMapper(
         dateTransformer: DateTransformer
-    ): LaunchesDomainToUiModelMapper =
-        LaunchesDomainToUiModelMapperImpl(dateTransformer)
+    ): LaunchesDomainToUiModelMapper = LaunchesDomainToUiModelMapperImpl(dateTransformer)
 
     @Provides
     @Reusable
-    fun provideDateTransformer(): DateTransformer =
-        DateTransformerImpl()
+    fun provideDateTransformer(
+        dateTimeProvider: DateTimeProvider
+    ): DateTransformer = DateTransformerImpl(dateTimeProvider)
+
+    @Provides
+    @Reusable
+    fun provideDateTimeProvider(): DateTimeProvider = DateTimeProvider()
 
     @Provides
     @Reusable

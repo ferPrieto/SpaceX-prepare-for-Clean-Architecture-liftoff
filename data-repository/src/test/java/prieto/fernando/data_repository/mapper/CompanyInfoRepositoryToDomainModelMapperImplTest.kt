@@ -81,7 +81,7 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
     }
 
     @Test
-    fun `Given companyInfos when toDomainModel then return expected result`() {
+    fun `Given companyInfos when toDomainModel then returns expected result`() {
         // When
         val actualValue = cut.toDomainModel(givenCompanyInfo)
 
