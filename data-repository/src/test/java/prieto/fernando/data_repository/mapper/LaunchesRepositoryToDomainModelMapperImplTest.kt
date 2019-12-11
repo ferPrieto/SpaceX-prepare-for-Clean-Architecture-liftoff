@@ -95,7 +95,7 @@ class LaunchesRepositoryToDomainModelMapperImplTest(
     }
 
     @Test
-    fun `Given launchRepositoryModels when toDomainModel then expected result`() {
+    fun `Given launchRepositoryModels when toDomainModel then return expected result`() {
         // When
         val actualValue = cut.toDomainModel(givenLaunches)
 
