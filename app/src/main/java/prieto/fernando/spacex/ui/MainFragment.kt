@@ -9,9 +9,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
-import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
-import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 import prieto.fernando.core.ui.BaseFragment
 import prieto.fernando.presentation.MainViewModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel
@@ -20,6 +17,11 @@ import prieto.fernando.spacex.R
 import prieto.fernando.spacex.ui.adapter.ClickListener
 import prieto.fernando.spacex.ui.adapter.LaunchesAdapter
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
+import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
+import kotlinx.android.synthetic.main.view_error.error_title as errorTitle
+import kotlinx.android.synthetic.main.view_error.error_description as errorDescription
+import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
+import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 
 class MainFragment : BaseFragment<MainViewModel>(), ClickListener {
 
@@ -59,6 +61,7 @@ class MainFragment : BaseFragment<MainViewModel>(), ClickListener {
             observe(onCompanyInfoUiModelRetrieved(), ::bindCompany)
             observe(loadingHeader(), ::showLoadingHeader)
             observe(loadingBody(), ::showLoadingBody)
+            observe(error(), ::setViewsVisibility)
         }
     }
 
@@ -104,6 +107,12 @@ class MainFragment : BaseFragment<MainViewModel>(), ClickListener {
                 View.GONE
             }
         }
+    }
+
+    private fun setViewsVisibility(unit: Unit?) {
+        errorTitle.visibility = View.VISIBLE
+        errorDescription.visibility = View.VISIBLE
+        launchesRecyclerView.visibility = View.GONE
     }
 }
 

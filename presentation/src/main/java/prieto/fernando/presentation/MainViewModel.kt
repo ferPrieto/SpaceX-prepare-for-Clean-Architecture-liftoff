@@ -21,7 +21,9 @@ class MainViewModel @Inject constructor(
     private val companyInfoUiModelRetrieved: MutableLiveData<CompanyInfoUiModel> = MutableLiveData()
     private val loadingBody: MutableLiveData<Boolean> = MutableLiveData()
     private val loadingHeader: MutableLiveData<Boolean> = MutableLiveData()
+    private val error: MutableLiveData<Unit> = MutableLiveData()
 
+    fun error(): LiveData<Unit> = error
     fun loadingBody(): LiveData<Boolean> = loadingBody
     fun loadingHeader(): LiveData<Boolean> = loadingHeader
     fun onLaunchesUiModelRetrieved(): LiveData<List<LaunchUiModel>> = launchUiModelRetrieved
@@ -36,6 +38,7 @@ class MainViewModel @Inject constructor(
                 launchUiModelRetrieved.postValue(launchesUiModel)
             }, { throwable ->
                 Timber.d(throwable)
+                error.postValue(Unit)
             }).also { subscriptions.add(it) }
     }
 

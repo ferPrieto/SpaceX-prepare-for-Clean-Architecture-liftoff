@@ -11,5 +11,6 @@
     <string name="company_data_since">Days since now</string>
     <string name="launches_title">LAUNCHES</string>
     <string name="company_title">COMPANY</string>
-
+    <string name="error_title">ERROR</string>
+    <string name="error_description">An error occurred when calling the API</string>
 </resources>
