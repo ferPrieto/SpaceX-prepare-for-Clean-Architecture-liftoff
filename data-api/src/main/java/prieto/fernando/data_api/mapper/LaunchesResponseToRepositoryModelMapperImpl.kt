@@ -25,8 +25,8 @@ class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor(
 
             val linksRepositoryModel = LinksRepositoryModel(
                 missionPatchSmall = launchResponse.links.missionPatchSmall ?: DEFAULT_PATCH,
-                wikipedia = launchResponse.links.wikipedia ?: "",
-                videoLink = launchResponse.links.videoLink ?: ""
+                wikipedia = launchResponse.links.wikipedia.orEmpty(),
+                videoLink = launchResponse.links.videoLink.orEmpty()
             )
 
             val rocketRepositoryModel = RocketRepositoryModel(
