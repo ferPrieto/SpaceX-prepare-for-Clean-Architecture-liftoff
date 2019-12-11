@@ -47,11 +47,10 @@ object Versions {
     const val okhttpLoggingInterceptor = "4.2.1"
     const val archComponents = "2.1.0"
     const val picasso = "2.71828"
+    const val jodaTime = "2.10.5"
 }
 
 object BuildDependencies {
-    const val safeArgsPlugin =
-        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     const val androidGradle =
         "com.android.tools.build:gradle:${Versions.gradle}"
     const val kotlinGradlePlugin =
@@ -61,14 +60,7 @@ object BuildDependencies {
 object Dependencies {
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
-    const val materialComponents =
-        "com.google.android.material:material:${Versions.materialComponents}"
-
     object AndroidX {
-        const val appCompat =
-            "androidx.appcompat:appcompat:${Versions.appCompat}"
-        const val coreKtx =
-            "androidx.core:core-ktx:${Versions.appCompat}"
         const val fragmentKtx =
             "androidx.fragment:fragment-ktx:${Versions.appCompat}"
         const val constraintlayout =
@@ -83,9 +75,6 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-viewmodel:${Versions.archComponents}"
         const val archComponents =
             "androidx.lifecycle:lifecycle-extensions:${Versions.archComponents}"
-        const val archComponentsCompiler =
-            "android.arch.lifecycle:compiler:${Versions.archComponents}"
-
 
         object Navigation {
             const val fragmentKtx =
@@ -129,6 +118,9 @@ object Dependencies {
 
     const val picasso =
         "com.squareup.picasso:picasso:${Versions.picasso}"
+
+    const val jodaTime =
+        "joda-time:joda-time:${Versions.jodaTime}"
 }
 
 object TestDependencies {

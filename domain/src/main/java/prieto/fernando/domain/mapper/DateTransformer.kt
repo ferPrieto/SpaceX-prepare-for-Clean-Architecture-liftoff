@@ -1,48 +1,39 @@
 package prieto.fernando.domain.mapper
 
-import java.util.*
+import org.joda.time.DateTime
+import org.joda.time.Days
 import javax.inject.Inject
 import kotlin.math.absoluteValue
 
 interface DateTransformer {
-    fun dateToDateString(date: Date): String
-    fun getDifferenceOfDays(date: Date): String
-    fun isPast(launchDate: Date): Boolean
+    fun dateToDateString(date: DateTime): String
+    fun getDifferenceOfDays(date: DateTime): String
+    fun isPast(launchDate: DateTime): Boolean
 }
 
-class DateTransformerImpl @Inject constructor() : DateTransformer {
-    private val calendar = Calendar.getInstance(Locale.UK)
-
-    override fun dateToDateString(date: Date): String {
-        calendar.time = date
+class DateTransformerImpl @Inject constructor(
+    private val dateTimeProvider: DateTimeProvider
+) : DateTransformer {
+    override fun dateToDateString(dateTime: DateTime): String {
         val date =
-            "${calendar.get(Calendar.DAY_OF_MONTH)}-${calendar.get(Calendar.MONTH) + 1}-${calendar.get(
-                Calendar.YEAR
-            )}"
-        val time = "${calendar.getHour()}:${calendar.getMinutes()}"
+            "${dateTime.dayOfMonth().getStringValue()}-${dateTime.monthOfYear().getStringValue()}-${dateTime.yearOfEra().getStringValue()}"
+        val time =
+            "${dateTime.hourOfDay.getStringValue()}:${dateTime.minuteOfHour().getStringValue()}"
         return "$date at $time"
     }
 
-    private fun Calendar.getHour(): String {
-        val minutes = get(Calendar.HOUR_OF_DAY)
-        return minutes.getStringValue()
+    override fun getDifferenceOfDays(dateTime: DateTime): String {
+        val daysDifference = Days.daysBetween(dateTimeProvider.today(), dateTime)
+        return daysDifference.days.absoluteValue.toString()
     }
 
-    private fun Calendar.getMinutes(): String {
-        val minutes = get(Calendar.MINUTE)
-        return minutes.getStringValue()
-    }
+    override fun isPast(launchDate: DateTime): Boolean =
+        launchDate.isBefore(dateTimeProvider.today())
 
-    override fun getDifferenceOfDays(date: Date): String {
-        val today = Date()
-        val daysDifference = (today.time - date.time) / (1000 * 60 * 60 * 24)
-        return daysDifference.absoluteValue.toString()
-    }
+    private fun DateTime.Property.getStringValue() = get().getTwoDigitsValue()
 
-    override fun isPast(launchDate: Date): Boolean {
-        val today = Date()
-        return launchDate.before(today)
-    }
+    private fun Int.getStringValue() = getTwoDigitsValue()
 
-    private fun Int.getStringValue() = if (this < 10) "0$this" else this.toString()
+    private fun Int.getTwoDigitsValue() =
+        if (this < 10) "0$this" else this.toString()
 }

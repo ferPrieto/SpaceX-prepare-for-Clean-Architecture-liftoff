@@ -1,5 +1,6 @@
 package prieto.fernando.data_api.mapper
 
+import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -11,8 +12,6 @@ import prieto.fernando.data_api.model.RocketResponse
 import prieto.fernando.data_repository.model.LaunchRepositoryModel
 import prieto.fernando.data_repository.model.LinksRepositoryModel
 import prieto.fernando.data_repository.model.RocketRepositoryModel
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
@@ -66,7 +65,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
                             "missionName",
                             "1990-03-01T00:00:00.000Z",
                             RocketResponse("rocketName", "rocketType"),
-                            LinksResponse( null, null, null),
+                            LinksResponse(null, null, null),
                             true
                         )
                     ),
@@ -78,7 +77,8 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
                             LinksRepositoryModel(
                                 "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png",
                                 "",
-                                ""),
+                                ""
+                            ),
                             true
                         )
                     )
@@ -88,7 +88,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
         }
 
         private fun buildDate(dateValue: String) =
-            SimpleDateFormat("dd-MM-yyyy").parse(dateValue) ?: Date()
+            DateTimeFormat.forPattern("dd-MM-yyyy").parseDateTime(dateValue)
     }
 
     private lateinit var cut: LaunchesResponseToRepositoryModelMapperImpl
@@ -103,7 +103,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
     }
 
     @Test
-    fun `Given launchResponseModels when toRepositoryModel then return expected result`() {
+    fun `Given launchResponseModels when toRepositoryModel then returns expected result`() {
         // When
         val actualValue = cut.toRepositoryModel(givenLaunches)
 
