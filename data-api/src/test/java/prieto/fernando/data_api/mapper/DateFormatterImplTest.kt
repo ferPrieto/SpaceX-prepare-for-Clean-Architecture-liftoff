@@ -38,7 +38,7 @@ class DateFormatterImplTest(
     }
 
     @Test
-    fun `Given dateValue when format then expected result`() {
+    fun `Given dateValue when format then return expected result`() {
         // When
         val actualValue = cut.format(givenDateValue)
 

@@ -103,7 +103,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
     }
 
     @Test
-    fun `Given launchResponseModels when toRepositoryModel then expected result`() {
+    fun `Given launchResponseModels when toRepositoryModel then return expected result`() {
         // When
         val actualValue = cut.toRepositoryModel(givenLaunches)
 

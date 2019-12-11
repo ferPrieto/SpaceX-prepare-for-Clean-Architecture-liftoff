@@ -81,7 +81,7 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
     }
 
     @Test
-    fun `Given companyInfoResponses when toRepositoryModel then expected result`() {
+    fun `Given companyInfoResponses when toRepositoryModel then return expected result`() {
         // When
         val actualValue = cut.toRepositoryModel(givenCompanyInfo)
 
