@@ -47,7 +47,7 @@ object Versions {
     const val picasso = "2.71828"
     const val jodaTime = "2.10.5"
     const val mockWebServer = "4.2.1"
-    const val fragmentTesting = "1.1.1"
+    const val browser = "1.0.0"
 }
 
 object BuildDependencies {
@@ -75,6 +75,7 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-viewmodel:${Versions.archComponents}"
         const val archComponents =
             "androidx.lifecycle:lifecycle-extensions:${Versions.archComponents}"
+        const val browser = "androidx.browser:browser:${Versions.browser}"
 
         object Navigation {
             const val fragmentKtx =

@@ -40,6 +40,7 @@ dependencies {
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
+    implementation(Dependencies.AndroidX.browser)
 
     implementation(Dependencies.picasso)
 
