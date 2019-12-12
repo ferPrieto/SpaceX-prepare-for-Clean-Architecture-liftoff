@@ -45,6 +45,7 @@ object Versions {
     const val okhttpLoggingInterceptor = "4.2.1"
     const val archComponents = "2.1.0"
     const val picasso = "2.71828"
+    const val bottomSheet = "0.1.9"
     const val jodaTime = "2.10.5"
     const val mockWebServer = "4.2.1"
     const val browser = "1.0.0"
@@ -119,6 +120,9 @@ object Dependencies {
 
     const val picasso =
         "com.squareup.picasso:picasso:${Versions.picasso}"
+
+    const val bottomSheet =
+        "com.qhutch.bottomsheetlayout:bottomsheetlayout:${Versions.bottomSheet}"
 
     const val jodaTime =
         "joda-time:joda-time:${Versions.jodaTime}"

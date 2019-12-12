@@ -43,6 +43,7 @@ dependencies {
     implementation(Dependencies.AndroidX.browser)
 
     implementation(Dependencies.picasso)
+    implementation(Dependencies.bottomSheet)
 
     implementation(Dependencies.AndroidX.constraintlayout)
     implementation(Dependencies.AndroidX.legacySupport)

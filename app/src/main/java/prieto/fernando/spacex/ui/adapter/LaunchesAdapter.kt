@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
+import prieto.fernando.spacex.ui.Link
+import prieto.fernando.spacex.ui.LinkType
 import kotlinx.android.synthetic.main.item_launch.view.launch_details_date_time as launchDetailsDateTime
 import kotlinx.android.synthetic.main.item_launch.view.launch_details_days as launchDetailsDays
 import kotlinx.android.synthetic.main.item_launch.view.launch_details_mission as launchDetailsMission
@@ -20,7 +22,7 @@ interface BindableAdapter<T> {
 }
 
 interface ClickListener {
-    fun onItemClicked(url: String)
+    fun onItemClicked(urls: Link)
 }
 
 class LaunchesAdapter(private val clickListener: ClickListener) :
@@ -63,7 +65,7 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
             itemView.viewSuccess.setImageDrawable(successDrawable)
 
             itemView.setOnClickListener {
-                clickListener.onItemClicked(getAvailableLink(launchUiModel))
+                clickListener.onItemClicked(getAvailableLinks(launchUiModel))
             }
         }
 
@@ -74,13 +76,27 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
                 context.getString(R.string.company_data_from)
             }
 
-        private fun getAvailableLink(launchUiModel: LaunchUiModel) = with(launchUiModel.links) {
+        private fun getAvailableLinks(launchUiModel: LaunchUiModel) = with(launchUiModel.links) {
             when {
-                videoLink.isNotBlank() -> videoLink
-                wikipedia.isNotBlank() -> wikipedia
-                else -> ""
+                wikipedia.isNotBlank() && videoLink.isNotBlank() -> getLinksFromUrls(
+                    videoLink,
+                    wikipedia
+                )
+                wikipedia.isBlank() && videoLink.isNotBlank() -> getLinkFromUrl(
+                    videoLink,
+                    LinkType.YOUTUBE
+                )
+                videoLink.isBlank() && wikipedia.isNotBlank() -> getLinkFromUrl(
+                    videoLink,
+                    LinkType.WIKIPEDIA
+                )
+                else -> Link.Empty(Unit)
             }
         }
+
+        private fun getLinkFromUrl(url: String, linkType: LinkType) = Link.OneLink(linkType, url)
+        private fun getLinksFromUrls(linkYoutube: String, linkWikipedia: String) =
+            Link.TwoLinks(linkYoutube, linkWikipedia)
 
         private fun getSuccessDrawable(launchSuccess: Boolean, context: Context) =
             if (launchSuccess) {
