@@ -2,36 +2,45 @@ package prieto.fernando.data_api.mapper
 
 import dagger.Reusable
 import prieto.fernando.data_api.model.LaunchesResponse
-import prieto.fernando.data_repository.model.LaunchesRepositoryModel
+import prieto.fernando.data_repository.model.LaunchRepositoryModel
 import prieto.fernando.data_repository.model.LinksRepositoryModel
 import prieto.fernando.data_repository.model.RocketRepositoryModel
 import javax.inject.Inject
 
 interface LaunchesResponseToRepositoryModelMapper {
-    fun toRepositoryModel(launchesResponse: LaunchesResponse): LaunchesRepositoryModel
+    fun toRepositoryModel(launchesResponse: List<LaunchesResponse>): List<LaunchRepositoryModel>
 }
 
+const val DEFAULT_PATCH = "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png"
+
 @Reusable
-class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor() :
+class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor(
+    private val dateFormatter: DateFormatter
+) :
     LaunchesResponseToRepositoryModelMapper {
-    override fun toRepositoryModel(launchesResponse: LaunchesResponse): LaunchesRepositoryModel {
-        val linksRepositoryModel = LinksRepositoryModel(
-            missionPatchSmall = launchesResponse.links.missionPatchSmall,
-            wikipedia = launchesResponse.links.wikipedia,
-            videoLink = launchesResponse.links.videoLink
-        )
+    override fun toRepositoryModel(
+        launchesResponse: List<LaunchesResponse>
+    ): List<LaunchRepositoryModel> {
+        return launchesResponse.map { launchResponse ->
 
-        val rocketRepositoryModel = RocketRepositoryModel(
-            rocketName = launchesResponse.rocket.rocketName,
-            rocketType = launchesResponse.rocket.rocketType
-        )
+            val linksRepositoryModel = LinksRepositoryModel(
+                missionPatchSmall = launchResponse.links.missionPatchSmall ?: DEFAULT_PATCH,
+                wikipedia = launchResponse.links.wikipedia.orEmpty(),
+                videoLink = launchResponse.links.videoLink.orEmpty()
+            )
 
-        return LaunchesRepositoryModel(
-            missionName = launchesResponse.missionName,
-            launchDateLocal = launchesResponse.launchDateLocal,
-            rocket = rocketRepositoryModel,
-            links = linksRepositoryModel,
-            launchSuccess = launchesResponse.launchSuccess
-        )
+            val rocketRepositoryModel = RocketRepositoryModel(
+                rocketName = launchResponse.rocket.rocketName,
+                rocketType = launchResponse.rocket.rocketType
+            )
+
+            LaunchRepositoryModel(
+                missionName = launchResponse.missionName,
+                launchDateLocal = dateFormatter.format(launchResponse.launchDate),
+                rocket = rocketRepositoryModel,
+                links = linksRepositoryModel,
+                launchSuccess = launchResponse.launchSuccess
+            )
+        }
     }
 }

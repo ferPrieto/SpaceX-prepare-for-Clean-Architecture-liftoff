@@ -1,8 +1,10 @@
 package prieto.fernando.domain.model
 
-data class LaunchesDomainModel(
+import org.joda.time.DateTime
+
+data class LaunchDomainModel(
     val missionName: String,
-    val launchDateLocal: String,
+    val launchDate: DateTime,
     val rocket: RocketDomainModel,
     val links: LinksDomainModel,
     val launchSuccess: Boolean

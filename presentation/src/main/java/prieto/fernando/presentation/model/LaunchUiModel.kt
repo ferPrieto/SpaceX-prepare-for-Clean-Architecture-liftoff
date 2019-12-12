@@ -1,8 +1,10 @@
 package prieto.fernando.presentation.model
 
-data class LaunchesUiModel(
+data class LaunchUiModel(
     val missionName: String,
-    val launchDateLocal: String,
+    val launchDate: String,
+    val isPastLaunch: Boolean,
+    val differenceOfDays: String,
     val rocket: RocketUiModel,
     val links: LinksUiModel,
     val launchSuccess: Boolean

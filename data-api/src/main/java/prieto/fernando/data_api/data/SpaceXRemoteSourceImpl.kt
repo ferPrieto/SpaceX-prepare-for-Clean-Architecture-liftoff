@@ -6,11 +6,9 @@ import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMappe
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
 import prieto.fernando.data_repository.SpaceXRemoteSource
 import prieto.fernando.data_repository.model.CompanyInfoRepositoryModel
-import prieto.fernando.data_repository.model.LaunchesRepositoryModel
+import prieto.fernando.data_repository.model.LaunchRepositoryModel
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class SpaceXRemoteSourceImpl @Inject constructor(
     private val apiService: ApiService,
     private val companyInfoRepositoryMapper: CompanyInfoResponseToRepositoryModelMapper,
@@ -19,6 +17,6 @@ class SpaceXRemoteSourceImpl @Inject constructor(
     override fun getCompanyInfo(): Single<CompanyInfoRepositoryModel> =
         apiService.getCompanyInfo().map(companyInfoRepositoryMapper::toRepositoryModel)
 
-    override fun getAllLaunches(): Single<LaunchesRepositoryModel> =
+    override fun getAllLaunches(): Single<List<LaunchRepositoryModel>> =
         apiService.getAllLaunches().map(launchesRepositoryMapper::toRepositoryModel)
 }

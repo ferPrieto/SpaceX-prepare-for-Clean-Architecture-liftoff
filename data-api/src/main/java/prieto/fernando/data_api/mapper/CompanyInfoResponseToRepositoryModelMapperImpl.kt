@@ -9,7 +9,6 @@ interface CompanyInfoResponseToRepositoryModelMapper {
     fun toRepositoryModel(companyInfoResponse: CompanyInfoResponse): CompanyInfoRepositoryModel
 }
 
-@Reusable
 class CompanyInfoResponseToRepositoryModelMapperImpl @Inject constructor() :
     CompanyInfoResponseToRepositoryModelMapper {
     override fun toRepositoryModel(companyInfoResponse: CompanyInfoResponse): CompanyInfoRepositoryModel =

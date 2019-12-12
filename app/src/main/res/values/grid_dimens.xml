@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="grid_small">4dp</dimen>
+    <dimen name="grid_normal">8dp</dimen>
+    <dimen name="grid_semi_large">16dp</dimen>
+    <dimen name="grid_large">24dp</dimen>
+    <dimen name="grid_xlarge">32dp</dimen>
+</resources>

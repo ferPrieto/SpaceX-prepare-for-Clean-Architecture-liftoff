@@ -23,14 +23,12 @@ object Versions {
     const val legacySupportV4 = "1.0.0"
     const val lifecycleLivedataKtx = "2.2.0-rc01"
     const val livedataTesting = "1.1.1"
-    const val materialComponents = "1.0.0"
     const val dagger = "2.24"
     const val androidxTest = "1.2.0"
     const val espresso = "3.2.0"
     const val androidxJunit = "1.1.1"
     const val junit = "4.12"
     const val junitPlatformRunner = "1.0.2"
-    const val commonsCodec = "1.12"
     const val mockito = "2.27.0"
     const val mockitoKotlin = "1.5.0"
     const val gradle = "3.5.1"
@@ -45,11 +43,14 @@ object Versions {
     const val retrofitConverterGson = "2.4.0"
     const val retrofitRxjava2Adapter = "1.0.0"
     const val okhttpLoggingInterceptor = "4.2.1"
+    const val archComponents = "2.1.0"
+    const val picasso = "2.71828"
+    const val jodaTime = "2.10.5"
+    const val mockWebServer = "4.2.1"
+    const val fragmentTesting = "1.1.1"
 }
 
 object BuildDependencies {
-    const val safeArgsPlugin =
-        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     const val androidGradle =
         "com.android.tools.build:gradle:${Versions.gradle}"
     const val kotlinGradlePlugin =
@@ -59,14 +60,7 @@ object BuildDependencies {
 object Dependencies {
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
-    const val materialComponents =
-        "com.google.android.material:material:${Versions.materialComponents}"
-
     object AndroidX {
-        const val appCompat =
-            "androidx.appcompat:appcompat:${Versions.appCompat}"
-        const val coreKtx =
-            "androidx.core:core-ktx:${Versions.appCompat}"
         const val fragmentKtx =
             "androidx.fragment:fragment-ktx:${Versions.appCompat}"
         const val constraintlayout =
@@ -75,6 +69,12 @@ object Dependencies {
             "androidx.legacy:legacy-support-v4:${Versions.legacySupportV4}"
         const val lifecycleLivedataKtx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLivedataKtx}"
+        const val lifecycleCompiler =
+            "androidx.lifecycle:lifecycle-compiler:${Versions.archComponents}"
+        const val archViewModel =
+            "androidx.lifecycle:lifecycle-viewmodel:${Versions.archComponents}"
+        const val archComponents =
+            "androidx.lifecycle:lifecycle-extensions:${Versions.archComponents}"
 
         object Navigation {
             const val fragmentKtx =
@@ -115,6 +115,12 @@ object Dependencies {
 
     const val okHttpLoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
+
+    const val picasso =
+        "com.squareup.picasso:picasso:${Versions.picasso}"
+
+    const val jodaTime =
+        "joda-time:joda-time:${Versions.jodaTime}"
 }
 
 object TestDependencies {
@@ -132,6 +138,7 @@ object TestDependencies {
             "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val espressoContrib =
             "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
+        const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.androidxTest}"
         const val junit =
             "androidx.test.ext:junit:${Versions.androidxJunit}"
         const val coreTesting =
@@ -145,8 +152,6 @@ object TestDependencies {
             "org.junit.platform:junit-platform-runner:${Versions.junitPlatformRunner}"
     }
 
-    const val commonsCodec =
-        "commons-codec:commons-codec:${Versions.commonsCodec}"
     const val livedataTesting =
         "com.jraska.livedata:testing-ktx:${Versions.livedataTesting}"
 
@@ -158,4 +163,6 @@ object TestDependencies {
         const val mockitoKotlin =
             "com.nhaarman:mockito-kotlin:${Versions.mockitoKotlin}"
     }
+
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
 }

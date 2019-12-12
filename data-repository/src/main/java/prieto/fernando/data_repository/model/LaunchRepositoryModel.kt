@@ -1,8 +1,10 @@
 package prieto.fernando.data_repository.model
 
-data class LaunchesRepositoryModel(
+import org.joda.time.DateTime
+
+data class LaunchRepositoryModel(
     val missionName: String,
-    val launchDateLocal: String,
+    val launchDateLocal: DateTime,
     val rocket: RocketRepositoryModel,
     val links: LinksRepositoryModel,
     val launchSuccess: Boolean

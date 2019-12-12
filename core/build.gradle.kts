@@ -16,4 +16,6 @@ dependencies {
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
+    annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
+    implementation(Dependencies.AndroidX.archComponents)
 }
