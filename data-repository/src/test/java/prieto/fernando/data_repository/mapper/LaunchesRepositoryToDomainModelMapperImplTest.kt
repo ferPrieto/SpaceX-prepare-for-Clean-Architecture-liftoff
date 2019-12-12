@@ -1,5 +1,6 @@
 package prieto.fernando.data_repository.mapper
 
+import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -10,8 +11,6 @@ import prieto.fernando.data_repository.model.RocketRepositoryModel
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
@@ -84,7 +83,7 @@ class LaunchesRepositoryToDomainModelMapperImplTest(
         }
 
         private fun buildDate(dateValue: String) =
-            SimpleDateFormat("dd-MM-yyyy").parse(dateValue) ?: Date()
+            DateTimeFormat.forPattern("dd-MM-yyyy").parseDateTime(dateValue)
     }
 
     private lateinit var cut: LaunchesRepositoryToDomainModelMapperImpl

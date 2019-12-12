@@ -18,24 +18,24 @@ import prieto.fernando.spacex.ui.adapter.ClickListener
 import prieto.fernando.spacex.ui.adapter.LaunchesAdapter
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
 import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
-import kotlinx.android.synthetic.main.view_error.error_title as errorTitle
 import kotlinx.android.synthetic.main.view_error.error_description as errorDescription
+import kotlinx.android.synthetic.main.view_error.error_title as errorTitle
 import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
 import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 
-class MainFragment : BaseFragment<MainViewModel>(), ClickListener {
+class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
 
     private var launchesAdapter: LaunchesAdapter? = null
 
     override fun onItemClicked(url: String) {
-        //todo: open link on VM
+        // OPEN LINK
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = inflater.inflate(R.layout.fragment_main, container, false)!!
+    ) = inflater.inflate(R.layout.fragment_dashboard, container, false)!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
