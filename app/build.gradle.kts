@@ -14,6 +14,10 @@ android {
         applicationId = "prieto.fernando.spacex"
     }
     buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+            buildConfigField("Integer", "PORT", "8080")
+        }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
@@ -43,4 +47,10 @@ dependencies {
     implementation(Dependencies.AndroidX.legacySupport)
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
+
+    androidTestImplementation(TestDependencies.AndroidX.runner)
+    androidTestImplementation(TestDependencies.AndroidX.rules)
+    androidTestImplementation(TestDependencies.mockWebServer)
+    androidTestImplementation(TestDependencies.AndroidX.core)
+    androidTestImplementation(TestDependencies.AndroidX.coreKtx)
 }
