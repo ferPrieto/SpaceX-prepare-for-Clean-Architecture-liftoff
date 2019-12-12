@@ -11,23 +11,27 @@ import javax.inject.Inject
 interface MainViewModelInputs {
     fun launches()
     fun companyInfo()
+    fun openLink(link: String)
 }
 
 class MainViewModel @Inject constructor(
     private val getLaunches: GetLaunches,
     private val getCompanyInfo: GetCompanyInfo
 ) : BaseViewModel(), MainViewModelInputs {
+
     private val launchUiModelRetrieved: MutableLiveData<List<LaunchUiModel>> = MutableLiveData()
     private val companyInfoUiModelRetrieved: MutableLiveData<CompanyInfoUiModel> = MutableLiveData()
     private val loadingBody: MutableLiveData<Boolean> = MutableLiveData()
     private val loadingHeader: MutableLiveData<Boolean> = MutableLiveData()
     private val error: MutableLiveData<Unit> = MutableLiveData()
+    private val onOpenLink: MutableLiveData<String> = MutableLiveData()
 
     fun error(): LiveData<Unit> = error
     fun loadingBody(): LiveData<Boolean> = loadingBody
     fun loadingHeader(): LiveData<Boolean> = loadingHeader
     fun onLaunchesUiModelRetrieved(): LiveData<List<LaunchUiModel>> = launchUiModelRetrieved
     fun onCompanyInfoUiModelRetrieved(): LiveData<CompanyInfoUiModel> = companyInfoUiModelRetrieved
+    fun onOpenLink(): LiveData<String> = onOpenLink
 
     override fun launches() {
         getLaunches.execute()
@@ -52,5 +56,9 @@ class MainViewModel @Inject constructor(
             }, { throwable ->
                 Timber.d(throwable)
             }).also { subscriptions.add(it) }
+    }
+
+    override fun openLink(link: String) {
+        onOpenLink.postValue(link)
     }
 }
