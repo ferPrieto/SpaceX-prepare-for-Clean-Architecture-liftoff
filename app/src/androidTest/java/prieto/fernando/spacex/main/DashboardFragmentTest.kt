@@ -1,5 +1,6 @@
 package prieto.fernando.spacex.main
 
+import android.os.SystemClock
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -12,12 +13,13 @@ import prieto.fernando.spacex.utils.TestConfigurationRule
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @RunWith(AndroidJUnit4::class)
-class MainFragmentTest {
+class DashboardFragmentTest {
 
     @get:Rule
     val espressoRule = TestConfigurationRule()
 
     private val mockWebServer = MockWebServer()
+
 
     @Before
     fun setup() {
@@ -30,22 +32,22 @@ class MainFragmentTest {
     }
 
     @Test
-    fun elementsVisible() {
+    fun elementsVisibilityAfterOpeningTheScreen() {
         mockWebServer.dispatcher = SuccessDispatcher()
 
-        infiniteFragmentRobot {
-           /* assertRecyclerViewDisplayed()
-            assertProgressBarBodyDisplayed()
-            assertProgressBarHeaderDisplayed()*/
-            assertBodyDisplayed()
+        dashboardFragmentRobot {
+            assertRecyclerViewIsNotDisplayed()
+            assertProgressBarBodyIsDisplayed()
+            assertProgressBarHeaderIsNotDisplayed()
         }
     }
 
     @Test
     fun itemsListed() {
         mockWebServer.dispatcher = SuccessDispatcher()
-
-        infiniteFragmentRobot {
+        SystemClock.sleep(2000)
+        dashboardFragmentRobot {
+            assertRecyclerViewIsDisplayed()
             assertItemsSize()
         }
     }

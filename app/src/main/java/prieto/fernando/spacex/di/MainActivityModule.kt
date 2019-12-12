@@ -5,8 +5,8 @@ import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import prieto.fernando.core.presentation.ViewModelProviderFactory
 import prieto.fernando.presentation.MainViewModel
+import prieto.fernando.spacex.ui.DashboardFragment
 import prieto.fernando.spacex.ui.MainActivity
-import prieto.fernando.spacex.ui.MainFragment
 
 @Module
 internal abstract class MainActivityModule {
@@ -15,7 +15,7 @@ internal abstract class MainActivityModule {
     internal abstract fun bindMainActivity(): MainActivity
 
     @ContributesAndroidInjector
-    internal abstract fun bindMainFragment(): MainFragment
+    internal abstract fun bindDashboardFragment(): DashboardFragment
 
     @Module
     companion object {

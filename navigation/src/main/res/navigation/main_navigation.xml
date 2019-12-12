@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="prieto.fernando.spacex.ui.MainFragment"/>
+        android:id="@+id/dashboardFragment"
+        android:name="prieto.fernando.spacex.ui.DashboardFragment"/>
 
 </navigation>
