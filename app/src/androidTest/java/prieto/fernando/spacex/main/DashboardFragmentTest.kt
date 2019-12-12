@@ -51,4 +51,14 @@ class DashboardFragmentTest {
             assertItemsSize()
         }
     }
+
+    @Test
+    fun clickItem() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        SystemClock.sleep(2000)
+        dashboardFragmentRobot {
+            assertRecyclerViewIsDisplayed()
+            clickItem(3)
+        }
+    }
 }

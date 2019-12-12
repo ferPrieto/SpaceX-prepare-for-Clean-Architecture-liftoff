@@ -1,5 +1,6 @@
 package prieto.fernando.spacex.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.ui.adapter.ClickListener
 import prieto.fernando.spacex.ui.adapter.LaunchesAdapter
+import prieto.fernando.spacex.ui.util.UrlUtils
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
 import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
 import kotlinx.android.synthetic.main.view_error.error_description as errorDescription
@@ -28,7 +30,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
     private var launchesAdapter: LaunchesAdapter? = null
 
     override fun onItemClicked(url: String) {
-        // OPEN LINK
+        viewModel.openLink(url)
     }
 
     override fun onCreateView(
@@ -61,6 +63,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
             observe(onCompanyInfoUiModelRetrieved(), ::bindCompany)
             observe(loadingHeader(), ::showLoadingHeader)
             observe(loadingBody(), ::showLoadingBody)
+            observe<String, LiveData<String>>(onOpenLink(), ::openLink)
             observe(error(), ::setViewsVisibility)
         }
     }
@@ -106,6 +109,12 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
             } else {
                 View.GONE
             }
+        }
+    }
+
+    private fun openLink(link: String?) {
+        link?.let {
+            UrlUtils.navigateTo(activity as Context, link)
         }
     }
 

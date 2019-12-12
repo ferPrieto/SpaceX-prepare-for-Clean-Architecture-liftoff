@@ -106,4 +106,24 @@ class MainViewModelTest {
             assertEquals(expected, value)
         }
     }
+
+    @Test
+    fun `When openLink then onOpenLink invoked with expected result`() {
+        // Given
+        val link = "Some cool space related link"
+        val onOpenLinkTestObserver = mock<Observer<String>>()
+        val expected = "Some cool space related link"
+        cut.onOpenLink().observeForever(onOpenLinkTestObserver)
+
+        // When
+        cut.openLink(link)
+
+        // Then
+        val captor = ArgumentCaptor.forClass(String::class.java)
+        captor.run {
+            verify(onOpenLinkTestObserver, times(1)).onChanged(capture())
+            assertEquals(expected, value)
+        }
+
+    }
 }
