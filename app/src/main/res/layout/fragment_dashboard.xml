@@ -1,89 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/company_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/grid_small"
-        android:layout_marginTop="@dimen/grid_large"
-        android:text="@string/company_title"
-        android:textSize="@dimen/letter_large"
-        android:textStyle="bold"
+    <include
+        android:id="@+id/header_container"
+        layout="@layout/view_header"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/company_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/grid_small"
-        android:layout_marginTop="@dimen/grid_semi_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_title"
-        tools:text="SpaceX was founded by Elon Musk in 2002. It has now 7000 employees, 3 launch sites, and is valued at USD 27500000000" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/grid_large"
-        android:theme="@style/progressBar"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/launches_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/grid_small"
-        android:layout_marginTop="@dimen/grid_large"
-        android:text="@string/launches_title"
-        android:textSize="@dimen/letter_large"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_description" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/launches_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/grid_semi_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launches_title"
-        tools:listitem="@layout/item_launch" />
-
     <include
-        layout="@layout/view_error"
+        android:id="@+id/body_container"
+        layout="@layout/view_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/grid_semi_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launches_title" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar_body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:theme="@style/progressBar"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launches_title"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@+id/header_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
