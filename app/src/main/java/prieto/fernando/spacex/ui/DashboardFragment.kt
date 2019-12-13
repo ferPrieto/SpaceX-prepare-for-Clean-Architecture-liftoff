@@ -1,15 +1,22 @@
 package prieto.fernando.spacex.ui
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Switch
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.filter_toolbar.*
 import prieto.fernando.core.ui.BaseFragment
 import prieto.fernando.presentation.MainViewModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel
@@ -29,6 +36,7 @@ import kotlinx.android.synthetic.main.view_error.error_description as errorDescr
 import kotlinx.android.synthetic.main.view_error.error_title as errorTitle
 import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
 import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
+
 
 class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
 
@@ -62,6 +70,23 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupBottomSheet()
+        setupNavigation()
+        setupToolbarFilter()
+    }
+
+    private fun setupNavigation() {
+        requireActivity()?.let { fragmentActivity ->
+            (fragmentActivity as AppCompatActivity).setSupportActionBar(toolbar)
+            NavigationUI.setupActionBarWithNavController(
+                fragmentActivity, findNavController()
+            )
+        }
+    }
+
+    private fun setupToolbarFilter() {
+        filter.setOnClickListener {
+            viewModel.onFilterClicked()
+        }
     }
 
     private fun setupBottomSheet() {
@@ -77,7 +102,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
         launchesRecyclerView.adapter = launchesAdapter
         val linearLayoutManager = LinearLayoutManager(context)
         launchesRecyclerView.layoutManager = linearLayoutManager
-        launchesRecyclerView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+        launchesRecyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
             bottomSheet.collapse()
         }
     }
@@ -96,6 +121,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
             observe(loadingBody(), ::showLoadingBody)
             observe<String, LiveData<String>>(onOpenLink(), ::openLink)
             observe(error(), ::setViewsVisibility)
+            observe(onShowDialog(), ::showDialog)
         }
     }
 
@@ -188,6 +214,44 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
         errorDescription.visibility = View.VISIBLE
         launchesRecyclerView.visibility = View.GONE
     }
+
+    private fun showDialog(unit: Unit?) {
+        val dialog = layoutInflater.inflate(R.layout.view_dialog, null)
+        val orderToggle = dialog.findViewById<Switch>(R.id.order_toggle)
+        val yearEditText = dialog.findViewById<EditText>(R.id.dialog_year)
+
+        val dialogBuilder = setUpDialogBuilder(orderToggle, yearEditText, dialog)
+        dialogBuilder.show()
+    }
+
+    private fun setUpDialogBuilder(orderToggle: Switch, yearEditText: EditText, dialog: View) =
+        AlertDialog.Builder(context).apply {
+            setPositiveButton(
+                getString(R.string.dialog_ok_button)
+            ) { _, _ ->
+                requestFilteredData(orderToggle, yearEditText)
+            }
+            setNegativeButton(
+                getString(R.string.dialog_cancel_button)
+            ) { dialog, _ ->
+                dialog.dismiss()
+            }
+            setView(dialog)
+        }
+
+    private fun requestFilteredData(orderToggle: Switch, yearEditText: EditText) {
+        val ascendant = orderToggle.isChecked
+        val yearValue = yearEditText.text.toString()
+        val year = Integer.parseInt(integerValueOrZero(yearValue))
+        viewModel.launches(year, ascendant)
+    }
+
+    private fun integerValueOrZero(yearValue: String) =
+        if (yearValue.isNotBlank()) {
+            yearValue
+        } else {
+            "0"
+        }
 }
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) -> Unit) =

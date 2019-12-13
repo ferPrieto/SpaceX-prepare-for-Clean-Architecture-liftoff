@@ -4,5 +4,5 @@ import io.reactivex.Single
 import prieto.fernando.presentation.model.LaunchUiModel
 
 interface GetLaunches {
-    fun execute(): Single<List<LaunchUiModel>>
+    fun execute(yearFilterCriteria: Int, ascendantOrder: Boolean): Single<List<LaunchUiModel>>
 }
