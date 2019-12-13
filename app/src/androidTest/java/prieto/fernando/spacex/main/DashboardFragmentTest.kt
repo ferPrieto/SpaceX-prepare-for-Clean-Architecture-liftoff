@@ -39,6 +39,8 @@ class DashboardFragmentTest {
             assertRecyclerViewIsNotDisplayed()
             assertProgressBarBodyIsDisplayed()
             assertProgressBarHeaderIsNotDisplayed()
+            assertToolbarIsDisplayed()
+            assertFilterButtonIsDisplayed()
         }
     }
 
@@ -53,12 +55,24 @@ class DashboardFragmentTest {
     }
 
     @Test
-    fun clickItem() {
+    fun clickItemShowBottomSheet() {
         mockWebServer.dispatcher = SuccessDispatcher()
         SystemClock.sleep(2000)
         dashboardFragmentRobot {
             assertRecyclerViewIsDisplayed()
             clickItem(3)
+            youtubeIconViewMatcher()
+        }
+    }
+
+    @Test
+    fun clickItemAndShowDialog() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        SystemClock.sleep(2000)
+        dashboardFragmentRobot {
+            assertRecyclerViewIsDisplayed()
+            clickFilter()
+            dialogYearViewMatcher()
         }
     }
 }
