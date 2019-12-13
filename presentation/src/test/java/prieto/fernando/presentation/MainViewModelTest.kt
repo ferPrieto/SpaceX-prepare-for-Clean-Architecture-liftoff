@@ -67,7 +67,7 @@ class MainViewModelTest {
                 false
             )
         )
-        whenever(getLaunches.execute()).thenReturn(Single.just(expected))
+        whenever(getLaunches.execute(-1, false)).thenReturn(Single.just(expected))
 
         // When
         cut.launches()

@@ -9,9 +9,10 @@ import timber.log.Timber
 import javax.inject.Inject
 
 interface MainViewModelInputs {
-    fun launches()
+    fun launches(yearFilterCriteria: Int = -1, ascendantOrder: Boolean = false)
     fun companyInfo()
     fun openLink(link: String)
+    fun onFilterClicked()
 }
 
 class MainViewModel @Inject constructor(
@@ -25,6 +26,7 @@ class MainViewModel @Inject constructor(
     private val loadingHeader: MutableLiveData<Boolean> = MutableLiveData()
     private val error: MutableLiveData<Unit> = MutableLiveData()
     private val onOpenLink: MutableLiveData<String> = MutableLiveData()
+    private val onShowDialog: MutableLiveData<Unit> = MutableLiveData()
 
     fun error(): LiveData<Unit> = error
     fun loadingBody(): LiveData<Boolean> = loadingBody
@@ -32,9 +34,10 @@ class MainViewModel @Inject constructor(
     fun onLaunchesUiModelRetrieved(): LiveData<List<LaunchUiModel>> = launchUiModelRetrieved
     fun onCompanyInfoUiModelRetrieved(): LiveData<CompanyInfoUiModel> = companyInfoUiModelRetrieved
     fun onOpenLink(): LiveData<String> = onOpenLink
+    fun onShowDialog(): LiveData<Unit> = onShowDialog
 
-    override fun launches() {
-        getLaunches.execute()
+    override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
+        getLaunches.execute(yearFilterCriteria, ascendantOrder)
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
             .doOnSubscribe { loadingBody.postValue(true) }
             .doFinally { loadingBody.postValue(false) }
@@ -60,5 +63,9 @@ class MainViewModel @Inject constructor(
 
     override fun openLink(link: String) {
         onOpenLink.postValue(link)
+    }
+
+    override fun onFilterClicked() {
+        onShowDialog.postValue(Unit)
     }
 }
