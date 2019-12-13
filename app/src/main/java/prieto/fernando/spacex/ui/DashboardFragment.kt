@@ -55,7 +55,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
 
     private fun expandBottomSheet() {
         if (bottomSheet.isExpended()) {
-            bottomSheet.toggle()
+            bottomSheet.collapse()
         }
         bottomSheet.expand()
     }
