@@ -2,7 +2,7 @@
 # SpaceX :rocket:
 
 The purpose of this project is to follow up Clean Architecture principles by bringing them to Android. It is worth saying that the idea is to take advantage of the Kotlin Programming Language features plus also pull in lessons learned and ideas from other interesting aproaches like Functional Programming,
- MVVM setup, LiveData and Rxjava.
+ MVVM setup, LiveData and Rxjava. DarkTheme support is added too.
 
 ![structure](art/clean_architecture.png)
 
@@ -26,6 +26,16 @@ Following the same approach I made in a previous personal project, a month ago [
 
 ![robot](art/robot_pattern.png)
 
+## Future improvements
+* Use Idling instead of `SystemClock.sleep` within the UI tests
+* Add Error Handling to the layout, in order to show the different responses (Error 4XX, Error 5XX)
+* Mange DateTime (mock today) for Unit Tests, in order to setup any day to asign as `today`
+* Add custom bottom sheet, without any library (with a better animation)
+
+## Demo
+
+![demo](art/Demo-SpaceX.gif)
+
 
 ## Libraries Used
 
@@ -41,6 +51,8 @@ Following the same approach I made in a previous personal project, a month ago [
 * [MockWebServer][9] for Instrumentation tests.
 * [AndroidX Test Library][10] for providing JUnit4 and functions as `launchActivity` in UI tests
 * [Picasso][11] Image downloading and caching library
+* [JodaTime][12] Date library that lets manage more extensively and easily dates
+* [BottomSheet][13] Library that contains a bottom sheet view with animations (expand/collapse)
 
 [0]:  https://github.com/ReactiveX/RxAndroid
 [1]:  https://developer.android.com/topic/libraries/architecture/livedata
@@ -54,6 +66,8 @@ Following the same approach I made in a previous personal project, a month ago [
 [9]:  https://github.com/square/okhttp/tree/master/mockwebserver
 [10]: https://github.com/android/android-test
 [11]: https://square.github.io/picasso/
+[12]: https://github.com/JodaOrg/joda-time
+[13]: https://github.com/qhutch/BottomSheetLayout
 
 #  License
 
