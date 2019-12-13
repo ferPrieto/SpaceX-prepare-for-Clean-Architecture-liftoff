@@ -16,8 +16,9 @@ class DomainModule {
     @Reusable
     fun provideGetLaunches(
         spaceXRepository: SpaceXRepository,
-        launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
-    ): GetLaunches = GetLaunchesImpl(spaceXRepository, launchesDomainToUiModelMapper)
+        launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper,
+        filter: LaunchesDomainFilter
+    ): GetLaunches = GetLaunchesImpl(spaceXRepository, launchesDomainToUiModelMapper, filter)
 
     @Provides
     @Reusable
@@ -46,4 +47,9 @@ class DomainModule {
     @Reusable
     fun provideCompanyInfoDomainToUiModelMapper(): CompanyInfoDomainToUiModelMapper =
         CompanyInfoDomainToUiModelMapperImpl()
+
+    @Provides
+    @Reusable
+    fun provideLaunchesDomainFilter(): LaunchesDomainFilter =
+        LaunchesDomainFilterImpl()
 }

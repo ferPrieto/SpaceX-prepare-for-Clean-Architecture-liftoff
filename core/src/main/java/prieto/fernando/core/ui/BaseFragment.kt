@@ -15,15 +15,6 @@ abstract class BaseFragment<T : BaseViewModel> : DaggerFragment(), BaseView<T> {
     @Inject
     protected lateinit var vmFactory: ViewModelProviderFactory<T>
 
-    protected fun setupNavigation() {
-        activity?.let {
-            NavigationUI.setupActionBarWithNavController(
-                this.activity as AppCompatActivity,
-                findNavController()
-            )
-        }
-    }
-
     protected fun <T : ViewModel> getViewModel(viewModelClass: Class<T>) =
         ViewModelProviders.of(this, vmFactory).get(viewModelClass)
 }

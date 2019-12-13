@@ -5,13 +5,22 @@
     android:layout_height="match_parent">
 
     <include
+        android:id="@+id/filter_toolbar"
+        layout="@layout/filter_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
         android:id="@+id/header_container"
         layout="@layout/view_header"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/filter_toolbar" />
 
     <include
         android:id="@+id/body_container"

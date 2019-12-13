@@ -31,6 +31,7 @@ class LaunchesAdapter(private val clickListener: ClickListener) :
     private val launches = mutableListOf<LaunchUiModel>()
 
     override fun setData(data: List<LaunchUiModel>) {
+        launches.clear()
         launches.addAll(data)
         notifyDataSetChanged()
     }
