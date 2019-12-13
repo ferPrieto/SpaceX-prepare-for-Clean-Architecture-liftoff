@@ -9,8 +9,11 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/mission_patch"
+            android:id="@+id/filter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/grid_large"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_filter"/>
     </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>

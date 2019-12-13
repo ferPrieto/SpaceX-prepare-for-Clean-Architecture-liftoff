@@ -45,9 +45,45 @@ class DashboardFragmentRobot {
         )
     }
 
+    fun assertToolbarIsDisplayed() = apply {
+        onView(toolbarViewMatcher).check(
+            matches(
+                isDisplayed()
+            )
+        )
+    }
+
+    fun assertFilterButtonIsDisplayed() = apply {
+        onView(filterButtonViewMatcher).check(
+            matches(
+                isDisplayed()
+            )
+        )
+    }
+
+    fun dialogYearViewMatcher() = apply {
+        onView(dialogYearViewMatcher).check(
+            matches(
+                isDisplayed()
+            )
+        )
+    }
+
+    fun youtubeIconViewMatcher() = apply {
+        onView(youtubeIconViewMatcher).check(
+            matches(
+                isDisplayed()
+            )
+        )
+    }
+
     fun clickItem(position: Int) = apply {
         val itemMatcher = RecyclerViewMatcher(recyclerViewId).atPosition(position)
         onView(itemMatcher).perform(ViewActions.click())
+    }
+
+    fun clickFilter() = apply {
+        onView(filterButtonViewMatcher).perform(ViewActions.click())
     }
 
     companion object {
@@ -59,5 +95,13 @@ class DashboardFragmentRobot {
         private val progressBarBodyViewMatcher = withId(R.id.progress_bar_body)
 
         private val progressBarHeaderViewMatcher = withId(R.id.progress_bar_header)
+
+        private val toolbarViewMatcher = withId(R.id.toolbar)
+
+        private val filterButtonViewMatcher = withId(R.id.filter)
+
+        private val dialogYearViewMatcher = withId(R.id.dialog_year)
+
+        private val youtubeIconViewMatcher = withId(R.id.youtube_icon)
     }
 }

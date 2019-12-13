@@ -9,6 +9,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.domain.SpaceXRepository
+import prieto.fernando.domain.mapper.LaunchesDomainFilter
 import prieto.fernando.domain.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
@@ -27,9 +28,12 @@ class GetLaunchesImplTest {
     @Mock
     lateinit var launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
 
+    @Mock
+    lateinit var launchesDomainFilter: LaunchesDomainFilter
+
     @Before
     fun setUp() {
-        cut = GetLaunchesImpl(spaceXRepository, launchesDomainToUiModelMapper)
+        cut = GetLaunchesImpl(spaceXRepository, launchesDomainToUiModelMapper, launchesDomainFilter)
     }
 
     @Test
@@ -76,9 +80,12 @@ class GetLaunchesImplTest {
         whenever(launchesDomainToUiModelMapper.toUiModel(launchDomainModels)).thenReturn(
             expected
         )
+        whenever(launchesDomainFilter.filter(launchDomainModels, -1, false)).thenReturn(
+            launchDomainModels
+        )
 
         // When
-        val actualValue = cut.execute()
+        val actualValue = cut.execute(-1, false)
 
         // Then
         actualValue
