@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_small"
-        android:layout_marginTop="@dimen/grid_large"
+        android:layout_marginTop="?attr/actionBarSize"
         android:text="@string/company_title"
         android:textSize="@dimen/letter_large"
         android:textStyle="bold"
