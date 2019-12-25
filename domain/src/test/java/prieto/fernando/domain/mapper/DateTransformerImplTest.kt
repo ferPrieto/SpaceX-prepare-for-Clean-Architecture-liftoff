@@ -1,11 +1,15 @@
 package prieto.fernando.domain.mapper
 
+import com.nhaarman.mockito_kotlin.given
 import org.joda.time.DateTime
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.junit.MockitoJUnitRunner
 import kotlin.test.assertEquals
 
+@RunWith(MockitoJUnitRunner::class)
 class DateTransformerImplTest {
     private lateinit var cut: DateTransformerImpl
 
@@ -14,7 +18,6 @@ class DateTransformerImplTest {
 
     @Before
     fun setUp() {
-        dateTimeProvider = DateTimeProvider()
         cut = DateTransformerImpl(dateTimeProvider)
     }
 
@@ -34,8 +37,9 @@ class DateTransformerImplTest {
     @Test
     fun `Given date when getDifferenceOfDays then returns expected result`() {
         // Given
-        val dateTime = DateTime(2019, 1, 2, 4, 3)
-        val expected = "343"
+        val dateTime = DateTime(2022, 1, 2, 4, 3)
+        given { dateTimeProvider.today() }.willReturn(DateTime(2019, 1, 2, 4, 3))
+        val expected = "1096"
 
         // When
         val actualValue = cut.getDifferenceOfDays(dateTime)
@@ -47,7 +51,8 @@ class DateTransformerImplTest {
     @Test
     fun `Given date when isPast then returns expected result`() {
         // Given
-        val dateTime = DateTime(2019, 1, 2, 4, 3)
+        val dateTime = DateTime(2018, 1, 2, 4, 3)
+        given { dateTimeProvider.today() }.willReturn(DateTime(2019, 1, 2, 4, 3))
         val expected = true
 
         // When
