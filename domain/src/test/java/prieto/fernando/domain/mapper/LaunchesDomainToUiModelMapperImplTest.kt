@@ -1,11 +1,16 @@
 package prieto.fernando.domain.mapper
 
+import com.nhaarman.mockito_kotlin.given
+import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.MethodRule
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.mockito.Mock
+import org.mockito.junit.MockitoJUnit
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
@@ -99,9 +104,11 @@ class LaunchesDomainToUiModelMapperImplTest(
     @Mock
     lateinit var dateTransformer: DateTransformer
 
+    @get:Rule
+    var rule: MethodRule = MockitoJUnit.rule()
+
     @Before
     fun setUp() {
-        dateTransformer = DateTransformerImpl(DateTimeProvider())
         cut = LaunchesDomainToUiModelMapperImpl(dateTransformer)
     }
 
@@ -109,8 +116,26 @@ class LaunchesDomainToUiModelMapperImplTest(
     fun `Given launchDomainModels when toUiModel then returns expected result`() {
         // When
         val actualValue = cut.toUiModel(givenLaunches)
+        given { dateTransformer.dateToDateString(buildDate("2019-12-11T13:00:00.000+01:00")) }
+            .willReturn("11-12-2019 at 12:00")
+        given { dateTransformer.dateToDateString(buildDate("2020-12-07T13:00:00.000+01:00")) }
+            .willReturn("07-12-2020 at 12:00")
+
+        given { dateTransformer.isPast(buildDate("2019-12-11T13:00:00.000+01:00")) }
+            .willReturn(true)
+        given { dateTransformer.isPast(buildDate("2020-12-07T13:00:00.000+01:00")) }
+            .willReturn(false)
+
+        given { dateTransformer.getDifferenceOfDays(buildDate("2019-12-11T13:00:00.000+01:00")) }
+            .willReturn("0")
+        given { dateTransformer.getDifferenceOfDays(buildDate("2020-12-07T13:00:00.000+01:00")) }
+            .willReturn("361")
 
         // Then
         assertEquals(expected, actualValue)
     }
+
+    private fun buildDate(dateValue: String) =
+        DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+            .parseDateTime(dateValue.replace("Z", "+0000"))
 }
