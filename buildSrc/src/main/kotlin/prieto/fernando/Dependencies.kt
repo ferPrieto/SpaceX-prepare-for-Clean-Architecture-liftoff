@@ -64,6 +64,8 @@ object Dependencies {
     object AndroidX {
         const val fragmentKtx =
             "androidx.fragment:fragment-ktx:${Versions.appCompat}"
+        const val coreKtx =
+            "androidx.core:core-ktx:${Versions.appCompat}"
         const val constraintlayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val legacySupport =

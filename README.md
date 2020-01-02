@@ -29,7 +29,6 @@ Following the same approach I made in a previous personal project, a month ago [
 ## Future improvements
 * Use Idling instead of `SystemClock.sleep` within the UI tests
 * Add Error Handling to the layout, in order to show the different responses (Error 4XX, Error 5XX)
-* Mange DateTime (mock today) for Unit Tests, in order to setup any day to asign as `today`
 * Add custom bottom sheet, without any library (with a better animation)
 
 ## Demo
