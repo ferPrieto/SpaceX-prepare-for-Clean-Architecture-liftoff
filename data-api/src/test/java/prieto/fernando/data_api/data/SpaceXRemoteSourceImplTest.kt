@@ -47,9 +47,6 @@ class SpaceXRemoteSourceImplTest {
         whenever(apiService.getCompanyInfo())
             .thenReturn(Single.just(mock()))
 
-        whenever(companyInfoRepositoryMapper.toRepositoryModel(any()))
-            .thenReturn(mock())
-
         cut.getCompanyInfo()
 
         // Then
@@ -65,10 +62,7 @@ class SpaceXRemoteSourceImplTest {
         whenever(apiService.getAllLaunches())
             .thenReturn(Single.just(mock()))
 
-        whenever(companyInfoRepositoryMapper.toRepositoryModel(any()))
-            .thenReturn(mock())
-
-         cut.getAllLaunches()
+        cut.getAllLaunches()
 
         // Then
         val captor = ArgumentCaptor.forClass(Unit::class.java)
