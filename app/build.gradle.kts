@@ -41,6 +41,7 @@ dependencies {
     annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
+    implementation(Dependencies.solidRecyclerView)
 
     implementation(Dependencies.picasso)
     implementation(Dependencies.bottomSheet)

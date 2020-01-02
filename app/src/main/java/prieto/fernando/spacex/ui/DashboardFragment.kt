@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mitteloupe.solid.recyclerview.SolidAdapter
 import kotlinx.android.synthetic.main.filter_toolbar.*
 import prieto.fernando.core.ui.BaseFragment
 import prieto.fernando.presentation.MainViewModel
@@ -23,7 +24,9 @@ import prieto.fernando.presentation.model.CompanyInfoUiModel
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.ui.adapter.ClickListener
-import prieto.fernando.spacex.ui.adapter.LaunchesAdapter
+import prieto.fernando.spacex.ui.adapter.LaunchViewBinder
+import prieto.fernando.spacex.ui.adapter.LaunchViewHolder
+import prieto.fernando.spacex.ui.adapter.LaunchViewProvider
 import prieto.fernando.spacex.ui.util.UrlUtils
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
 import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
@@ -38,19 +41,21 @@ import kotlinx.android.synthetic.main.view_header.company_description as company
 import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 
 
-class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
+class DashboardFragment : BaseFragment<MainViewModel>() {
 
-    private var launchesAdapter: LaunchesAdapter? = null
+    private var launchesAdapter: SolidAdapter<LaunchViewHolder, LaunchUiModel>? = null
     private var linkYoutube = ""
     private var linkWikipedia = ""
-
-    override fun onItemClicked(link: Link) {
-        when (link) {
-            is Link.OneLink -> showOneOptionSheet(link)
-            is Link.TwoLinks -> showTwoOptionsSheet(link)
-            else -> hideSheet()
+    private val clickListener = object : ClickListener {
+        override fun onItemClicked(urls: Link) {
+            when (urls) {
+                is Link.OneLink -> showOneOptionSheet(urls)
+                is Link.TwoLinks -> showTwoOptionsSheet(urls)
+                else -> hideSheet()
+            }
+            expandBottomSheet()
         }
-        expandBottomSheet()
+
     }
 
     private fun expandBottomSheet() {
@@ -75,7 +80,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
     }
 
     private fun setupNavigation() {
-        requireActivity()?.let { fragmentActivity ->
+        requireActivity().let { fragmentActivity ->
             (fragmentActivity as AppCompatActivity).setSupportActionBar(toolbar)
             NavigationUI.setupActionBarWithNavController(
                 fragmentActivity, findNavController()
@@ -98,7 +103,11 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
     }
 
     private fun setupRecyclerView() {
-        launchesAdapter = LaunchesAdapter(this)
+        launchesAdapter = SolidAdapter(
+            LaunchViewProvider(layoutInflater),
+            { view, _ -> LaunchViewHolder(view) },
+            LaunchViewBinder(context = context!!, clickListener = clickListener)
+        )
         launchesRecyclerView.adapter = launchesAdapter
         val linearLayoutManager = LinearLayoutManager(context)
         launchesRecyclerView.layoutManager = linearLayoutManager
@@ -145,7 +154,7 @@ class DashboardFragment : BaseFragment<MainViewModel>(), ClickListener {
 
     private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
         launchesUiModel?.let { launches ->
-            launchesAdapter?.setData(launches)
+            launchesAdapter?.setItems(launches)
         }
     }
 

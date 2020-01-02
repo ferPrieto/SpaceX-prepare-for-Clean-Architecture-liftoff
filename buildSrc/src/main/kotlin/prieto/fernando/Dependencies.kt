@@ -49,6 +49,7 @@ object Versions {
     const val jodaTime = "2.10.5"
     const val mockWebServer = "4.2.1"
     const val browser = "1.0.0"
+    const val solidRecyclerView = "1.0.2"
 }
 
 object BuildDependencies {
@@ -120,14 +121,14 @@ object Dependencies {
     const val okHttpLoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
 
-    const val picasso =
-        "com.squareup.picasso:picasso:${Versions.picasso}"
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 
     const val bottomSheet =
         "com.qhutch.bottomsheetlayout:bottomsheetlayout:${Versions.bottomSheet}"
 
-    const val jodaTime =
-        "joda-time:joda-time:${Versions.jodaTime}"
+    const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
+
+    const val solidRecyclerView = "com.mitteloupe.solid:solidrecyclerview:${Versions.solidRecyclerView}"
 }
 
 object TestDependencies {
