@@ -53,16 +53,17 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
                 is Link.TwoLinks -> showTwoOptionsSheet(urls)
                 else -> hideSheet()
             }
-            expandBottomSheet()
+            expandOrCollapseBottomSheet()
         }
 
     }
 
-    private fun expandBottomSheet() {
+    private fun expandOrCollapseBottomSheet() {
         if (bottomSheet.isExpended()) {
             bottomSheet.collapse()
+        } else {
+            bottomSheet.expand()
         }
-        bottomSheet.expand()
     }
 
     override fun onCreateView(

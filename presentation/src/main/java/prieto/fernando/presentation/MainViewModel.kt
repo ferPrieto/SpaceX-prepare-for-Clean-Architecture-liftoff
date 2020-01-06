@@ -62,10 +62,10 @@ class MainViewModel @Inject constructor(
     }
 
     override fun openLink(link: String) {
-        onOpenLink.postValue(link)
+        onOpenLink.value = link
     }
 
     override fun onFilterClicked() {
-        onShowDialog.postValue(Unit)
+        onShowDialog.value = Unit
     }
 }
