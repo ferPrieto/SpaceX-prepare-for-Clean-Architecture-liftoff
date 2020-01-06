@@ -11,8 +11,8 @@
         android:layout_marginStart="@dimen/grid_small"
         android:layout_marginTop="?attr/actionBarSize"
         android:text="@string/company_title"
-        android:textSize="@dimen/letter_large"
         android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/letter_large"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +22,9 @@
         android:id="@+id/company_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/textColorPrimary"
         android:layout_marginStart="@dimen/grid_small"
         android:layout_marginTop="@dimen/grid_semi_large"
+        android:textColor="@color/textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_title"
@@ -37,9 +37,21 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/grid_large"
         android:theme="@style/progressBar"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header_error_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_small"
+        android:layout_marginTop="@dimen/grid_semi_large"
+        android:gravity="center"
+        android:text="@string/header_error_description"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/letter_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_title" />
 </merge>

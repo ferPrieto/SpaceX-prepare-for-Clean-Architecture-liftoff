@@ -28,11 +28,16 @@
         app:layout_constraintTop_toBottomOf="@+id/launches_title"
         tools:listitem="@layout/item_launch" />
 
-    <include
-        layout="@layout/view_error"
+    <TextView
+        android:id="@+id/body_error_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/grid_semi_large"
+        android:layout_marginStart="@dimen/grid_small"
+        android:layout_marginTop="@dimen/grid_xlarge"
+        android:gravity="center"
+        android:text="@string/body_error_description"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/letter_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/launches_title" />

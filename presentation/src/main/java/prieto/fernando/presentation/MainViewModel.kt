@@ -24,11 +24,13 @@ class MainViewModel @Inject constructor(
     private val companyInfoUiModelRetrieved: MutableLiveData<CompanyInfoUiModel> = MutableLiveData()
     private val loadingBody: MutableLiveData<Boolean> = MutableLiveData()
     private val loadingHeader: MutableLiveData<Boolean> = MutableLiveData()
-    private val error: MutableLiveData<Unit> = MutableLiveData()
+    private val headerError: MutableLiveData<Unit> = MutableLiveData()
+    private val bodyError: MutableLiveData<Unit> = MutableLiveData()
     private val onOpenLink: MutableLiveData<String> = MutableLiveData()
     private val onShowDialog: MutableLiveData<Unit> = MutableLiveData()
 
-    fun error(): LiveData<Unit> = error
+    fun headerError(): LiveData<Unit> = headerError
+    fun bodyError(): LiveData<Unit> = bodyError
     fun loadingBody(): LiveData<Boolean> = loadingBody
     fun loadingHeader(): LiveData<Boolean> = loadingHeader
     fun onLaunchesUiModelRetrieved(): LiveData<List<LaunchUiModel>> = launchUiModelRetrieved
@@ -45,7 +47,7 @@ class MainViewModel @Inject constructor(
                 launchUiModelRetrieved.postValue(launchesUiModel)
             }, { throwable ->
                 Timber.d(throwable)
-                error.postValue(Unit)
+                bodyError.postValue(Unit)
             }).also { subscriptions.add(it) }
     }
 
@@ -58,6 +60,7 @@ class MainViewModel @Inject constructor(
                 companyInfoUiModelRetrieved.postValue(companyInfo)
             }, { throwable ->
                 Timber.d(throwable)
+                headerError.postValue(Unit)
             }).also { subscriptions.add(it) }
     }
 

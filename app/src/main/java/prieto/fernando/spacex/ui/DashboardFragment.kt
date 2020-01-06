@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -18,6 +19,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mitteloupe.solid.recyclerview.SolidAdapter
 import kotlinx.android.synthetic.main.filter_toolbar.*
+import kotlinx.android.synthetic.main.view_header.header_error_description as headerErrorDescription
 import prieto.fernando.core.ui.BaseFragment
 import prieto.fernando.presentation.MainViewModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel
@@ -28,6 +30,7 @@ import prieto.fernando.spacex.ui.adapter.LaunchViewBinder
 import prieto.fernando.spacex.ui.adapter.LaunchViewHolder
 import prieto.fernando.spacex.ui.adapter.LaunchViewProvider
 import prieto.fernando.spacex.ui.util.UrlUtils
+import kotlinx.android.synthetic.main.view_body.body_error_description as bodyErrorDescription
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
 import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
 import kotlinx.android.synthetic.main.view_bottom_sheet.bottom_sheet as bottomSheet
@@ -35,8 +38,6 @@ import kotlinx.android.synthetic.main.view_bottom_sheet.wikipedia_icon as wikipe
 import kotlinx.android.synthetic.main.view_bottom_sheet.wikipedia_title as wikipediaTitle
 import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_icon as youtubeIcon
 import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_title as youtubeTitle
-import kotlinx.android.synthetic.main.view_error.error_description as errorDescription
-import kotlinx.android.synthetic.main.view_error.error_title as errorTitle
 import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
 import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 
@@ -55,7 +56,6 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
             }
             expandOrCollapseBottomSheet()
         }
-
     }
 
     private fun expandOrCollapseBottomSheet() {
@@ -130,7 +130,8 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
             observe(loadingHeader(), ::showLoadingHeader)
             observe(loadingBody(), ::showLoadingBody)
             observe<String, LiveData<String>>(onOpenLink(), ::openLink)
-            observe(error(), ::setViewsVisibility)
+            observe(headerError(), ::showHeaderError)
+            observe(bodyError(), ::showBodyError)
             observe(onShowDialog(), ::showDialog)
         }
     }
@@ -161,21 +162,13 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
 
     private fun showLoadingBody(loading: Boolean?) {
         loading?.let {
-            progressBarBody.visibility = if (loading) {
-                View.VISIBLE
-            } else {
-                View.GONE
-            }
+            progressBarBody.isVisible = loading
         }
     }
 
     private fun showLoadingHeader(loading: Boolean?) {
         loading?.let {
-            progressBarHeader.visibility = if (loading) {
-                View.VISIBLE
-            } else {
-                View.GONE
-            }
+            progressBarHeader.isVisible = loading
         }
     }
 
@@ -203,10 +196,10 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
     }
 
     private fun setItemsVisibility(showYoutube: Boolean, showWikipedia: Boolean) {
-        wikipediaIcon.visibility = if (showWikipedia) View.VISIBLE else View.GONE
-        wikipediaTitle.visibility = if (showWikipedia) View.VISIBLE else View.GONE
-        youtubeIcon.visibility = if (showYoutube) View.VISIBLE else View.GONE
-        youtubeTitle.visibility = if (showYoutube) View.VISIBLE else View.GONE
+        wikipediaIcon.isVisible = showWikipedia
+        wikipediaTitle.isVisible = showWikipedia
+        youtubeIcon.isVisible = showYoutube
+        youtubeTitle.isVisible = showYoutube
     }
 
     private fun hideSheet() {
@@ -219,10 +212,14 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
         }
     }
 
-    private fun setViewsVisibility(unit: Unit?) {
-        errorTitle.visibility = View.VISIBLE
-        errorDescription.visibility = View.VISIBLE
-        launchesRecyclerView.visibility = View.GONE
+    private fun showBodyError(unit: Unit?) {
+        bodyErrorDescription.isVisible = true
+        launchesRecyclerView.isVisible = false
+    }
+
+    private fun showHeaderError(unit: Unit?) {
+        headerErrorDescription.isVisible = true
+        launchesRecyclerView.isVisible = false
     }
 
     private fun showDialog(unit: Unit?) {
