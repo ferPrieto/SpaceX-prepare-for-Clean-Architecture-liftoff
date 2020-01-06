@@ -67,6 +67,14 @@ class DashboardFragmentRobot {
         )
     }
 
+    fun assertBodyErrorDisplayed() = apply {
+        onView(bodyErrorViewMatcher).check(matches(isDisplayed()))
+    }
+
+    fun assertHeaderErrorDisplayed() = apply {
+        onView(headerErrorViewMatcher).check(matches(isDisplayed()))
+    }
+
     fun dialogYearViewMatcher() = apply {
         onView(dialogYearViewMatcher).check(
             matches(
@@ -109,5 +117,9 @@ class DashboardFragmentRobot {
         private val dialogYearViewMatcher = withId(R.id.dialog_year)
 
         private val youtubeIconViewMatcher = withId(R.id.youtube_icon)
+
+        private val bodyErrorViewMatcher = withId(R.id.body_error_description)
+
+        private val headerErrorViewMatcher = withId(R.id.header_error_description)
     }
 }

@@ -15,6 +15,7 @@ import prieto.fernando.spacex.R
 import prieto.fernando.spacex.ui.MainActivity
 import prieto.fernando.spacex.utils.TestConfigurationRule
 import prieto.fernando.spacex.utils.ViewVisibilityIdlingResource
+import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @RunWith(AndroidJUnit4::class)
@@ -101,6 +102,36 @@ class DashboardFragmentTest {
             assertRecyclerViewIsDisplayed()
             clickFilter()
             dialogYearViewMatcher()
+        }
+    }
+
+    @Test
+    fun displayBodyError() {
+        mockWebServer.dispatcher = ErrorDispatcher()
+        progressBarGoneIdlingResource =
+            ViewVisibilityIdlingResource(
+                activityTestRule.activity.findViewById(R.id.progress_bar_body),
+                View.GONE
+            )
+
+        dashboardFragmentRobot {
+            waitForCondition(progressBarGoneIdlingResource)
+            assertBodyErrorDisplayed()
+        }
+    }
+
+    @Test
+    fun displayHeaderError() {
+        mockWebServer.dispatcher = ErrorDispatcher()
+        progressBarGoneIdlingResource =
+            ViewVisibilityIdlingResource(
+                activityTestRule.activity.findViewById(R.id.progress_bar_header),
+                View.GONE
+            )
+
+        dashboardFragmentRobot {
+            waitForCondition(progressBarGoneIdlingResource)
+            assertHeaderErrorDisplayed()
         }
     }
 }
