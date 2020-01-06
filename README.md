@@ -6,7 +6,7 @@ The purpose of this project is to follow up Clean Architecture principles by bri
 
 ![structure](art/clean_architecture.png)
 
-## Testing
+## Testing :mag_right:
 
 ### Unit Testing
 
@@ -26,12 +26,12 @@ Following the same approach I made in a previous personal project, a month ago [
 
 ![robot](art/robot_pattern.png)
 
-## Demo
+## Demo :calling:
 
 ![demo](art/Demo-SpaceX.gif)
 
 
-## Libraries Used
+## Libraries Used :blue_book:
 
 * [Rx][0] for reactive style programming (from VM to Data).
 * [LiveData][1] for reactive style programming (from VM to UI). 
