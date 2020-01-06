@@ -1,6 +1,8 @@
 package prieto.fernando.spacex.main
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.IdlingResource
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -14,6 +16,10 @@ fun dashboardFragmentRobot(func: DashboardFragmentRobot.() -> Unit) =
     DashboardFragmentRobot().apply { func() }
 
 class DashboardFragmentRobot {
+
+    fun waitForCondition(idlingResource: IdlingResource?) = apply {
+        IdlingRegistry.getInstance().register(idlingResource)
+    }
 
     fun assertRecyclerViewIsNotDisplayed() = apply {
         onView(recyclerViewMatcher).check(matches(not(isDisplayed())))

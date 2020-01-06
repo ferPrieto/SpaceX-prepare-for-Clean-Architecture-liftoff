@@ -8,10 +8,10 @@
         android:id="@+id/launches_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/textColorPrimary"
         android:layout_marginStart="@dimen/grid_small"
         android:layout_marginTop="@dimen/grid_large"
         android:text="@string/launches_title"
+        android:textColor="@color/textColorPrimary"
         android:textSize="@dimen/letter_large"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,10 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:theme="@style/progressBar"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launches_title"
-        tools:visibility="visible" />
-
+        app:layout_constraintTop_toBottomOf="@+id/launches_title" />
 </merge>
