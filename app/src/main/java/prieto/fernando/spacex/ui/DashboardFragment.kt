@@ -95,7 +95,7 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
     }
 
     private fun setupBottomSheet() {
-        bottomSheet.animationDuration = 1500
+        bottomSheet.animationDuration = 500
         youtubeIcon.setOnClickListener { viewModel.openLink(linkYoutube) }
         youtubeTitle.setOnClickListener { viewModel.openLink(linkYoutube) }
         wikipediaIcon.setOnClickListener { viewModel.openLink(linkWikipedia) }
