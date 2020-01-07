@@ -14,7 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
-import prieto.fernando.data_repository.SpaceXRemoteSource
+import prieto.fernando.data.SpaceXRemoteSource
 
 @RunWith(MockitoJUnitRunner::class)
 class SpaceXRemoteSourceImplTest {

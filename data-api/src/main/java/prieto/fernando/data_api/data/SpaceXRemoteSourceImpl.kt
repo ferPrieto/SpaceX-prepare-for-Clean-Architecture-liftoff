@@ -4,9 +4,9 @@ import io.reactivex.Single
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
-import prieto.fernando.data_repository.SpaceXRemoteSource
-import prieto.fernando.data_repository.model.CompanyInfoRepositoryModel
-import prieto.fernando.data_repository.model.LaunchRepositoryModel
+import prieto.fernando.data.SpaceXRemoteSource
+import prieto.fernando.data.model.CompanyInfoRepositoryModel
+import prieto.fernando.data.model.LaunchRepositoryModel
 import javax.inject.Inject
 
 class SpaceXRemoteSourceImpl @Inject constructor(

@@ -1,4 +1,4 @@
-package prieto.fernando.domain.mapper
+package prieto.fernando.presentation.mapper
 
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel

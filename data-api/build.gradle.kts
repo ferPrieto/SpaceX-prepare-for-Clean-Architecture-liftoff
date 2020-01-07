@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(ProjectModules.repository))
+    implementation(project(ProjectModules.data))
 
     api(Dependencies.Retrofit.retrofit)
     api(Dependencies.Retrofit.retrofitConverterGson)

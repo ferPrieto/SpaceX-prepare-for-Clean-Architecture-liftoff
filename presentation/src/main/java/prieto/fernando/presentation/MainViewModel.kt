@@ -3,6 +3,10 @@ package prieto.fernando.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import prieto.fernando.core.presentation.BaseViewModel
+import prieto.fernando.presentation.mapper.LaunchesDomainToUiModelMapper
+import prieto.fernando.domain.usecase.GetCompanyInfo
+import prieto.fernando.domain.usecase.GetLaunches
+import prieto.fernando.presentation.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.presentation.model.CompanyInfoUiModel
 import prieto.fernando.presentation.model.LaunchUiModel
 import timber.log.Timber
@@ -17,7 +21,9 @@ interface MainViewModelInputs {
 
 class MainViewModel @Inject constructor(
     private val getLaunches: GetLaunches,
-    private val getCompanyInfo: GetCompanyInfo
+    private val getCompanyInfo: GetCompanyInfo,
+    private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper,
+    private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
 ) : BaseViewModel(), MainViewModelInputs {
 
     private val launchUiModelRetrieved: MutableLiveData<List<LaunchUiModel>> = MutableLiveData()
@@ -43,8 +49,9 @@ class MainViewModel @Inject constructor(
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
             .doOnSubscribe { loadingBody.postValue(true) }
             .doFinally { loadingBody.postValue(false) }
-            .subscribe({ launchesUiModel ->
-                launchUiModelRetrieved.postValue(launchesUiModel)
+            .map (launchesDomainToUiModelMapper::toUiModel)
+            .subscribe({
+                launchUiModelRetrieved.postValue(it)
             }, { throwable ->
                 Timber.d(throwable)
                 bodyError.postValue(Unit)
@@ -56,6 +63,7 @@ class MainViewModel @Inject constructor(
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
             .doOnSubscribe { loadingHeader.postValue(true) }
             .doFinally { loadingHeader.postValue(false) }
+            .map (companyInfoDomainToUiModelMapper::toUiModel)
             .subscribe({ companyInfo ->
                 companyInfoUiModelRetrieved.postValue(companyInfo)
             }, { throwable ->

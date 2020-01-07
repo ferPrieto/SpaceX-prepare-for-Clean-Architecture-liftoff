@@ -1,17 +1,17 @@
-package prieto.fernando.data_repository.mapper
+package prieto.fernando.presentation.mapper
 
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.data_repository.model.CompanyInfoRepositoryModel
 import prieto.fernando.domain.model.CompanyInfoDomainModel
+import prieto.fernando.presentation.model.CompanyInfoUiModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
-class CompanyInfoRepositoryToDomainModelMapperImplTest(
-    private val givenCompanyInfo: CompanyInfoRepositoryModel,
-    private val expected: CompanyInfoDomainModel
+class CompanyInfoDomainToUiModelMapperTest(
+    private val givenCompanyInfo: CompanyInfoDomainModel,
+    private val expected: CompanyInfoUiModel
 ) {
     companion object {
         @JvmStatic
@@ -19,14 +19,14 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
         fun data(): Collection<Array<Any>> {
             return listOf(
                 arrayOf(
-                    CompanyInfoRepositoryModel(
+                    CompanyInfoDomainModel(
                         "name",
                         "founder",
                         "founded",
                         "employees",
                         1,
                         23
-                    ), CompanyInfoDomainModel(
+                    ), CompanyInfoUiModel(
                         "name",
                         "founder",
                         "founded",
@@ -36,14 +36,14 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
                     )
                 ),
                 arrayOf(
-                    CompanyInfoRepositoryModel(
+                    CompanyInfoDomainModel(
                         "name",
                         "founder",
                         "founded",
                         "employees",
                         3,
                         27500000000
-                    ), CompanyInfoDomainModel(
+                    ), CompanyInfoUiModel(
                         "name",
                         "founder",
                         "founded",
@@ -53,14 +53,14 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
                     )
                 ),
                 arrayOf(
-                    CompanyInfoRepositoryModel(
+                    CompanyInfoDomainModel(
                         "",
                         "",
                         "",
                         "",
                         0,
                         0
-                    ), CompanyInfoDomainModel(
+                    ), CompanyInfoUiModel(
                         "",
                         "",
                         "",
@@ -73,17 +73,17 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
         }
     }
 
-    private lateinit var cut: CompanyInfoRepositoryToDomainModelMapperImpl
+    private lateinit var cut: CompanyInfoDomainToUiModelMapperImpl
 
     @Before
     fun setUp() {
-        cut = CompanyInfoRepositoryToDomainModelMapperImpl()
+        cut = CompanyInfoDomainToUiModelMapperImpl()
     }
 
     @Test
-    fun `Given companyInfos when toDomainModel then returns expected result`() {
+    fun `Given companyInfoDomainModel when toUiModel then returns expected result`() {
         // When
-        val actualValue = cut.toDomainModel(givenCompanyInfo)
+        val actualValue = cut.toUiModel(givenCompanyInfo)
 
         // Then
         assertEquals(expected, actualValue)

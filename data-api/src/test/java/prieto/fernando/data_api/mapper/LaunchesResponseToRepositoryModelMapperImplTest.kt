@@ -9,9 +9,9 @@ import org.mockito.Mock
 import prieto.fernando.data_api.model.LaunchesResponse
 import prieto.fernando.data_api.model.LinksResponse
 import prieto.fernando.data_api.model.RocketResponse
-import prieto.fernando.data_repository.model.LaunchRepositoryModel
-import prieto.fernando.data_repository.model.LinksRepositoryModel
-import prieto.fernando.data_repository.model.RocketRepositoryModel
+import prieto.fernando.data.model.LaunchRepositoryModel
+import prieto.fernando.data.model.LinksRepositoryModel
+import prieto.fernando.data.model.RocketRepositoryModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)

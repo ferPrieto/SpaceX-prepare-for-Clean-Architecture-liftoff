@@ -8,9 +8,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.domain.SpaceXRepository
-import prieto.fernando.domain.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.domain.model.CompanyInfoDomainModel
-import prieto.fernando.presentation.model.CompanyInfoUiModel
 
 @RunWith(MockitoJUnitRunner::class)
 class GetCompanyInfoImplTest {
@@ -19,12 +17,10 @@ class GetCompanyInfoImplTest {
     @Mock
     lateinit var spaceXRepository: SpaceXRepository
 
-    @Mock
-    lateinit var companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
 
     @Before
     fun setUp() {
-        cut = GetCompanyInfoImpl(spaceXRepository, companyInfoDomainToUiModelMapper)
+        cut = GetCompanyInfoImpl(spaceXRepository)
     }
 
     @Test
@@ -38,7 +34,7 @@ class GetCompanyInfoImplTest {
             1,
             30000
         )
-        val expected = CompanyInfoUiModel(
+        val expected = CompanyInfoDomainModel(
             "name",
             "founder",
             "foundedYear",
@@ -47,9 +43,6 @@ class GetCompanyInfoImplTest {
             30000
         )
         whenever(spaceXRepository.getCompanyInfo()).thenReturn(Single.just(companyInfoDomainModel))
-        whenever(companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)).thenReturn(
-            expected
-        )
 
         // When
         val actualValue = cut.execute()

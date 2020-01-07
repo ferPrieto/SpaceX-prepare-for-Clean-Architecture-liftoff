@@ -1,4 +1,4 @@
-package prieto.fernando.domain.mapper
+package prieto.fernando.presentation.mapper
 
 import org.joda.time.DateTime
 import javax.inject.Inject

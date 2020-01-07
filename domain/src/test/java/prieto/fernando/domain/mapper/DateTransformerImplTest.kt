@@ -11,14 +11,14 @@ import kotlin.test.assertEquals
 
 @RunWith(MockitoJUnitRunner::class)
 class DateTransformerImplTest {
-    private lateinit var cut: DateTransformerImpl
+    private lateinit var cut: prieto.fernando.presentation.mapper.DateTransformerImpl
 
     @Mock
-    lateinit var dateTimeProvider: DateTimeProvider
+    lateinit var dateTimeProvider: prieto.fernando.presentation.mapper.DateTimeProvider
 
     @Before
     fun setUp() {
-        cut = DateTransformerImpl(dateTimeProvider)
+        cut = prieto.fernando.presentation.mapper.DateTransformerImpl(dateTimeProvider)
     }
 
     @Test
