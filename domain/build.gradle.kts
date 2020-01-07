@@ -4,15 +4,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(ProjectModules.presentation))
-
     implementation(Dependencies.Rx.rxAndroid)
     implementation(Dependencies.Rx.rxJava)
     implementation(Dependencies.Rx.rxKotlin)
     implementation(Dependencies.Rx.rxBinding)
 
-    implementation(Dependencies.jodaTime)
     implementation(Dependencies.Dagger.daggerAndroid)
+    implementation(Dependencies.jodaTime)
 
     testImplementation(Dependencies.jodaTime)
 }

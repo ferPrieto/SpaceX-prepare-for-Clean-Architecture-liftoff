@@ -10,13 +10,9 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.mapper.LaunchesDomainFilter
-import prieto.fernando.domain.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
-import prieto.fernando.presentation.model.LaunchUiModel
-import prieto.fernando.presentation.model.LinksUiModel
-import prieto.fernando.presentation.model.RocketUiModel
 
 @RunWith(MockitoJUnitRunner::class)
 class GetLaunchesImplTest {
@@ -25,15 +21,13 @@ class GetLaunchesImplTest {
     @Mock
     lateinit var spaceXRepository: SpaceXRepository
 
-    @Mock
-    lateinit var launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
 
     @Mock
     lateinit var launchesDomainFilter: LaunchesDomainFilter
 
     @Before
     fun setUp() {
-        cut = GetLaunchesImpl(spaceXRepository, launchesDomainToUiModelMapper, launchesDomainFilter)
+        cut = GetLaunchesImpl(spaceXRepository, launchesDomainFilter)
     }
 
     @Test
@@ -56,30 +50,23 @@ class GetLaunchesImplTest {
             )
         )
         val expected = listOf(
-            LaunchUiModel(
+            LaunchDomainModel(
                 "missionName",
-                "11-12-2019 at 12:00",
-                true,
-                "0",
-                RocketUiModel("rocketName", "rocketType"),
-                LinksUiModel("patchLink", "wikipediaLink", "videoLink"),
+                buildDate("2019-12-11T12:00:00.000Z"),
+                RocketDomainModel("rocketName", "rocketType"),
+                LinksDomainModel("patchLink", "wikipediaLink", "videoLink"),
                 false
             ),
-            LaunchUiModel(
+            LaunchDomainModel(
                 "missionName2",
-                "07-12-2020 at 12:00",
-                false,
-                "361",
-                RocketUiModel("rocketName2", "rocketType2"),
-                LinksUiModel("patchLink2", "wikipediaLink2", "videoLink2"),
+                buildDate("2020-12-07T12:00:00.000Z"),
+                RocketDomainModel("rocketName2", "rocketType2"),
+                LinksDomainModel("patchLink2", "wikipediaLink2", "videoLink2"),
                 false
             )
         )
 
         whenever(spaceXRepository.getAllLaunches()).thenReturn(Single.just(launchDomainModels))
-        whenever(launchesDomainToUiModelMapper.toUiModel(launchDomainModels)).thenReturn(
-            expected
-        )
         whenever(launchesDomainFilter.filter(launchDomainModels, -1, false)).thenReturn(
             launchDomainModels
         )

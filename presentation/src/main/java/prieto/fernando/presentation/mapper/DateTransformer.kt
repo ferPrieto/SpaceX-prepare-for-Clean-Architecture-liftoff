@@ -1,4 +1,4 @@
-package prieto.fernando.domain.mapper
+package prieto.fernando.presentation.mapper
 
 import org.joda.time.DateTime
 import org.joda.time.Days
@@ -6,8 +6,8 @@ import javax.inject.Inject
 import kotlin.math.absoluteValue
 
 interface DateTransformer {
-    fun dateToDateString(date: DateTime): String
-    fun getDifferenceOfDays(date: DateTime): String
+    fun dateToDateString(dateTime: DateTime): String
+    fun getDifferenceOfDays(dateTime: DateTime): String
     fun isPast(launchDate: DateTime): Boolean
 }
 

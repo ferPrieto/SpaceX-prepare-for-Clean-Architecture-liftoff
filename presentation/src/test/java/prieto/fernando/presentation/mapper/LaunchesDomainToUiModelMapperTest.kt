@@ -1,6 +1,7 @@
-package prieto.fernando.domain.mapper
+package prieto.fernando.presentation.mapper
 
 import com.nhaarman.mockito_kotlin.given
+import com.nhaarman.mockito_kotlin.whenever
 import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Rule
@@ -19,7 +20,7 @@ import prieto.fernando.presentation.model.RocketUiModel
 import kotlin.test.assertEquals
 
 @RunWith(MockitoJUnitRunner::class)
-class LaunchesDomainToUiModelMapperImplTest {
+class LaunchesDomainToUiModelMapperTest {
 
     private lateinit var cut: LaunchesDomainToUiModelMapperImpl
 

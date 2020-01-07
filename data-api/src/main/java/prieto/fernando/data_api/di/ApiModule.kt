@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.data.SpaceXRemoteSourceImpl
 import prieto.fernando.data_api.mapper.*
-import prieto.fernando.data_repository.SpaceXRemoteSource
+import prieto.fernando.data.SpaceXRemoteSource
 import retrofit2.Retrofit
 import javax.inject.Singleton
 

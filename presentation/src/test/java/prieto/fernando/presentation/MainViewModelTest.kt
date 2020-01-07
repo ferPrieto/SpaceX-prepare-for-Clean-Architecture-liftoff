@@ -8,6 +8,7 @@ import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Single
 import junit.framework.Assert.assertEquals
+import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -16,6 +17,14 @@ import org.junit.runner.RunWith
 import org.mockito.ArgumentCaptor
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import prieto.fernando.domain.model.CompanyInfoDomainModel
+import prieto.fernando.domain.model.LaunchDomainModel
+import prieto.fernando.domain.model.LinksDomainModel
+import prieto.fernando.domain.model.RocketDomainModel
+import prieto.fernando.domain.usecase.GetCompanyInfo
+import prieto.fernando.domain.usecase.GetLaunches
+import prieto.fernando.presentation.mapper.CompanyInfoDomainToUiModelMapper
+import prieto.fernando.presentation.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.presentation.model.CompanyInfoUiModel
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.presentation.model.LinksUiModel
@@ -32,9 +41,15 @@ class MainViewModelTest {
     @Mock
     lateinit var getCompanyInfo: GetCompanyInfo
 
+    @Mock
+    lateinit var companyInfoMapper: CompanyInfoDomainToUiModelMapper
+
+    @Mock
+    lateinit var launchesMapper: LaunchesDomainToUiModelMapper
+
     @Before
     fun setUp() {
-        cut = MainViewModel(getLaunches, getCompanyInfo)
+        cut = MainViewModel(getLaunches, getCompanyInfo, companyInfoMapper, launchesMapper)
         setupViewModelForTests(cut)
     }
 
@@ -47,6 +62,22 @@ class MainViewModelTest {
         // Given
         val launchUiModelRetrievedTestObserver = mock<Observer<List<LaunchUiModel>>>()
         cut.onLaunchesUiModelRetrieved().observeForever(launchUiModelRetrievedTestObserver)
+        val launchDomainModels = listOf(
+            LaunchDomainModel(
+                "missionName",
+                buildDate("2019-12-11T12:00:00.000Z"),
+                RocketDomainModel("rocketName", "rocketType"),
+                LinksDomainModel("patchLink", "wikipediaLink", "videoLink"),
+                false
+            ),
+            LaunchDomainModel(
+                "missionName2",
+                buildDate("2020-12-07T12:00:00.000Z"),
+                RocketDomainModel("rocketName2", "rocketType2"),
+                LinksDomainModel("patchLink2", "wikipediaLink2", "videoLink2"),
+                false
+            )
+        )
         val expected = listOf(
             LaunchUiModel(
                 "missionName",
@@ -67,7 +98,8 @@ class MainViewModelTest {
                 false
             )
         )
-        whenever(getLaunches.execute(-1, false)).thenReturn(Single.just(expected))
+        whenever(getLaunches.execute(-1, false)).thenReturn(Single.just(launchDomainModels))
+        whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
 
         // When
         cut.launches()
@@ -85,7 +117,14 @@ class MainViewModelTest {
         // Given
         val companyInfoUiModelRetrievedTestObserver = mock<Observer<CompanyInfoUiModel>>()
         cut.onCompanyInfoUiModelRetrieved().observeForever(companyInfoUiModelRetrievedTestObserver)
-
+        val companyInfoDomainModel = CompanyInfoDomainModel(
+            "name",
+            "founder",
+            "foundedYear",
+            "employees",
+            1,
+            23
+        )
         val expected = CompanyInfoUiModel(
             "name",
             "founder",
@@ -94,7 +133,8 @@ class MainViewModelTest {
             1,
             23
         )
-        whenever(getCompanyInfo.execute()).thenReturn(Single.just(expected))
+        whenever(getCompanyInfo.execute()).thenReturn(Single.just(companyInfoDomainModel))
+        whenever(companyInfoMapper.toUiModel(companyInfoDomainModel)).thenReturn(expected)
 
         // When
         cut.companyInfo()
@@ -124,6 +164,9 @@ class MainViewModelTest {
             verify(onOpenLinkTestObserver, times(1)).onChanged(capture())
             assertEquals(expected, value)
         }
-
     }
+
+    private fun buildDate(dateValue: String) =
+        DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+            .parseDateTime(dateValue.replace("Z", "+0000"))
 }

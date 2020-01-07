@@ -5,7 +5,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import prieto.fernando.data_api.model.CompanyInfoResponse
-import prieto.fernando.data_repository.model.CompanyInfoRepositoryModel
+import prieto.fernando.data.model.CompanyInfoRepositoryModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)

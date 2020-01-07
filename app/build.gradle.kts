@@ -34,7 +34,7 @@ dependencies {
     implementation(project(ProjectModules.api))
     implementation(project(ProjectModules.presentation))
     implementation(project(ProjectModules.domain))
-    implementation(project(ProjectModules.repository))
+    implementation(project(ProjectModules.data))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
