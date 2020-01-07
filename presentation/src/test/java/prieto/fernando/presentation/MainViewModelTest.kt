@@ -99,6 +99,7 @@ class MainViewModelTest {
             )
         )
         whenever(getLaunches.execute(-1, false)).thenReturn(Single.just(launchDomainModels))
+        whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
 
         // When
         cut.launches()
@@ -133,6 +134,7 @@ class MainViewModelTest {
             23
         )
         whenever(getCompanyInfo.execute()).thenReturn(Single.just(companyInfoDomainModel))
+        whenever(companyInfoMapper.toUiModel(companyInfoDomainModel)).thenReturn(expected)
 
         // When
         cut.companyInfo()
