@@ -1,20 +1,23 @@
 package prieto.fernando.data_api.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockito_kotlin.*
-import io.reactivex.Single
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.times
+import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.whenever
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
-import org.mockito.ArgumentCaptor
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import prieto.fernando.core_android_test.MainCoroutineRule
+import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
-import prieto.fernando.data.SpaceXRemoteSource
 
 @RunWith(MockitoJUnitRunner::class)
 class SpaceXRemoteSourceImplTest {
@@ -32,6 +35,10 @@ class SpaceXRemoteSourceImplTest {
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
+    @JvmField
+    @Rule
+    val mainCoroutineRule = MainCoroutineRule()
+
     @Before
     fun setUp() {
         cut = SpaceXRemoteSourceImpl(
@@ -43,30 +50,26 @@ class SpaceXRemoteSourceImplTest {
 
     @Test
     fun `When getCompanyInfo then apiService invoked`() {
-        // When
-        whenever(apiService.getCompanyInfo())
-            .thenReturn(Single.just(mock()))
+        runBlockingTest {
+            // When
+            whenever(apiService.getCompanyInfo()).thenReturn(mock())
 
-        cut.getCompanyInfo()
+            cut.getCompanyInfo()
 
-        // Then
-        val captor = ArgumentCaptor.forClass(Unit::class.java)
-        captor.run {
+            // Then
             verify(apiService, times(1)).getCompanyInfo()
         }
     }
 
     @Test
     fun `When getAllLaunches then apiService invoked`() {
-        // When
-        whenever(apiService.getAllLaunches())
-            .thenReturn(Single.just(mock()))
+        runBlockingTest {
+            // When
+            whenever(apiService.getAllLaunches()).thenReturn(mock())
 
-        cut.getAllLaunches()
+            cut.getAllLaunches()
 
-        // Then
-        val captor = ArgumentCaptor.forClass(Unit::class.java)
-        captor.run {
+            // Then
             verify(apiService, times(1)).getAllLaunches()
         }
     }

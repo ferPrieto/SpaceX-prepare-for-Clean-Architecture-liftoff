@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(ProjectModules.data))
+    testImplementation(project(ProjectModules.coreAndroidTest))
 
     api(Dependencies.Retrofit.retrofit)
     api(Dependencies.Retrofit.retrofitConverterGson)
