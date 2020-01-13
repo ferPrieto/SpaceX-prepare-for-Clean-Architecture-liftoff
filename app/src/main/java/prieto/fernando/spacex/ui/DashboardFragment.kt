@@ -139,6 +139,7 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
     private fun bindCompany(companyInfoUiModel: CompanyInfoUiModel?) {
         companyInfoUiModel?.let { companyInfo ->
             companyDescription.text = getDescriptionText(companyInfo)
+            headerErrorDescription.isVisible = false
         }
     }
 
@@ -157,6 +158,7 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
     private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
         launchesUiModel?.let { launches ->
             launchesAdapter?.setItems(launches)
+            bodyErrorDescription.isVisible = false
         }
     }
 
