@@ -5,6 +5,7 @@ object ProjectModules {
     const val data = ":data"
     const val domain = ":domain"
     const val presentation = ":presentation"
+    const val coreAndroidTest = ":core-android-test"
 }
 
 object AndroidSettings {
@@ -35,7 +36,6 @@ object Versions {
     const val kotlin = "1.3.60"
     const val timber = "4.7.1"
     const val coreTesting = "1.1.1"
-    const val rxBinding = "2.2.0"
     const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
     const val okhttpLoggingInterceptor = "4.2.1"
@@ -86,11 +86,6 @@ object Dependencies {
 
     const val kotlinxCoroutines =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
-
-    object Rx {
-        const val rxBinding =
-            "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:${Versions.rxBinding}"
-    }
 
     object Dagger {
         const val dagger =

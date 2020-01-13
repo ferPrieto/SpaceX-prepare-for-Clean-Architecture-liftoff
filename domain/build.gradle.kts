@@ -4,8 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.Rx.rxBinding)
-
     implementation(Dependencies.Dagger.daggerAndroid)
     implementation(Dependencies.jodaTime)
 

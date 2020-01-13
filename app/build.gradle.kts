@@ -35,6 +35,8 @@ dependencies {
     implementation(project(ProjectModules.presentation))
     implementation(project(ProjectModules.domain))
     implementation(project(ProjectModules.data))
+    androidTestImplementation(project(ProjectModules.coreAndroidTest))
+    testImplementation(project(ProjectModules.coreAndroidTest))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
