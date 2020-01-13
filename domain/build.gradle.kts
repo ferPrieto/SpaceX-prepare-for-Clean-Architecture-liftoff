@@ -4,9 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.Rx.rxAndroid)
-    implementation(Dependencies.Rx.rxJava)
-    implementation(Dependencies.Rx.rxKotlin)
     implementation(Dependencies.Rx.rxBinding)
 
     implementation(Dependencies.Dagger.daggerAndroid)

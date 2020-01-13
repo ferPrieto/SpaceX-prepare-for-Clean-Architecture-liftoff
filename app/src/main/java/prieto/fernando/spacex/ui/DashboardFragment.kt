@@ -10,17 +10,18 @@ import android.widget.EditText
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mitteloupe.solid.recyclerview.SolidAdapter
 import kotlinx.android.synthetic.main.filter_toolbar.*
-import kotlinx.android.synthetic.main.view_header.header_error_description as headerErrorDescription
-import prieto.fernando.core.ui.BaseFragment
+import prieto.fernando.core.event.observeEvent
 import prieto.fernando.presentation.MainViewModel
 import prieto.fernando.presentation.model.CompanyInfoUiModel
 import prieto.fernando.presentation.model.LaunchUiModel
@@ -30,6 +31,7 @@ import prieto.fernando.spacex.ui.adapter.LaunchViewBinder
 import prieto.fernando.spacex.ui.adapter.LaunchViewHolder
 import prieto.fernando.spacex.ui.adapter.LaunchViewProvider
 import prieto.fernando.spacex.ui.util.UrlUtils
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.view_body.body_error_description as bodyErrorDescription
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
 import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
@@ -39,10 +41,14 @@ import kotlinx.android.synthetic.main.view_bottom_sheet.wikipedia_title as wikip
 import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_icon as youtubeIcon
 import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_title as youtubeTitle
 import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
+import kotlinx.android.synthetic.main.view_header.header_error_description as headerErrorDescription
 import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 
 
-class DashboardFragment : BaseFragment<MainViewModel>() {
+class DashboardFragment @Inject constructor(
+    viewModelFactory: ViewModelProvider.Factory
+) : Fragment() {
+    private val viewModel by viewModels<MainViewModel> { viewModelFactory }
 
     private var launchesAdapter: SolidAdapter<LaunchViewHolder, LaunchUiModel>? = null
     private var linkYoutube = ""
@@ -78,6 +84,7 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
         setupBottomSheet()
         setupNavigation()
         setupToolbarFilter()
+        setViewModelObservers()
     }
 
     private fun setupNavigation() {
@@ -92,6 +99,33 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
     private fun setupToolbarFilter() {
         filter.setOnClickListener {
             viewModel.onFilterClicked()
+        }
+    }
+
+    private fun setViewModelObservers() {
+        viewModel.launches.observe(this, Observer { launches ->
+            bindLaunches(launches)
+        })
+        viewModel.companyInfo.observe(this, Observer { companyInfo ->
+            bindCompanyInfo(companyInfo)
+        })
+        viewModel.loadingHeader.observe(this, Observer { show ->
+            showLoadingHeader(show)
+        })
+        viewModel.loadingBody.observe(this, Observer { show ->
+            showLoadingBody(show)
+        })
+        viewModel.openLink.observeEvent(this) { link ->
+            openLink(link)
+        }
+        viewModel.showDialog.observeEvent(this) {
+            showDialog()
+        }
+        viewModel.headerError.observeEvent(this) {
+            showHeaderError()
+        }
+        viewModel.bodyError.observeEvent(this) {
+            showBodyError()
         }
     }
 
@@ -123,20 +157,7 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
         viewModel.companyInfo()
     }
 
-    override val viewModel: MainViewModel by lazy {
-        ViewModelProviders.of(this, vmFactory).get(MainViewModel::class.java).apply {
-            observe(onLaunchesUiModelRetrieved(), ::bindLaunches)
-            observe(onCompanyInfoUiModelRetrieved(), ::bindCompany)
-            observe(loadingHeader(), ::showLoadingHeader)
-            observe(loadingBody(), ::showLoadingBody)
-            observe<String, LiveData<String>>(onOpenLink(), ::openLink)
-            observe(headerError(), ::showHeaderError)
-            observe(bodyError(), ::showBodyError)
-            observe(onShowDialog(), ::showDialog)
-        }
-    }
-
-    private fun bindCompany(companyInfoUiModel: CompanyInfoUiModel?) {
+    private fun bindCompanyInfo(companyInfoUiModel: CompanyInfoUiModel?) {
         companyInfoUiModel?.let { companyInfo ->
             companyDescription.text = getDescriptionText(companyInfo)
             headerErrorDescription.isVisible = false
@@ -162,16 +183,12 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
         }
     }
 
-    private fun showLoadingBody(loading: Boolean?) {
-        loading?.let {
-            progressBarBody.isVisible = loading
-        }
+    private fun showLoadingBody(loading: Boolean) {
+        progressBarBody.isVisible = loading
     }
 
-    private fun showLoadingHeader(loading: Boolean?) {
-        loading?.let {
-            progressBarHeader.isVisible = loading
-        }
+    private fun showLoadingHeader(loading: Boolean) {
+        progressBarHeader.isVisible = loading
     }
 
     private fun showTwoOptionsSheet(link: Link.TwoLinks) {
@@ -208,23 +225,21 @@ class DashboardFragment : BaseFragment<MainViewModel>() {
         bottomSheet.collapse()
     }
 
-    private fun openLink(link: String?) {
-        link?.let {
-            UrlUtils.navigateTo(activity as Context, link)
-        }
+    private fun openLink(link: String) {
+        UrlUtils.navigateTo(activity as Context, link)
     }
 
-    private fun showBodyError(unit: Unit?) {
+    private fun showBodyError() {
         bodyErrorDescription.isVisible = true
         launchesRecyclerView.isVisible = false
     }
 
-    private fun showHeaderError(unit: Unit?) {
+    private fun showHeaderError() {
         headerErrorDescription.isVisible = true
         launchesRecyclerView.isVisible = false
     }
 
-    private fun showDialog(unit: Unit?) {
+    private fun showDialog() {
         val dialog = layoutInflater.inflate(R.layout.view_dialog, null)
         val orderToggle = dialog.findViewById<Switch>(R.id.order_toggle)
         val yearEditText = dialog.findViewById<EditText>(R.id.dialog_year)

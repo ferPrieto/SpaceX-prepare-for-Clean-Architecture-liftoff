@@ -8,14 +8,10 @@ dependencies {
     api(Dependencies.Dagger.daggerAndroid)
     api(Dependencies.Dagger.daggerAndroidSupport)
 
-    api(Dependencies.Rx.rxAndroid)
-    api(Dependencies.Rx.rxJava)
-    api(Dependencies.Rx.rxKotlin)
-    api(Dependencies.Rx.rxBinding)
-
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
+    annotationProcessor(Dependencies.AndroidX.archViewModel)
     implementation(Dependencies.AndroidX.archComponents)
 }

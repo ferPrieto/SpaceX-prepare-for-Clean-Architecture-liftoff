@@ -1,10 +1,15 @@
 package prieto.fernando.spacex.di
 
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.android.ContributesAndroidInjector
-import prieto.fernando.core.presentation.ViewModelProviderFactory
+import dagger.multibindings.IntoMap
+import prieto.fernando.core.di.FragmentKey
+import prieto.fernando.core.di.ViewModelKey
 import prieto.fernando.presentation.MainViewModel
+import prieto.fernando.presentation.MainViewModelImpl
 import prieto.fernando.spacex.ui.DashboardFragment
 import prieto.fernando.spacex.ui.MainActivity
 
@@ -12,17 +17,15 @@ import prieto.fernando.spacex.ui.MainActivity
 internal abstract class MainActivityModule {
     @ActivityScope
     @ContributesAndroidInjector
-    internal abstract fun bindMainActivity(): MainActivity
+    abstract fun bindMainActivity(): MainActivity
 
-    @ContributesAndroidInjector
-    internal abstract fun bindDashboardFragment(): DashboardFragment
+    @Binds
+    @IntoMap
+    @FragmentKey(DashboardFragment::class)
+    abstract fun dashboardFragment(dashboardFragment: DashboardFragment): Fragment
 
-    @Module
-    companion object {
-        @Provides
-        @JvmStatic
-        internal fun provideMainViewModelFactory(viewModel: MainViewModel): ViewModelProviderFactory<MainViewModel> {
-            return ViewModelProviderFactory(viewModel)
-        }
-    }
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    abstract fun dashboardViewModel(viewModel: MainViewModelImpl): ViewModel
 }

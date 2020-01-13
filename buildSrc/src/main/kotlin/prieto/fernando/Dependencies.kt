@@ -43,13 +43,13 @@ object Versions {
     const val retrofitConverterGson = "2.4.0"
     const val retrofitRxjava2Adapter = "1.0.0"
     const val okhttpLoggingInterceptor = "4.2.1"
-    const val archComponents = "2.1.0"
     const val picasso = "2.71828"
     const val bottomSheet = "0.1.9"
     const val jodaTime = "2.10.5"
     const val mockWebServer = "4.2.1"
     const val browser = "1.0.0"
     const val solidRecyclerView = "1.0.2"
+    const val kotlinxCoroutines = "1.3.2"
 }
 
 object BuildDependencies {
@@ -60,7 +60,6 @@ object BuildDependencies {
 }
 
 object Dependencies {
-    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     object AndroidX {
         const val fragmentKtx =
@@ -74,11 +73,11 @@ object Dependencies {
         const val lifecycleLivedataKtx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLivedataKtx}"
         const val lifecycleCompiler =
-            "androidx.lifecycle:lifecycle-compiler:${Versions.archComponents}"
+            "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleLivedataKtx}"
         const val archViewModel =
-            "androidx.lifecycle:lifecycle-viewmodel:${Versions.archComponents}"
+            "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycleLivedataKtx}"
         const val archComponents =
-            "androidx.lifecycle:lifecycle-extensions:${Versions.archComponents}"
+            "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleLivedataKtx}"
         const val browser = "androidx.browser:browser:${Versions.browser}"
 
         object Navigation {
@@ -89,10 +88,10 @@ object Dependencies {
         }
     }
 
+    const val kotlinxCoroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
+
     object Rx {
-        const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
-        const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}"
-        const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
         const val rxBinding =
             "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:${Versions.rxBinding}"
     }
@@ -117,6 +116,8 @@ object Dependencies {
         const val retrofitRxjava2Adapter =
             "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${Versions.retrofitRxjava2Adapter}"
     }
+
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     const val okHttpLoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
@@ -152,6 +153,9 @@ object TestDependencies {
         const val coreTesting =
             "android.arch.core:core-testing:${Versions.coreTesting}"
     }
+
+    const val kotlinxCoroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinxCoroutines}"
 
     object JUnit {
         const val junit =
