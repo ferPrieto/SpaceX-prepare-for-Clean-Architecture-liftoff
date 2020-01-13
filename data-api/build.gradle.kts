@@ -8,7 +8,6 @@ dependencies {
 
     api(Dependencies.Retrofit.retrofit)
     api(Dependencies.Retrofit.retrofitConverterGson)
-    api(Dependencies.Retrofit.retrofitRxjava2Adapter)
     api(Dependencies.okHttpLoggingInterceptor)
 
     implementation(Dependencies.jodaTime)

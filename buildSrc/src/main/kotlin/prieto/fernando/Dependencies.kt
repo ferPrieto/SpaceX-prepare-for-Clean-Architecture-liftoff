@@ -35,13 +35,9 @@ object Versions {
     const val kotlin = "1.3.60"
     const val timber = "4.7.1"
     const val coreTesting = "1.1.1"
-    const val rxJava = "2.2.7"
-    const val rxKotlin = "2.3.0"
-    const val rxAndroid = "2.1.1"
     const val rxBinding = "2.2.0"
-    const val retrofit = "2.5.0"
+    const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
-    const val retrofitRxjava2Adapter = "1.0.0"
     const val okhttpLoggingInterceptor = "4.2.1"
     const val picasso = "2.71828"
     const val bottomSheet = "0.1.9"
@@ -113,8 +109,6 @@ object Dependencies {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val retrofitConverterGson =
             "com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}"
-        const val retrofitRxjava2Adapter =
-            "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${Versions.retrofitRxjava2Adapter}"
     }
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
