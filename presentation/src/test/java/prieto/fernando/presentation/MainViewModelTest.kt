@@ -17,6 +17,7 @@ import org.junit.runner.RunWith
 import org.mockito.ArgumentCaptor
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
@@ -165,8 +166,4 @@ class MainViewModelTest {
             assertEquals(expected, value)
         }
     }
-
-    private fun buildDate(dateValue: String) =
-        DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-            .parseDateTime(dateValue.replace("Z", "+0000"))
 }

@@ -5,6 +5,7 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
@@ -18,6 +19,7 @@ import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data.mapper.CompanyInfoRepositoryToDomainModelMapper
 import prieto.fernando.data.mapper.LaunchesRepositoryToDomainModelMapper
 
+@ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class SpaceXRepositoryImplTest {
     private lateinit var cut: SpaceXRepositoryImpl

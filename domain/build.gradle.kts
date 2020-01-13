@@ -5,7 +5,8 @@ plugins {
 
 dependencies {
     implementation(Dependencies.Dagger.daggerAndroid)
-    implementation(Dependencies.jodaTime)
+    testImplementation(project(ProjectModules.coreAndroidTest))
 
+    implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)
 }

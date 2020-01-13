@@ -1,4 +1,4 @@
-package prieto.fernando.domain.mapper
+package prieto.fernando.presentation.transformer
 
 import com.nhaarman.mockito_kotlin.given
 import org.joda.time.DateTime
@@ -7,18 +7,20 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import prieto.fernando.presentation.mapper.DateTimeProvider
+import prieto.fernando.presentation.mapper.DateTransformerImpl
 import kotlin.test.assertEquals
 
 @RunWith(MockitoJUnitRunner::class)
 class DateTransformerImplTest {
-    private lateinit var cut: prieto.fernando.presentation.mapper.DateTransformerImpl
+    private lateinit var cut: DateTransformerImpl
 
     @Mock
-    lateinit var dateTimeProvider: prieto.fernando.presentation.mapper.DateTimeProvider
+    lateinit var dateTimeProvider: DateTimeProvider
 
     @Before
     fun setUp() {
-        cut = prieto.fernando.presentation.mapper.DateTransformerImpl(dateTimeProvider)
+        cut = DateTransformerImpl(dateTimeProvider)
     }
 
     @Test

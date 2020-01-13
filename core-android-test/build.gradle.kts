@@ -8,4 +8,7 @@ dependencies {
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(TestDependencies.AndroidX.espressoCore)
     implementation(TestDependencies.AndroidX.espressoContrib)
+
+    implementation(Dependencies.jodaTime)
+
 }
