@@ -1,6 +1,5 @@
 package prieto.fernando.data.repository
 
-import io.reactivex.Single
 import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data.mapper.CompanyInfoRepositoryToDomainModelMapper
 import prieto.fernando.data.mapper.LaunchesRepositoryToDomainModelMapper
@@ -14,9 +13,13 @@ class SpaceXRepositoryImpl @Inject constructor(
     private val companyInfoDomainMapper: CompanyInfoRepositoryToDomainModelMapper,
     private val launchesDomainMapper: LaunchesRepositoryToDomainModelMapper
 ) : SpaceXRepository {
-    override fun getCompanyInfo(): Single<CompanyInfoDomainModel> =
-        spaceXRemoteSource.getCompanyInfo().map(companyInfoDomainMapper::toDomainModel)
+    override suspend fun getCompanyInfo(): CompanyInfoDomainModel {
+        val companyInfoRepositoryModel = spaceXRemoteSource.getCompanyInfo()
+        return companyInfoDomainMapper.toDomainModel(companyInfoRepositoryModel)
+    }
 
-    override fun getAllLaunches(): Single<List<LaunchDomainModel>> =
-        spaceXRemoteSource.getAllLaunches().map(launchesDomainMapper::toDomainModel)
+    override suspend fun getAllLaunches(): List<LaunchDomainModel> {
+        val allLaunchesRepositoryModel = spaceXRemoteSource.getAllLaunches()
+        return launchesDomainMapper.toDomainModel(allLaunchesRepositoryModel)
+    }
 }

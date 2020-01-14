@@ -2,9 +2,20 @@
 # SpaceX :rocket:
 
 The purpose of this project is to follow up Clean Architecture principles by bringing them to Android. It is worth saying that the idea is to take advantage of the Kotlin Programming Language features plus also pull in lessons learned and ideas from other interesting aproaches like Functional Programming,
- MVVM setup, LiveData and Rxjava. DarkTheme support is added too.
+ `MVVM` setup, `LiveData` and `Coroutines` (I've kept a branch using `RxJava`). `DarkTheme` support is added too.
+
 
 ![structure](art/clean_architecture.png)
+
+## Modules :department_store:
+* **app** - The application module with access to **all the application**
+* **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
+* **core-android-test** - Tests classes module (rules, date builders,etc.) that **cannot access any other module**
+* **data** - Android module that can only access **domain module** and **core-android-test**
+* **data-api** - Android module that can only access **data module** and **core-android-test**]
+* **domain** - Kotlin module that **cannot access any other module**
+* **presentation** - Android module that **can only access domain module** **core** and **core-android-test**
+* **navigation** - Android jetpack abstraction (it contains the navigation config file) **cannot access any other module**
 
 ## Testing :mag_right:
 
@@ -12,8 +23,8 @@ The purpose of this project is to follow up Clean Architecture principles by bri
 
 There are some highlights:
 * Every layer in the architecture has been tested with its mapper|transformer|provider.
-* Mockito has been used for mocking and stubbing.
-* Given|When|Then steps have been followed, in order to give a more structured overview.
+* Mockito has been used for mocking|stubbing.
+* `Given|When|Then` steps have been followed, in order to give a more structured overview.
 
 ### UI Testing
 
@@ -33,37 +44,35 @@ Following the same approach I made in a previous personal project, a month ago [
 
 ## Libraries Used :blue_book:
 
-* [Rx][0] for reactive style programming (from VM to Data).
+* [Coroutines][0] Library support for Kotlin coroutines
 * [LiveData][1] for reactive style programming (from VM to UI). 
 * [Navigation][2] for in-app navigation. 
-* [Rx][3] for cache storage.
-* [Dagger2][4] for dependency injection.
-* [Retrofit][5] for REST api communication.  
-* [Timber][6] for logging.
-* [Espresso][7] for UI tests.
-* [Mockito-Kotlin][8] for mocking in tests.
-* [MockWebServer][9] for Instrumentation tests.
-* [AndroidX Test Library][10] for providing JUnit4 and functions as `launchActivity` in UI tests
-* [Picasso][11] Image downloading and caching library
-* [JodaTime][12] Date library that lets manage more extensively and easily dates
-* [BottomSheet][13] Library that contains a bottom sheet view with animations (expand/collapse)
-* [SolidAdapter][14] Library that provides a SolidAdapter implementation, instead of RecyclerView.Adapter
+* [Dagger2][3] for dependency injection.
+* [Retrofit][4] for REST api communication.
+* [Timber][5] for logging.
+* [Espresso][6] for UI tests.
+* [Mockito-Kotlin][7] for mocking in tests.
+* [MockWebServer][8] for Instrumentation tests.
+* [AndroidX Test Library][9] for providing JUnit4 and functions as `launchActivity` in UI tests
+* [Picasso][10] Image downloading and caching library
+* [JodaTime][11] Date library that lets manage more extensively and easily dates
+* [BottomSheet][12] Library that contains a bottom sheet view with animations (expand/collapse)
+* [SolidAdapter][13] Library that provides a SolidAdapter implementation, instead of RecyclerView.Adapter
 
-[0]:  https://github.com/ReactiveX/RxAndroid
+[0]:  https://github.com/Kotlin/kotlinx.coroutines
 [1]:  https://developer.android.com/topic/libraries/architecture/livedata
 [2]:  https://developer.android.com/topic/libraries/architecture/navigation/
-[3]:  https://github.com/ReactiveX/RxAndroid
-[4]:  https://github.com/google/dagger
-[5]:  https://github.com/square/retrofit
-[6]:  https://github.com/JakeWharton/timber
-[7]:  https://developer.android.com/training/testing/espresso/
-[8]:  https://github.com/nhaarman/mockito-kotlin
-[9]:  https://github.com/square/okhttp/tree/master/mockwebserver
-[10]: https://github.com/android/android-test
-[11]: https://square.github.io/picasso/
-[12]: https://github.com/JodaOrg/joda-time
-[13]: https://github.com/qhutch/BottomSheetLayout
-[14]: https://github.com/EranBoudjnah/solid
+[3]:  https://github.com/google/dagger
+[4]:  https://github.com/square/retrofit
+[5]:  https://github.com/JakeWharton/timber
+[6]:  https://developer.android.com/training/testing/espresso/
+[7]:  https://github.com/nhaarman/mockito-kotlin
+[8]:  https://github.com/square/okhttp/tree/master/mockwebserver
+[9]: https://github.com/android/android-test
+[10]: https://square.github.io/picasso/
+[11]: https://github.com/JodaOrg/joda-time
+[12]: https://github.com/qhutch/BottomSheetLayout
+[13]: https://github.com/EranBoudjnah/solid
 
 #  License
 

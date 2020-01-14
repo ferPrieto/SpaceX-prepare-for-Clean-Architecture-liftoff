@@ -1,20 +1,25 @@
 package prieto.fernando.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockito_kotlin.*
-import io.reactivex.Single
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.times
+import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.whenever
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
-import org.mockito.ArgumentCaptor
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import prieto.fernando.core_android_test.MainCoroutineRule
 import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data.mapper.CompanyInfoRepositoryToDomainModelMapper
 import prieto.fernando.data.mapper.LaunchesRepositoryToDomainModelMapper
 
+@ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class SpaceXRepositoryImplTest {
     private lateinit var cut: SpaceXRepositoryImpl
@@ -31,38 +36,39 @@ class SpaceXRepositoryImplTest {
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
+    @JvmField
+    @Rule
+    val mainCoroutineRule = MainCoroutineRule()
+
     @Before
     fun setUp() {
-        cut = SpaceXRepositoryImpl(spaceXRemoteSource, companyInfoDomainMapper, launchesDomainMapper)
+        cut =
+            SpaceXRepositoryImpl(spaceXRemoteSource, companyInfoDomainMapper, launchesDomainMapper)
     }
 
     @Test
     fun `When getCompanyInfo then spaceXRemoteSource invoked`() {
-        // When
-        whenever(spaceXRemoteSource.getCompanyInfo())
-            .thenReturn(Single.just(mock()))
+        runBlockingTest {
+            // When
+            whenever(spaceXRemoteSource.getCompanyInfo()).thenReturn(mock())
 
-        cut.getCompanyInfo()
+            cut.getCompanyInfo()
 
-        // Then
-        val captor = ArgumentCaptor.forClass(Unit::class.java)
-        captor.run {
+            // Then
             verify(spaceXRemoteSource, times(1)).getCompanyInfo()
         }
     }
 
     @Test
     fun `When getAllLaunches then spaceXRemoteSource invoked`() {
-        // When
-        whenever(spaceXRemoteSource.getCompanyInfo())
-            .thenReturn(Single.just(mock()))
+        runBlockingTest {
+            // When
+            whenever(spaceXRemoteSource.getAllLaunches()).thenReturn(mock())
 
-        cut.getCompanyInfo()
+            cut.getAllLaunches()
 
-        // Then
-        val captor = ArgumentCaptor.forClass(Unit::class.java)
-        captor.run {
-            verify(spaceXRemoteSource, times(1)).getCompanyInfo()
+            // Then
+            verify(spaceXRemoteSource, times(1)).getAllLaunches()
         }
     }
 }

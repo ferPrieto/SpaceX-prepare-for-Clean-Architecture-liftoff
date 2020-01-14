@@ -85,6 +85,8 @@ open class AndroidPlugin : Plugin<Project> {
         implementation(kotlin("stdlib-jdk7"))
         testImplementation(kotlin("test"))
 
+        implementation(Dependencies.kotlinxCoroutines)
+
         implementation(Dependencies.timber)
 
         kapt(Dependencies.Dagger.daggerCompiler)
@@ -98,6 +100,9 @@ open class AndroidPlugin : Plugin<Project> {
         androidTestImplementation(TestDependencies.AndroidX.espressoContrib)
         androidTestImplementation(TestDependencies.AndroidX.junit)
         testImplementation(TestDependencies.livedataTesting)
+
+        testImplementation(TestDependencies.kotlinxCoroutines)
+        androidTestImplementation(TestDependencies.kotlinxCoroutines)
 
         testImplementation(TestDependencies.JUnit.junit)
         testImplementation(TestDependencies.JUnit.junitPlatformRunner)

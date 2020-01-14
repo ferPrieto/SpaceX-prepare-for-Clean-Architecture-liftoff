@@ -8,5 +8,6 @@ include(
     ProjectModules.api,
     ProjectModules.data,
     ProjectModules.domain,
-    ProjectModules.presentation
+    ProjectModules.presentation,
+    ProjectModules.coreAndroidTest
 )

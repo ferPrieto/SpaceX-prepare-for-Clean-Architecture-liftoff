@@ -6,15 +6,15 @@ plugins {
 dependencies {
     implementation(project(ProjectModules.domain))
     implementation(project(ProjectModules.core))
+    testImplementation(project(ProjectModules.coreAndroidTest))
 
-    implementation(Dependencies.Rx.rxAndroid)
-    implementation(Dependencies.Rx.rxJava)
-    implementation(Dependencies.Rx.rxKotlin)
-    implementation(Dependencies.Rx.rxBinding)
+    implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
+    implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
 
     implementation(Dependencies.timber)
     implementation(Dependencies.jodaTime)
     implementation(Dependencies.Dagger.daggerAndroid)
+    implementation(Dependencies.Retrofit.retrofit)
 
     testImplementation(Dependencies.jodaTime)
 }
