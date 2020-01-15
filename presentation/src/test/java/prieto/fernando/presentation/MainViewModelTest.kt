@@ -9,6 +9,8 @@ import com.nhaarman.mockito_kotlin.whenever
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Before
@@ -82,6 +84,8 @@ class MainViewModelTest {
                     false
                 )
             )
+            val launchesChannel = ConflatedBroadcastChannel<List<LaunchDomainModel>>()
+            launchesChannel.offer(launchDomainModels)
             val expected = listOf(
                 LaunchUiModel(
                     "missionName",
@@ -102,7 +106,7 @@ class MainViewModelTest {
                     false
                 )
             )
-            whenever(getLaunches.execute(-1, false)).thenReturn(Result.success(launchDomainModels))
+            whenever(getLaunches.execute(-1, false)).thenReturn(launchesChannel.asFlow())
             whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
 
             // When
@@ -129,6 +133,8 @@ class MainViewModelTest {
                 1,
                 23
             )
+            val companyInfoChannel = ConflatedBroadcastChannel<CompanyInfoDomainModel>()
+            companyInfoChannel.offer(companyInfoDomainModel)
             val expected = CompanyInfoUiModel(
                 "name",
                 "founder",
@@ -137,7 +143,7 @@ class MainViewModelTest {
                 1,
                 23
             )
-            whenever(getCompanyInfo.execute()).thenReturn(Result.success(companyInfoDomainModel))
+            whenever(getCompanyInfo.execute()).thenReturn(companyInfoChannel.asFlow())
             whenever(companyInfoMapper.toUiModel(companyInfoDomainModel)).thenReturn(expected)
 
             // When
