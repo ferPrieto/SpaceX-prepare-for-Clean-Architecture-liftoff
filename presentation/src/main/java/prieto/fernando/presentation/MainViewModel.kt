@@ -1,13 +1,13 @@
 package prieto.fernando.presentation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import prieto.fernando.core.event.Event
 import prieto.fernando.core.event.eventOf
@@ -28,8 +28,8 @@ abstract class MainViewModel : ViewModel() {
 
     abstract val companyInfo: LiveData<CompanyInfoUiModel>
     abstract val launches: LiveData<List<LaunchUiModel>>
-    abstract val loadingBody: LiveData<Boolean>
     abstract val loadingHeader: LiveData<Boolean>
+    abstract val loadingBody: LiveData<Boolean>
     abstract val headerError: LiveData<Event<Unit>>
     abstract val bodyError: LiveData<Event<Unit>>
     abstract val openLink: LiveData<Event<String>>
@@ -44,54 +44,75 @@ class MainViewModelImpl @Inject constructor(
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper,
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
 ) : MainViewModel() {
-    private val companyInfoChannel = ConflatedBroadcastChannel<CompanyInfoUiModel>()
-    private val launchesChannel = ConflatedBroadcastChannel<List<LaunchUiModel>>()
-    private val loadingBodyChannel = ConflatedBroadcastChannel(false)
-    private val loadingHeaderChannel = ConflatedBroadcastChannel(false)
     private val openLinkChannel = ConflatedBroadcastChannel<Event<String>>()
     private val showDialogChannel = ConflatedBroadcastChannel<Event<Unit>>()
-    private val headerErrorChannel = ConflatedBroadcastChannel<Event<Unit>>()
-    private val bodyErrorChannel = ConflatedBroadcastChannel<Event<Unit>>()
 
-    override val companyInfo: LiveData<CompanyInfoUiModel> =
-        companyInfoChannel.asFlow().asLiveData()
-    override val launches: LiveData<List<LaunchUiModel>> = launchesChannel.asFlow().asLiveData()
-    override val loadingHeader: LiveData<Boolean> = loadingHeaderChannel.asFlow().asLiveData()
-    override val loadingBody: LiveData<Boolean> = loadingBodyChannel.asFlow().asLiveData()
     override val openLink: LiveData<Event<String>> = openLinkChannel.asFlow().asLiveData()
     override val showDialog: LiveData<Event<Unit>> = showDialogChannel.asFlow().asLiveData()
-    override val headerError: LiveData<Event<Unit>> = headerErrorChannel.asFlow().asLiveData()
-    override val bodyError: LiveData<Event<Unit>> = bodyErrorChannel.asFlow().asLiveData()
+
+    private val _loadingHeader = MediatorLiveData<Boolean>()
+    override val loadingHeader: LiveData<Boolean>
+        get() = _loadingHeader
+
+    private val _loadingBody = MediatorLiveData<Boolean>()
+    override val loadingBody: LiveData<Boolean>
+        get() = _loadingBody
+
+    private val _companyInfo = MediatorLiveData<CompanyInfoUiModel>()
+    override val companyInfo: LiveData<CompanyInfoUiModel>
+        get() = _companyInfo
+
+    private val _launches = MediatorLiveData<List<LaunchUiModel>>()
+    override val launches: LiveData<List<LaunchUiModel>>
+        get() = _launches
+
+    private val _bodyError = MediatorLiveData<Event<Unit>>()
+    override val bodyError: LiveData<Event<Unit>>
+        get() = _bodyError
+
+    private val _headerError = MediatorLiveData<Event<Unit>>()
+    override val headerError: LiveData<Event<Unit>>
+        get() = _headerError
+
+    private val errorHandler = CoroutineExceptionHandler { _, exception ->
+        Timber.e(exception)
+        _loadingBody.value = false
+        _loadingHeader.value = false
+    }
 
     override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
-        viewModelScope.launch {
-            loadingBody {
-                getLaunches.execute(yearFilterCriteria, ascendantOrder)
-                    .onSuccess { launchesDomainModel ->
-                        val launchesUiModel =
-                            launchesDomainToUiModelMapper.toUiModel(launchesDomainModel)
-                        launchesChannel.offer(launchesUiModel)
-                    }.onFailure { throwable ->
-                        Timber.e(throwable)
-                        bodyErrorChannel.offer(eventOf(Unit))
-                    }
-            }
+        viewModelScope.launch(errorHandler) {
+            _loadingBody.value = true
+            getLaunches.execute(yearFilterCriteria, ascendantOrder)
+                .catch { throwable ->
+                    Timber.e(throwable)
+                    _bodyError.postValue(eventOf(Unit))
+                    _loadingBody.value = false
+                }
+                .collect { launchesDomainModel ->
+                    val launchesUiModel =
+                        launchesDomainToUiModelMapper.toUiModel(launchesDomainModel)
+                    _launches.postValue(launchesUiModel)
+                    _loadingBody.value = false
+                }
         }
     }
 
     override fun companyInfo() {
-        viewModelScope.launch {
-            loadingHeader {
-                getCompanyInfo.execute()
-                    .onSuccess { companyInfoDomainModel ->
-                        val companyInfo =
-                            companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)
-                        companyInfoChannel.offer(companyInfo)
-                    }.onFailure { throwable ->
-                        Timber.e(throwable)
-                        headerErrorChannel.offer(eventOf(Unit))
-                    }
-            }
+        viewModelScope.launch(errorHandler) {
+            _loadingHeader.value = true
+            getCompanyInfo.execute()
+                .catch { throwable ->
+                    Timber.e(throwable)
+                    _headerError.postValue(eventOf(Unit))
+                    _loadingHeader.value = false
+                }
+                .collect { companyInfoDomainModel ->
+                    val companyInfoUiModel =
+                        companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)
+                    _companyInfo.postValue(companyInfoUiModel)
+                    _loadingHeader.value = false
+                }
         }
     }
 
@@ -101,19 +122,5 @@ class MainViewModelImpl @Inject constructor(
 
     override fun onFilterClicked() {
         showDialogChannel.offer(eventOf(Unit))
-    }
-
-    private inline fun <T> loadingBody(function: () -> T): T {
-        loadingBodyChannel.offer(true)
-        val result = function()
-        loadingBodyChannel.offer(false)
-        return result
-    }
-
-    private inline fun <T> loadingHeader(function: () -> T): T {
-        loadingHeaderChannel.offer(true)
-        val result = function()
-        loadingHeaderChannel.offer(false)
-        return result
     }
 }
