@@ -12,7 +12,7 @@ The purpose of this project is to follow up Clean Architecture principles by bri
 * **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
 * **core-android-test** - Tests classes module (rules, date builders,etc.) that **cannot access any other module**
 * **data** - Android module that can only access **domain module** and **core-android-test**
-* **data-api** - Android module that can only access **data module** and **core-android-test**]
+* **data-api** - Android module that can only access **data module** and **core-android-test**
 * **domain** - Kotlin module that **cannot access any other module**
 * **presentation** - Android module that **can only access domain module** **core** and **core-android-test**
 * **navigation** - Android jetpack abstraction (it contains the navigation config file) **cannot access any other module**

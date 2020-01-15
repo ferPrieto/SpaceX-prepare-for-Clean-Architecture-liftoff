@@ -1,8 +1,7 @@
 package prieto.fernando.domain.usecase
 
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.mapper.LaunchesDomainFilter
 import prieto.fernando.domain.model.LaunchDomainModel
@@ -12,40 +11,22 @@ interface GetLaunches {
     suspend fun execute(
         yearFilterCriteria: Int,
         ascendantOrder: Boolean
-    ): Result<List<LaunchDomainModel>>
+    ): Flow<List<LaunchDomainModel>>
 }
 
-class GetLaunchesImpl(
+class GetLaunchesImpl @Inject constructor(
     private val spaceXRepository: SpaceXRepository,
-    private val launchesDomainFilter: LaunchesDomainFilter,
-    private val ioDispatcher: CoroutineDispatcher
+    private val launchesDomainFilter: LaunchesDomainFilter
 ) : GetLaunches {
-    @Inject
-    constructor(
-        spaceXRepository: SpaceXRepository,
-        launchesDomainFilter: LaunchesDomainFilter
-    ) : this(spaceXRepository, launchesDomainFilter, Dispatchers.IO)
-
     override suspend fun execute(
         yearFilterCriteria: Int,
         ascendantOrder: Boolean
-    ): Result<List<LaunchDomainModel>> =
-        withContext(ioDispatcher) {
-            try {
-                val allLaunchesDomainModel = spaceXRepository.getAllLaunches()
-                val launches = launchesDomainFilter.filter(
-                    allLaunchesDomainModel,
-                    yearFilterCriteria,
-                    ascendantOrder
-                )
-                Result.success(launches)
-            } catch (throwable: Throwable) {
-                Result.failure<List<LaunchDomainModel>>(
-                    Exception(
-                        "Exception retrieving launches",
-                        throwable
-                    )
-                )
-            }
+    ): Flow<List<LaunchDomainModel>> =
+        spaceXRepository.getAllLaunches().map { allLaunchesDomainModel ->
+            launchesDomainFilter.filter(
+                allLaunchesDomainModel,
+                yearFilterCriteria,
+                ascendantOrder
+            )
         }
 }
