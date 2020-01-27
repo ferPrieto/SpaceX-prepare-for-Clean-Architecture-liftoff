@@ -42,8 +42,9 @@ Following the same approach I made in a previous personal project, a month ago [
 
 ## Demo :calling:
 
-![demo](art/Demo-SpaceX.gif)
-
+<p align="center">
+  <img src="art/Demo-SpaceX.gif">
+</p>
 
 ## Libraries Used :blue_book:
 
