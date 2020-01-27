@@ -55,7 +55,7 @@ class DashboardFragment @Inject constructor(
     private var linkWikipedia = ""
     private val clickListener = object : ClickListener {
         override fun onItemClicked(urls: Link) {
-            when (urls) {
+            when (urls) { 
                 is Link.OneLink -> showOneOptionSheet(urls)
                 is Link.TwoLinks -> showTwoOptionsSheet(urls)
                 else -> hideSheet()
