@@ -3,10 +3,10 @@ package prieto.fernando.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import prieto.fernando.core.presentation.BaseViewModel
-import prieto.fernando.presentation.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.presentation.mapper.CompanyInfoDomainToUiModelMapper
+import prieto.fernando.presentation.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.presentation.model.CompanyInfoUiModel
 import prieto.fernando.presentation.model.LaunchUiModel
 import timber.log.Timber
@@ -47,28 +47,28 @@ class MainViewModel @Inject constructor(
     override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
         getLaunches.execute(yearFilterCriteria, ascendantOrder)
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
-            .doOnSubscribe { loadingBody.postValue(true) }
-            .doFinally { loadingBody.postValue(false) }
-            .map (launchesDomainToUiModelMapper::toUiModel)
+            .doOnSubscribe { loadingBody.value = true }
+            .doFinally { loadingBody.value = false }
+            .map(launchesDomainToUiModelMapper::toUiModel)
             .subscribe({
                 launchUiModelRetrieved.postValue(it)
             }, { throwable ->
                 Timber.d(throwable)
-                bodyError.postValue(Unit)
+                bodyError.value = Unit
             }).also { subscriptions.add(it) }
     }
 
     override fun companyInfo() {
         getCompanyInfo.execute()
             .compose(schedulerProvider.doOnIoObserveOnMainSingle())
-            .doOnSubscribe { loadingHeader.postValue(true) }
-            .doFinally { loadingHeader.postValue(false) }
-            .map (companyInfoDomainToUiModelMapper::toUiModel)
+            .doOnSubscribe { loadingHeader.value = true }
+            .doFinally { loadingHeader.value = false }
+            .map(companyInfoDomainToUiModelMapper::toUiModel)
             .subscribe({ companyInfo ->
                 companyInfoUiModelRetrieved.postValue(companyInfo)
             }, { throwable ->
                 Timber.d(throwable)
-                headerError.postValue(Unit)
+                headerError.value = Unit
             }).also { subscriptions.add(it) }
     }
 
