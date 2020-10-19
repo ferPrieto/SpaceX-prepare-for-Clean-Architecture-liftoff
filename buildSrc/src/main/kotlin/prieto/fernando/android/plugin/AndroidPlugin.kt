@@ -8,13 +8,10 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.exclude
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.kotlin.util.prefixIfNot
-import sun.security.krb5.internal.KDCOptions.with
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -73,6 +70,10 @@ open class AndroidPlugin : Plugin<Project> {
         testOptions {
             unitTests.isReturnDefaultValues = true
             animationsDisabled = true
+        }
+
+        lintOptions {
+            isAbortOnError = false
         }
     }
 

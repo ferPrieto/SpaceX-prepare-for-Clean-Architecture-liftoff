@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -14,6 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/grid_large"
             android:layout_gravity="end"
-            android:src="@drawable/ic_filter"/>
+            android:src="@drawable/ic_filter"
+            tools:ignore="ContentDescription" />
     </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>

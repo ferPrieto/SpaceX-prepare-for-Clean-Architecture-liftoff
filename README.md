@@ -1,4 +1,5 @@
 [![Platform](https://img.shields.io/badge/platform-android-lightgrey)](https://developer.android.com/reference)
+https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master
 
 ![banner](art/spaceX.png)
 # SpaceX :rocket:

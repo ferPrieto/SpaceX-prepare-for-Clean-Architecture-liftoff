@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SpaceX</string>
     <string name="launch_data_mission">Mission</string>
     <string name="launch_data_date_time">Date/time</string>
@@ -16,14 +16,10 @@
     <string name="bottom_sheet_youtube">Youtube</string>
     <string name="bottom_sheet_wikipedia">Wikipedia</string>
 
-    <string name="dialog_filter_title">Launches filter</string>
-    <string name="dialog_filter_year_asc">By Year Asc</string>
-    <string name="dialog_filter_year_desc">By Year Desc</string>
-
     <string name="dialog_title">Filter by year</string>
     <string name="dialog_year">YEAR</string>
     <string name="dialog_ok_button">OK</string>
-    <string name="dialog_cancel_button">CANCEL</string>
+    <string name="dialog_cancel_button" tools:ignore="ButtonCase">CANCEL</string>
     <string name="dialog_order_criteria">ASC/DESC</string>
 
 </resources>

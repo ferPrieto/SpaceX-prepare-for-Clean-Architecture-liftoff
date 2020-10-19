@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -31,7 +32,8 @@
         android:textSize="@dimen/letter_semi_large"
         app:layout_constraintEnd_toStartOf="@+id/order_toggle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+        tools:ignore="Autofill" />
 
     <TextView
         android:id="@+id/dialog_filter_criteria"

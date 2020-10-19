@@ -29,7 +29,8 @@
                 android:layout_marginTop="@dimen/grid_normal"
                 android:src="@drawable/ic_youtube"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/youtube_title"
@@ -53,7 +54,8 @@
                 android:layout_marginTop="@dimen/grid_large"
                 android:src="@drawable/ic_wikipedia"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/youtube_icon" />
+                app:layout_constraintTop_toBottomOf="@+id/youtube_icon"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/wikipedia_title"
