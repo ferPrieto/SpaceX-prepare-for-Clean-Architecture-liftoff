@@ -1,5 +1,4 @@
 [![Platform](https://img.shields.io/badge/platform-android-brightgreen)](https://developer.android.com/reference)
-
 [![Build Status](https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master)](https://app.bitrise.io/app/64cd2ed600a14151)
 
 ![banner](art/spaceX.png)
@@ -7,20 +6,22 @@
 
 ## Table of Contents
 
-* [Introduction :mega:](#introduction_:mega:)
-* [Modules :department_store:](#modules_:department_store:)
-* [Testing :mag_right:](#testing_mag_right)
-* [Demo :calling:](#demo)
-* [Libraries Used :blue_book:](#libraries_used)
-* [License :lock:](#license)
+* [Introduction](#introduction)
+* [Modules](#modules)
+* [Testing](#testing)
+      * [Unit Testing](#unit_testing)
+      * [UI Testing](#ui_testing)
+* [Demo](#demo)
+* [Libraries Used](#libraries_used)
+* [License](#license)
 
-## Introduction :mega:
+## Introduction
 The purpose of this project is to follow up Clean Architecture principles by bringing them to Android. It is worth saying that the idea is to take advantage of the Kotlin Programming Language features plus also pull in lessons learned and ideas from other interesting aproaches like Functional Programming,
  `MVVM` setup, `Coroutines`, `Flow` and `LiveData` (I've kept a branch using `RxJava`). `DarkTheme` support is added too.
 
 ![structure](art/clean_architecture.png)
 
-## Modules :department_store:
+## Modules
 * **app** - The application module with access to **all the application**
 * **data** - Android module that **can only access domain module**
 * **data-api** - Android module that **can only access data module**
@@ -32,7 +33,7 @@ And two extra modules:
 * **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
 * **core-android-test** - Tests classes module (rules, date builders,etc.) that **cannot access any other module**
 
-## Testing :mag_right:
+## Testing
 
 ### Unit Testing
 
@@ -52,13 +53,13 @@ Following the same approach I made in a previous personal project, a month ago [
 
 ![robot](art/robot_pattern.png)
 
-## Demo :calling:
+## Demo
 
 <p align="center">
   <img src="art/Demo-SpaceX.gif">
 </p>
 
-## Libraries Used :blue_book:
+## Libraries Used
 
 * [Coroutines][0] Library support for Kotlin coroutines.
 * [Flows][1] for asynchronous data streams (still in experimental version).
@@ -92,7 +93,7 @@ Following the same approach I made in a previous personal project, a month ago [
 [13]: https://github.com/qhutch/BottomSheetLayout
 [14]: https://github.com/EranBoudjnah/solid
 
-## License :lock:
+## License
 
     Copyright 2020 Fernando Prieto Moyano
 
