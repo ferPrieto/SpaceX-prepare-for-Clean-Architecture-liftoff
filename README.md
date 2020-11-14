@@ -7,14 +7,14 @@
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [Modules](#modules)
-* [Testing](#testing)
-* [Demo](#demo)
-* [Libraries Used](#libraries_used)
-* [License](#license)
+* [Introduction :mega:](#introduction)
+* [Modules :department_store:](#modules)
+* [Testing :mag_right:](#testing)
+* [Demo :calling:](#demo)
+* [Libraries Used :blue_book:](#libraries_used)
+* [License :lock:](#license)
 
-## Introduction
+## Introduction :mega:
 The purpose of this project is to follow up Clean Architecture principles by bringing them to Android. It is worth saying that the idea is to take advantage of the Kotlin Programming Language features plus also pull in lessons learned and ideas from other interesting aproaches like Functional Programming,
  `MVVM` setup, `Coroutines`, `Flow` and `LiveData` (I've kept a branch using `RxJava`). `DarkTheme` support is added too.
 
@@ -92,9 +92,9 @@ Following the same approach I made in a previous personal project, a month ago [
 [13]: https://github.com/qhutch/BottomSheetLayout
 [14]: https://github.com/EranBoudjnah/solid
 
-## License
+## License :lock:
 
-    Copyright 2019 Fernando Prieto Moyano
+    Copyright 2020 Fernando Prieto Moyano
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
