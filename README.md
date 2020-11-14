@@ -6,14 +6,12 @@
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [Modules](#modules)
-* [Testing](#testing)
-      * [Unit Testing](#unit_testing)
-      * [UI Testing](#ui_testing)
-* [Demo](#demo)
-* [Libraries Used](#libraries_used)
-* [License](#license)
+- [Introduction](#introduction)
+- [Modules](#modules)
+- [Testing](#testing)
+- [Demo](#demo)
+- [Libraries Used](#libraries_used)
+- [License](#license)
 
 ## Introduction
 The purpose of this project is to follow up Clean Architecture principles by bringing them to Android. It is worth saying that the idea is to take advantage of the Kotlin Programming Language features plus also pull in lessons learned and ideas from other interesting aproaches like Functional Programming,
