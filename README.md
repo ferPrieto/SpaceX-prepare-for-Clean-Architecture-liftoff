@@ -7,9 +7,9 @@
 
 ## Table of Contents
 
-* [Introduction :mega:](#introduction)
-* [Modules :department_store:](#modules)
-* [Testing :mag_right:](#testing)
+* [Introduction :mega:](#introduction_:mega:)
+* [Modules :department_store:](#modules_:department_store:)
+* [Testing :mag_right:](#testing_mag_right)
 * [Demo :calling:](#demo)
 * [Libraries Used :blue_book:](#libraries_used)
 * [License :lock:](#license)
