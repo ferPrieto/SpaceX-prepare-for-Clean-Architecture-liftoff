@@ -3,6 +3,8 @@ package prieto.fernando.data_api.di
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.OkHttpClient
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.data.SpaceXRemoteSourceImpl
@@ -12,6 +14,7 @@ import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
+@InstallIn(ApplicationComponent::class)
 class ApiModule {
     @Singleton
     @Provides
@@ -39,7 +42,6 @@ class ApiModule {
     fun provideDateFormatter(): DateFormatter =
         DateFormatterImpl()
 
-    @Module
     companion object {
         @Provides
         @JvmStatic

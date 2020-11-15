@@ -4,7 +4,6 @@ import androidx.test.platform.app.InstrumentationRegistry
 import prieto.fernando.data_api.di.NetworkModule
 import prieto.fernando.spacex.BuildConfig
 import prieto.fernando.spacex.SpaceXApp
-import prieto.fernando.spacex.di.AppComponent
 import prieto.fernando.spacex.di.DaggerAppComponent
 
 class TestConfigurationBuilder {

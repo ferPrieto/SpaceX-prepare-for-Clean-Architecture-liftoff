@@ -12,7 +12,6 @@ dependencies {
     api(Dependencies.okHttpLoggingInterceptor)
 
     implementation(Dependencies.jodaTime)
-    implementation(Dependencies.Dagger.daggerAndroid)
 
     testImplementation(Dependencies.jodaTime)
 }

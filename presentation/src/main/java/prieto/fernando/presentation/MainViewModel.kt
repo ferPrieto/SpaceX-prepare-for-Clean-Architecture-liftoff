@@ -1,5 +1,6 @@
 package prieto.fernando.presentation
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -20,7 +21,7 @@ import prieto.fernando.presentation.model.LaunchUiModel
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class MainViewModel : ViewModel() {
+abstract class MainViewModel @ViewModelInject constructor() : ViewModel() {
     abstract fun launches(yearFilterCriteria: Int = -1, ascendantOrder: Boolean = false)
     abstract fun companyInfo()
     abstract fun openLink(link: String)

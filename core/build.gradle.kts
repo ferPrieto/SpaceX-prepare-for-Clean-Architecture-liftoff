@@ -4,8 +4,6 @@ plugins {
 }
 
 dependencies {
-    api(Dependencies.Dagger.dagger)
-    api(Dependencies.Dagger.daggerAndroid)
     api(Dependencies.Dagger.daggerAndroidSupport)
 
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)

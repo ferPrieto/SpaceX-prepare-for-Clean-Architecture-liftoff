@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.multibindings.IntoMap
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -16,6 +18,7 @@ import prieto.fernando.spacex.ui.DashboardFragment
 import prieto.fernando.spacex.ui.MainActivity
 
 @Module
+@InstallIn(ApplicationComponent::class)
 internal abstract class MainActivityModule {
     @ActivityScope
     @ContributesAndroidInjector

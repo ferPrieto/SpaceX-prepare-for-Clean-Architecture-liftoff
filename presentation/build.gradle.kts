@@ -10,10 +10,10 @@ dependencies {
 
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
+    implementation(Dependencies.Hilt.hiltViewModel)
 
     implementation(Dependencies.timber)
     implementation(Dependencies.jodaTime)
-    implementation(Dependencies.Dagger.daggerAndroid)
     implementation(Dependencies.Retrofit.retrofit)
 
     testImplementation(Dependencies.jodaTime)

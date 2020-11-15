@@ -3,9 +3,7 @@ package prieto.fernando.spacex.ui
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mitteloupe.solid.recyclerview.SolidAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.filter_toolbar.*
 import prieto.fernando.core.event.observeEvent
 import prieto.fernando.presentation.MainViewModel
@@ -44,10 +43,10 @@ import kotlinx.android.synthetic.main.view_header.company_description as company
 import kotlinx.android.synthetic.main.view_header.header_error_description as headerErrorDescription
 import kotlinx.android.synthetic.main.view_header.progress_bar_header as progressBarHeader
 
-
+@AndroidEntryPoint
 class DashboardFragment @Inject constructor(
     viewModelFactory: ViewModelProvider.Factory
-) : Fragment() {
+) : Fragment(R.layout.fragment_dashboard) {
     private val viewModel by viewModels<MainViewModel> { viewModelFactory }
 
     private var launchesAdapter: SolidAdapter<LaunchViewHolder, LaunchUiModel>? = null
@@ -55,7 +54,7 @@ class DashboardFragment @Inject constructor(
     private var linkWikipedia = ""
     private val clickListener = object : ClickListener {
         override fun onItemClicked(urls: Link) {
-            when (urls) { 
+            when (urls) {
                 is Link.OneLink -> showOneOptionSheet(urls)
                 is Link.TwoLinks -> showTwoOptionsSheet(urls)
                 else -> hideSheet()
@@ -71,12 +70,6 @@ class DashboardFragment @Inject constructor(
             bottomSheet.expand()
         }
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = inflater.inflate(R.layout.fragment_dashboard, container, false)!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

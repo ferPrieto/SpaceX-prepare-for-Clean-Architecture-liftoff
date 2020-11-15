@@ -8,7 +8,6 @@ dependencies {
     testImplementation(project(ProjectModules.coreAndroidTest))
 
     implementation(Dependencies.jodaTime)
-    implementation(Dependencies.Dagger.daggerAndroid)
 
     testImplementation(Dependencies.jodaTime)
 }
