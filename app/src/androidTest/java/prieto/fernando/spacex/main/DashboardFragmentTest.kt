@@ -1,6 +1,7 @@
 package prieto.fernando.spacex.main
 
 import android.view.View
+import androidx.test.core.app.launchActivity
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
@@ -22,10 +23,10 @@ import prieto.fernando.spacex.webmock.SuccessDispatcher
 class DashboardFragmentTest {
 
     @get:Rule
-    val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
+    val espressoRule = TestConfigurationRule()
 
     @get:Rule
-    val espressoRule = TestConfigurationRule()
+    val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
 
     private val mockWebServer = MockWebServer()
 
@@ -33,6 +34,7 @@ class DashboardFragmentTest {
 
     @Before
     fun setup() {
+        launchActivity<MainActivity>()
         mockWebServer.start(BuildConfig.PORT)
     }
 

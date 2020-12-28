@@ -18,9 +18,10 @@ object AndroidSettings {
 }
 
 object Versions {
-    const val appCompat = "1.1.0"
-    const val navigation = "2.1.0"
-    const val constraintLayout = "1.1.3"
+    const val core = "1.3.2"
+    const val fragment = "1.2.5"
+    const val navigation = "2.3.2"
+    const val constraintLayout = "2.0.4"
     const val legacySupportV4 = "1.0.0"
     const val lifecycleLivedataKtx = "2.2.0-rc01"
     const val livedataTesting = "1.1.1"
@@ -33,7 +34,7 @@ object Versions {
     const val mockito = "2.27.0"
     const val mockitoKotlin = "1.5.0"
     const val gradle = "3.5.1"
-    const val kotlin = "1.3.60"
+    const val kotlin = "1.4.0"
     const val timber = "4.7.1"
     const val coreTesting = "1.1.1"
     const val retrofit = "2.6.2"
@@ -42,10 +43,10 @@ object Versions {
     const val picasso = "2.71828"
     const val bottomSheet = "0.1.9"
     const val jodaTime = "2.10.5"
-    const val mockWebServer = "4.2.1"
+    const val mockWebServer = "4.9.0"
     const val browser = "1.0.0"
     const val solidRecyclerView = "1.0.2"
-    const val kotlinxCoroutines = "1.3.2"
+    const val kotlinxCoroutines = "1.4.2"
     const val hilt = "2.28-alpha"
     const val hiltViewModel = "1.0.0-alpha01"
 }
@@ -63,9 +64,9 @@ object Dependencies {
 
     object AndroidX {
         const val fragmentKtx =
-            "androidx.fragment:fragment-ktx:${Versions.appCompat}"
+            "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val coreKtx =
-            "androidx.core:core-ktx:${Versions.appCompat}"
+            "androidx.core:core-ktx:${Versions.core}"
         const val constraintlayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val legacySupport =

@@ -10,7 +10,7 @@ import dagger.hilt.android.components.ApplicationComponent
 
 @Module
 @InstallIn(ApplicationComponent::class)
-open class AppModule {
+class AppModule {
 
     @Provides
     fun provideContext(app: Application): Context = app.applicationContext
