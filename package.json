@@ -2,6 +2,10 @@
   "name": "github-action-status-check",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferPrieto/Coroutines-Flows-Modularised.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
