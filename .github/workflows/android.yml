@@ -25,4 +25,7 @@ jobs:
         with:
           api-level: 29
           profile: Nexus 6
+          disable-animations: true
+          emulator-options: -noaudio
           script: ./gradlew connectedCheck
+
