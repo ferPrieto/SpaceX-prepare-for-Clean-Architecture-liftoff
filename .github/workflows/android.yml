@@ -20,6 +20,14 @@ jobs:
         run: ./gradlew lint
       - name: Run Unit Tests
         run: ./gradlew test
+      - name: Run Android Emulator
+            uses: reactivecircus/android-emulator-runner@v2
+            with:
+              api-level: ${{ matrix.api-level }}
+              target: ${{ matrix.target }}
+              arch: x86_64
+              profile: Nexus 6
+              script: ./gradlew connectedCheck
       - name: Run Unit Tests
         run: ./gradlew connectedAndroidTest
 
