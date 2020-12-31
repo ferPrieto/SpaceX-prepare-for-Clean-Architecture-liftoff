@@ -14,13 +14,17 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Make Gradle executable
       - name: Build with Gradle
         run: ./gradlew build
       - name: Run lint
         run: ./gradlew lint
       - name: Run Unit Tests
         run: ./gradlew test
-      - name: Run Unit Tests
-        run: ./gradlew connectedAndroidTest
+          # name: Run Android Emulator
+          #  uses: reactivecircus/android-emulator-runner@v2
+          # with:
+          #    api-level: 29
+          #   profile: Nexus 6
+        #    disable-animations: true
+      #    script: ./gradlew connectedCheck
 
