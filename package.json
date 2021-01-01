@@ -2,6 +2,10 @@
   "name": "github-action-status-check",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddharthkp/bundlesize.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
