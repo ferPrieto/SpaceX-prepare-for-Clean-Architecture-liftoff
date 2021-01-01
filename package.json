@@ -4,16 +4,18 @@
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/siddharthkp/bundlesize.git"
+    "url": "git+https://github.com/ferPrieto/Coroutines-Flows-Modularised.git"
   },
   "scripts": {
+    "build": "webpack --config webpack.conf.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "Mitch Heddles <mitchell.heddles@gmail.com>",
   "keywords": [
     "action",
     "status",
-    "bundlesize"
+    "bundlesize",
+    "build"
   ],
   "license": "MIT",
   "dependencies": {

@@ -23,7 +23,7 @@ jobs:
       - name: Install and build
         run: |
           npm install
-          npm run build
+          npm run build:production
       - name: Run status checks
         run: node ../../status-checks
         env:
