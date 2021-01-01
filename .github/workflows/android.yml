@@ -25,6 +25,6 @@ jobs:
           npm install
           npm run build
       - name: Run status checks
-        run: node ../../status-checks
+        run: node ./status-checks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
