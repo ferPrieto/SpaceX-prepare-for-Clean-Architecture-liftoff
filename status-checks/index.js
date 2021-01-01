@@ -13,7 +13,7 @@ function getCurrentCommitSha() {
 }
 
 // The SHA provied by GITHUB_SHA is the merge (PR) commit.
-// We need to get the current commit sha ourself.
+// We need to get the current commit sha yourself.
 const sha = getCurrentCommitSha();
 
 async function setStatus(context, state, description) {

@@ -7,10 +7,10 @@
     "url": "git+https://github.com/ferPrieto/Coroutines-Flows-Modularised.git"
   },
   "scripts": {
-    "build": "webpack --config webpack.conf.js",
+    "build": "GITHUB_REPOSITORY=owner/repo GITHUB_TOKEN=secrets.GITHUB_TOKEN node ./status-checks",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "author": "Mitch Heddles <mitchell.heddles@gmail.com>",
+  "author": "ferPrieto",
   "keywords": [
     "action",
     "status",
