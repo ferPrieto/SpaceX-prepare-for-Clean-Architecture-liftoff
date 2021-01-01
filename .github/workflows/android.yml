@@ -12,13 +12,14 @@ jobs:
       matrix:
         node-version: [10.x]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         with:
-        ref: ${{ github.head_ref }}
+          # Checkout the head ref instead of the PR branch that github creates.
+          ref: ${{ github.head_ref }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-            node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node-version }}
       - name: Install and build
         run: |
           npm install
@@ -26,4 +27,4 @@ jobs:
       - name: Run status checks
         run: node ../../status-checks
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
