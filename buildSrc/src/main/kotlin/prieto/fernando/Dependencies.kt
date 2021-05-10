@@ -137,7 +137,6 @@ object TestDependencies {
             "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val espressoContrib =
             "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
-        const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.androidxTest}"
         const val junit =
             "androidx.test.ext:junit:${Versions.androidxJunit}"
         const val coreTesting =
