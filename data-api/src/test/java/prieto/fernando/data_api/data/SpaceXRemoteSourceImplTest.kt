@@ -5,6 +5,8 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
@@ -35,10 +37,12 @@ class SpaceXRemoteSourceImplTest {
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
+    @ExperimentalCoroutinesApi
     @JvmField
     @Rule
     val mainCoroutineRule = MainCoroutineRule()
 
+    @FlowPreview
     @Before
     fun setUp() {
         cut = SpaceXRemoteSourceImpl(
@@ -48,6 +52,7 @@ class SpaceXRemoteSourceImplTest {
         )
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun `When getCompanyInfo then apiService invoked`() {
         runBlockingTest {
@@ -61,6 +66,7 @@ class SpaceXRemoteSourceImplTest {
         }
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun `When getAllLaunches then apiService invoked`() {
         runBlockingTest {
