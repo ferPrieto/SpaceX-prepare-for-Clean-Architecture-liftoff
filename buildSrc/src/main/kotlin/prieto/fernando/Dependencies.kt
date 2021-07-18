@@ -39,7 +39,7 @@ object Versions {
     const val coreTesting = "1.1.1"
     const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
-    const val okhttpLoggingInterceptor = "4.2.1"
+    const val okhttpLoggingInterceptor = "4.9.1"
     const val picasso = "2.71828"
     const val bottomSheet = "0.1.9"
     const val jodaTime = "2.10.8"
