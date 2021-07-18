@@ -1,7 +1,7 @@
 [![Platform](https://img.shields.io/badge/platform-android-brightgreen)](https://developer.android.com/reference)
 [![Build Status](https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master)](https://app.bitrise.io/app/64cd2ed600a14151)
 
-![banner](art/spaceX.png)
+![banner](art/spaceX.jpg)
 # SpaceX :rocket:
 
 ## Table of Contents
@@ -14,8 +14,8 @@
 - [License](#license)
 
 ## Introduction
-The purpose of this project is to follow up Clean Architecture principles by bringing them to Android. It is worth saying that the idea is to take advantage of the Kotlin Programming Language features plus also pull in lessons learned and ideas from other interesting aproaches like Functional Programming,
- `MVVM` setup, `Coroutines`, `Flow` and `LiveData` (I've kept a branch using `RxJava`). `DarkTheme` support is added too.
+The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
+This project summarises some of the general use cases and needs that could be demanded on a production project using: `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
 ![structure](art/clean_architecture.png)
 
@@ -42,14 +42,13 @@ There are some highlights:
 
 ### UI Testing
 
-Following the same approach I made in a previous personal project, a month ago [Medium Post][post], I've used a dynamic test configuration.
+I opted for a dynamic test configuration, so it's possible to inject different configurations as peer need. Find more info in my post right here :point_right: [Medium Post][post]
 * In order to mock the responses and use them for instrumentation testing, I've used MockWebServer.
 * In order to give a concise and clean face of the Espresso tests, I've applied [Robot Pattern][jake].
 
 [post]:  https://medium.com/@f.prieto.moyano/mockwebserver-dagger2-with-style-b5367698ce13
 [jake]:  https://academy.realm.io/posts/kau-jake-wharton-testing-robots/
 
-![robot](art/robot_pattern.png)
 
 ## Demo
 
@@ -93,7 +92,7 @@ Following the same approach I made in a previous personal project, a month ago [
 
 ## License
 
-    Copyright 2020 Fernando Prieto Moyano
+    Copyright 2021 Fernando Prieto Moyano
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
