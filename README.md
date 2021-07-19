@@ -59,7 +59,7 @@ I opted for a dynamic test configuration, so it's possible to inject different c
 ## Libraries Used
 
 * [Coroutines][0] Library support for Kotlin coroutines.
-* [Flows][1] for asynchronous data streams (still in experimental version).
+* [Flows][1] for asynchronous data streams.
 * [LiveData][2] for reactive style programming (from VM to UI).
 * [Navigation][3] for in-app navigation.
 * [Dagger2][4] for dependency injection.

@@ -65,6 +65,20 @@ open class AndroidPlugin : Plugin<Project> {
             targetSdkVersion(AndroidSettings.targetSdk)
 
             testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
+
+            packagingOptions {
+                exclude("META-INF/DEPENDENCIES")
+                exclude("META-INF/LICENSE")
+                exclude("META-INF/LICENSE.txt")
+                exclude("META-INF/license.txt")
+                exclude("META-INF/NOTICE")
+                exclude("META-INF/NOTICE.txt")
+                exclude("META-INF/notice.txt")
+                exclude("META-INF/ASL2.0")
+                exclude("META-INF/*.kotlin_module")
+                exclude("META-INF/AL2.0")
+                exclude("META-INF/LGPL2.1")
+            }
         }
 
         testOptions {
