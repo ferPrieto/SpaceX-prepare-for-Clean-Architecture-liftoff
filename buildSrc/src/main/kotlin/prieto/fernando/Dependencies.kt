@@ -33,7 +33,7 @@ object Versions {
     const val junitPlatformRunner = "1.0.2"
     const val mockito = "2.27.0"
     const val mockitoKotlin = "1.5.0"
-    const val gradle = "3.5.1"
+    const val gradle = "4.0.0"
     const val kotlin = "1.4.0"
     const val timber = "4.7.1"
     const val coreTesting = "1.1.1"
