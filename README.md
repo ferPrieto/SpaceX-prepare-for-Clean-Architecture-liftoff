@@ -1,8 +1,8 @@
 [![Platform](https://img.shields.io/badge/platform-android-brightgreen)](https://developer.android.com/reference)
 [![Build Status](https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master)](https://app.bitrise.io/app/64cd2ed600a14151)
 
-![banner](art/spaceX.jpg)
-# Coroutines Flows Modularised :rocket:
+![banner](art/CoroutinesFlows-Modularised.jpg)
+# Coroutines Flows - Modularised :rocket:
 
 ## Table of Contents
 
