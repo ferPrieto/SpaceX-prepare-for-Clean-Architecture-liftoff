@@ -103,16 +103,16 @@ class DashboardFragment @Inject constructor(
     }
 
     private fun setViewModelObservers() {
-        viewModel.launches.observe(viewLifecycleOwner, Observer { launches ->
+        viewModel.launches.observe(viewLifecycleOwner, { launches ->
             bindLaunches(launches)
         })
-        viewModel.companyInfo.observe(viewLifecycleOwner, Observer { companyInfo ->
+        viewModel.companyInfo.observe(viewLifecycleOwner, { companyInfo ->
             bindCompanyInfo(companyInfo)
         })
-        viewModel.loadingHeader.observe(viewLifecycleOwner, Observer { show ->
+        viewModel.loadingHeader.observe(viewLifecycleOwner, { show ->
             showLoadingHeader(show)
         })
-        viewModel.loadingBody.observe(viewLifecycleOwner, Observer { show ->
+        viewModel.loadingBody.observe(viewLifecycleOwner, { show ->
             showLoadingBody(show)
         })
         viewModel.openLink.observeEvent(this) { link ->

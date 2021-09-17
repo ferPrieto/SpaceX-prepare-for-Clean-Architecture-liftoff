@@ -1,12 +1,13 @@
 [![Platform](https://img.shields.io/badge/platform-android-brightgreen)](https://developer.android.com/reference)
 [![Build Status](https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master)](https://app.bitrise.io/app/64cd2ed600a14151)
 
-![banner](art/CoroutinesFlows-Modularised.jpg)
 # Coroutines Flows - Modularised :rocket:
+![banner](art/CoroutinesFlows-Modularised.jpg)
+
 
 ## Table of Contents
-
 - [Introduction](#introduction)
+- [On Going Work](#on_going_work)
 - [Modules](#modules)
 - [Testing](#testing)
 - [Demo](#demo)
@@ -18,6 +19,12 @@ The purpose of this project is to consolidate some of the learned insights throu
 This project summarises some of the general use cases and needs that could be demanded on a production project using: `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
 ![structure](art/clean_architecture.png)
+
+## On Going Work
+:on: Paging 2 library integration
+:on: UI Update
+:soon: Jetpack Compose
+
 
 ## Modules
 * **app** - The application module with access to **all the application**
@@ -57,7 +64,6 @@ I opted for a dynamic test configuration, so it's possible to inject different c
 </p>
 
 ## Libraries Used
-
 * [Coroutines][0] Library support for Kotlin coroutines.
 * [Flows][1] for asynchronous data streams.
 * [LiveData][2] for reactive style programming (from VM to UI).
@@ -91,7 +97,6 @@ I opted for a dynamic test configuration, so it's possible to inject different c
 [14]: https://github.com/EranBoudjnah/solid
 
 ## License
-
     Copyright 2021 Fernando Prieto Moyano
 
     Licensed under the Apache License, Version 2.0 (the "License");

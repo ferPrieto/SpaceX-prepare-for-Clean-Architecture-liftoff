@@ -23,7 +23,7 @@ object Versions {
     const val navigation = "2.3.2"
     const val constraintLayout = "2.0.4"
     const val legacySupportV4 = "1.0.0"
-    const val lifecycleLivedataKtx = "2.2.0-rc01"
+    const val lifecycleLivedataKtx = "2.2.0"
     const val livedataTesting = "1.1.1"
     const val dagger = "2.24"
     const val androidxTest = "1.2.0"
