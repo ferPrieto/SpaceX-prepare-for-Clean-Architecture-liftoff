@@ -30,8 +30,6 @@ abstract class MainViewModel : ViewModel() {
     abstract val showDialog: LiveData<Event<Unit>>
 }
 
-@ExperimentalCoroutinesApi
-@FlowPreview
 class MainViewModelImpl @Inject constructor(
     private val getLaunches: GetLaunches,
     private val getCompanyInfo: GetCompanyInfo,
