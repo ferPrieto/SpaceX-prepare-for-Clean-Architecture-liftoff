@@ -10,7 +10,7 @@ import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Before
@@ -19,6 +19,7 @@ import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core.event.Event
 import prieto.fernando.core_android_test.util.buildDate
@@ -84,8 +85,6 @@ class MainViewModelTest {
                     false
                 )
             )
-            val launchesChannel = ConflatedBroadcastChannel<List<LaunchDomainModel>>()
-            launchesChannel.offer(launchDomainModels)
             val expected = listOf(
                 LaunchUiModel(
                     "missionName",
@@ -106,7 +105,10 @@ class MainViewModelTest {
                     false
                 )
             )
-            whenever(getLaunches.execute(-1, false)).thenReturn(launchesChannel.asFlow())
+            val flow = flow {
+                emit(launchDomainModels)
+            }
+            whenever(getLaunches.execute(-1, false)).thenReturn(flow)
             whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
 
             // When
@@ -133,8 +135,6 @@ class MainViewModelTest {
                 1,
                 23
             )
-            val companyInfoChannel = ConflatedBroadcastChannel<CompanyInfoDomainModel>()
-            companyInfoChannel.offer(companyInfoDomainModel)
             val expected = CompanyInfoUiModel(
                 "name",
                 "founder",
@@ -143,7 +143,10 @@ class MainViewModelTest {
                 1,
                 23
             )
-            whenever(getCompanyInfo.execute()).thenReturn(companyInfoChannel.asFlow())
+            val flow = flow {
+                emit(companyInfoDomainModel)
+            }
+            whenever(getCompanyInfo.execute()).thenReturn(flow)
             whenever(companyInfoMapper.toUiModel(companyInfoDomainModel)).thenReturn(expected)
 
             // When

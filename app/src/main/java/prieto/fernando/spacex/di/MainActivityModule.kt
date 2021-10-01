@@ -7,7 +7,6 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import prieto.fernando.core.di.FragmentKey
 import prieto.fernando.core.di.ViewModelKey
 import prieto.fernando.presentation.MainViewModel
@@ -26,7 +25,6 @@ internal abstract class MainActivityModule {
     @FragmentKey(DashboardFragment::class)
     abstract fun dashboardFragment(dashboardFragment: DashboardFragment): Fragment
 
-    @FlowPreview
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)

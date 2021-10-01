@@ -1,14 +1,8 @@
 package prieto.fernando.presentation
 
 import androidx.lifecycle.*
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import prieto.fernando.core.event.Event
 import prieto.fernando.core.event.eventOf
 import prieto.fernando.domain.usecase.GetCompanyInfo
@@ -36,19 +30,20 @@ abstract class MainViewModel : ViewModel() {
     abstract val showDialog: LiveData<Event<Unit>>
 }
 
-@ExperimentalCoroutinesApi
-@FlowPreview
 class MainViewModelImpl @Inject constructor(
     private val getLaunches: GetLaunches,
     private val getCompanyInfo: GetCompanyInfo,
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper,
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
 ) : MainViewModel() {
-    private val openLinkChannel = ConflatedBroadcastChannel<Event<String>>()
-    private val showDialogChannel = ConflatedBroadcastChannel<Event<Unit>>()
 
-    override val openLink: LiveData<Event<String>> = openLinkChannel.asFlow().asLiveData()
-    override val showDialog: LiveData<Event<Unit>> = showDialogChannel.asFlow().asLiveData()
+    private val _openLink = MediatorLiveData<Event<String>>()
+    private val _showDialog = MediatorLiveData<Event<Unit>>()
+
+    override val openLink: LiveData<Event<String>>
+        get() = _openLink
+    override val showDialog: LiveData<Event<Unit>>
+        get() = _showDialog
 
     private val _loadingHeader = MediatorLiveData<Boolean>()
     override val loadingHeader: LiveData<Boolean>
@@ -117,10 +112,14 @@ class MainViewModelImpl @Inject constructor(
     }
 
     override fun openLink(link: String) {
-        openLinkChannel.offer(eventOf(link))
+        viewModelScope.launch {
+            _openLink.postValue(eventOf(link))
+        }
     }
 
     override fun onFilterClicked() {
-        showDialogChannel.offer(eventOf(Unit))
+        viewModelScope.launch {
+            _showDialog.postValue(eventOf(Unit))
+        }
     }
 }
