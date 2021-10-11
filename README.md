@@ -18,7 +18,7 @@
 The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
 This project summarises some of the general use cases and needs that could be demanded on a production project using: `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
-![structure](art/clean_architecture_diagram.jpg)
+![structure](art/clean_architecture.jpg)
 
 ## On Going Work
 :on: Paging 2 library integration
