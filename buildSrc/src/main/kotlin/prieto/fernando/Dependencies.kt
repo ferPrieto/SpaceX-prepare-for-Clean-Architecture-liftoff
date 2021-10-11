@@ -46,7 +46,7 @@ object Versions {
     const val mockWebServer = "4.9.0"
     const val browser = "1.0.0"
     const val solidRecyclerView = "1.0.2"
-    const val kotlinxCoroutines = "1.4.2"
+    const val kotlinxCoroutines = "1.5.2"
 }
 
 object BuildDependencies {
