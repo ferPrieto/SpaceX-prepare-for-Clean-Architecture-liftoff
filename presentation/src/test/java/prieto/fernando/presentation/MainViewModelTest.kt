@@ -64,7 +64,7 @@ class MainViewModelTest {
 
 
     @Test
-    fun `When launches then launchUiModelRetrieved invoked with expected result`() {
+    fun `When launches then launchUiModelRetrieved with expected result`() {
         runBlockingTest {
             // Given
             val launchUiModelRetrievedTestObserver = mock<Observer<List<LaunchUiModel>>>()
@@ -122,7 +122,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `When companyInfo then companyInfoUiModelRetrieved invoked with expected result`() {
+    fun `When companyInfo then companyInfoUiModelRetrieved with expected result`() {
         runBlockingTest {
             // Given
             val companyInfoUiModelRetrievedTestObserver = mock<Observer<CompanyInfoUiModel>>()
