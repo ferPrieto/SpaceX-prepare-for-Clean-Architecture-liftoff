@@ -5,5 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorAccentSecondary">#2c8a45</color>
     <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#7f7f82</color>
+    <color name="colorTextHighlighted">#58b5e5</color>
     <color name="colorBackground">#FFFFFF</color>
+    <color name="colorItemBackground">#202026</color>
+
 </resources>

@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/card_container"
-    android:layout_marginLeft="@dimen/grid_normal"
-    android:layout_marginTop="@dimen/grid_normal"
-    android:layout_marginRight="@dimen/grid_normal"
-    android:layout_marginBottom="@dimen/grid_normal"
+    app:cardBackgroundColor="@color/colorItemBackground"
+    android:layout_margin="@dimen/grid_normal"
+    app:contentPadding="@dimen/grid_normal"
     app:cardElevation="@dimen/card_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,13 +15,13 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_marginTop="@dimen/grid_small"
             android:layout_marginStart="@dimen/grid_normal"
             android:id="@+id/mission_patch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:src="@android:drawable/ic_menu_zoom"
             tools:ignore="ContentDescription" />
 
@@ -31,8 +30,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/grid_small"
-            android:layout_marginBottom="@dimen/grid_small"
             android:layout_marginStart="@dimen/grid_normal"
             android:layout_marginEnd="@dimen/grid_normal"
             app:layout_constraintEnd_toStartOf="@+id/view_success"
