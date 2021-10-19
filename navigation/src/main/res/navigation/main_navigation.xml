@@ -7,4 +7,8 @@
         android:id="@+id/dashboardFragment"
         android:name="prieto.fernando.spacex.ui.DashboardFragment"/>
 
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="prieto.fernando.spacex.ui.LaunchesFragment"/>
+
 </navigation>

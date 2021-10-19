@@ -13,6 +13,11 @@ android {
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         getByName("debug") {
             isDebuggable = true

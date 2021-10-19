@@ -14,28 +14,22 @@ import prieto.fernando.presentation.model.LaunchUiModel
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class MainViewModel : ViewModel() {
+abstract class LaunchesViewModel : ViewModel() {
     abstract fun launches(yearFilterCriteria: Int = -1, ascendantOrder: Boolean = false)
-    abstract fun companyInfo()
     abstract fun openLink(link: String)
     abstract fun onFilterClicked()
 
-    abstract val companyInfo: LiveData<CompanyInfoUiModel>
     abstract val launches: LiveData<List<LaunchUiModel>>
-    abstract val loadingHeader: LiveData<Boolean>
     abstract val loadingBody: LiveData<Boolean>
-    abstract val headerError: LiveData<Event<Unit>>
     abstract val bodyError: LiveData<Event<Unit>>
     abstract val openLink: LiveData<Event<String>>
     abstract val showDialog: LiveData<Event<Unit>>
 }
 
-class MainViewModelImpl @Inject constructor(
+class LaunchesViewModelImpl @Inject constructor(
     private val getLaunches: GetLaunches,
-    private val getCompanyInfo: GetCompanyInfo,
-    private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper,
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
-) : MainViewModel() {
+) : LaunchesViewModel() {
 
     private val _openLink = MediatorLiveData<Event<String>>()
     private val _showDialog = MediatorLiveData<Event<Unit>>()
@@ -45,17 +39,9 @@ class MainViewModelImpl @Inject constructor(
     override val showDialog: LiveData<Event<Unit>>
         get() = _showDialog
 
-    private val _loadingHeader = MediatorLiveData<Boolean>()
-    override val loadingHeader: LiveData<Boolean>
-        get() = _loadingHeader
-
     private val _loadingBody = MediatorLiveData<Boolean>()
     override val loadingBody: LiveData<Boolean>
         get() = _loadingBody
-
-    private val _companyInfo = MediatorLiveData<CompanyInfoUiModel>()
-    override val companyInfo: LiveData<CompanyInfoUiModel>
-        get() = _companyInfo
 
     private val _launches = MediatorLiveData<List<LaunchUiModel>>()
     override val launches: LiveData<List<LaunchUiModel>>
@@ -65,14 +51,10 @@ class MainViewModelImpl @Inject constructor(
     override val bodyError: LiveData<Event<Unit>>
         get() = _bodyError
 
-    private val _headerError = MediatorLiveData<Event<Unit>>()
-    override val headerError: LiveData<Event<Unit>>
-        get() = _headerError
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
         _loadingBody.value = false
-        _loadingHeader.value = false
     }
 
     override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
@@ -89,24 +71,6 @@ class MainViewModelImpl @Inject constructor(
                         launchesDomainToUiModelMapper.toUiModel(launchesDomainModel)
                     _launches.postValue(launchesUiModel)
                     _loadingBody.value = false
-                }
-        }
-    }
-
-    override fun companyInfo() {
-        viewModelScope.launch(errorHandler) {
-            _loadingHeader.value = true
-            getCompanyInfo.execute()
-                .catch { throwable ->
-                    Timber.e(throwable)
-                    _headerError.postValue(eventOf(Unit))
-                    _loadingHeader.value = false
-                }
-                .collect { companyInfoDomainModel ->
-                    val companyInfoUiModel =
-                        companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)
-                    _companyInfo.postValue(companyInfoUiModel)
-                    _loadingHeader.value = false
                 }
         }
     }

@@ -22,4 +22,7 @@
     <string name="dialog_cancel_button" tools:ignore="ButtonCase">CANCEL</string>
     <string name="dialog_order_criteria">ASC/DESC</string>
 
+    <string name="tab_title_dashboard">Dashboard</string>
+    <string name="tab_title_launches">Launches</string>
+
 </resources>

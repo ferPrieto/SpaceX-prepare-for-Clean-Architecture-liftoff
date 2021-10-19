@@ -2,43 +2,62 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/colorBackground"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground">
 
-    <include
-        android:id="@+id/filter_toolbar"
-        layout="@layout/filter_toolbar"
+    <TextView
+        android:id="@+id/company_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_normal"
+        android:layout_marginEnd="@dimen/grid_normal"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:text="@string/company_title"
+        android:fontFamily="@font/space_grotesk_bold"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/letter_large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/header_container"
-        layout="@layout/view_header"
+    <TextView
+        android:id="@+id/company_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_normal"
+        android:layout_marginEnd="@dimen/grid_normal"
+        android:layout_marginTop="@dimen/grid_semi_large"
+        android:textColor="@color/textColorSecondary"
+        android:fontFamily="@font/space_grotesk_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_title"
+        tools:text="SpaceX was founded by Elon Musk in 2002. It has now 7000 employees, 3 launch sites, and is valued at USD 27500000000" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_header"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/grid_large"
+        android:theme="@style/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filter_toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/body_container"
-        layout="@layout/view_body"
+    <TextView
+        android:id="@+id/header_error_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_small"
+        android:layout_marginTop="@dimen/grid_semi_large"
+        android:gravity="center"
+        android:text="@string/header_error_description"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/letter_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_container" />
-
-    <include
-        android:id="@+id/bottom_sheet_container"
-        layout="@layout/view_bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/company_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

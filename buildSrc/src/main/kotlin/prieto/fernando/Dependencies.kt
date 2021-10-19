@@ -34,7 +34,7 @@ object Versions {
     const val mockito = "3.12.3"
     const val mockitoKotlin = "1.6.0"
     const val gradle = "4.0.0"
-    const val kotlin = "1.4.0"
+    const val kotlin = "1.4.31"
     const val timber = "4.7.1"
     const val lottie = "4.2.0"
     const val coreTesting = "1.1.1"
