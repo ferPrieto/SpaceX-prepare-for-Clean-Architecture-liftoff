@@ -26,19 +26,18 @@ class DashboardFragment @Inject constructor(
 
     private lateinit var binding: FragmentDashboardBinding
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupNavigation()
-        setViewModelObservers()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private fun setupNavigation() {
-        requireActivity().let { fragmentActivity ->
-            (fragmentActivity as AppCompatActivity).setSupportActionBar(toolbar)
-            NavigationUI.setupActionBarWithNavController(
-                fragmentActivity, findNavController()
-            )
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setViewModelObservers()
     }
 
     private fun setViewModelObservers() {

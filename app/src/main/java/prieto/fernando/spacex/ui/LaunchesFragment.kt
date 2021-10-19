@@ -22,25 +22,21 @@ import prieto.fernando.core.event.observeEvent
 import prieto.fernando.presentation.LaunchesViewModel
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
+import prieto.fernando.spacex.databinding.FragmentLaunchesBinding
 import prieto.fernando.spacex.ui.adapter.ClickListener
 import prieto.fernando.spacex.ui.adapter.LaunchViewBinder
 import prieto.fernando.spacex.ui.adapter.LaunchViewHolder
 import prieto.fernando.spacex.ui.adapter.LaunchViewProvider
 import prieto.fernando.spacex.ui.util.UrlUtils
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.view_body.body_error_description as bodyErrorDescription
-import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
-import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
-import kotlinx.android.synthetic.main.view_bottom_sheet.bottom_sheet as bottomSheet
-import kotlinx.android.synthetic.main.view_bottom_sheet.wikipedia_title as wikipediaTitle
-import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_title as youtubeTitle
-import kotlinx.android.synthetic.main.view_header.header_error_description as headerErrorDescription
 
 
 class LaunchesFragment @Inject constructor(
     viewModelFactory: ViewModelProvider.Factory
 ) : Fragment(R.layout.fragment_launches) {
     private val viewModel by viewModels<LaunchesViewModel> { viewModelFactory }
+
+    private lateinit var binding: FragmentLaunchesBinding
 
     private var launchesAdapter: SolidAdapter<LaunchViewHolder, LaunchUiModel>? = null
     private var linkYoutube = ""
@@ -57,28 +53,27 @@ class LaunchesFragment @Inject constructor(
     }
 
     private fun expandOrCollapseBottomSheet() {
-        if (bottomSheet.isExpended()) {
-            bottomSheet.collapse()
+        if (binding.bottomSheet.isExpended()) {
+            binding.bottomSheet.collapse()
         } else {
-            bottomSheet.expand()
+            binding.bottomSheet.expand()
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentLaunchesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupBottomSheet()
-        setupNavigation()
         setViewModelObservers()
-    }
-
-    private fun setupNavigation() {
-        requireActivity().let { fragmentActivity ->
-            (fragmentActivity as AppCompatActivity).setSupportActionBar(toolbar)
-            NavigationUI.setupActionBarWithNavController(
-                fragmentActivity, findNavController()
-            )
-        }
     }
 
     private fun setViewModelObservers() {
@@ -100,9 +95,17 @@ class LaunchesFragment @Inject constructor(
     }
 
     private fun setupBottomSheet() {
-        bottomSheet.animationDuration = 500
-        youtubeTitle.setOnClickListener { viewModel.openLink(linkYoutube) }
-        wikipediaTitle.setOnClickListener { viewModel.openLink(linkWikipedia) }
+        binding.bottomSheet.animationDuration = 500
+        binding.youtubeTitle.setOnClickListener {
+            viewModel.openLink(
+                linkYoutube
+            )
+        }
+        binding.wikipediaTitle.setOnClickListener {
+            viewModel.openLink(
+                linkWikipedia
+            )
+        }
     }
 
     private fun setupRecyclerView() {
@@ -111,11 +114,10 @@ class LaunchesFragment @Inject constructor(
             { view, _ -> LaunchViewHolder(view) },
             LaunchViewBinder(context = requireContext(), clickListener = clickListener)
         )
-        launchesRecyclerView.adapter = launchesAdapter
-        val linearLayoutManager = LinearLayoutManager(context)
-        launchesRecyclerView.layoutManager = linearLayoutManager
-        launchesRecyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
-            bottomSheet.collapse()
+        binding.launchesRecyclerView.adapter = launchesAdapter
+        binding.launchesRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.launchesRecyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
+            binding.bottomSheet.collapse()
         }
     }
 
@@ -127,12 +129,12 @@ class LaunchesFragment @Inject constructor(
     private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
         launchesUiModel?.let { launches ->
             launchesAdapter?.setItems(launches)
-            bodyErrorDescription.isVisible = false
+            binding.bodyErrorDescription.isVisible = false
         }
     }
 
     private fun showLoadingBody(loading: Boolean) {
-        progressBarBody.isVisible = loading
+        binding.progressBarBody.isVisible = loading
     }
 
     private fun showTwoOptionsSheet(link: Link.TwoLinks) {
@@ -159,12 +161,12 @@ class LaunchesFragment @Inject constructor(
     }
 
     private fun setItemsVisibility(showYoutube: Boolean, showWikipedia: Boolean) {
-        wikipediaTitle.isVisible = showWikipedia
-        youtubeTitle.isVisible = showYoutube
+        binding.wikipediaTitle.isVisible = showWikipedia
+        binding.youtubeTitle.isVisible = showYoutube
     }
 
     private fun hideSheet() {
-        bottomSheet.collapse()
+        binding.bottomSheet.collapse()
     }
 
     private fun openLink(link: String) {
@@ -172,13 +174,8 @@ class LaunchesFragment @Inject constructor(
     }
 
     private fun showBodyError() {
-        bodyErrorDescription.isVisible = true
-        launchesRecyclerView.isVisible = false
-    }
-
-    private fun showHeaderError() {
-        headerErrorDescription.isVisible = true
-        launchesRecyclerView.isVisible = false
+        binding.bodyErrorDescription.isVisible = true
+        binding.launchesRecyclerView.isVisible = false
     }
 
     private fun showDialog() {
