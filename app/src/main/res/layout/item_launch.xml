@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/card_container"
     app:cardBackgroundColor="@color/colorItemBackground"
+    app:cardCornerRadius="@dimen/item_launch_corner_radius"
     android:layout_margin="@dimen/grid_normal"
     app:contentPadding="@dimen/grid_normal"
     app:cardElevation="@dimen/card_elevation">
@@ -15,7 +16,6 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_marginStart="@dimen/grid_normal"
             android:id="@+id/mission_patch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,8 +69,6 @@
             android:id="@+id/view_success"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/grid_normal"
-            android:layout_marginEnd="@dimen/grid_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@android:drawable/ic_menu_zoom"

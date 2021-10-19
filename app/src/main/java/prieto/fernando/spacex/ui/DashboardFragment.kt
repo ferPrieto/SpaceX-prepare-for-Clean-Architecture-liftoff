@@ -36,9 +36,7 @@ import kotlinx.android.synthetic.main.view_body.body_error_description as bodyEr
 import kotlinx.android.synthetic.main.view_body.launches_recycler_view as launchesRecyclerView
 import kotlinx.android.synthetic.main.view_body.progress_bar_body as progressBarBody
 import kotlinx.android.synthetic.main.view_bottom_sheet.bottom_sheet as bottomSheet
-import kotlinx.android.synthetic.main.view_bottom_sheet.wikipedia_icon as wikipediaIcon
 import kotlinx.android.synthetic.main.view_bottom_sheet.wikipedia_title as wikipediaTitle
-import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_icon as youtubeIcon
 import kotlinx.android.synthetic.main.view_bottom_sheet.youtube_title as youtubeTitle
 import kotlinx.android.synthetic.main.view_header.company_description as companyDescription
 import kotlinx.android.synthetic.main.view_header.header_error_description as headerErrorDescription
@@ -55,7 +53,7 @@ class DashboardFragment @Inject constructor(
     private var linkWikipedia = ""
     private val clickListener = object : ClickListener {
         override fun onItemClicked(urls: Link) {
-            when (urls) { 
+            when (urls) {
                 is Link.OneLink -> showOneOptionSheet(urls)
                 is Link.TwoLinks -> showTwoOptionsSheet(urls)
                 else -> hideSheet()
@@ -131,9 +129,7 @@ class DashboardFragment @Inject constructor(
 
     private fun setupBottomSheet() {
         bottomSheet.animationDuration = 500
-        youtubeIcon.setOnClickListener { viewModel.openLink(linkYoutube) }
         youtubeTitle.setOnClickListener { viewModel.openLink(linkYoutube) }
-        wikipediaIcon.setOnClickListener { viewModel.openLink(linkWikipedia) }
         wikipediaTitle.setOnClickListener { viewModel.openLink(linkWikipedia) }
     }
 
@@ -141,7 +137,7 @@ class DashboardFragment @Inject constructor(
         launchesAdapter = SolidAdapter(
             LaunchViewProvider(layoutInflater),
             { view, _ -> LaunchViewHolder(view) },
-            LaunchViewBinder(context = context!!, clickListener = clickListener)
+            LaunchViewBinder(context = requireContext(), clickListener = clickListener)
         )
         launchesRecyclerView.adapter = launchesAdapter
         val linearLayoutManager = LinearLayoutManager(context)
@@ -215,9 +211,7 @@ class DashboardFragment @Inject constructor(
     }
 
     private fun setItemsVisibility(showYoutube: Boolean, showWikipedia: Boolean) {
-        wikipediaIcon.isVisible = showWikipedia
         wikipediaTitle.isVisible = showWikipedia
-        youtubeIcon.isVisible = showYoutube
         youtubeTitle.isVisible = showYoutube
     }
 

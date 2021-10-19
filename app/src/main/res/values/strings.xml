@@ -13,7 +13,7 @@
     <string name="company_title">COMPANY</string>
     <string name="header_error_description">Sorry, there\'s no company information yet.</string>
     <string name="body_error_description">Sorry, nothing to show here yet.</string>
-    <string name="bottom_sheet_youtube">Youtube</string>
+    <string name="bottom_sheet_youtube">YouTube</string>
     <string name="bottom_sheet_wikipedia">Wikipedia</string>
 
     <string name="dialog_title">Filter by year</string>

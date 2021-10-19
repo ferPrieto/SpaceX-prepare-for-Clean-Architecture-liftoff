@@ -5,71 +5,62 @@
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <com.qhutch.bottomsheetlayout.BottomSheetLayout
+        android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_sheet"
         android:layout_alignParentBottom="true"
-        android:paddingBottom="@dimen/grid_xlarge"
-        android:paddingTop="@dimen/grid_xlarge"
         android:background="@color/colorBackground"
+        android:paddingTop="@dimen/grid_xlarge"
+        android:paddingBottom="@dimen/grid_xlarge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/grid_xlarge">
-
-            <ImageView
-                android:id="@+id/youtube_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/grid_normal"
-                android:layout_marginTop="@dimen/grid_normal"
-                android:src="@drawable/ic_youtube"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/youtube_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColorPrimary"
-                android:layout_marginStart="@dimen/grid_normal"
-                android:layout_marginTop="@dimen/grid_normal"
-                android:text="@string/bottom_sheet_youtube"
-                android:textSize="@dimen/letter_semi_large"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/youtube_icon"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/wikipedia_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/grid_normal"
-                android:layout_marginTop="@dimen/grid_large"
-                android:src="@drawable/ic_wikipedia"
+                android:drawablePadding="@dimen/grid_normal"
+                android:fontFamily="@font/space_grotesk_bold"
+                android:text="@string/bottom_sheet_youtube"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/letter_large"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_youtube"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/separator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/youtube_icon"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="1dp"
+                android:layout_height="@dimen/grid_large"
+                android:background="@color/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/wikipedia_title"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textColorPrimary"
-                android:layout_marginStart="@dimen/grid_normal"
-                android:layout_marginTop="@dimen/grid_large"
+                android:drawablePadding="@dimen/grid_normal"
+                android:fontFamily="@font/space_grotesk_bold"
                 android:text="@string/bottom_sheet_wikipedia"
-                android:textSize="@dimen/letter_semi_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/letter_large"
                 android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_wikipedia"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/wikipedia_icon"
-                app:layout_constraintTop_toBottomOf="@+id/youtube_title" />
+                app:layout_constraintStart_toStartOf="@id/separator"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.qhutch.bottomsheetlayout.BottomSheetLayout>
