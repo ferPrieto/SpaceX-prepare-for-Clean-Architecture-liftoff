@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
 
     <TextView
         android:id="@+id/launches_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_normal"
-        android:layout_marginTop="@dimen/grid_large"
+        android:layout_marginTop="@dimen/grid_xlarge"
         android:fontFamily="@font/space_grotesk_bold"
         android:text="@string/launches_title"
         android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/letter_large"
+        android:textSize="@dimen/letter_xlarge"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,13 +23,13 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/launches_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/launches_title"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
         app:lottie_rawRes="@raw/rocket_launched" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -36,9 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/grid_semi_large"
+        android:layoutAnimation="@anim/layout_animation"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launches_animation"
+        app:layout_constraintTop_toBottomOf="@+id/launches_title"
         tools:listitem="@layout/item_launch" />
 
     <TextView
@@ -51,16 +54,7 @@
         android:text="@string/body_error_description"
         android:textColor="@color/textColorPrimary"
         android:textSize="@dimen/letter_normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/launches_title" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar_body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:theme="@style/progressBar"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/launches_title" />
@@ -70,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorBackground"
+        android:background="@color/colorBottomTrayBackground"
         android:paddingTop="@dimen/grid_xlarge"
         android:paddingBottom="@dimen/grid_xlarge"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,11 +80,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/grid_normal"
-                android:fontFamily="@font/space_grotesk_bold"
+                android:fontFamily="@font/space_grotesk_semibold"
                 android:text="@string/bottom_sheet_youtube"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/letter_large"
-                android:textStyle="bold"
                 app:drawableStartCompat="@drawable/ic_youtube"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/separator"
@@ -112,11 +105,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/grid_normal"
-                android:fontFamily="@font/space_grotesk_bold"
+                android:fontFamily="@font/space_grotesk_semibold"
                 android:text="@string/bottom_sheet_wikipedia"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/letter_large"
-                android:textStyle="bold"
                 app:drawableStartCompat="@drawable/ic_wikipedia"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

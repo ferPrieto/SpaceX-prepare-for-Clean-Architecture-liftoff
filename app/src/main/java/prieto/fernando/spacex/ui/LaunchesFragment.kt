@@ -1,5 +1,6 @@
 package prieto.fernando.spacex.ui
 
+import android.animation.Animator
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
@@ -8,16 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Switch
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mitteloupe.solid.recyclerview.SolidAdapter
-import kotlinx.android.synthetic.main.filter_toolbar.*
 import prieto.fernando.core.event.observeEvent
 import prieto.fernando.presentation.LaunchesViewModel
 import prieto.fernando.presentation.model.LaunchUiModel
@@ -46,7 +43,7 @@ class LaunchesFragment @Inject constructor(
             when (urls) {
                 is Link.OneLink -> showOneOptionSheet(urls)
                 is Link.TwoLinks -> showTwoOptionsSheet(urls)
-                else -> hideSheet()
+                else -> binding.bottomSheet.collapse()
             }
             expandOrCollapseBottomSheet()
         }
@@ -114,10 +111,12 @@ class LaunchesFragment @Inject constructor(
             { view, _ -> LaunchViewHolder(view) },
             LaunchViewBinder(context = requireContext(), clickListener = clickListener)
         )
-        binding.launchesRecyclerView.adapter = launchesAdapter
-        binding.launchesRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.launchesRecyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
-            binding.bottomSheet.collapse()
+        binding.launchesRecyclerView.apply {
+            adapter = launchesAdapter
+            layoutManager = LinearLayoutManager(context)
+            setOnScrollChangeListener { _, _, _, _, _ ->
+                binding.bottomSheet.collapse()
+            }
         }
     }
 
@@ -134,7 +133,26 @@ class LaunchesFragment @Inject constructor(
     }
 
     private fun showLoadingBody(loading: Boolean) {
-        binding.progressBarBody.isVisible = loading
+        if (loading) {
+            binding.launchesAnimation.apply {
+                playAnimation()
+                addAnimatorListener(object : Animator.AnimatorListener {
+                    override fun onAnimationRepeat(animation: Animator?) {
+                    }
+
+                    override fun onAnimationEnd(animation: Animator?) {
+                        isVisible = false
+                        binding.launchesRecyclerView.isVisible = true
+                    }
+
+                    override fun onAnimationCancel(animation: Animator?) {
+                    }
+
+                    override fun onAnimationStart(animation: Animator?) {
+                    }
+                })
+            }
+        }
     }
 
     private fun showTwoOptionsSheet(link: Link.TwoLinks) {
@@ -163,10 +181,6 @@ class LaunchesFragment @Inject constructor(
     private fun setItemsVisibility(showYoutube: Boolean, showWikipedia: Boolean) {
         binding.wikipediaTitle.isVisible = showWikipedia
         binding.youtubeTitle.isVisible = showYoutube
-    }
-
-    private fun hideSheet() {
-        binding.bottomSheet.collapse()
     }
 
     private fun openLink(link: String) {
