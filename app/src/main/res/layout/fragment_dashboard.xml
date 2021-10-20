@@ -29,6 +29,7 @@
         android:layout_marginStart="@dimen/grid_normal"
         android:layout_marginTop="@dimen/grid_semi_large"
         android:layout_marginEnd="@dimen/grid_normal"
+        android:textSize="@dimen/letter_semi_large"
         android:fontFamily="@font/space_grotesk_medium"
         android:textColor="@color/textColorSecondary"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,4 +61,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_title" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/launches_animation"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/planet_animation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

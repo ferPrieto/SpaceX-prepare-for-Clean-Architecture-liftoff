@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources >
+<resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
@@ -11,5 +11,5 @@
     <color name="colorItemBackground">#202026</color>
     <color name="colorBottomNavBackground">#393a47</color>
     <color name="colorBottomTrayBackground">#4c4e5d</color>
-
+    <color name="colorStatusBar">#202026</color>
 </resources>
