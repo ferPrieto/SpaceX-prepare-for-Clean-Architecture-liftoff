@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.main
+package prieto.fernando.spacex.launches
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
@@ -108,7 +108,7 @@ class DashboardFragmentRobot {
 
         private val progressBarBodyViewMatcher = withId(R.id.progress_bar_body)
 
-        private val progressBarHeaderViewMatcher = withId(R.id.progress_bar_header)
+        private val progressBarHeaderViewMatcher = withId(R.id.dashboard_progress_bar)
 
         private val toolbarViewMatcher = withId(R.id.toolbar)
 
@@ -120,6 +120,6 @@ class DashboardFragmentRobot {
 
         private val bodyErrorViewMatcher = withId(R.id.body_error_description)
 
-        private val headerErrorViewMatcher = withId(R.id.header_error_description)
+        private val headerErrorViewMatcher = withId(R.id.error_description)
     }
 }

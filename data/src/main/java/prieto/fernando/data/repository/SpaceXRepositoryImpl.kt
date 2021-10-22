@@ -22,7 +22,8 @@ class SpaceXRepositoryImpl @Inject constructor(
             }
 
     override suspend fun getAllLaunches(): Flow<List<LaunchDomainModel>> =
-        spaceXRemoteSource.getAllLaunches().map { allLaunchesRepositoryModel ->
+        spaceXRemoteSource.getAllLaunches()
+            .map { allLaunchesRepositoryModel ->
             launchesDomainMapper.toDomainModel(allLaunchesRepositoryModel)
         }
 }

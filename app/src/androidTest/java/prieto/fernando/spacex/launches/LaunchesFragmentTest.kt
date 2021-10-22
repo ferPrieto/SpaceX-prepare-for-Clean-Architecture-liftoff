@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.main
+package prieto.fernando.spacex.launches
 
 import android.view.View
 import androidx.test.espresso.IdlingRegistry
@@ -19,7 +19,7 @@ import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @RunWith(AndroidJUnit4::class)
-class DashboardFragmentTest {
+class LaunchesFragmentTest {
 
     @get:Rule
     val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
@@ -125,7 +125,7 @@ class DashboardFragmentTest {
         mockWebServer.dispatcher = ErrorDispatcher()
         progressBarGoneIdlingResource =
             ViewVisibilityIdlingResource(
-                activityTestRule.activity.findViewById(R.id.progress_bar_header),
+                activityTestRule.activity.findViewById(R.id.dashboard_progress_bar),
                 View.GONE
             )
 

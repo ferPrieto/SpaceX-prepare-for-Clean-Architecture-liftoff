@@ -11,7 +11,7 @@
     <string name="company_data_since">Days since now</string>
     <string name="launches_title">LAUNCHES</string>
     <string name="company_title">COMPANY</string>
-    <string name="header_error_description">Sorry, there\'s no company information yet.</string>
+    <string name="header_error_description">There was a connection error.</string>
     <string name="body_error_description">Sorry, nothing to show here yet.</string>
     <string name="bottom_sheet_youtube">YouTube</string>
     <string name="bottom_sheet_wikipedia">Wikipedia</string>

@@ -129,6 +129,7 @@ class LaunchesFragment @Inject constructor(
         launchesUiModel?.let { launches ->
             launchesAdapter?.setItems(launches)
             binding.bodyErrorDescription.isVisible = false
+            binding.launchesAnimation.isVisible = true
         }
     }
 
@@ -189,6 +190,7 @@ class LaunchesFragment @Inject constructor(
 
     private fun showBodyError() {
         binding.bodyErrorDescription.isVisible = true
+        binding.launchesErrorAnimation.isVisible = true
         binding.launchesRecyclerView.isVisible = false
     }
 

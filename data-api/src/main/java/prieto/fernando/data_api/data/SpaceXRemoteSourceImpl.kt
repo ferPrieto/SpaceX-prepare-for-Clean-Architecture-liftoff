@@ -17,7 +17,6 @@ import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMappe
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
 import javax.inject.Inject
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 class SpaceXRemoteSourceImpl @Inject constructor(
     private val apiService: ApiService,
@@ -33,7 +32,6 @@ class SpaceXRemoteSourceImpl @Inject constructor(
         companyInfoRepositoryMapper.toRepositoryModel(apiService.getCompanyInfo())
             .let { companyInfoRepositoryModel ->
                 _companyInfoSharedFlow.emit(companyInfoRepositoryModel)
-
             }
         return companyInfoSharedFlow.distinctUntilChanged()
 

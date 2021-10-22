@@ -29,49 +29,69 @@
         android:layout_marginStart="@dimen/grid_normal"
         android:layout_marginTop="@dimen/grid_semi_large"
         android:layout_marginEnd="@dimen/grid_normal"
-        android:textSize="@dimen/letter_semi_large"
-        android:fontFamily="@font/space_grotesk_medium"
+        android:fontFamily="@font/space_grotesk_light"
         android:textColor="@color/textColorSecondary"
+        android:textSize="@dimen/letter_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_title"
         tools:text="SpaceX was founded by Elon Musk in 2002. It has now 7000 employees, 3 launch sites, and is valued at USD 27500000000" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar_header"
-        android:layout_width="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/dashboard_progress_bar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/grid_large"
+        android:layout_marginTop="@dimen/grid_semi_large"
         android:theme="@style/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/company_title"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_animation" />
 
     <TextView
-        android:id="@+id/header_error_description"
+        android:id="@+id/error_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_small"
         android:layout_marginTop="@dimen/grid_semi_large"
+        android:layout_marginBottom="@dimen/grid_large"
+        android:fontFamily="@font/space_grotesk_light"
         android:gravity="center"
+        android:visibility="gone"
         android:text="@string/header_error_description"
         android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/letter_normal"
+        android:textSize="@dimen/letter_large"
+        app:layout_constraintBottom_toTopOf="@id/dashboard_error_animation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_title" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/launches_animation"
+        android:id="@+id/dashboard_animation"
         android:layout_width="260dp"
         android:layout_height="260dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_description"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/planet_animation" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/dashboard_error_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_description"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/error_conexion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

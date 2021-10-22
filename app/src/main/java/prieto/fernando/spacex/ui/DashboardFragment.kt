@@ -43,12 +43,14 @@ class DashboardFragment @Inject constructor(
     private fun setViewModelObservers() {
         viewModel.companyInfo.observe(viewLifecycleOwner, { companyInfo ->
             bindCompanyInfo(companyInfo)
+            binding.dashboardAnimation.isVisible = true
         })
         viewModel.loadingHeader.observe(viewLifecycleOwner, { show ->
             binding.progressBarHeader.isVisible = show
         })
         viewModel.headerError.observeEvent(this) {
             binding.headerErrorDescription.isVisible = true
+            binding.dashboardErrorAnimation.isVisible = true
         }
     }
 
