@@ -61,7 +61,7 @@ class LaunchesFragment @Inject constructor(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLaunchesBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -78,7 +78,7 @@ class LaunchesFragment @Inject constructor(
             bindLaunches(launches)
         })
         viewModel.loadingBody.observe(viewLifecycleOwner, { show ->
-            showLoadingBody(show)
+            showLaunchesAnimation(show)
         })
         viewModel.openLink.observeEvent(this) { link ->
             openLink(link)
@@ -133,7 +133,7 @@ class LaunchesFragment @Inject constructor(
         }
     }
 
-    private fun showLoadingBody(loading: Boolean) {
+    private fun showLaunchesAnimation(loading: Boolean) {
         if (loading) {
             binding.launchesAnimation.apply {
                 playAnimation()

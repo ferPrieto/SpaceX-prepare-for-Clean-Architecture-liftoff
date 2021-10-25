@@ -4,13 +4,12 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.IdlingResource
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.CoreMatchers.not
 import prieto.fernando.spacex.R
-import prieto.fernando.spacex.utils.RecyclerViewItemCountAssertion
+import prieto.fernando.spacex.utils.BottomNavigationMatcher
 import prieto.fernando.spacex.utils.RecyclerViewMatcher
 
 fun dashboardFragmentRobot(func: DashboardFragmentRobot.() -> Unit) =
@@ -54,10 +53,17 @@ class DashboardFragmentRobot {
         )
     }
 
-    fun clickLaunchesTab() = apply {
-        onView(bottomNavigationViewMatcher).at  .perform(click())
+    fun dashboardTabChecked() = apply {
+        BottomNavigationMatcher().withBottomNavItemCheckedStatus(true).let { dashboardTabMatcher ->
+            onView(dashboardTabViewMatcher).check(matches(dashboardTabMatcher))
+        }
     }
 
+    fun launchesTabNotChecked() = apply {
+        BottomNavigationMatcher().withBottomNavItemCheckedStatus(false).let { launchesTabMatcher ->
+            onView(launchesTabViewMatcher).check(matches(launchesTabMatcher))
+        }
+    }
 
     fun assertProgressBarIsNotDisplayed() = apply {
         onView(progressBarViewMatcher).check(
@@ -71,15 +77,12 @@ class DashboardFragmentRobot {
         onView(errorDescriptionViewMatcher).check(matches(isDisplayed()))
     }
 
-    fun clickItem(position: Int) = apply {
-        val itemMatcher = RecyclerViewMatcher(recyclerViewId).atPosition(position)
-        onView(itemMatcher).perform(ViewActions.click())
+    fun clickLaunchesTab() = apply {
+        onView(launchesTabViewMatcher).perform(ViewActions.click())
     }
 
 
     companion object {
-
-        private const val recyclerViewId = R.id.launches_recycler_view
 
         private val companyTitleViewMatcher = withId(R.id.company_title)
 
@@ -92,5 +95,9 @@ class DashboardFragmentRobot {
         private val errorDescriptionViewMatcher = withId(R.id.error_description)
 
         private val bottomNavigationViewMatcher = withId(R.id.bottom_navigation)
+
+        private val dashboardTabViewMatcher = withId(R.id.dashboard)
+
+        private val launchesTabViewMatcher = withId(R.id.launches)
     }
 }
