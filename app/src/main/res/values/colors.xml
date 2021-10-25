@@ -9,6 +9,7 @@
     <color name="colorTextHighlighted">#58b5e5</color>
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorItemBackground">#202026</color>
+    <color name="colorDialogWindowBackground">#1d1d23</color>
     <color name="colorBottomNavBackground">#393a47</color>
     <color name="colorBottomTrayBackground">#4c4e5d</color>
     <color name="colorStatusBar">#202026</color>

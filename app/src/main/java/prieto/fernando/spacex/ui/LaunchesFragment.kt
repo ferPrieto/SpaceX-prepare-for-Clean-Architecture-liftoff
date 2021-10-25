@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Switch
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -70,7 +71,43 @@ class LaunchesFragment @Inject constructor(
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupBottomSheet()
+        setupLaunchesFilter()
         setViewModelObservers()
+    }
+
+    private fun setupRecyclerView() {
+        launchesAdapter = SolidAdapter(
+            LaunchViewProvider(layoutInflater),
+            { view, _ -> LaunchViewHolder(view) },
+            LaunchViewBinder(context = requireContext(), clickListener = clickListener)
+        )
+        binding.launchesRecyclerView.apply {
+            adapter = launchesAdapter
+            layoutManager = LinearLayoutManager(context)
+            setOnScrollChangeListener { _, _, _, _, _ ->
+                binding.bottomSheet.collapse()
+            }
+        }
+    }
+
+    private fun setupBottomSheet() {
+        binding.bottomSheet.animationDuration = 500
+        binding.youtubeTitle.setOnClickListener {
+            viewModel.openLink(
+                linkYoutube
+            )
+        }
+        binding.wikipediaTitle.setOnClickListener {
+            viewModel.openLink(
+                linkWikipedia
+            )
+        }
+    }
+
+    private fun setupLaunchesFilter() {
+        binding.launchesFilter.setOnClickListener {
+            viewModel.onFilterClicked()
+        }
     }
 
     private fun setViewModelObservers() {
@@ -91,38 +128,15 @@ class LaunchesFragment @Inject constructor(
         }
     }
 
-    private fun setupBottomSheet() {
-        binding.bottomSheet.animationDuration = 500
-        binding.youtubeTitle.setOnClickListener {
-            viewModel.openLink(
-                linkYoutube
-            )
-        }
-        binding.wikipediaTitle.setOnClickListener {
-            viewModel.openLink(
-                linkWikipedia
-            )
-        }
-    }
-
-    private fun setupRecyclerView() {
-        launchesAdapter = SolidAdapter(
-            LaunchViewProvider(layoutInflater),
-            { view, _ -> LaunchViewHolder(view) },
-            LaunchViewBinder(context = requireContext(), clickListener = clickListener)
-        )
-        binding.launchesRecyclerView.apply {
-            adapter = launchesAdapter
-            layoutManager = LinearLayoutManager(context)
-            setOnScrollChangeListener { _, _, _, _, _ ->
-                binding.bottomSheet.collapse()
-            }
-        }
-    }
-
     override fun onResume() {
         super.onResume()
         viewModel.launches()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.launchesRecyclerView.isVisible = false
+        binding.launchesFilter.isVisible = false
     }
 
     private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
@@ -144,6 +158,7 @@ class LaunchesFragment @Inject constructor(
                     override fun onAnimationEnd(animation: Animator?) {
                         isVisible = false
                         binding.launchesRecyclerView.isVisible = true
+                        binding.launchesFilter.isVisible = true
                     }
 
                     override fun onAnimationCancel(animation: Animator?) {
@@ -196,15 +211,19 @@ class LaunchesFragment @Inject constructor(
 
     private fun showDialog() {
         val dialog = layoutInflater.inflate(R.layout.view_dialog, null)
-        val orderToggle = dialog.findViewById<Switch>(R.id.order_toggle)
+        val orderToggle = dialog.findViewById<SwitchCompat>(R.id.order_toggle)
         val yearEditText = dialog.findViewById<EditText>(R.id.dialog_year)
 
         val dialogBuilder = setUpDialogBuilder(orderToggle, yearEditText, dialog)
         dialogBuilder.show()
     }
 
-    private fun setUpDialogBuilder(orderToggle: Switch, yearEditText: EditText, dialog: View) =
-        AlertDialog.Builder(context).apply {
+    private fun setUpDialogBuilder(
+        orderToggle: SwitchCompat,
+        yearEditText: EditText,
+        dialog: View
+    ) =
+        AlertDialog.Builder(requireContext(),R.style.RoundedCornersDialog).apply {
             setPositiveButton(
                 getString(R.string.dialog_ok_button)
             ) { _, _ ->
@@ -218,7 +237,7 @@ class LaunchesFragment @Inject constructor(
             setView(dialog)
         }
 
-    private fun requestFilteredData(orderToggle: Switch, yearEditText: EditText) {
+    private fun requestFilteredData(orderToggle: SwitchCompat, yearEditText: EditText) {
         val ascendant = orderToggle.isChecked
         val yearValue = yearEditText.text.toString()
         val year = Integer.parseInt(integerValueOrZero(yearValue))
