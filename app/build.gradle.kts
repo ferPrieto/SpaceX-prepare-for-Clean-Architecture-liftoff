@@ -13,6 +13,11 @@ android {
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         getByName("debug") {
             isDebuggable = true
@@ -47,6 +52,7 @@ dependencies {
 
     implementation(Dependencies.picasso)
     implementation(Dependencies.bottomSheet)
+    implementation(Dependencies.lottie)
 
     implementation(Dependencies.AndroidX.constraintlayout)
     implementation(Dependencies.AndroidX.legacySupport)

@@ -60,7 +60,8 @@ I opted for a dynamic test configuration, so it's possible to inject different c
 ## Demo
 
 <p align="center">
-  <img src="art/Demo-SpaceX.gif">
+  <img src="art/SpaceX-Dark.gif"  width="49%">
+  <img src="art/SpaceX-Light.gif"  width="49%">
 </p>
 
 ## Libraries Used

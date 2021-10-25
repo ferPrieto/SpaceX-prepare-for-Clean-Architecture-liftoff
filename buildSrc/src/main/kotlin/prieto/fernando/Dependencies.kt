@@ -34,8 +34,9 @@ object Versions {
     const val mockito = "3.12.3"
     const val mockitoKotlin = "1.6.0"
     const val gradle = "4.0.0"
-    const val kotlin = "1.4.0"
+    const val kotlin = "1.4.31"
     const val timber = "4.7.1"
+    const val lottie = "4.2.0"
     const val coreTesting = "1.1.1"
     const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
@@ -106,6 +107,8 @@ object Dependencies {
         const val retrofitConverterGson =
             "com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}"
     }
+
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 

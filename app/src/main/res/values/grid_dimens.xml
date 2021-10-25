@@ -5,4 +5,6 @@
     <dimen name="grid_semi_large">16dp</dimen>
     <dimen name="grid_large">24dp</dimen>
     <dimen name="grid_xlarge">32dp</dimen>
+
+    <dimen name="item_launch_corner_radius">12dp</dimen>
 </resources>

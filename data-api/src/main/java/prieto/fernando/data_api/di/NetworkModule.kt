@@ -61,6 +61,6 @@ class NetworkModule(
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     companion object {
-        const val RETROFIT_TIMEOUT = 60L
+        const val RETROFIT_TIMEOUT = 10L
     }
 }

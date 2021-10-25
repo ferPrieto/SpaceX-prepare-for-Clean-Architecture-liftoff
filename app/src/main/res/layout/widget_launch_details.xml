@@ -8,8 +8,8 @@
         android:id="@+id/widget_launch_details_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/textColorPrimary"
-        android:textStyle="bold"
+        android:fontFamily="@font/space_grotesk_light"
+        android:textColor="@color/textColorSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Mission" />
@@ -18,9 +18,10 @@
         android:id="@+id/widget_launch_details_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/textColorPrimary"
         android:ellipsize="end"
-        android:gravity="center"
+        android:fontFamily="@font/space_grotesk_medium"
+        android:gravity="end"
+        android:textColor="@color/colorTextHighlighted"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="RatSat" />
 

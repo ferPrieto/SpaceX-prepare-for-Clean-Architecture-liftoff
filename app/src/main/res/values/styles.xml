@@ -4,11 +4,12 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorStatusBar</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="progressBar" parent="@style/Theme.AppCompat">
-        <item name="colorAccent">@color/colorPrimary</item>
+    <style name="RoundedCornersDialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="dialogCornerRadius">@dimen/item_launch_corner_radius</item>
+        <item name="android:background">@color/colorDialogWindowBackground</item>
     </style>
 </resources>

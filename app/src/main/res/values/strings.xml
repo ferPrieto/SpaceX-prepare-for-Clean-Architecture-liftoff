@@ -11,9 +11,9 @@
     <string name="company_data_since">Days since now</string>
     <string name="launches_title">LAUNCHES</string>
     <string name="company_title">COMPANY</string>
-    <string name="header_error_description">Sorry, there\'s no company information yet.</string>
+    <string name="header_error_description">There was a connection error.</string>
     <string name="body_error_description">Sorry, nothing to show here yet.</string>
-    <string name="bottom_sheet_youtube">Youtube</string>
+    <string name="bottom_sheet_youtube">YouTube</string>
     <string name="bottom_sheet_wikipedia">Wikipedia</string>
 
     <string name="dialog_title">Filter by year</string>
@@ -21,5 +21,8 @@
     <string name="dialog_ok_button">OK</string>
     <string name="dialog_cancel_button" tools:ignore="ButtonCase">CANCEL</string>
     <string name="dialog_order_criteria">ASC/DESC</string>
+
+    <string name="tab_title_dashboard">Dashboard</string>
+    <string name="tab_title_launches">Launches</string>
 
 </resources>
