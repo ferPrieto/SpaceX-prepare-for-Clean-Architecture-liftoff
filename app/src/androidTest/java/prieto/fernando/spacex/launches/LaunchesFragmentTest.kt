@@ -16,6 +16,7 @@ import prieto.fernando.spacex.dashboard.dashboardFragmentRobot
 import prieto.fernando.spacex.ui.MainActivity
 import prieto.fernando.spacex.utils.TestConfigurationRule
 import prieto.fernando.spacex.utils.ViewVisibilityIdlingResource
+import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @RunWith(AndroidJUnit4::class)
@@ -107,19 +108,23 @@ class LaunchesFragmentTest {
             youtubeViewMatcher()
         }
     }
-/* TODO:
 
     @Test
     fun clickItemAndShowDialog() {
         mockWebServer.dispatcher = SuccessDispatcher()
-        progressBarGoneIdlingResource =
+
+        dashboardFragmentRobot {
+            clickLaunchesTab()
+        }
+
+        launchesAnimationGoneIdlingResource =
             ViewVisibilityIdlingResource(
-                activityTestRule.activity.findViewById(R.id.progress_bar_body),
+                activityTestRule.activity.findViewById(R.id.launches_animation),
                 View.GONE
             )
 
-        dashboardFragmentRobot {
-            waitForCondition(progressBarGoneIdlingResource)
+        launchesFragmentRobot {
+            waitForCondition(launchesAnimationGoneIdlingResource)
             assertRecyclerViewIsDisplayed()
             clickFilter()
             dialogYearViewMatcher()
@@ -129,30 +134,20 @@ class LaunchesFragmentTest {
     @Test
     fun displayBodyError() {
         mockWebServer.dispatcher = ErrorDispatcher()
-        progressBarGoneIdlingResource =
+
+        dashboardFragmentRobot {
+            clickLaunchesTab()
+        }
+
+        launchesAnimationGoneIdlingResource =
             ViewVisibilityIdlingResource(
-                activityTestRule.activity.findViewById(R.id.progress_bar_body),
+                activityTestRule.activity.findViewById(R.id.launches_animation),
                 View.GONE
             )
 
-        dashboardFragmentRobot {
-            waitForCondition(progressBarGoneIdlingResource)
+        launchesFragmentRobot {
+            waitForCondition(launchesAnimationGoneIdlingResource)
             assertBodyErrorDisplayed()
         }
     }
-
-    @Test
-    fun displayHeaderError() {
-        mockWebServer.dispatcher = ErrorDispatcher()
-        progressBarGoneIdlingResource =
-            ViewVisibilityIdlingResource(
-                activityTestRule.activity.findViewById(R.id.dashboard_progress_bar),
-                View.GONE
-            )
-
-        dashboardFragmentRobot {
-            waitForCondition(progressBarGoneIdlingResource)
-            assertHeaderErrorDisplayed()
-        }
-    }*/
 }

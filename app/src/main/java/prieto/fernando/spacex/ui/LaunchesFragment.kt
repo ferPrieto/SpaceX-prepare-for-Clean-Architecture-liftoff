@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Switch
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -114,7 +113,7 @@ class LaunchesFragment @Inject constructor(
         viewModel.launches.observe(viewLifecycleOwner, { launches ->
             bindLaunches(launches)
         })
-        viewModel.loadingBody.observe(viewLifecycleOwner, { show ->
+        viewModel.loadingLaunches.observe(viewLifecycleOwner, { show ->
             showLaunchesAnimation(show)
         })
         viewModel.openLink.observeEvent(this) { link ->
@@ -123,8 +122,9 @@ class LaunchesFragment @Inject constructor(
         viewModel.showDialog.observeEvent(this) {
             showDialog()
         }
-        viewModel.bodyError.observeEvent(this) {
-            showBodyError()
+        viewModel.launchesError.observeEvent(this) {
+            setLaunchesErrorViewsVisibility(true)
+            setLaunchesViewsVisbility(false)
         }
     }
 
@@ -135,14 +135,13 @@ class LaunchesFragment @Inject constructor(
 
     override fun onPause() {
         super.onPause()
-        binding.launchesRecyclerView.isVisible = false
-        binding.launchesFilter.isVisible = false
+        setLaunchesViewsVisbility(false)
     }
 
     private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
         launchesUiModel?.let { launches ->
             launchesAdapter?.setItems(launches)
-            binding.bodyErrorDescription.isVisible = false
+            setLaunchesErrorViewsVisibility(false)
             binding.launchesAnimation.isVisible = true
         }
     }
@@ -157,8 +156,7 @@ class LaunchesFragment @Inject constructor(
 
                     override fun onAnimationEnd(animation: Animator?) {
                         isVisible = false
-                        binding.launchesRecyclerView.isVisible = true
-                        binding.launchesFilter.isVisible = true
+                        setLaunchesViewsVisbility(true)
                     }
 
                     override fun onAnimationCancel(animation: Animator?) {
@@ -203,10 +201,14 @@ class LaunchesFragment @Inject constructor(
         UrlUtils.navigateTo(activity as Context, link)
     }
 
-    private fun showBodyError() {
-        binding.bodyErrorDescription.isVisible = true
-        binding.launchesErrorAnimation.isVisible = true
-        binding.launchesRecyclerView.isVisible = false
+    private fun setLaunchesErrorViewsVisibility(show:Boolean) {
+        binding.launchesErrorDescription.isVisible = show
+        binding.launchesErrorAnimation.isVisible = show
+    }
+
+    private fun setLaunchesViewsVisbility(show:Boolean){
+        binding.launchesRecyclerView.isVisible = show
+        binding.launchesFilter.isVisible = show
     }
 
     private fun showDialog() {

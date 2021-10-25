@@ -40,13 +40,20 @@ class DashboardFragment @Inject constructor(
         viewModel.companyInfo.observe(viewLifecycleOwner, { companyInfo ->
             bindCompanyInfo(companyInfo)
             binding.dashboardAnimation.isVisible = true
+            setErrorViewsVisibility(false)
         })
-        viewModel.loadingHeader.observe(viewLifecycleOwner, { show ->
+        viewModel.loadingCompanyInfo.observe(viewLifecycleOwner, { show ->
             binding.dashboardProgressBar.isVisible = show
         })
-        viewModel.headerError.observeEvent(this) {
-            binding.dashboardErrorAnimation.isVisible = true
+        viewModel.companyInfoError.observeEvent(this) {
+            setErrorViewsVisibility(true)
+            binding.dashboardAnimation.isVisible = false
         }
+    }
+
+    private fun setErrorViewsVisibility(show:Boolean){
+        binding.dashboardErrorAnimation.isVisible = show
+        binding.errorDescription.isVisible = show
     }
 
     override fun onResume() {

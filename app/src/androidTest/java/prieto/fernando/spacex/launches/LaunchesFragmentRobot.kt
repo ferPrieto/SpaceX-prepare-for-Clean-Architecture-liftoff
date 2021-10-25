@@ -73,7 +73,7 @@ class LaunchesFragmentRobot {
     }
 
     fun assertBodyErrorDisplayed() = apply {
-        onView(bodyErrorViewMatcher).check(matches(isDisplayed()))
+        onView(launchesErrorViewMatcher).check(matches(isDisplayed()))
     }
 
     fun dialogYearViewMatcher() = apply {
@@ -111,17 +111,15 @@ class LaunchesFragmentRobot {
 
         private val launchesAnimationViewMatcher = withId(R.id.launches_animation)
 
-        private val progressBarHeaderViewMatcher = withId(R.id.dashboard_progress_bar)
-
-        private val filterButtonViewMatcher = withId(R.id.filter)
+        private val filterButtonViewMatcher = withId(R.id.launches_filter)
 
         private val dialogYearViewMatcher = withId(R.id.dialog_year)
 
         private val youtubeViewMatcher = withId(R.id.youtube_title)
 
-        private val bodyErrorViewMatcher = withId(R.id.body_error_description)
+        private val launchesErrorViewMatcher = withId(R.id.launches_error_description)
 
-        private val headerErrorViewMatcher = withId(R.id.error_description)
+        private val errorDescriptionViewMatcher = withId(R.id.error_description)
 
         private val bottomNavigationViewMatcher = withId(R.id.bottom_navigation)
 

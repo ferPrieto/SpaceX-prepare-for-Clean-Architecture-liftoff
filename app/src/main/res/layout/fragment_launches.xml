@@ -58,7 +58,7 @@
         tools:listitem="@layout/item_launch" />
 
     <TextView
-        android:id="@+id/body_error_description"
+        android:id="@+id/launches_error_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_small"

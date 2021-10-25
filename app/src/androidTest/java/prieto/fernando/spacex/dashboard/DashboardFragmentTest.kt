@@ -1,5 +1,6 @@
 package prieto.fernando.spacex.dashboard
 
+import android.view.View
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
@@ -10,10 +11,12 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import prieto.fernando.spacex.BuildConfig
+import prieto.fernando.spacex.R
 import prieto.fernando.spacex.launches.launchesFragmentRobot
 import prieto.fernando.spacex.ui.MainActivity
 import prieto.fernando.spacex.utils.TestConfigurationRule
 import prieto.fernando.spacex.utils.ViewVisibilityIdlingResource
+import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @RunWith(AndroidJUnit4::class)
@@ -68,7 +71,6 @@ class DashboardFragmentTest {
         }
     }
 
-    /*  TODO:
     @Test
       fun displayDashboardError() {
           mockWebServer.dispatcher = ErrorDispatcher()
@@ -82,5 +84,5 @@ class DashboardFragmentTest {
               waitForCondition(progressBarGoneIdlingResource)
               assertDescriptionErrorDisplayed()
           }
-      }*/
+      }
 }

@@ -1,7 +1,6 @@
 package prieto.fernando.data_api.data
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -29,19 +28,26 @@ class SpaceXRemoteSourceImpl @Inject constructor(
     private val launchesSharedFlow = _launchesSharedFlow.asSharedFlow()
 
     override suspend fun getCompanyInfo(): Flow<CompanyInfoRepositoryModel> {
-        companyInfoRepositoryMapper.toRepositoryModel(apiService.getCompanyInfo())
-            .let { companyInfoRepositoryModel ->
-                _companyInfoSharedFlow.emit(companyInfoRepositoryModel)
-            }
+        try {
+            companyInfoRepositoryMapper.toRepositoryModel(apiService.getCompanyInfo())
+                .let { companyInfoRepositoryModel ->
+                    _companyInfoSharedFlow.emit(companyInfoRepositoryModel)
+                }
+        } catch (connectionException: java.net.UnknownHostException) {
+            throw connectionException
+        }
         return companyInfoSharedFlow.distinctUntilChanged()
-
     }
 
     override suspend fun getAllLaunches(): Flow<List<LaunchRepositoryModel>> {
-        launchesRepositoryMapper.toRepositoryModel(apiService.getAllLaunches())
-            .let { launchesRepositoryModel ->
-                _launchesSharedFlow.emit(launchesRepositoryModel)
-            }
+        try {
+            launchesRepositoryMapper.toRepositoryModel(apiService.getAllLaunches())
+                .let { launchesRepositoryModel ->
+                    _launchesSharedFlow.emit(launchesRepositoryModel)
+                }
+        } catch (connectionException: java.net.UnknownHostException) {
+            throw connectionException
+        }
         return launchesSharedFlow.distinctUntilChanged()
     }
 
