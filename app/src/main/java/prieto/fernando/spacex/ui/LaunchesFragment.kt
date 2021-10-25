@@ -131,6 +131,13 @@ class LaunchesFragment @Inject constructor(
     override fun onResume() {
         super.onResume()
         viewModel.launches()
+        collapseBottomSheet()
+    }
+
+    private fun collapseBottomSheet(){
+        if (binding.bottomSheet.isExpended()) {
+            binding.bottomSheet.collapse()
+        }
     }
 
     override fun onPause() {
@@ -201,12 +208,12 @@ class LaunchesFragment @Inject constructor(
         UrlUtils.navigateTo(activity as Context, link)
     }
 
-    private fun setLaunchesErrorViewsVisibility(show:Boolean) {
+    private fun setLaunchesErrorViewsVisibility(show: Boolean) {
         binding.launchesErrorDescription.isVisible = show
         binding.launchesErrorAnimation.isVisible = show
     }
 
-    private fun setLaunchesViewsVisbility(show:Boolean){
+    private fun setLaunchesViewsVisbility(show: Boolean) {
         binding.launchesRecyclerView.isVisible = show
         binding.launchesFilter.isVisible = show
     }
@@ -225,10 +232,11 @@ class LaunchesFragment @Inject constructor(
         yearEditText: EditText,
         dialog: View
     ) =
-        AlertDialog.Builder(requireContext(),R.style.RoundedCornersDialog).apply {
+        AlertDialog.Builder(requireContext(), R.style.RoundedCornersDialog).apply {
             setPositiveButton(
                 getString(R.string.dialog_ok_button)
             ) { _, _ ->
+                binding.launchesRecyclerView.isVisible = false
                 requestFilteredData(orderToggle, yearEditText)
             }
             setNegativeButton(

@@ -5,12 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorAccentSecondary">#54b06d</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="textColorSecondary">#7f7f82</color>
-    <color name="colorTextHighlighted">#58b5e5</color>
-    <color name="colorBackground">#2b2c35</color>
+    <color name="textColorSecondary">#7F7F82</color>
+    <color name="colorTextHighlighted">#58B5E5</color>
+    <color name="colorBackground">#2B2C35</color>
     <color name="colorItemBackground">#202026</color>
-    <color name="colorBottomNavBackground">#393a47</color>
-    <color name="colorBottomTrayBackground">#4c4e5d</color>
+    <color name="colorBottomNavBackground">#393A47</color>
+    <color name="colorBottomTrayBackground">#4C4E5D</color>
     <color name="colorStatusBar">#202026</color>
-    <color name="colorDialogWindowBackground">#1d1d23</color>
+    <color name="colorDialogWindowBackground">#1D1D23</color>
 </resources>
