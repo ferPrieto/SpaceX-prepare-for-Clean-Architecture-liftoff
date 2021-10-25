@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#00A2EA</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorAccentSecondary">#2c8a45</color>
     <color name="textColorPrimary">#000000</color>
     <color name="textColorSecondary">#7f7f82</color>
     <color name="colorTextHighlighted">#58b5e5</color>
-    <color name="colorBackground">#FFFFFF</color>
-    <color name="colorItemBackground">#202026</color>
-    <color name="colorDialogWindowBackground">#1d1d23</color>
-    <color name="colorBottomNavBackground">#393a47</color>
-    <color name="colorBottomTrayBackground">#4c4e5d</color>
-    <color name="colorStatusBar">#202026</color>
+    <color name="colorBackground">#E3E6E9</color>
+    <color name="colorItemBackground">#FFFFFF</color>
+    <color name="colorDialogWindowBackground">#E0E5E9</color>
+    <color name="colorBottomNavBackground">#ADB4B9</color>
+    <color name="colorBottomTrayBackground">#F7F7F7</color>
+    <color name="colorStatusBar">#ADB4B9</color>
 </resources>
