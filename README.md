@@ -6,19 +6,25 @@
 
 
 ## Table of Contents
+- [Demo](#demo)
 - [Introduction](#introduction)
 - [On Going Work](#on_going_work)
 - [Modules](#modules)
 - [Testing](#testing)
-- [Demo](#demo)
 - [Libraries Used](#libraries_used)
 - [License](#license)
+
+## Demo
+<p align="center">
+  <img src="art/SpaceX-Dark.gif"  width="49%">
+  <img src="art/SpaceX-Light.gif"  width="49%">
+</p>
 
 ## Introduction
 The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
 This project summarises some of the general use cases and needs that could be demanded on a production project using: `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
-![structure](art/clean_architecture.jpg)
+![structure](art/clean_architecture_dark.jpg)
 
 ## On Going Work
 :on: Paging 2 library integration
@@ -56,13 +62,6 @@ I opted for a dynamic test configuration, so it's possible to inject different c
 [post]:  https://medium.com/@f.prieto.moyano/mockwebserver-dagger2-with-style-b5367698ce13
 [jake]:  https://academy.realm.io/posts/kau-jake-wharton-testing-robots/
 
-
-## Demo
-
-<p align="center">
-  <img src="art/SpaceX-Dark.gif"  width="49%">
-  <img src="art/SpaceX-Light.gif"  width="49%">
-</p>
 
 ## Libraries Used
 * [Coroutines][0] Library support for Kotlin coroutines.
