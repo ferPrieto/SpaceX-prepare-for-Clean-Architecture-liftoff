@@ -7,7 +7,6 @@ import prieto.fernando.core.android.InjectingViewModelFactory
 
 @Module
 abstract class ViewModelBindingModule {
-
     @Binds
     internal abstract fun bindViewModelFactory(factory: InjectingViewModelFactory): ViewModelProvider.Factory
 }

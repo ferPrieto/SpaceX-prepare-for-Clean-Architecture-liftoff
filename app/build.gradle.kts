@@ -1,21 +1,28 @@
-import prieto.fernando.android.plugin.BuildType
-
 plugins {
     id("com.android.application")
+    kotlin("android")
+    kotlin("android.extensions")
     id("prieto.fernando.android.plugin")
 }
 
-androidPlugin {
-    buildType = BuildType.App
+androidPlugin{
+    buildType = prieto.fernando.android.plugin.BuildType.App
 }
 
 android {
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
+        minSdk = AndroidSettings.minSdk
+        targetSdk = AndroidSettings.targetSdk
     }
 
     buildFeatures {
+        compose = true
         viewBinding = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose
     }
 
     buildTypes {
@@ -49,6 +56,12 @@ dependencies {
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
     implementation(Dependencies.solidRecyclerView)
+
+    implementation(Dependencies.AndroidX.Compose.ui)
+    implementation(Dependencies.AndroidX.Compose.material)
+    implementation(Dependencies.AndroidX.Compose.runtime)
+    implementation(Dependencies.AndroidX.Compose.runtimeLiveData)
+    implementation(Dependencies.AndroidX.Compose.navigation)
 
     implementation(Dependencies.picasso)
     implementation(Dependencies.bottomSheet)

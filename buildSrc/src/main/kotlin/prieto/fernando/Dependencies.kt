@@ -10,10 +10,10 @@ object ProjectModules {
 
 object AndroidSettings {
     const val appVersionName = "0.1"
-    const val compileSdk = 29
-    const val buildTools = "29.0.2"
+    const val compileSdk = 31
+    const val buildTools = "30.0.3"
     const val minSdk = 26
-    const val targetSdk = 29
+    const val targetSdk = 31
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
 
@@ -21,6 +21,9 @@ object Versions {
     const val core = "1.3.2"
     const val fragment = "1.2.5"
     const val navigation = "2.3.2"
+    const val compose = "1.0.1"
+    const val composeViewModel = "2.4.0"
+    const val composeNavigation = "2.4.0-beta01"
     const val constraintLayout = "2.0.4"
     const val legacySupportV4 = "1.0.0"
     const val lifecycleLivedataKtx = "2.2.0"
@@ -33,8 +36,8 @@ object Versions {
     const val junitPlatformRunner = "1.0.2"
     const val mockito = "3.12.3"
     const val mockitoKotlin = "1.6.0"
-    const val gradle = "4.0.0"
-    const val kotlin = "1.4.31"
+    const val gradle = "7.0.3"
+    const val kotlin = "1.5.21"
     const val timber = "4.7.1"
     const val lottie = "4.2.0"
     const val coreTesting = "1.1.1"
@@ -83,6 +86,15 @@ object Dependencies {
                 "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
             const val uiKtx =
                 "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+        }
+
+        object Compose {
+            const val ui = "androidx.compose.ui:ui:${Versions.compose}"
+            const val runtime = "androidx.compose.runtime:runtime:${Versions.compose}"
+            const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+            const val navigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
+            const val material = "androidx.compose.material:material:${Versions.compose}"
+            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
         }
     }
 

@@ -10,6 +10,7 @@ dependencies {
 
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
+    implementation(Dependencies.AndroidX.Compose.viewModel)
 
     implementation(Dependencies.timber)
     implementation(Dependencies.jodaTime)
