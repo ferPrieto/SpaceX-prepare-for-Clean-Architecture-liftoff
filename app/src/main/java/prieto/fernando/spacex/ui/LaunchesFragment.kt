@@ -16,8 +16,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mitteloupe.solid.recyclerview.SolidAdapter
 import prieto.fernando.core.event.observeEvent
-import prieto.fernando.presentation.LaunchesViewModel
-import prieto.fernando.presentation.model.LaunchUiModel
+import prieto.fernando.spacex.ui.vm.LaunchesViewModel
+import prieto.fernando.spacex.ui.vm.model.LaunchUiModel
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.databinding.FragmentLaunchesBinding
 import prieto.fernando.spacex.ui.adapter.ClickListener

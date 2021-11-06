@@ -10,7 +10,7 @@ import com.mitteloupe.solid.recyclerview.InflatedViewProvider
 import com.mitteloupe.solid.recyclerview.SimpleViewBinder
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
-import prieto.fernando.presentation.model.LaunchUiModel
+import prieto.fernando.spacex.ui.vm.model.LaunchUiModel
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.ui.Link
 import prieto.fernando.spacex.ui.LinkType

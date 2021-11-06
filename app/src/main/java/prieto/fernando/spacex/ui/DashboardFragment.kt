@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import prieto.fernando.core.event.observeEvent
-import prieto.fernando.presentation.DashboardViewModel
-import prieto.fernando.presentation.model.CompanyInfoUiModel
+import prieto.fernando.spacex.ui.vm.DashboardViewModel
+import prieto.fernando.spacex.ui.vm.model.CompanyInfoUiModel
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.databinding.FragmentDashboardBinding
 import javax.inject.Inject

@@ -8,6 +8,5 @@ include(
     ":data-api",
     ":data",
     ":domain",
-    ":presentation",
     ":core-android-test"
 )

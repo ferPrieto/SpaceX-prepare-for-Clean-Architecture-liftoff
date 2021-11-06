@@ -4,7 +4,6 @@ object ProjectModules {
     const val api = ":data-api"
     const val data = ":data"
     const val domain = ":domain"
-    const val presentation = ":presentation"
     const val coreAndroidTest = ":core-android-test"
 }
 
@@ -29,6 +28,9 @@ object Versions {
     const val lifecycleLivedataKtx = "2.2.0"
     const val livedataTesting = "1.1.1"
     const val dagger = "2.24"
+    const val hilt = "2.37"
+    const val hiltJetpack = "1.0.0-alpha02"
+    const val hiltVM = "1.0.0-alpha03"
     const val androidxTest = "1.2.0"
     const val espresso = "3.2.0"
     const val androidxJunit = "1.1.1"
@@ -58,6 +60,8 @@ object BuildDependencies {
         "com.android.tools.build:gradle:${Versions.gradle}"
     const val kotlinGradlePlugin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val hiltAndroidGradlePlugin =
+        "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
 }
 
 object Dependencies {
@@ -92,8 +96,9 @@ object Dependencies {
             const val ui = "androidx.compose.ui:ui:${Versions.compose}"
             const val runtime = "androidx.compose.runtime:runtime:${Versions.compose}"
             const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
-            const val navigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
             const val material = "androidx.compose.material:material:${Versions.compose}"
+            const val uiTooling = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
+            const val navigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
             const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
         }
     }
@@ -112,6 +117,19 @@ object Dependencies {
             "com.google.dagger:dagger-compiler:${Versions.dagger}"
         const val daggerAndroidProcessor =
             "com.google.dagger:dagger-android-processor:${Versions.dagger}"
+    }
+
+    object Hilt {
+        const val hiltAndroid =
+            "com.google.dagger:hilt-android:${Versions.hilt}"
+        const val hiltAndroidCompiler =
+            "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+        const val hiltCompiler =
+            "androidx.hilt:hilt-compiler:${Versions.hiltJetpack}"
+        const val hiltViewModel =
+            "com.google.dagger:hilt-android-compiler:${Versions.hiltVM}"
+        const val hiltNavigationCompose =
+            "androidx.hilt:hilt-navigation-compose:${Versions.hiltVM}"
     }
 
     object Retrofit {

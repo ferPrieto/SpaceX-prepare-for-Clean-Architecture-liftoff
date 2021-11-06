@@ -1,21 +1,20 @@
 package prieto.fernando.spacex.ui
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.fragment.app.FragmentFactory
-import dagger.android.support.DaggerAppCompatActivity
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import prieto.fernando.spacex.ui.theme.SpaceXTheme
+import prieto.fernando.spacex.ui.vm.DashboardViewModel
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity() {
-
-    @Inject
-    lateinit var fragmentFactory: FragmentFactory
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        supportFragmentManager.fragmentFactory = fragmentFactory
         setContent {
             SpaceXTheme {
                 MainScreen()

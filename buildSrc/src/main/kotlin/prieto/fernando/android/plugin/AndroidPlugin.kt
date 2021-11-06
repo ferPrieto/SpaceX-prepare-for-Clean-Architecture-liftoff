@@ -72,7 +72,8 @@ open class AndroidPlugin : Plugin<Project> {
                         "META-INF/ASL2.0",
                         "META-INF/*.kotlin_module",
                         "META-INF/AL2.0",
-                        "META-INF/LGPL2.1"
+                        "META-INF/LGPL2.1",
+                        "META-INF/gradle/incremental.annotation.processors"
                     )
                 )
             }
@@ -117,6 +118,9 @@ open class AndroidPlugin : Plugin<Project> {
 
         kapt(Dependencies.Dagger.daggerCompiler)
         kapt(Dependencies.Dagger.daggerAndroidProcessor)
+
+        kapt(Dependencies.Hilt.hiltAndroid)
+        kapt(Dependencies.Hilt.hiltAndroidCompiler)
 
         androidTestImplementation(TestDependencies.AndroidX.core)
         androidTestImplementation(TestDependencies.AndroidX.coreKtx)

@@ -6,6 +6,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import prieto.fernando.data_api.BuildConfig
@@ -14,13 +16,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+const val RETROFIT_TIMEOUT = 10L
+
+@InstallIn(SingletonComponent::class)
 @Module
-class NetworkModule(
-    private val baseUrlOverride: String? = null
-) {
+object NetworkModule {
     @Provides
     @BaseUrl
-    fun provideBaseUrl() = baseUrlOverride ?: "https://api.spacexdata.com/v3/"
+    fun provideBaseUrl() = "https://api.spacexdata.com/v3/"
 
     @Provides
     @Singleton
@@ -59,8 +62,4 @@ class NetworkModule(
     @Singleton
     fun provideConnectivityManager(context: Context): ConnectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-    companion object {
-        const val RETROFIT_TIMEOUT = 10L
-    }
 }

@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     id("prieto.fernando.android.plugin")
+    id("dagger.hilt.android.plugin")
 }
 
 androidPlugin{
@@ -44,14 +45,12 @@ dependencies {
     implementation(project(ProjectModules.core))
     implementation(project(ProjectModules.navigation))
     implementation(project(ProjectModules.api))
-    implementation(project(ProjectModules.presentation))
     implementation(project(ProjectModules.domain))
     implementation(project(ProjectModules.data))
-    androidTestImplementation(project(ProjectModules.coreAndroidTest))
-    testImplementation(project(ProjectModules.coreAndroidTest))
 
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
+    implementation(Dependencies.AndroidX.Compose.viewModel)
     annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
@@ -59,9 +58,16 @@ dependencies {
 
     implementation(Dependencies.AndroidX.Compose.ui)
     implementation(Dependencies.AndroidX.Compose.material)
+    implementation(Dependencies.AndroidX.Compose.uiTooling)
     implementation(Dependencies.AndroidX.Compose.runtime)
     implementation(Dependencies.AndroidX.Compose.runtimeLiveData)
     implementation(Dependencies.AndroidX.Compose.navigation)
+
+    implementation(Dependencies.Hilt.hiltAndroid)
+    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    implementation(Dependencies.Hilt.hiltViewModel)
+    implementation(Dependencies.Hilt.hiltCompiler)
+    implementation(Dependencies.Hilt.hiltNavigationCompose)
 
     implementation(Dependencies.picasso)
     implementation(Dependencies.bottomSheet)
@@ -71,7 +77,13 @@ dependencies {
     implementation(Dependencies.AndroidX.legacySupport)
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
+    implementation(Dependencies.jodaTime)
 
+    testImplementation(Dependencies.jodaTime)
+    testImplementation(project(ProjectModules.coreAndroidTest))
+    testImplementation(project(ProjectModules.domain))
+
+    androidTestImplementation(project(ProjectModules.coreAndroidTest))
     androidTestImplementation(TestDependencies.AndroidX.runner)
     androidTestImplementation(TestDependencies.AndroidX.rules)
     androidTestImplementation(TestDependencies.mockWebServer)

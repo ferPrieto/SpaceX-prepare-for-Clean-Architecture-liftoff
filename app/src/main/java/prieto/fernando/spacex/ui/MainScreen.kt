@@ -5,12 +5,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import prieto.fernando.spacex.ui.dashboard.DashboardScreen
 import prieto.fernando.spacex.ui.navigation.BottomNavigationScreens
+import prieto.fernando.spacex.ui.vm.DashboardViewModel
+import prieto.fernando.spacex.ui.vm.DashboardViewModelImpl
 
 @Composable
 fun MainScreen() {
@@ -35,29 +39,15 @@ private fun MainScreenNavigationConfigurations(
 ) {
     NavHost(navController, startDestination = BottomNavigationScreens.Dashboard.route) {
         composable(BottomNavigationScreens.Dashboard.route) {
-            //Screen(SpaceXAnimation.PlanetAnimation)
+            val dashboardViewModel = hiltViewModel<DashboardViewModelImpl>()
+
+            DashboardScreen(viewModel = dashboardViewModel)
         }
         composable(BottomNavigationScreens.Launches.route) {
-            // Screen(SpaceXAnimation.RocketLaunched)
+            // LaunchesScreen( )
         }
     }
 }
-/*
-@Composable
-fun Screen(
-    spaceXAnimation: SpaceXAnimation
-) {
-    val context = LocalContext.current
-    val customView = remember { LottieAnimationView(context) }
-    AndroidView({ customView },
-        modifier = Modifier.background(Color.Black)
-    ) { view ->
-        with(view) {
-            setAnimation(spaceXAnimation.animId)
-            playAnimation()
-        }
-    }
-}*/
 
 @Composable
 private fun BottomNavigation(
@@ -68,7 +58,12 @@ private fun BottomNavigation(
         val currentRoute = currentRoute(navController)
         items.forEach { screen ->
             BottomNavigationItem(
-                icon = { Icon(painterResource(screen.drawableRes), screen.contentDescription) },
+                icon = {
+                    Icon(
+                        painterResource(screen.drawableRes),
+                        stringResource(id = screen.resourceId)
+                    )
+                },
                 label = { Text(stringResource(id = screen.resourceId)) },
                 selected = currentRoute == screen.route,
                 onClick = {
