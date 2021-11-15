@@ -31,6 +31,10 @@ class DashboardViewModelImpl @Inject constructor(
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
 ) : DashboardViewModel() {
 
+    init {
+        companyInfo()
+    }
+
     private val viewModelState = MutableStateFlow(DashboardViewModelState(isLoading = true))
 
     override val uiState = viewModelState

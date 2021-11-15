@@ -1,6 +1,5 @@
 object ProjectModules {
     const val core = ":core"
-    const val navigation = ":navigation"
     const val api = ":data-api"
     const val data = ":data"
     const val domain = ":domain"

@@ -4,7 +4,6 @@ rootProject.buildFileName = "build.gradle.kts"
 include(
     ":app",
     ":core",
-    ":navigation",
     ":data-api",
     ":data",
     ":domain",
