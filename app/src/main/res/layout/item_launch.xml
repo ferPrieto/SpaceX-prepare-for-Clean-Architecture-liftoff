@@ -36,28 +36,28 @@
             app:layout_constraintStart_toEndOf="@+id/mission_patch"
             app:layout_constraintTop_toTopOf="parent">
 
-            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+            <prieto.fernando.spacex.presentation.widget.LaunchDetailsView
                 android:id="@+id/launch_details_mission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:title="@string/launch_data_mission" />
 
-            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+            <prieto.fernando.spacex.presentation.widget.LaunchDetailsView
                 android:id="@+id/launch_details_date_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/launch_details_mission"
                 app:title="@string/launch_data_date_time" />
 
-            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+            <prieto.fernando.spacex.presentation.widget.LaunchDetailsView
                 android:id="@+id/launch_details_name_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/launch_details_date_time"
                 app:title="@string/launch_data_rocket" />
 
-            <prieto.fernando.spacex.ui.widget.LaunchDetailsView
+            <prieto.fernando.spacex.presentation.widget.LaunchDetailsView
                 android:id="@+id/launch_details_days"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

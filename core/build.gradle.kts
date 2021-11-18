@@ -8,6 +8,7 @@ dependencies {
     api(Dependencies.Dagger.daggerAndroid)
     api(Dependencies.Dagger.daggerAndroidSupport)
 
+    implementation(Dependencies.AndroidX.Compose.runtime)
     implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
     implementation(Dependencies.AndroidX.Navigation.uiKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
 import prieto.fernando.spacex.BuildConfig
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.launches.launchesFragmentRobot
-import prieto.fernando.spacex.ui.MainActivity
+import prieto.fernando.spacex.presentation.MainActivity
 import prieto.fernando.spacex.utils.TestConfigurationRule
 import prieto.fernando.spacex.utils.ViewVisibilityIdlingResource
 import prieto.fernando.spacex.webmock.ErrorDispatcher
