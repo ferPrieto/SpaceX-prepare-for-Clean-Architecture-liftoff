@@ -13,7 +13,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
-import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
 
 @Composable
@@ -39,14 +38,20 @@ private fun MainScreenNavigationConfigurations(
 ) {
     NavHost(navController, startDestination = BottomNavigationScreens.Dashboard.route) {
         composable(BottomNavigationScreens.Dashboard.route) {
-            val dashboardViewModel: DashboardViewModelImpl = hiltViewModel()
-
-            DashboardScreen(viewModel = dashboardViewModel)
+            InitDashboardScreen()
         }
         composable(BottomNavigationScreens.Launches.route) {
             // LaunchesScreen( )
         }
     }
+}
+
+@Composable
+private fun InitDashboardScreen() {
+    val dashboardViewModel: DashboardViewModelImpl = hiltViewModel()
+    val state = dashboardViewModel.viewState.value
+    DashboardScreen(state = state,
+        onEventSent = { event -> dashboardViewModel.setEvent(event) })
 }
 
 @Composable

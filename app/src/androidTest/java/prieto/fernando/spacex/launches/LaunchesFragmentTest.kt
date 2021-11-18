@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
 import prieto.fernando.spacex.BuildConfig
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.dashboard.dashboardFragmentRobot
-import prieto.fernando.spacex.presentation.MainActivity
+import prieto.fernando.spacex.presentation.EntryPointActivity
 import prieto.fernando.spacex.utils.TestConfigurationRule
 import prieto.fernando.spacex.utils.ViewVisibilityIdlingResource
 import prieto.fernando.spacex.webmock.ErrorDispatcher
@@ -23,7 +23,7 @@ import prieto.fernando.spacex.webmock.SuccessDispatcher
 class LaunchesFragmentTest {
 
     @get:Rule
-    val activityTestRule = ActivityTestRule(MainActivity::class.java, true, true)
+    val activityTestRule = ActivityTestRule(EntryPointActivity::class.java, true, true)
 
     @get:Rule
     val espressoRule = TestConfigurationRule()

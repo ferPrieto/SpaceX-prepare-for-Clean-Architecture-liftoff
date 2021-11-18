@@ -7,11 +7,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import prieto.fernando.spacex.presentation.theme.SpaceXTheme
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
-
+class EntryPointActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             SpaceXTheme {
                 MainScreen()

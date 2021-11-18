@@ -3,7 +3,7 @@ package prieto.fernando.spacex.utils
 import androidx.test.core.app.launchActivity
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
-import prieto.fernando.spacex.presentation.MainActivity
+import prieto.fernando.spacex.presentation.EntryPointActivity
 import prieto.fernando.spacex.webmock.injectTestConfiguration
 
 class TestConfigurationRule : TestWatcher() {
@@ -11,6 +11,6 @@ class TestConfigurationRule : TestWatcher() {
         super.starting(description)
 
         injectTestConfiguration {}
-        launchActivity<MainActivity>()
+        launchActivity<EntryPointActivity>()
     }
 }

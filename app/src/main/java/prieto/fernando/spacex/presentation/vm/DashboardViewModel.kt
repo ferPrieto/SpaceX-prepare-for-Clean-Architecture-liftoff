@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.core.event.Event
 import prieto.fernando.core.presentation.BaseViewModel
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.spacex.presentation.dashboard.CompanyInfo
@@ -17,14 +16,10 @@ import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelM
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class DashboardViewModel :
-    BaseViewModel<DashboardContract.Event,
-            DashboardContract.State,
-            DashboardContract.Effect>() {
-
+abstract class DashboardViewModel : BaseViewModel
+<DashboardContract.Event, DashboardContract.State>() {
     abstract val companyInfo: LiveData<CompanyInfo>
     abstract val loadingCompanyInfo: LiveData<Boolean>
-    abstract val companyInfoError: LiveData<Event<Unit>>
     abstract fun companyInfo()
 }
 
@@ -42,9 +37,6 @@ class DashboardViewModelImpl @Inject constructor(
     override val companyInfo: LiveData<CompanyInfo>
         get() = _companyInfo
 
-    private val _companyInfoError = MediatorLiveData<Event<Unit>>()
-    override val companyInfoError: LiveData<Event<Unit>>
-        get() = _companyInfoError
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
@@ -55,7 +47,12 @@ class DashboardViewModelImpl @Inject constructor(
         companyInfo()
     }
 
-    override fun setInitialState(): DashboardContract.State = DashboardContract.State(null)
+    override fun setInitialState(): DashboardContract.State =
+        DashboardContract.State(
+            companyInfo = CompanyInfo("", "", "", "", -1, -1L),
+            isLoading = true,
+            isError = false
+        )
 
     override fun handleEvents(event: DashboardContract.Event) {}
 
@@ -69,7 +66,12 @@ class DashboardViewModelImpl @Inject constructor(
                     .collect { companyInfoDomainModel ->
                         companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)
                             .let { companyInfoUiModel ->
-                                setState { copy(companyInfo = companyInfoUiModel) }
+                                setState {
+                                    copy(
+                                        companyInfo = companyInfoUiModel,
+                                        isLoading = false
+                                    )
+                                }
                             }
                     }
             } catch (throwable: Throwable) {
@@ -80,7 +82,11 @@ class DashboardViewModelImpl @Inject constructor(
 
     private fun handleExceptions(throwable: Throwable) {
         Timber.e(throwable)
-        /*     _companyInfoError.postValue(eventOf(Unit))
-             _loadingCompanyInfo.value = false*/
+        setState {
+            copy(
+                isLoading = false,
+                isError = true
+            )
+        }
     }
 }

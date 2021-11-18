@@ -44,10 +44,10 @@ class DashboardFragment @Inject constructor(
         viewModel.loadingCompanyInfo.observe(viewLifecycleOwner, { show ->
           //  binding.dashboardProgressBar.isVisible = show
         })
-        viewModel.companyInfoError.observeEvent(this) {
+       /* viewModel.companyInfoError.observeEvent(this) {
             setErrorViewsVisibility(true)
-         //   binding.dashboardAnimation.isVisible = false
-        }
+           binding.dashboardAnimation.isVisible = false
+        }*/
     }
 
     private fun setErrorViewsVisibility(show:Boolean){
