@@ -21,22 +21,33 @@ fun DashboardScreen(
     state: DashboardContract.State,
     onEventSent: (event: DashboardContract.Event) -> Unit,
 ) {
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
-    val progress by animateLottieCompositionAsState(composition)
+    val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
+    val loadingProgress by animateLottieCompositionAsState(loadingComposition)
+    val errorComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.error_conection))
+    val errorProgress by animateLottieCompositionAsState(errorComposition)
     Column(modifier = Modifier.fillMaxSize()) {
         Text(text = stringResource(id = R.string.company_title), modifier = Modifier.padding(16.dp))
-        Box {
-            if (state.isLoading) {
+        when {
+            state.isLoading -> {
                 LottieAnimation(
-                    composition,
-                    progress,
+                    loadingComposition,
+                    loadingProgress,
                 )
-            } else {
-                Text(text = fillCompanyInfo(state.companyInfo), modifier = Modifier.padding(16.dp))
+            }
+            state.isError -> {
+                LottieAnimation(
+                    errorComposition,
+                    errorProgress,
+                )
+            }
+            else -> {
+                Text(
+                    text = fillCompanyInfo(state.companyInfo),
+                    modifier = Modifier.padding(16.dp)
+                )
             }
         }
     }
-
 }
 
 @Composable

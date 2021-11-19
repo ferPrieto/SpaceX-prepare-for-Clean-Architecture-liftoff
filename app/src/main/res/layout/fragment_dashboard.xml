@@ -91,6 +91,6 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         android:visibility="gone"
-        app:lottie_rawRes="@raw/error_conexion" />
+        app:lottie_rawRes="@raw/error_conection" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

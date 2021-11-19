@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/launches_title"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/error_conexion"
+        app:lottie_rawRes="@raw/error_conection"
         tools:visibility="visible" />
 
     <com.qhutch.bottomsheetlayout.BottomSheetLayout
