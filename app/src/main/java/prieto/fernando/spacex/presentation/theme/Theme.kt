@@ -16,7 +16,7 @@ private val LightThemeColors = lightColors(
     secondaryVariant = Light.AccentSecondary,
     onSecondary = Color.White,
     error = Light.TextHighlighted,
-    onBackground = Light.Background,
+    onBackground = Light.Background
 )
 
 private val DarkThemeColors = darkColors(
@@ -27,7 +27,7 @@ private val DarkThemeColors = darkColors(
     secondaryVariant = Dark.AccentSecondary,
     onSecondary = Color.Black,
     error = Dark.TextHighlighted,
-    onBackground = Dark.Background,
+    onBackground = Dark.Background
 )
 
 @Composable

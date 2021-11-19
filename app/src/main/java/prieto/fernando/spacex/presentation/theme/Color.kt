@@ -16,6 +16,8 @@ object Light {
     val BottomNavBackground = Color(0xffbbc3c8)
     val BottomTrayBackground = Color(0xfff7f7f7)
     val StatusBar = Color(0xffadb4b9)
+    val SelectedTab = Color(0xff00a2ea)
+    val UnselectedTab = Color(0xff7f7f82)
 }
 
 object Dark {
@@ -32,4 +34,6 @@ object Dark {
     val BottomNavBackground = Color(0xff4c4e5d)
     val BottomTrayBackground = Color(0xff202026)
     val StatusBar = Color(0xff1d1d23)
+    val SelectedTab = Color(0xff3f51b5)
+    val UnselectedTab = Color(0xff7f7f82)
 }

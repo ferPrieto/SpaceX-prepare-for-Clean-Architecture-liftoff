@@ -1,10 +1,26 @@
 package prieto.fernando.spacex.presentation
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -13,6 +29,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
+import prieto.fernando.spacex.presentation.theme.Dark
+import prieto.fernando.spacex.presentation.theme.Light
+import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
 
 @Composable
@@ -25,8 +44,8 @@ fun MainScreen() {
     )
     Scaffold(
         bottomBar = {
-            BottomNavigation(navController, bottomNavigationItems)
-        },
+            BottomNavigation(navController, bottomNavigationItems, Modifier)
+        }
     ) {
         MainScreenNavigationConfigurations(navController)
     }
@@ -41,7 +60,7 @@ private fun MainScreenNavigationConfigurations(
             InitDashboardScreen()
         }
         composable(BottomNavigationScreens.Launches.route) {
-            // LaunchesScreen( )
+            InitLaunchesScreen()
         }
     }
 }
@@ -49,36 +68,130 @@ private fun MainScreenNavigationConfigurations(
 @Composable
 private fun InitDashboardScreen() {
     val dashboardViewModel: DashboardViewModelImpl = hiltViewModel()
-    val state = dashboardViewModel.viewState.value
-    DashboardScreen(state = state,
-        onEventSent = { event -> dashboardViewModel.setEvent(event) })
+    DashboardScreen(state = dashboardViewModel.viewState.value)
+}
+
+@Composable
+private fun InitLaunchesScreen() {
+    /* val dashboardViewModel: DashboardViewModelImpl = hiltViewModel()
+     val state = dashboardViewModel.viewState.value
+     DashboardScreen(state = state,
+         onEventSent = { event -> dashboardViewModel.setEvent(event) })*/
 }
 
 @Composable
 private fun BottomNavigation(
     navController: NavHostController,
-    items: List<BottomNavigationScreens>
+    items: List<BottomNavigationScreens>,
+    modifier: Modifier = Modifier
 ) {
-    BottomNavigation {
+    BottomNavigation(
+        backgroundColor = if (MaterialTheme.colors.isLight) Light.BottomNavBackground
+        else Dark.BottomNavBackground
+    ) {
         val currentRoute = currentRoute(navController)
         items.forEach { screen ->
-            BottomNavigationItem(
-                icon = {
-                    Icon(
-                        painterResource(screen.drawableRes),
-                        stringResource(id = screen.resourceId)
-                    )
-                },
-                label = { Text(stringResource(id = screen.resourceId)) },
-                selected = currentRoute == screen.route,
-                onClick = {
-                    if (currentRoute != screen.route) {
-                        navController.navigate(screen.route)
-                    }
-                }
-            )
+            BottomTab(modifier, screen, currentRoute, navController)
         }
     }
+}
+
+@Composable
+private fun RowScope.BottomTab(
+    modifier: Modifier,
+    screen: BottomNavigationScreens,
+    currentRoute: String?,
+    navController: NavHostController
+) {
+    val onClick: () -> Unit = {
+        if (currentRoute != screen.route) {
+            navController.navigate(screen.route)
+        }
+    }
+    BottomNavigationItem(
+        icon = {
+            AnimatableIcon(
+                modifier = modifier,
+                screen = screen,
+                scale = if (currentRoute == screen.route) 1.2f else 1f,
+                color = getTabColour(currentRoute == screen.route),
+                onClick = onClick
+            )
+        },
+        label = {
+            AnimatableText(
+                screen = screen,
+                color = getTabColour(currentRoute == screen.route)
+            )
+        },
+        selected = currentRoute == screen.route,
+        onClick = onClick
+    )
+}
+
+@Composable
+private fun getTabColour(selected: Boolean) =
+    if (selected) {
+        if (MaterialTheme.colors.isLight) Light.SelectedTab
+        else Dark.SelectedTab
+    } else {
+        if (MaterialTheme.colors.isLight) Light.UnselectedTab
+        else Dark.UnselectedTab
+    }
+
+@Composable
+private fun AnimatableIcon(
+    modifier: Modifier,
+    screen: BottomNavigationScreens,
+    iconSize: Dp = 24.dp,
+    scale: Float = 1f,
+    color: Color,
+    onClick: () -> Unit
+) {
+    val animatedScale: Float by animateFloatAsState(
+        targetValue = scale,
+        animationSpec = TweenSpec(
+            durationMillis = 200,
+            easing = FastOutSlowInEasing
+        )
+    )
+    val animatedColor by animateColorAsState(
+        targetValue = color,
+        animationSpec = TweenSpec(
+            durationMillis = 200,
+            easing = FastOutSlowInEasing
+        )
+    )
+    IconButton(
+        modifier = modifier.size(iconSize),
+        onClick = onClick
+    ) {
+        Icon(
+            painterResource(screen.drawableRes),
+            stringResource(id = screen.resourceId),
+            tint = animatedColor,
+            modifier = modifier.scale(animatedScale)
+        )
+    }
+}
+
+@Composable
+private fun AnimatableText(
+    screen: BottomNavigationScreens,
+    color: Color
+) {
+    val animatedColor by animateColorAsState(
+        targetValue = color,
+        animationSpec = TweenSpec(
+            durationMillis = 200,
+            easing = FastOutSlowInEasing
+        )
+    )
+    Text(
+        text = stringResource(id = screen.resourceId),
+        modifier = Modifier,
+        color = animatedColor
+    )
 }
 
 @Composable
