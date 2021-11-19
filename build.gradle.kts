@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         classpath(BuildDependencies.androidGradle)
         classpath(BuildDependencies.kotlinGradlePlugin)
-        classpath (BuildDependencies.hiltAndroidGradlePlugin)
+        classpath(BuildDependencies.hiltAndroidGradlePlugin)
     }
 }
 
@@ -14,7 +14,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven("https://dl.bintray.com/shadowcra/Solid")
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
     }
 }
 

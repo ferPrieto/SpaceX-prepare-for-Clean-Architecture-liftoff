@@ -41,6 +41,7 @@ object Versions {
     const val kotlin = "1.5.21"
     const val timber = "4.7.1"
     const val lottie = "4.2.0"
+    const val lottieCompose = "4.2.1"
     const val coreTesting = "1.1.1"
     const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
@@ -138,6 +139,7 @@ object Dependencies {
     }
 
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    const val lottieCompose = "com.airbnb.android:lottie-compose:${Versions.lottieCompose}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 

@@ -6,34 +6,41 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import prieto.fernando.spacex.R
-import java.lang.StringBuilder
 
 @Composable
 fun DashboardScreen(
     state: DashboardContract.State,
     onEventSent: (event: DashboardContract.Event) -> Unit,
 ) {
-    Box {
-        CompanyInfo(companyInfo = state.companyInfo)
-       /* if (state.isLoading)
-           show Lottie Animation*/
-    }
-}
-
-@Composable
-private fun CompanyInfo(companyInfo: CompanyInfo) {
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
+    val progress by animateLottieCompositionAsState(composition)
     Column(modifier = Modifier.fillMaxSize()) {
         Text(text = stringResource(id = R.string.company_title), modifier = Modifier.padding(16.dp))
-        Text(text = BindCompanyInfo(companyInfo), modifier = Modifier.padding(16.dp))
+        Box {
+            if (state.isLoading) {
+                LottieAnimation(
+                    composition,
+                    progress,
+                )
+            } else {
+                Text(text = fillCompanyInfo(state.companyInfo), modifier = Modifier.padding(16.dp))
+            }
+        }
     }
+
 }
 
 @Composable
-private fun BindCompanyInfo(companyInfo: CompanyInfo): String =
+private fun fillCompanyInfo(companyInfo: CompanyInfo): String =
     String.format(
         stringResource(id = R.string.company_data),
         companyInfo.name,

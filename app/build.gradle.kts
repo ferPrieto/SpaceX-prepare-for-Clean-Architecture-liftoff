@@ -71,6 +71,7 @@ dependencies {
     implementation(Dependencies.picasso)
     implementation(Dependencies.bottomSheet)
     implementation(Dependencies.lottie)
+    implementation(Dependencies.lottieCompose)
 
     implementation(Dependencies.AndroidX.constraintlayout)
     implementation(Dependencies.AndroidX.legacySupport)
