@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mitteloupe.solid.recyclerview.SolidAdapter
 import prieto.fernando.core.event.observeEvent
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
-import prieto.fernando.spacex.presentation.vm.model.LaunchUiModel
+import prieto.fernando.spacex.presentation.launches.Launch
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.databinding.FragmentLaunchesBinding
 import prieto.fernando.spacex.presentation.adapter.ClickListener
@@ -35,7 +35,7 @@ class LaunchesFragment @Inject constructor(
 
     private lateinit var binding: FragmentLaunchesBinding
 
-    private var launchesAdapter: SolidAdapter<LaunchViewHolder, LaunchUiModel>? = null
+    private var launchesAdapter: SolidAdapter<LaunchViewHolder, Launch>? = null
     private var linkYoutube = ""
     private var linkWikipedia = ""
     private val clickListener = object : ClickListener {
@@ -110,7 +110,7 @@ class LaunchesFragment @Inject constructor(
     }
 
     private fun setViewModelObservers() {
-        viewModel.launches.observe(viewLifecycleOwner, { launches ->
+      /*  viewModel.launches.observe(viewLifecycleOwner, { launches ->
             bindLaunches(launches)
         })
         viewModel.loadingLaunches.observe(viewLifecycleOwner, { show ->
@@ -125,7 +125,7 @@ class LaunchesFragment @Inject constructor(
         viewModel.launchesError.observeEvent(this) {
             setLaunchesErrorViewsVisibility(true)
             setLaunchesViewsVisbility(false)
-        }
+        }*/
     }
 
     override fun onResume() {
@@ -145,8 +145,8 @@ class LaunchesFragment @Inject constructor(
         setLaunchesViewsVisbility(false)
     }
 
-    private fun bindLaunches(launchesUiModel: List<LaunchUiModel>?) {
-        launchesUiModel?.let { launches ->
+    private fun bindLaunches(launches: List<Launch>?) {
+        launches?.let { launches ->
             launchesAdapter?.setItems(launches)
             setLaunchesErrorViewsVisibility(false)
             //  binding.launchesAnimation.isVisible = true

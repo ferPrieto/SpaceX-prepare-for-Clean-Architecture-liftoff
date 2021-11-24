@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation
+package prieto.fernando.spacex.presentation.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import prieto.fernando.core.event.observeEvent
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.databinding.FragmentDashboardBinding
-import prieto.fernando.spacex.presentation.dashboard.CompanyInfo
 import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import javax.inject.Inject
 
@@ -36,18 +34,18 @@ class DashboardFragment @Inject constructor(
     }
 
     private fun setViewModelObservers() {
-        viewModel.companyInfo.observe(viewLifecycleOwner, { companyInfo ->
-            bindCompanyInfo(companyInfo)
-          //  binding.dashboardAnimation.isVisible = true
-            setErrorViewsVisibility(false)
-        })
-        viewModel.loadingCompanyInfo.observe(viewLifecycleOwner, { show ->
-          //  binding.dashboardProgressBar.isVisible = show
-        })
-       /* viewModel.companyInfoError.observeEvent(this) {
-            setErrorViewsVisibility(true)
-           binding.dashboardAnimation.isVisible = false
-        }*/
+        /*  viewModel.companyInfo.observe(viewLifecycleOwner, { companyInfo ->
+              bindCompanyInfo(companyInfo)
+            //  binding.dashboardAnimation.isVisible = true
+              setErrorViewsVisibility(false)
+          })
+          viewModel.loadingCompanyInfo.observe(viewLifecycleOwner, { show ->
+            //  binding.dashboardProgressBar.isVisible = show
+          })
+          viewModel.companyInfoError.observeEvent(this) {
+              setErrorViewsVisibility(true)
+             binding.dashboardAnimation.isVisible = false
+          }*/
     }
 
     private fun setErrorViewsVisibility(show:Boolean){

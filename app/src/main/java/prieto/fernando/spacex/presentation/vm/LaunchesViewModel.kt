@@ -2,32 +2,32 @@ package prieto.fernando.spacex.presentation.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import prieto.fernando.core.event.Event
 import prieto.fernando.core.event.eventOf
+import prieto.fernando.core.presentation.BaseViewModel
 import prieto.fernando.domain.usecase.GetLaunches
+import prieto.fernando.spacex.presentation.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
-import prieto.fernando.spacex.presentation.vm.model.LaunchUiModel
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class LaunchesViewModel : ViewModel() {
+abstract class LaunchesViewModel : BaseViewModel
+<LaunchesContract.Event, LaunchesContract.State, LaunchesContract.Effect>() {
     abstract fun launches(yearFilterCriteria: Int = -1, ascendantOrder: Boolean = false)
     abstract fun openLink(link: String)
     abstract fun onFilterClicked()
 
-    abstract val launches: LiveData<List<LaunchUiModel>>
-    abstract val loadingLaunches: LiveData<Boolean>
-    abstract val launchesError: LiveData<Event<Unit>>
     abstract val openLink: LiveData<Event<String>>
     abstract val showDialog: LiveData<Event<Unit>>
 }
 
+@HiltViewModel
 class LaunchesViewModelImpl @Inject constructor(
     private val getLaunches: GetLaunches,
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
@@ -41,37 +41,52 @@ class LaunchesViewModelImpl @Inject constructor(
     override val showDialog: LiveData<Event<Unit>>
         get() = _showDialog
 
-    private val _loadingLaunches = MediatorLiveData<Boolean>()
-    override val loadingLaunches: LiveData<Boolean>
-        get() = _loadingLaunches
-
-    private val _launches = MediatorLiveData<List<LaunchUiModel>>()
-    override val launches: LiveData<List<LaunchUiModel>>
-        get() = _launches
-
-    private val _launchesError = MediatorLiveData<Event<Unit>>()
-    override val launchesError: LiveData<Event<Unit>>
-        get() = _launchesError
-
-
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
-        _loadingLaunches.value = false
+        setState {
+            copy(
+                isLoading = false,
+                isError = true
+            )
+        }
+    }
+
+    init {
+        launches()
+    }
+
+    override fun setInitialState(): LaunchesContract.State =
+        LaunchesContract.State(
+            launches = emptyList(),
+            isLoading = true,
+            isError = false
+        )
+
+    override fun handleEvents(event: LaunchesContract.Event) {
+        when (event) {
+            is LaunchesContract.Event.Links -> {
+                setEffect { LaunchesContract.Effect.FilterClicked }
+            }
+        }
     }
 
     override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
         viewModelScope.launch(errorHandler) {
-            _loadingLaunches.value = true
             try {
                 getLaunches.execute(yearFilterCriteria, ascendantOrder)
                     .catch { throwable ->
                         handleExceptions(throwable)
                     }
                     .collect { launchesDomainModel ->
-                        val launchesUiModel =
-                            launchesDomainToUiModelMapper.toUiModel(launchesDomainModel)
-                        _launches.postValue(launchesUiModel)
-                        _loadingLaunches.value = false
+                        launchesDomainToUiModelMapper.toUiModel(launchesDomainModel)
+                            .let { launches ->
+                                setState {
+                                    copy(
+                                        launches = launches,
+                                        isLoading = false
+                                    )
+                                }
+                            }
                     }
             } catch (throwable: Throwable) {
                 handleExceptions(throwable)
@@ -81,8 +96,12 @@ class LaunchesViewModelImpl @Inject constructor(
 
     private fun handleExceptions(throwable: Throwable) {
         Timber.e(throwable)
-        _launchesError.postValue(eventOf(Unit))
-        _loadingLaunches.value = false
+        setState {
+            copy(
+                isLoading = false,
+                isError = true
+            )
+        }
     }
 
     override fun openLink(link: String) {

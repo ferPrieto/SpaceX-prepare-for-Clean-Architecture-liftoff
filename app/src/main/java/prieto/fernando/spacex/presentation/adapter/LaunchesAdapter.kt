@@ -8,9 +8,8 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.mitteloupe.solid.recyclerview.InflatedViewProvider
 import com.mitteloupe.solid.recyclerview.SimpleViewBinder
-import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
-import prieto.fernando.spacex.presentation.vm.model.LaunchUiModel
+import prieto.fernando.spacex.presentation.launches.Launch
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.Link
 import prieto.fernando.spacex.presentation.LinkType
@@ -45,14 +44,14 @@ class LaunchViewHolder(override val containerView: View) : RecyclerView.ViewHold
 class LaunchViewBinder(
     private val context: Context,
     private val clickListener: ClickListener
-) : SimpleViewBinder<LaunchViewHolder, LaunchUiModel>() {
-    override fun bindView(viewHolder: LaunchViewHolder, data: LaunchUiModel) {
+) : SimpleViewBinder<LaunchViewHolder, Launch>() {
+    override fun bindView(viewHolder: LaunchViewHolder, data: Launch) {
 
-        Picasso.get()
-            .load(data.links.missionPatchSmall)
-            .resize(150, 150)
-            .centerCrop()
-            .into(viewHolder.missionPatch)
+        /*   Picasso.get()
+               .load(data.links.missionPatchSmall)
+               .resize(150, 150)
+               .centerCrop()
+               .into(viewHolder.missionPatch)*/
         viewHolder.launchDetailsMission.value = data.missionName
         viewHolder.launchDetailsDateTime.value = data.launchDate
         viewHolder.launchDetailsNameTime.value =
@@ -75,7 +74,7 @@ class LaunchViewBinder(
             context.getString(R.string.company_data_from)
         }
 
-    private fun getAvailableLinks(launchUiModel: LaunchUiModel) = with(launchUiModel.links) {
+    private fun getAvailableLinks(launch: Launch) = with(launch.links) {
         when {
             wikipedia.isNotBlank() && videoLink.isNotBlank() -> getLinksFromUrls(
                 videoLink,
@@ -103,5 +102,4 @@ class LaunchViewBinder(
         } else {
             context.getDrawable(R.drawable.ic_clear)
         }
-
 }

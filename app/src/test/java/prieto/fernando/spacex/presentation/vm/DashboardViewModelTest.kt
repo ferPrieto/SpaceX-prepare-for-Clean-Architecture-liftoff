@@ -26,9 +26,9 @@ import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.dashboard.CompanyInfo
-import prieto.fernando.spacex.presentation.vm.model.LaunchUiModel
-import prieto.fernando.spacex.presentation.vm.model.LinksUiModel
-import prieto.fernando.spacex.presentation.vm.model.RocketUiModel
+import prieto.fernando.spacex.presentation.launches.Launch
+import prieto.fernando.spacex.presentation.launches.Links
+import prieto.fernando.spacex.presentation.launches.Rocket
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -61,7 +61,7 @@ class DashboardViewModelTest {
     fun `When launches then launchUiModelRetrieved with expected result`() {
         runBlockingTest {
             // Given
-            val launchUiModelRetrievedTestObserver = mock<Observer<List<LaunchUiModel>>>()
+            val launchUiModelRetrievedTestObserver = mock<Observer<List<Launch>>>()
             cut.launches.observeForever(launchUiModelRetrievedTestObserver)
             val launchDomainModels = listOf(
                 LaunchDomainModel(
@@ -80,26 +80,26 @@ class DashboardViewModelTest {
                 )
             )
             val expected = listOf(
-                LaunchUiModel(
+                Launch(
                     "missionName",
                     "11-12-2019 at 12:00",
                     true,
                     "0",
-                    RocketUiModel("rocketName", "rocketType"),
-                    LinksUiModel(
+                    Rocket("rocketName", "rocketType"),
+                    Links(
                         "patchLink",
                         "wikipediaLink",
                         "videoLink"
                     ),
                     false
                 ),
-                LaunchUiModel(
+                Launch(
                     "missionName2",
                     "07-12-2020 at 12:00",
                     false,
                     "361",
-                    RocketUiModel("rocketName2", "rocketType2"),
-                    LinksUiModel(
+                    Rocket("rocketName2", "rocketType2"),
+                    Links(
                         "patchLink2",
                         "wikipediaLink2",
                         "videoLink2"

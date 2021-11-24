@@ -30,6 +30,16 @@ val SpaceXTypography = Typography(
         fontSize = 16.sp,
         letterSpacing = 0.5.sp
     ),
+    subtitle1 = TextStyle(
+        fontWeight = FontWeight.Light,
+        fontSize = 14.sp,
+        letterSpacing = 0.sp
+    ),
+    subtitle2 = TextStyle(
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        letterSpacing = 0.sp
+    ),
     button = TextStyle(
         fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp,

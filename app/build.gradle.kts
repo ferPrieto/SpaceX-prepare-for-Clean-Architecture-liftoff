@@ -69,7 +69,7 @@ dependencies {
     implementation(Dependencies.Hilt.hiltCompiler)
     implementation(Dependencies.Hilt.hiltNavigationCompose)
 
-    implementation(Dependencies.picasso)
+    implementation(Dependencies.coilCompose)
     implementation(Dependencies.bottomSheet)
     implementation(Dependencies.lottie)
     implementation(Dependencies.lottieCompose)

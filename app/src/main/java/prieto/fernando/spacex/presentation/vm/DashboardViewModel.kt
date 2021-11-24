@@ -17,9 +17,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 abstract class DashboardViewModel : BaseViewModel
-<DashboardContract.Event, DashboardContract.State>() {
-    abstract val companyInfo: LiveData<CompanyInfo>
-    abstract val loadingCompanyInfo: LiveData<Boolean>
+<DashboardContract.Event, DashboardContract.State, DashboardContract.Effect>() {
     abstract fun companyInfo()
 }
 
@@ -29,18 +27,14 @@ class DashboardViewModelImpl @Inject constructor(
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
 ) : DashboardViewModel() {
 
-    private val _loadingCompanyInfo = MediatorLiveData<Boolean>()
-    override val loadingCompanyInfo: LiveData<Boolean>
-        get() = _loadingCompanyInfo
-
-    private val _companyInfo = MediatorLiveData<CompanyInfo>()
-    override val companyInfo: LiveData<CompanyInfo>
-        get() = _companyInfo
-
-
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
-        _loadingCompanyInfo.value = false
+        setState {
+            copy(
+                isLoading = false,
+                isError = true
+            )
+        }
     }
 
     init {
@@ -65,10 +59,10 @@ class DashboardViewModelImpl @Inject constructor(
                     }
                     .collect { companyInfoDomainModel ->
                         companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)
-                            .let { companyInfoUiModel ->
+                            .let { companyInfo ->
                                 setState {
                                     copy(
-                                        companyInfo = companyInfoUiModel,
+                                        companyInfo = companyInfo,
                                         isLoading = false
                                     )
                                 }

@@ -47,7 +47,7 @@ object Versions {
     const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
     const val okhttpLoggingInterceptor = "4.9.1"
-    const val picasso = "2.71828"
+    const val coil = "1.4.0"
     const val bottomSheet = "0.1.9"
     const val jodaTime = "2.10.8"
     const val mockWebServer = "4.9.0"
@@ -152,7 +152,7 @@ object Dependencies {
     const val okHttpLoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
 
-    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+    const val coilCompose = "io.coil-kt:coil-compose:${Versions.coil}"
 
     const val bottomSheet =
         "com.qhutch.bottomsheetlayout:bottomsheetlayout:${Versions.bottomSheet}"

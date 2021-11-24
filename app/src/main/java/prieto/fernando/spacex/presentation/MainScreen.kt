@@ -29,19 +29,23 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
+import prieto.fernando.spacex.presentation.launches.LaunchesScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light
 import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
+import prieto.fernando.spacex.presentation.vm.LaunchesViewModelImpl
 
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
 
     val systemUiController = rememberSystemUiController()
-    systemUiController.setStatusBarColor( if (MaterialTheme.colors.isLight) Light.StatusBar
-    else Dark.StatusBar)
+    systemUiController.setStatusBarColor(
+        if (MaterialTheme.colors.isLight) Light.StatusBar
+        else Dark.StatusBar
+    )
 
     val bottomNavigationItems = listOf(
         BottomNavigationScreens.Dashboard,
@@ -78,10 +82,8 @@ private fun InitDashboardScreen() {
 
 @Composable
 private fun InitLaunchesScreen() {
-    /* val dashboardViewModel: DashboardViewModelImpl = hiltViewModel()
-     val state = dashboardViewModel.viewState.value
-     DashboardScreen(state = state,
-         onEventSent = { event -> dashboardViewModel.setEvent(event) })*/
+    val launchesViewModel: LaunchesViewModelImpl = hiltViewModel()
+    LaunchesScreen(state = launchesViewModel.viewState.value)
 }
 
 @Composable

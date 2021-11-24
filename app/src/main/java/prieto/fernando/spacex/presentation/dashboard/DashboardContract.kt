@@ -1,6 +1,7 @@
 package prieto.fernando.spacex.presentation.dashboard
 
 import prieto.fernando.core.presentation.ViewEvent
+import prieto.fernando.core.presentation.ViewSideEffect
 import prieto.fernando.core.presentation.ViewState
 
 
@@ -12,4 +13,6 @@ class DashboardContract {
         val isLoading: Boolean = false,
         val isError: Boolean = false
     ) : ViewState
+
+    object Effect : ViewSideEffect
 }

@@ -1,15 +1,15 @@
 package prieto.fernando.spacex.presentation.vm.mapper
 
 import prieto.fernando.domain.model.LaunchDomainModel
-import prieto.fernando.spacex.presentation.vm.model.LaunchUiModel
-import prieto.fernando.spacex.presentation.vm.model.LinksUiModel
-import prieto.fernando.spacex.presentation.vm.model.RocketUiModel
+import prieto.fernando.spacex.presentation.launches.Launch
+import prieto.fernando.spacex.presentation.launches.Links
+import prieto.fernando.spacex.presentation.launches.Rocket
 import javax.inject.Inject
 
 interface LaunchesDomainToUiModelMapper {
     fun toUiModel(
         launchesDomainModel: List<LaunchDomainModel>
-    ): List<LaunchUiModel>
+    ): List<Launch>
 }
 
 class LaunchesDomainToUiModelMapperImpl @Inject constructor(
@@ -17,19 +17,19 @@ class LaunchesDomainToUiModelMapperImpl @Inject constructor(
 ) : LaunchesDomainToUiModelMapper {
     override fun toUiModel(
         launchesDomainModel: List<LaunchDomainModel>
-    ): List<LaunchUiModel> = launchesDomainModel.map { launchDomainModel ->
-        val linksUiModel = LinksUiModel(
+    ): List<Launch> = launchesDomainModel.map { launchDomainModel ->
+        val linksUiModel = Links(
             missionPatchSmall = launchDomainModel.links.missionPatchSmall,
             wikipedia = launchDomainModel.links.wikipedia,
             videoLink = launchDomainModel.links.videoLink
         )
 
-        val rocketUiModel = RocketUiModel(
+        val rocketUiModel = Rocket(
             rocketName = launchDomainModel.rocket.rocketName,
             rocketType = launchDomainModel.rocket.rocketType
         )
 
-        LaunchUiModel(
+        Launch(
             missionName = launchDomainModel.missionName,
             launchDate = dateTransformer.dateToDateString(launchDomainModel.launchDate),
             rocket = rocketUiModel,

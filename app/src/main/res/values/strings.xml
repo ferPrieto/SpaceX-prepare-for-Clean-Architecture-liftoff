@@ -1,18 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SpaceX</string>
-    <string name="launch_data_mission">Mission</string>
-    <string name="launch_data_date_time">Date/time</string>
-    <string name="launch_data_rocket">Rocket</string>
-    <string name="launch_data_days">Days</string>
+
+    <string name="company_title">COMPANY</string>
     <string name="company_data">
         %s was founded by  %s in  %s. It has now  %s employees,  %s launch sites, and is valued at USD  %s
     </string>
     <string name="company_data_from">Days from now</string>
     <string name="company_data_since">Days since now</string>
+
     <string name="launches_title">LAUNCHES</string>
-    <string name="company_title">COMPANY</string>
+    <string name="launches_item_mission">Mission</string>
+    <string name="launches_item_date_time">Date/time</string>
+    <string name="launches_item_rocket">Rocket</string>
+    <string name="launches_item_days">Days</string>
+
     <string name="header_error_description">There was a connection error.</string>
     <string name="body_error_description">Sorry, nothing to show here yet.</string>
+
     <string name="bottom_sheet_youtube">YouTube</string>
     <string name="bottom_sheet_wikipedia">Wikipedia</string>
 
