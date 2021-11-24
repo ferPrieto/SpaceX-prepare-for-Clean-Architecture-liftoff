@@ -56,6 +56,7 @@ dependencies {
     implementation(Dependencies.solidRecyclerView)
 
     implementation(Dependencies.AndroidX.Compose.ui)
+    implementation(Dependencies.AndroidX.Compose.systemUiController)
     implementation(Dependencies.AndroidX.Compose.material)
     implementation(Dependencies.AndroidX.Compose.uiTooling)
     implementation(Dependencies.AndroidX.Compose.runtime)

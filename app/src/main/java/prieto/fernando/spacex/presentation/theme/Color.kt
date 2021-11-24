@@ -33,7 +33,7 @@ object Dark {
     val DialogWindowBackground = Color(0xff393a47)
     val BottomNavBackground = Color(0xff4c4e5d)
     val BottomTrayBackground = Color(0xff202026)
-    val StatusBar = Color(0xff1d1d23)
-    val SelectedTab = Color(0xff3f51b5)
+    val StatusBar = Color(0xff212027)
+    val SelectedTab = Color(0xff2f3969)
     val UnselectedTab = Color(0xff7f7f82)
 }

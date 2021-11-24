@@ -20,6 +20,7 @@ object Versions {
     const val fragment = "1.2.5"
     const val navigation = "2.3.2"
     const val compose = "1.0.1"
+    const val composeSystemUi = "0.21.3-beta"
     const val composeViewModel = "2.4.0"
     const val composeNavigation = "2.4.0-beta01"
     const val constraintLayout = "2.0.4"
@@ -94,12 +95,17 @@ object Dependencies {
 
         object Compose {
             const val ui = "androidx.compose.ui:ui:${Versions.compose}"
+            const val systemUiController =
+                "com.google.accompanist:accompanist-systemuicontroller:${Versions.composeSystemUi}"
             const val runtime = "androidx.compose.runtime:runtime:${Versions.compose}"
-            const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+            const val runtimeLiveData =
+                "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
             const val material = "androidx.compose.material:material:${Versions.compose}"
             const val uiTooling = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
-            const val navigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
-            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
+            const val navigation =
+                "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
+            const val viewModel =
+                "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
         }
     }
 
@@ -153,7 +159,8 @@ object Dependencies {
 
     const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
 
-    const val solidRecyclerView = "com.mitteloupe.solid:solidrecyclerview:${Versions.solidRecyclerView}"
+    const val solidRecyclerView =
+        "com.mitteloupe.solid:solidrecyclerview:${Versions.solidRecyclerView}"
 }
 
 object TestDependencies {

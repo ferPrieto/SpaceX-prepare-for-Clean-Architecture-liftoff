@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.presentation.theme.Dark
@@ -37,6 +38,10 @@ import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
+
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor( if (MaterialTheme.colors.isLight) Light.StatusBar
+    else Dark.StatusBar)
 
     val bottomNavigationItems = listOf(
         BottomNavigationScreens.Dashboard,
