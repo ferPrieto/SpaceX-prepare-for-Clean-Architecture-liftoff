@@ -3,6 +3,7 @@ package prieto.fernando.spacex.presentation.launches
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -10,8 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -20,10 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.animateLottieCompositionAsState
-import com.airbnb.lottie.compose.rememberLottieComposition
+import com.airbnb.lottie.compose.*
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light
@@ -33,6 +30,7 @@ import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 fun LaunchesScreen(
     state: LaunchesContract.State
 ) {
+    var isLaunched by remember { mutableStateOf(false) }
     val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
 
@@ -40,7 +38,10 @@ fun LaunchesScreen(
     val errorProgress by animateLottieCompositionAsState(errorComposition)
 
     val bodyComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.rocket_launched))
-    val bodyProgress by animateLottieCompositionAsState(bodyComposition)
+    val bodyProgress by animateLottieCompositionAsState(
+        bodyComposition,
+        restartOnPlay = false
+    )
 
     Column(
         modifier = Modifier
@@ -71,18 +72,23 @@ fun LaunchesScreen(
                 )
             }
             else -> {
+                FilterIcon(
+                    Modifier
+                        .padding(end = 16.dp)
+                        .align(Alignment.End)
+                )
                 Box {
-                    LaunchesList(launchesItems = state.launches) { links ->
-                        // Show bottom Tray
+                    if (bodyProgress == 1f) {
+                        LaunchesList(launchesItems = state.launches) { links ->
+                            // Show bottom Tray
+                        }
+                    } else {
+                        LottieAnimation(
+                            bodyComposition,
+                            bodyProgress
+                        )
                     }
                 }
-                LottieAnimation(
-                    bodyComposition,
-                    bodyProgress,
-                    modifier = Modifier
-                        .size(260.dp)
-                        .align(Alignment.CenterHorizontally)
-                )
             }
         }
     }
@@ -161,6 +167,16 @@ fun LaunchItemRow(
                     .align(Alignment.Top)
             )
         }
+    }
+}
+
+@Composable
+private fun FilterIcon(modifier: Modifier) {
+    Box(modifier) {
+        Image(
+            painter = painterResource(R.drawable.ic_filter),
+            contentDescription = "Success or Failure launch Icon"
+        )
     }
 }
 
