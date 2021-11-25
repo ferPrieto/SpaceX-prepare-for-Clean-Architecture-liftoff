@@ -1,5 +1,10 @@
 package prieto.fernando.spacex.presentation.launches
 
+import androidx.compose.animation.Animatable
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,9 +13,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,16 +24,20 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.airbnb.lottie.compose.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light
 import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 
+@ExperimentalMaterialApi
 @Composable
 fun LaunchesScreen(
-    state: LaunchesContract.State
+    state: LaunchesContract.State,
+    coroutineScope: CoroutineScope,
+    bottomSheetScaffoldState:BottomSheetScaffoldState
 ) {
-    var isLaunched by remember { mutableStateOf(false) }
     val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
 
@@ -42,7 +49,6 @@ fun LaunchesScreen(
         bodyComposition,
         restartOnPlay = false
     )
-
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -72,22 +78,27 @@ fun LaunchesScreen(
                 )
             }
             else -> {
-                FilterIcon(
-                    Modifier
-                        .padding(end = 16.dp)
-                        .align(Alignment.End)
-                )
-                Box {
-                    if (bodyProgress == 1f) {
-                        LaunchesList(launchesItems = state.launches) { links ->
-                            // Show bottom Tray
+                if (bodyProgress == 1f) {
+                    FilterIcon(
+                        Modifier
+                            .padding(end = 8.dp, bottom = 8.dp)
+                            .align(Alignment.End)
+                    )
+                    LaunchesList(launchesItems = state.launches) { links ->
+                        coroutineScope.launch {
+                            if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
+                                bottomSheetScaffoldState.bottomSheetState.expand()
+                            } else {
+                                bottomSheetScaffoldState.bottomSheetState.collapse()
+                            }
                         }
-                    } else {
-                        LottieAnimation(
-                            bodyComposition,
-                            bodyProgress
-                        )
                     }
+
+                } else {
+                    LottieAnimation(
+                        bodyComposition,
+                        bodyProgress
+                    )
                 }
             }
         }
@@ -108,7 +119,6 @@ fun LaunchesList(
     }
 }
 
-
 @Composable
 fun LaunchItemRow(
     launchItem: Launch,
@@ -125,7 +135,7 @@ fun LaunchItemRow(
             .padding(8.dp)
             .clickable { onItemClicked(launchItem.links) }
     ) {
-        Row {
+        Row(Modifier.animateContentSize()) {
             Box(
                 modifier = Modifier
                     .align(alignment = Alignment.CenterVertically)

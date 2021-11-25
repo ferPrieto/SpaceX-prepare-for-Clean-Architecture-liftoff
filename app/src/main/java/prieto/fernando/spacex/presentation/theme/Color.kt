@@ -31,9 +31,9 @@ object Dark {
     val Background = Color(0xff2b2c35)
     val ItemBackground = Color(0xff202026)
     val DialogWindowBackground = Color(0xff393a47)
-    val BottomNavBackground = Color(0xff4c4e5d)
-    val BottomTrayBackground = Color(0xff202026)
+    val BottomNavBackground = Color(0xff393A47)
+    val BottomTrayBackground = Color(0xff4C4E5D)
     val StatusBar = Color(0xff212027)
-    val SelectedTab = Color(0xff2f3969)
+    val SelectedTab = Color(0xff3F51B5)
     val UnselectedTab = Color(0xff7f7f82)
 }
