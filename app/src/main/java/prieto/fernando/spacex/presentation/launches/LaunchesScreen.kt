@@ -1,14 +1,9 @@
 package prieto.fernando.spacex.presentation.launches
 
-import androidx.compose.animation.Animatable
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -36,7 +31,7 @@ import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 fun LaunchesScreen(
     state: LaunchesContract.State,
     coroutineScope: CoroutineScope,
-    bottomSheetScaffoldState:BottomSheetScaffoldState
+    bottomSheetScaffoldState: BottomSheetScaffoldState
 ) {
     val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
@@ -49,6 +44,9 @@ fun LaunchesScreen(
         bodyComposition,
         restartOnPlay = false
     )
+
+    val openDialog = remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -59,7 +57,7 @@ fun LaunchesScreen(
     ) {
         Text(
             text = stringResource(id = R.string.launches_title),
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(top = 16.dp, start = 16.dp),
             style = SpaceXTypography.h1,
             color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
             else Dark.TextColorPrimary
@@ -80,9 +78,10 @@ fun LaunchesScreen(
             else -> {
                 if (bodyProgress == 1f) {
                     FilterIcon(
-                        Modifier
+                        modifier = Modifier
                             .padding(end = 8.dp, bottom = 8.dp)
-                            .align(Alignment.End)
+                            .align(Alignment.End),
+                        onClick = { openDialog.value = true }
                     )
                     LaunchesList(launchesItems = state.launches) { links ->
                         coroutineScope.launch {
@@ -102,7 +101,46 @@ fun LaunchesScreen(
                 }
             }
         }
+        if (openDialog.value) {
+            FilterDialog(openDialog = openDialog)
+        }
     }
+}
+
+@Composable
+fun FilterDialog(openDialog: MutableState<Boolean>) {
+    AlertDialog(
+        onDismissRequest = {
+            // Dismiss the dialog when the user clicks outside the dialog or on the back
+            // button. If you want to disable that functionality, simply use an empty
+            // onCloseRequest.
+            openDialog.value = false
+        },
+        title = {
+            Text(text = "Dialog Title")
+        },
+        text = {
+            Text("Here is a text ")
+        },
+        confirmButton = {
+            Button(
+
+                onClick = {
+                    openDialog.value = false
+                }) {
+                Text("This is the Confirm Button")
+            }
+        },
+        dismissButton = {
+            Button(
+
+                onClick = {
+                    openDialog.value = false
+                }) {
+                Text("This is the dismiss Button")
+            }
+        }
+    )
 }
 
 @Composable
@@ -181,12 +219,16 @@ fun LaunchItemRow(
 }
 
 @Composable
-private fun FilterIcon(modifier: Modifier) {
+private fun FilterIcon(modifier: Modifier, onClick: () -> Unit) {
     Box(modifier) {
-        Image(
-            painter = painterResource(R.drawable.ic_filter),
-            contentDescription = "Success or Failure launch Icon"
-        )
+        IconButton(
+            onClick = onClick
+        ) {
+            Image(
+                painter = painterResource(R.drawable.ic_filter),
+                contentDescription = "Success or Failure launch Icon"
+            )
+        }
     }
 }
 
