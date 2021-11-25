@@ -8,6 +8,7 @@ import prieto.fernando.spacex.presentation.LinkType
 class LaunchesContract {
     sealed class Event : ViewEvent {
         data class Links(val links: prieto.fernando.spacex.presentation.launches.Links) : Event()
+        data class Filter(val year: String, val orderedChecked: Boolean) : Event()
     }
 
     data class State(

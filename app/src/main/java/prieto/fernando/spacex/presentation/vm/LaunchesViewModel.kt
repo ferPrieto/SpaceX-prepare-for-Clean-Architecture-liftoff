@@ -67,6 +67,10 @@ class LaunchesViewModelImpl @Inject constructor(
             is LaunchesContract.Event.Links -> {
                 setEffect { LaunchesContract.Effect.FilterClicked }
             }
+            is LaunchesContract.Event.Filter -> {
+                val filteredYear = if (event.year.isNotBlank()) event.year.toInt() else 0
+                launches(filteredYear, event.orderedChecked)
+            }
         }
     }
 

@@ -8,12 +8,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
@@ -31,13 +33,17 @@ import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 fun LaunchesScreen(
     state: LaunchesContract.State,
     coroutineScope: CoroutineScope,
-    bottomSheetScaffoldState: BottomSheetScaffoldState
+    bottomSheetScaffoldState: BottomSheetScaffoldState,
+    onEventSent: (event: LaunchesContract.Event) -> Unit,
 ) {
     val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
 
     val errorComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.error_conection))
     val errorProgress by animateLottieCompositionAsState(errorComposition)
+
+    val noResultsComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.no_results_animation))
+    val noResultsProgress by animateLottieCompositionAsState(noResultsComposition)
 
     val bodyComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.rocket_launched))
     val bodyProgress by animateLottieCompositionAsState(
@@ -46,6 +52,7 @@ fun LaunchesScreen(
     )
 
     val openDialog = remember { mutableStateOf(false) }
+    val orderChecked = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -83,16 +90,32 @@ fun LaunchesScreen(
                             .align(Alignment.End),
                         onClick = { openDialog.value = true }
                     )
-                    LaunchesList(launchesItems = state.launches) { links ->
-                        coroutineScope.launch {
-                            if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
-                                bottomSheetScaffoldState.bottomSheetState.expand()
-                            } else {
-                                bottomSheetScaffoldState.bottomSheetState.collapse()
+                    if (state.launches.isNotEmpty()) {
+                        LaunchesList(launchesItems = state.launches) { links ->
+                            coroutineScope.launch {
+                                if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
+                                    bottomSheetScaffoldState.bottomSheetState.expand()
+                                } else {
+                                    bottomSheetScaffoldState.bottomSheetState.collapse()
+                                }
                             }
                         }
+                    } else {
+                        Box {
+                            Text(
+                                text = stringResource(id = R.string.launches_no_results_found),
+                                style = SpaceXTypography.h3,
+                                modifier = Modifier.padding(top=20.dp).align(Alignment.TopCenter),
+                                color = if (MaterialTheme.colors.isLight) Light.Accent
+                                else Dark.Accent
+                            )
+                            LottieAnimation(
+                                composition = noResultsComposition,
+                                progress = noResultsProgress,
+                                alignment = Alignment.Center
+                            )
+                        }
                     }
-
                 } else {
                     LottieAnimation(
                         bodyComposition,
@@ -102,42 +125,100 @@ fun LaunchesScreen(
             }
         }
         if (openDialog.value) {
-            FilterDialog(openDialog = openDialog)
+            FilterDialog(
+                openDialog = openDialog,
+                orderChecked = orderChecked,
+                onEventSent = onEventSent
+            )
         }
     }
 }
 
 @Composable
-fun FilterDialog(openDialog: MutableState<Boolean>) {
+fun FilterDialog(
+    openDialog: MutableState<Boolean>,
+    orderChecked: MutableState<Boolean>,
+    onEventSent: (event: LaunchesContract.Event) -> Unit
+) {
+    var textState by remember { mutableStateOf("") }
+    val maxYearLength = 4
+
     AlertDialog(
+        shape = RoundedCornerShape(12.dp),
+        backgroundColor = if (MaterialTheme.colors.isLight) Light.DialogWindowBackground else Dark.DialogWindowBackground,
         onDismissRequest = {
-            // Dismiss the dialog when the user clicks outside the dialog or on the back
-            // button. If you want to disable that functionality, simply use an empty
-            // onCloseRequest.
             openDialog.value = false
         },
         title = {
-            Text(text = "Dialog Title")
+            Text(
+                text = stringResource(id = R.string.dialog_title),
+                style = SpaceXTypography.h2,
+                color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary else Dark.TextColorPrimary
+            )
         },
         text = {
-            Text("Here is a text ")
+            Row {
+                OutlinedTextField(
+                    value = textState,
+                    modifier = Modifier
+                        .width(180.dp)
+                        .padding(end = 24.dp),
+
+                    onValueChange = { if (it.length <= maxYearLength) textState = it },
+                    label = { Text(stringResource(id = R.string.dialog_year)) },
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent,
+                        unfocusedBorderColor = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
+                        textColor = if (MaterialTheme.colors.isLight) Light.TextColorPrimary else Dark.TextColorPrimary,
+                        disabledTextColor = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
+                        cursorColor = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent,
+                        focusedLabelColor = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent
+                    )
+                )
+                Column {
+                    Text(
+                        text = stringResource(id = R.string.dialog_order_criteria),
+                        style = SpaceXTypography.body1,
+                        color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary else Dark.TextColorPrimary
+                    )
+                    Switch(
+                        checked = orderChecked.value,
+                        onCheckedChange = { orderChecked.value = it },
+                        modifier = Modifier.padding(start = 8.dp, end = 8.dp),
+                        colors = SwitchDefaults.colors(
+                            checkedTrackColor = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent,
+                            checkedThumbColor = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent,
+                            uncheckedTrackColor = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
+                            uncheckedThumbColor = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary
+                        )
+                    )
+                }
+            }
         },
         confirmButton = {
-            Button(
-
+            TextButton(
                 onClick = {
                     openDialog.value = false
+                    onEventSent(LaunchesContract.Event.Filter(textState, orderChecked.value))
                 }) {
-                Text("This is the Confirm Button")
+                Text(
+                    stringResource(id = R.string.dialog_ok_button),
+                    style = SpaceXTypography.subtitle2,
+                    color = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent
+                )
             }
         },
         dismissButton = {
-            Button(
-
+            TextButton(
                 onClick = {
                     openDialog.value = false
                 }) {
-                Text("This is the dismiss Button")
+                Text(
+                    text = stringResource(id = R.string.dialog_cancel_button),
+                    style = SpaceXTypography.subtitle2,
+                    color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary
+                )
             }
         }
     )

@@ -7,7 +7,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -120,6 +119,7 @@ private fun BottomSheet(
     ) {
         LaunchesScreen(
             state = launchesViewModel.viewState.value,
+            onEventSent = { event -> launchesViewModel.setEvent(event) },
             coroutineScope = coroutineScope,
             bottomSheetScaffoldState = bottomSheetScaffoldState
         )

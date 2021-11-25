@@ -13,6 +13,7 @@
     <string name="launches_item_date_time">Date/time</string>
     <string name="launches_item_rocket">Rocket</string>
     <string name="launches_item_days">Days</string>
+    <string name="launches_no_results_found">NO RESULTS FOUND</string>
 
     <string name="header_error_description">There was a connection error.</string>
     <string name="body_error_description">Sorry, nothing to show here yet.</string>
@@ -20,7 +21,7 @@
     <string name="bottom_sheet_youtube">YouTube</string>
     <string name="bottom_sheet_wikipedia">Wikipedia</string>
 
-    <string name="dialog_title">Filter by year</string>
+    <string name="dialog_title">FILTER BY YEAR</string>
     <string name="dialog_year">YEAR</string>
     <string name="dialog_ok_button">OK</string>
     <string name="dialog_cancel_button" tools:ignore="ButtonCase">CANCEL</string>

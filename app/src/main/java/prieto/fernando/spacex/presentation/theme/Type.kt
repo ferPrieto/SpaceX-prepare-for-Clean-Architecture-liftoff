@@ -25,10 +25,25 @@ val SpaceXTypography = Typography(
         fontSize = 30.sp,
         letterSpacing = 0.sp
     ),
+    h2 = TextStyle(
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
+    h3 = TextStyle(
+        fontWeight = FontWeight.Light,
+        fontSize = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
     body1 = TextStyle(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         letterSpacing = 0.5.sp
+    ),
+    body2 = TextStyle(
+        fontWeight = FontWeight.Light,
+        fontSize = 18.sp,
+        letterSpacing = 0.sp
     ),
     subtitle1 = TextStyle(
         fontWeight = FontWeight.Light,
@@ -44,5 +59,6 @@ val SpaceXTypography = Typography(
         fontWeight = FontWeight.SemiBold,
         fontSize = 24.sp,
         letterSpacing = 1.25.sp
-    )
+    ),
+
 )
