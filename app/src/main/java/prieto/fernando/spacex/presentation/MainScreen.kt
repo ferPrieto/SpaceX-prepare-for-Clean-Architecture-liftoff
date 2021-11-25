@@ -4,12 +4,15 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
@@ -25,11 +28,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.CoroutineScope
+import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
 import prieto.fernando.spacex.presentation.launches.LaunchesScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light
+import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModelImpl
 
@@ -88,7 +93,7 @@ private fun InitLaunchesScreen(paddingValues: PaddingValues) {
         bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
     )
     val coroutineScope = rememberCoroutineScope()
-    BottomSheet(bottomSheetScaffoldState, launchesViewModel, coroutineScope,paddingValues)
+    BottomSheet(bottomSheetScaffoldState, launchesViewModel, coroutineScope, paddingValues)
 }
 
 @ExperimentalMaterialApi
@@ -102,22 +107,10 @@ private fun BottomSheet(
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
         sheetBackgroundColor = if (MaterialTheme.colors.isLight) Light.BottomTrayBackground else Dark.BottomTrayBackground,
-        sheetContent = {
-            Box(
-                Modifier
-                    .padding(top = 32.dp, bottom = 32.dp)
-            ) {
-                Row {
-                    Text(text = "YouTube")
-                    Text(text = "Wikipedia")
-                }
-            }
-        },
+        sheetContent = { BottomSheetContent() },
         sheetPeekHeight = 0.dp,
         sheetElevation = 8.dp,
         sheetShape = RoundedCornerShape(
-            bottomStart = 0.dp,
-            bottomEnd = 0.dp,
             topStart = 12.dp,
             topEnd = 12.dp
         ),
@@ -130,6 +123,54 @@ private fun BottomSheet(
             coroutineScope = coroutineScope,
             bottomSheetScaffoldState = bottomSheetScaffoldState
         )
+    }
+}
+
+@Composable
+private fun BottomSheetContent(modifier: Modifier = Modifier) {
+    Box {
+        Row(
+            modifier
+                .align(Alignment.Center)
+                .padding(top = 16.dp, bottom = 16.dp)) {
+            Text(
+                text = stringResource(id = R.string.bottom_sheet_youtube),
+                modifier = Modifier
+                    .padding(start = 24.dp, end = 16.dp)
+                    .align(Alignment.CenterVertically),
+                style = SpaceXTypography.button,
+                color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
+                else Dark.TextColorPrimary
+            )
+            Image(
+                painter = painterResource(R.drawable.ic_youtube),
+                contentDescription = "YouTube Icon",
+                modifier = modifier
+                    .align(Alignment.CenterVertically)
+            )
+            Divider(
+                color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
+                modifier = modifier
+                    .padding(end = 16.dp, start = 16.dp)
+                    .width(1.dp)
+                    .height(24.dp)
+                    .align(Alignment.CenterVertically)
+            )
+            Text(
+                text = stringResource(id = R.string.bottom_sheet_wikipedia),
+                modifier = Modifier
+                    .padding(end = 16.dp)
+                    .align(Alignment.CenterVertically),
+                style = SpaceXTypography.button,
+                color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
+                else Dark.TextColorPrimary
+            )
+            Image(
+                painter = painterResource(R.drawable.ic_wikipedia),
+                contentDescription = "Wikipedia Icon",
+                modifier = modifier.align(Alignment.CenterVertically)
+            )
+        }
     }
 }
 

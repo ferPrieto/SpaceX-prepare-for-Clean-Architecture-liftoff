@@ -42,7 +42,7 @@ val SpaceXTypography = Typography(
     ),
     button = TextStyle(
         fontWeight = FontWeight.SemiBold,
-        fontSize = 14.sp,
+        fontSize = 24.sp,
         letterSpacing = 1.25.sp
     )
 )
