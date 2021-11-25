@@ -77,10 +77,22 @@ fun LaunchesScreen(
                 )
             }
             state.isError -> {
-                LottieAnimation(
-                    errorComposition,
-                    errorProgress,
-                )
+                Box {
+                    Text(
+                        text = stringResource(id = R.string.launches_error_occurred),
+                        style = SpaceXTypography.h3,
+                        modifier = Modifier
+                            .padding(top = 40.dp)
+                            .align(Alignment.TopCenter),
+                        color = if (MaterialTheme.colors.isLight) Light.Accent
+                        else Dark.Accent
+                    )
+                    LottieAnimation(
+                        composition = errorComposition,
+                        progress = errorProgress,
+                        alignment = Alignment.BottomCenter
+                    )
+                }
             }
             else -> {
                 if (bodyProgress == 1f) {
@@ -105,7 +117,9 @@ fun LaunchesScreen(
                             Text(
                                 text = stringResource(id = R.string.launches_no_results_found),
                                 style = SpaceXTypography.h3,
-                                modifier = Modifier.padding(top=20.dp).align(Alignment.TopCenter),
+                                modifier = Modifier
+                                    .padding(top = 20.dp)
+                                    .align(Alignment.TopCenter),
                                 color = if (MaterialTheme.colors.isLight) Light.Accent
                                 else Dark.Accent
                             )

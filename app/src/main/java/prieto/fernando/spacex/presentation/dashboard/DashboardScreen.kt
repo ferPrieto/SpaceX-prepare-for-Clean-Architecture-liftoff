@@ -1,10 +1,7 @@
 package prieto.fernando.spacex.presentation.dashboard
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -58,10 +55,22 @@ fun DashboardScreen(
                 )
             }
             state.isError -> {
-                LottieAnimation(
-                    errorComposition,
-                    errorProgress,
-                )
+                Box {
+                    Text(
+                        text = stringResource(id = R.string.launches_error_occurred),
+                        style = SpaceXTypography.h3,
+                        modifier = Modifier
+                            .padding(top = 40.dp)
+                            .align(Alignment.TopCenter),
+                        color = if (MaterialTheme.colors.isLight) Light.Accent
+                        else Dark.Accent
+                    )
+                    LottieAnimation(
+                        composition = errorComposition,
+                        progress = errorProgress,
+                        alignment = Alignment.BottomCenter
+                    )
+                }
             }
             else -> {
                 Text(
