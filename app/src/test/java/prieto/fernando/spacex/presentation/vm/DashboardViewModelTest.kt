@@ -46,7 +46,7 @@ class DashboardViewModelTest {
 
 
     @Test
-    fun `When companyInfo then companyInfoUiModelRetrieved with expected result`() {
+    fun `When companyInfo Then companyInfoUiModelRetrieved with expected result`() {
         runBlockingTest {
             // Given
             val companyInfoDomainModel = CompanyInfoDomainModel(
@@ -82,20 +82,23 @@ class DashboardViewModelTest {
     }
 
     @Test
-    fun `When openLink then onOpenLink invoked with expected result`() {
-        /* runBlockingTest {
-             // Given
-             val link = "Some cool space related link"
-             val onOpenLinkTestObserver = mock<Observer<Event<String>>>()
-             val expected = "Some cool space related link"
-             cut.openLink.observeForever(onOpenLinkTestObserver)
+    fun `Given Error When companyInfo Then expected error state`() {
+        runBlockingTest {
+            // Given
+            val expectedErrorState = true
+            val flow = flow {
+                emit(throw Exception("Network Exception"))
+            }
+            whenever(getCompanyInfo.execute()).thenReturn(flow)
 
-             // When
-             cut.openLink(link)
-             val actualValue = cut.openLink.value?.peekContent()
+            // When
+            cut.companyInfo()
+            val actualValue = cut.viewState.value.isError
 
-             // Then
-             assertEquals(expected, actualValue)
-         }*/
+            // Then
+            verify(getCompanyInfo, times(2)).execute()
+            assertEquals(expectedErrorState, actualValue)
+        }
     }
+
 }
