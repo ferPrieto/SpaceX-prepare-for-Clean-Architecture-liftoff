@@ -20,7 +20,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -31,7 +30,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
-import prieto.fernando.spacex.presentation.launches.*
+import prieto.fernando.spacex.presentation.launches.LaunchesContract
+import prieto.fernando.spacex.presentation.launches.LaunchesScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light

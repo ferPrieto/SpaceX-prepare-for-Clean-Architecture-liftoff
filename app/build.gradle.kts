@@ -1,3 +1,7 @@
+import prieto.fernando.dependencies.ProjectModules
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.TestDependencies
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -13,8 +17,8 @@ androidPlugin{
 android {
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
-        minSdk = AndroidSettings.minSdk
-        targetSdk = AndroidSettings.targetSdk
+        minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
+        targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
     }
 
     buildFeatures {
@@ -23,7 +27,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = prieto.fernando.dependencies.Versions.compose
     }
 
     buildTypes {
@@ -42,7 +46,7 @@ android {
 }
 
 dependencies {
-    implementation(project(ProjectModules.core))
+    implementation(project(prieto.fernando.dependencies.ProjectModules.core))
     implementation(project(ProjectModules.api))
     implementation(project(ProjectModules.domain))
     implementation(project(ProjectModules.data))

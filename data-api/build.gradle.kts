@@ -1,3 +1,7 @@
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.ProjectModules
+import prieto.fernando.dependencies.ProjectModules.api
+
 plugins {
     id("com.android.library")
     id("prieto.fernando.android.plugin")

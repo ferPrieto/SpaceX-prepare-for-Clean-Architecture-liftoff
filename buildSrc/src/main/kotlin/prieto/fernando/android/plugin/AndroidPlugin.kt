@@ -1,8 +1,8 @@
 package prieto.fernando.android.plugin
 
-import AndroidSettings
-import Dependencies
-import TestDependencies
+import prieto.fernando.dependencies.AndroidSettings
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.TestDependencies
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
