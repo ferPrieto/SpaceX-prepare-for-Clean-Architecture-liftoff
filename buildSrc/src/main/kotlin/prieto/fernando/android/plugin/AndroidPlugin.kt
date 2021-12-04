@@ -17,21 +17,6 @@ open class AndroidPlugin : Plugin<Project> {
         project.configurePlugins(extension.buildType)
         project.configureAndroid()
         project.configureDependencies()
-
-        project.afterEvaluate {
-            with(project) {
-                tasks {
-                    withType<KotlinCompile> {
-                        with(kotlinOptions) {
-                            jvmTarget = "1.8"
-                            freeCompilerArgs = listOf("-Xallow-result-return-type")
-                            languageVersion = "1.5"
-                            useIR = true
-                        }
-                    }
-                }
-            }
-        }
     }
 
     private fun androidPlugins() = listOf(
@@ -154,5 +139,3 @@ enum class BuildType {
     AndroidLibrary,
     App
 }
-
-fun androidPluginId() = "prieto.fernando.android.plugin"
