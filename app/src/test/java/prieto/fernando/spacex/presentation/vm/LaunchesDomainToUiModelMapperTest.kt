@@ -15,9 +15,9 @@ import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
 import prieto.fernando.spacex.presentation.vm.mapper.DateTransformer
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapperImpl
-import prieto.fernando.spacex.presentation.launches.Launch
-import prieto.fernando.spacex.presentation.launches.Links
-import prieto.fernando.spacex.presentation.launches.Rocket
+import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
+import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
+import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
 import kotlin.test.assertEquals
 
 @RunWith(MockitoJUnitRunner::class)
@@ -57,26 +57,26 @@ class LaunchesDomainToUiModelMapperTest {
         )
 
         val expected = listOf(
-            Launch(
+            LaunchUiModel(
                 "missionName",
                 "11-12-2019 at 12:00",
                 true,
                 "0",
-                Rocket("rocketName", "rocketType"),
-                Links(
+                RocketUiModel("rocketName", "rocketType"),
+                LinksUiModel(
                     "patchLink",
                     "wikipediaLink",
                     "videoLink"
                 ),
                 false
             ),
-            Launch(
+            LaunchUiModel(
                 "missionName2",
                 "07-12-2020 at 12:00",
                 false,
                 "361",
-                Rocket("rocketName2", "rocketType2"),
-                Links(
+                RocketUiModel("rocketName2", "rocketType2"),
+                LinksUiModel(
                     "patchLink2",
                     "wikipediaLink2",
                     "videoLink2"
@@ -121,13 +121,13 @@ class LaunchesDomainToUiModelMapperTest {
             )
         )
         val expected = listOf(
-            Launch(
+            LaunchUiModel(
                 "missionName",
                 "13-12-2019 at 13:00",
                 false,
                 "1",
-                Rocket("rocketName", "rocketType"),
-                Links(
+                RocketUiModel("rocketName", "rocketType"),
+                LinksUiModel(
                     "patchLink",
                     "wikipediaLink",
                     "videoLink"
@@ -152,7 +152,7 @@ class LaunchesDomainToUiModelMapperTest {
     fun `Given no launches when toUiModel then return expected result`() {
         // Given
         val launches = emptyList<LaunchDomainModel>()
-        val expected = emptyList<Launch>()
+        val expected = emptyList<LaunchUiModel>()
 
         // When
         val actualValue = cut.toUiModel(launches)

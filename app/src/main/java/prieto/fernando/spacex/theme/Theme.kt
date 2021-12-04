@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.theme
+package prieto.fernando.spacex.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

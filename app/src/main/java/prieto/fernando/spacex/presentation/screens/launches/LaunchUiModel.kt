@@ -1,21 +1,21 @@
-package prieto.fernando.spacex.presentation.launches
+package prieto.fernando.spacex.presentation.screens.launches
 
-data class Launch(
+data class LaunchUiModel(
     val missionName: String,
     val launchDate: String,
     val isPastLaunch: Boolean,
     val differenceOfDays: String,
-    val rocket: Rocket,
-    val links: Links,
+    val rocketUiModel: RocketUiModel,
+    val linksUiModel: LinksUiModel,
     val launchSuccess: Boolean
 )
 
-data class Rocket(
+data class RocketUiModel(
     val rocketName: String,
     val rocketType: String
 )
 
-data class Links(
+data class LinksUiModel(
     val missionPatchSmall: String,
     val wikipedia: String,
     val videoLink: String

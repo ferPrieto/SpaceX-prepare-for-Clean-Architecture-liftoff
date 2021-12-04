@@ -25,10 +25,10 @@ import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
-import prieto.fernando.spacex.presentation.dashboard.CompanyInfo
-import prieto.fernando.spacex.presentation.launches.Launch
-import prieto.fernando.spacex.presentation.launches.Links
-import prieto.fernando.spacex.presentation.launches.Rocket
+import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
+import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
+import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
+import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -61,7 +61,7 @@ class DashboardViewModelTest {
     fun `When launches then launchUiModelRetrieved with expected result`() {
         runBlockingTest {
             // Given
-            val launchUiModelRetrievedTestObserver = mock<Observer<List<Launch>>>()
+            val launchUiModelRetrievedTestObserver = mock<Observer<List<LaunchUiModel>>>()
             cut.launches.observeForever(launchUiModelRetrievedTestObserver)
             val launchDomainModels = listOf(
                 LaunchDomainModel(
@@ -80,26 +80,26 @@ class DashboardViewModelTest {
                 )
             )
             val expected = listOf(
-                Launch(
+                LaunchUiModel(
                     "missionName",
                     "11-12-2019 at 12:00",
                     true,
                     "0",
-                    Rocket("rocketName", "rocketType"),
-                    Links(
+                    RocketUiModel("rocketName", "rocketType"),
+                    LinksUiModel(
                         "patchLink",
                         "wikipediaLink",
                         "videoLink"
                     ),
                     false
                 ),
-                Launch(
+                LaunchUiModel(
                     "missionName2",
                     "07-12-2020 at 12:00",
                     false,
                     "361",
-                    Rocket("rocketName2", "rocketType2"),
-                    Links(
+                    RocketUiModel("rocketName2", "rocketType2"),
+                    LinksUiModel(
                         "patchLink2",
                         "wikipediaLink2",
                         "videoLink2"
@@ -127,7 +127,7 @@ class DashboardViewModelTest {
     fun `When companyInfo then companyInfoUiModelRetrieved with expected result`() {
         runBlockingTest {
             // Given
-            val companyInfoUiModelRetrievedTestObserver = mock<Observer<CompanyInfo>>()
+            val companyInfoUiModelRetrievedTestObserver = mock<Observer<CompanyInfoUiModel>>()
             cut.companyInfo.observeForever(companyInfoUiModelRetrievedTestObserver)
             val companyInfoDomainModel = CompanyInfoDomainModel(
                 "name",
@@ -137,7 +137,7 @@ class DashboardViewModelTest {
                 1,
                 23
             )
-            val expected = CompanyInfo(
+            val expected = CompanyInfoUiModel(
                 "name",
                 "founder",
                 "founded",

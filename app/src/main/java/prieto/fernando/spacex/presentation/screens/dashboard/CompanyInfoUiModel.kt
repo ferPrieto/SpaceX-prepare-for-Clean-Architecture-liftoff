@@ -1,6 +1,6 @@
-package prieto.fernando.spacex.presentation.dashboard
+package prieto.fernando.spacex.presentation.screens.dashboard
 
-data class CompanyInfo(
+data class CompanyInfoUiModel(
     val name: String,
     val founder: String,
     val foundedYear: String,

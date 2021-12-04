@@ -6,13 +6,13 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapperImpl
-import prieto.fernando.spacex.presentation.dashboard.CompanyInfo
+import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
-class CompanyInfoDomainToUiModelMapperTest(
+class CompanyInfoUiModelDomainToUiModelMapperTest(
     private val givenCompanyInfo: CompanyInfoDomainModel,
-    private val expected: CompanyInfo
+    private val expected: CompanyInfoUiModel
 ) {
     companion object {
         @JvmStatic
@@ -27,7 +27,7 @@ class CompanyInfoDomainToUiModelMapperTest(
                         "employees",
                         1,
                         23
-                    ), CompanyInfo(
+                    ), CompanyInfoUiModel(
                         "name",
                         "founder",
                         "founded",
@@ -44,7 +44,7 @@ class CompanyInfoDomainToUiModelMapperTest(
                         "employees",
                         3,
                         27500000000
-                    ), CompanyInfo(
+                    ), CompanyInfoUiModel(
                         "name",
                         "founder",
                         "founded",
@@ -61,7 +61,7 @@ class CompanyInfoDomainToUiModelMapperTest(
                         "",
                         0,
                         0
-                    ), CompanyInfo(
+                    ), CompanyInfoUiModel(
                         "",
                         "",
                         "",

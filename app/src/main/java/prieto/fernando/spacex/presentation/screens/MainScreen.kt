@@ -1,5 +1,8 @@
-package prieto.fernando.spacex.presentation
+package prieto.fernando.spacex.presentation.screens
 
+import android.content.Context
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.TweenSpec
@@ -29,14 +32,13 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.R
-import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
-import prieto.fernando.spacex.presentation.launches.LaunchesContract
-import prieto.fernando.spacex.presentation.launches.LaunchesScreen
+import prieto.fernando.spacex.presentation.screens.dashboard.DashboardScreen
+import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
+import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
-import prieto.fernando.spacex.presentation.theme.Dark
-import prieto.fernando.spacex.presentation.theme.Light
-import prieto.fernando.spacex.presentation.theme.SpaceXTypography
-import prieto.fernando.spacex.presentation.util.UrlUtils
+import prieto.fernando.spacex.theme.Dark
+import prieto.fernando.spacex.theme.Light
+import prieto.fernando.spacex.theme.SpaceXTypography
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 
@@ -151,7 +153,7 @@ private fun BottomSheet(
             onEventSent = { event -> launchesViewModel.setEvent(event) },
             effectFlow = launchesViewModel.effect,
             onLinkClicked = { linkClickedEffect ->
-                UrlUtils.navigateTo(
+                navigateTo(
                     context = context,
                     pageUrl = linkClickedEffect.link
                 )
@@ -173,6 +175,12 @@ private fun BottomSheet(
                 }
             })
     }
+}
+
+private fun navigateTo(context: Context, pageUrl: String) {
+    val builder = CustomTabsIntent.Builder()
+    val customTabsIntent = builder.build()
+    customTabsIntent.launchUrl(context, Uri.parse(pageUrl))
 }
 
 @Composable

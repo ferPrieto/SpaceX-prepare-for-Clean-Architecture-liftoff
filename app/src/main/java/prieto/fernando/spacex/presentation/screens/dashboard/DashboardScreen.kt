@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.dashboard
+package prieto.fernando.spacex.presentation.screens.dashboard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,9 +15,9 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import prieto.fernando.spacex.R
-import prieto.fernando.spacex.presentation.theme.Dark
-import prieto.fernando.spacex.presentation.theme.Light
-import prieto.fernando.spacex.presentation.theme.SpaceXTypography
+import prieto.fernando.spacex.theme.Dark
+import prieto.fernando.spacex.theme.Light
+import prieto.fernando.spacex.theme.SpaceXTypography
 
 @Composable
 fun DashboardScreen(
@@ -74,7 +74,7 @@ fun DashboardScreen(
             }
             else -> {
                 Text(
-                    text = fillCompanyInfo(state.companyInfo),
+                    text = fillCompanyInfo(state.companyInfoUiModel),
                     modifier = Modifier.padding(16.dp),
                     color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary
                     else Dark.TextColorSecondary
@@ -92,13 +92,13 @@ fun DashboardScreen(
 }
 
 @Composable
-private fun fillCompanyInfo(companyInfo: CompanyInfo): String =
+private fun fillCompanyInfo(companyInfoUiModel: CompanyInfoUiModel): String =
     String.format(
         stringResource(id = R.string.company_data),
-        companyInfo.name,
-        companyInfo.founder,
-        companyInfo.foundedYear,
-        companyInfo.employees,
-        companyInfo.launchSites,
-        companyInfo.valuation
+        companyInfoUiModel.name,
+        companyInfoUiModel.founder,
+        companyInfoUiModel.foundedYear,
+        companyInfoUiModel.employees,
+        companyInfoUiModel.launchSites,
+        companyInfoUiModel.valuation
     )

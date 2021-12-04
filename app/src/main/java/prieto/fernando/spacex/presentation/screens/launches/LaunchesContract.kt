@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.launches
+package prieto.fernando.spacex.presentation.screens.launches
 
 import prieto.fernando.core.presentation.ViewEvent
 import prieto.fernando.core.presentation.ViewSideEffect
@@ -9,12 +9,12 @@ const val LAUNCH_LISTEN_FOR_EFFECTS = "launch-listen-to-effects"
 class LaunchesContract {
     sealed class Event : ViewEvent {
         data class LinkClicked(val link: String) : Event()
-        data class ClickableLinks(val links: Links) : Event()
+        data class ClickableLinks(val linksUiModel: LinksUiModel) : Event()
         data class Filter(val year: String, val orderedChecked: Boolean) : Event()
     }
 
     data class State(
-        val launches: List<Launch>,
+        val launchUiModels: List<LaunchUiModel>,
         val isLoading: Boolean = false,
         val isError: Boolean = false
     ) : ViewState

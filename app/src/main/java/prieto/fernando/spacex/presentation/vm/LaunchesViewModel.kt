@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import prieto.fernando.core.presentation.BaseViewModel
 import prieto.fernando.domain.usecase.GetLaunches
-import prieto.fernando.spacex.presentation.launches.LaunchesContract
-import prieto.fernando.spacex.presentation.launches.Links
+import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
+import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import timber.log.Timber
 import javax.inject.Inject
@@ -37,7 +37,7 @@ class LaunchesViewModel @Inject constructor(
 
     override fun setInitialState(): LaunchesContract.State =
         LaunchesContract.State(
-            launches = emptyList(),
+            launchUiModels = emptyList(),
             isLoading = true,
             isError = false
         )
@@ -50,7 +50,7 @@ class LaunchesViewModel @Inject constructor(
                 )
             }
             is LaunchesContract.Event.ClickableLinks ->
-                setEffect { getClickableLink(event.links) }
+                setEffect { getClickableLink(event.linksUiModel) }
 
             is LaunchesContract.Event.Filter -> {
                 val filteredYear = if (event.year.isNotBlank()) event.year.toInt() else 0
@@ -71,7 +71,7 @@ class LaunchesViewModel @Inject constructor(
                             .let { launches ->
                                 setState {
                                     copy(
-                                        launches = launches,
+                                        launchUiModels = launches,
                                         isLoading = false
                                     )
                                 }
@@ -93,16 +93,16 @@ class LaunchesViewModel @Inject constructor(
         }
     }
 
-    private fun getClickableLink(links: Links): LaunchesContract.Effect.ClickableLink =
+    private fun getClickableLink(linksUiModel: LinksUiModel): LaunchesContract.Effect.ClickableLink =
         when {
-            links.wikipedia.isNotBlank() && links.videoLink.isNotBlank() -> {
-                LaunchesContract.Effect.ClickableLink.All(links.videoLink, links.wikipedia)
+            linksUiModel.wikipedia.isNotBlank() && linksUiModel.videoLink.isNotBlank() -> {
+                LaunchesContract.Effect.ClickableLink.All(linksUiModel.videoLink, linksUiModel.wikipedia)
             }
-            links.wikipedia.isNotBlank() && links.videoLink.isBlank() -> {
-                LaunchesContract.Effect.ClickableLink.Wikipedia(links.wikipedia)
+            linksUiModel.wikipedia.isNotBlank() && linksUiModel.videoLink.isBlank() -> {
+                LaunchesContract.Effect.ClickableLink.Wikipedia(linksUiModel.wikipedia)
             }
-            links.wikipedia.isBlank() && links.videoLink.isNotBlank() -> {
-                LaunchesContract.Effect.ClickableLink.Youtube(links.videoLink)
+            linksUiModel.wikipedia.isBlank() && linksUiModel.videoLink.isNotBlank() -> {
+                LaunchesContract.Effect.ClickableLink.Youtube(linksUiModel.videoLink)
             }
             else -> {
                 LaunchesContract.Effect.ClickableLink.None

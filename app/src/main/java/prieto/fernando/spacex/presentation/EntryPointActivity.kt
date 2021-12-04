@@ -6,7 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.ExperimentalMaterialApi
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
-import prieto.fernando.spacex.presentation.theme.SpaceXTheme
+import prieto.fernando.spacex.presentation.screens.MainScreen
+import prieto.fernando.spacex.theme.SpaceXTheme
 
 @AndroidEntryPoint
 class EntryPointActivity : ComponentActivity() {

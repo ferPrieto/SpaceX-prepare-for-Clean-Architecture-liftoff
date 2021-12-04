@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.theme
+package prieto.fernando.spacex.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

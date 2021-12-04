@@ -1,15 +1,15 @@
 package prieto.fernando.spacex.presentation.vm.mapper
 
 import prieto.fernando.domain.model.LaunchDomainModel
-import prieto.fernando.spacex.presentation.launches.Launch
-import prieto.fernando.spacex.presentation.launches.Links
-import prieto.fernando.spacex.presentation.launches.Rocket
+import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
+import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
+import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
 import javax.inject.Inject
 
 interface LaunchesDomainToUiModelMapper {
     fun toUiModel(
         launchesDomainModel: List<LaunchDomainModel>
-    ): List<Launch>
+    ): List<LaunchUiModel>
 }
 
 class LaunchesDomainToUiModelMapperImpl @Inject constructor(
@@ -17,23 +17,23 @@ class LaunchesDomainToUiModelMapperImpl @Inject constructor(
 ) : LaunchesDomainToUiModelMapper {
     override fun toUiModel(
         launchesDomainModel: List<LaunchDomainModel>
-    ): List<Launch> = launchesDomainModel.map { launchDomainModel ->
-        val linksUiModel = Links(
+    ): List<LaunchUiModel> = launchesDomainModel.map { launchDomainModel ->
+        val linksUiModel = LinksUiModel(
             missionPatchSmall = launchDomainModel.links.missionPatchSmall,
             wikipedia = launchDomainModel.links.wikipedia,
             videoLink = launchDomainModel.links.videoLink
         )
 
-        val rocketUiModel = Rocket(
+        val rocketUiModel = RocketUiModel(
             rocketName = launchDomainModel.rocket.rocketName,
             rocketType = launchDomainModel.rocket.rocketType
         )
 
-        Launch(
+        LaunchUiModel(
             missionName = launchDomainModel.missionName,
             launchDate = dateTransformer.dateToDateString(launchDomainModel.launchDate),
-            rocket = rocketUiModel,
-            links = linksUiModel,
+            rocketUiModel = rocketUiModel,
+            linksUiModel = linksUiModel,
             launchSuccess = launchDomainModel.launchSuccess,
             isPastLaunch = dateTransformer.isPast(launchDomainModel.launchDate),
             differenceOfDays = dateTransformer.getDifferenceOfDays(launchDomainModel.launchDate)

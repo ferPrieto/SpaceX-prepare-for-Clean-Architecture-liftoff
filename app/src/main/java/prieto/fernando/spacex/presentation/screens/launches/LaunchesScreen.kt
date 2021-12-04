@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.launches
+package prieto.fernando.spacex.presentation.screens.launches
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
@@ -31,9 +31,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import prieto.fernando.spacex.R
-import prieto.fernando.spacex.presentation.theme.Dark
-import prieto.fernando.spacex.presentation.theme.Light
-import prieto.fernando.spacex.presentation.theme.SpaceXTypography
+import prieto.fernando.spacex.theme.Dark
+import prieto.fernando.spacex.theme.Light
+import prieto.fernando.spacex.theme.SpaceXTypography
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
@@ -122,9 +122,9 @@ fun LaunchesScreen(
                             .align(Alignment.End),
                         onClick = { openDialog.value = true }
                     )
-                    if (state.launches.isNotEmpty()) {
+                    if (state.launchUiModels.isNotEmpty()) {
                         LaunchesList(
-                            launchesItems = state.launches,
+                            launchesItems = state.launchUiModels,
                             onEventSent = onEventSent,
                             coroutineScope = coroutineScope,
                             bottomSheetScaffoldState = bottomSheetScaffoldState
@@ -266,7 +266,7 @@ fun FilterDialog(
 @ExperimentalMaterialApi
 @Composable
 fun LaunchesList(
-    launchesItems: List<Launch>,
+    launchesItems: List<LaunchUiModel>,
     onEventSent: (event: LaunchesContract.Event) -> Unit,
     coroutineScope: CoroutineScope,
     bottomSheetScaffoldState: BottomSheetScaffoldState
@@ -276,7 +276,7 @@ fun LaunchesList(
     ) {
         items(launchesItems) { item ->
             LaunchItemRow(
-                launchItem = item,
+                launchUiModelItem = item,
                 onEventSent = onEventSent,
                 coroutineScope = coroutineScope,
                 bottomSheetScaffoldState = bottomSheetScaffoldState
@@ -288,7 +288,7 @@ fun LaunchesList(
 @ExperimentalMaterialApi
 @Composable
 fun LaunchItemRow(
-    launchItem: Launch,
+    launchUiModelItem: LaunchUiModel,
     onEventSent: (event: LaunchesContract.Event) -> Unit,
     coroutineScope: CoroutineScope,
     bottomSheetScaffoldState: BottomSheetScaffoldState
@@ -309,7 +309,7 @@ fun LaunchItemRow(
                         bottomSheetScaffoldState.bottomSheetState.collapse()
                     }
                 }
-                onEventSent(LaunchesContract.Event.ClickableLinks(launchItem.links))
+                onEventSent(LaunchesContract.Event.ClickableLinks(launchUiModelItem.linksUiModel))
             }
     ) {
         Row(Modifier.animateContentSize()) {
@@ -318,10 +318,10 @@ fun LaunchItemRow(
                     .align(alignment = Alignment.CenterVertically)
                     .padding(start = 8.dp)
             ) {
-                LaunchItemThumbnail(launchItem.links.missionPatchSmall)
+                LaunchItemThumbnail(launchUiModelItem.linksUiModel.missionPatchSmall)
             }
             LaunchItemTags(
-                item = launchItem,
+                item = launchUiModelItem,
                 modifier = Modifier
                     .padding(
                         start = 8.dp,
@@ -332,7 +332,7 @@ fun LaunchItemRow(
                     .align(Alignment.CenterVertically)
             )
             LaunchItemContent(
-                launchItem = launchItem,
+                launchUiModelItem = launchUiModelItem,
                 modifier = Modifier
                     .padding(
                         start = 8.dp,
@@ -343,7 +343,7 @@ fun LaunchItemRow(
                     .align(Alignment.CenterVertically)
             )
             SuccessIcon(
-                launchItem = launchItem,
+                launchUiModelItem = launchUiModelItem,
                 modifier = Modifier
                     .padding(
                         start = 8.dp,
@@ -373,12 +373,12 @@ private fun FilterIcon(modifier: Modifier, onClick: () -> Unit) {
 
 @Composable
 private fun SuccessIcon(
-    launchItem: Launch,
+    launchUiModelItem: LaunchUiModel,
     modifier: Modifier
 ) {
     Box(modifier) {
         Image(
-            painter = painterResource(getSuccessDrawable(launchItem.launchSuccess)),
+            painter = painterResource(getSuccessDrawable(launchUiModelItem.launchSuccess)),
             contentDescription = "Success or Failure launch Icon"
         )
     }
@@ -386,14 +386,14 @@ private fun SuccessIcon(
 
 @Composable
 private fun LaunchItemContent(
-    launchItem: Launch,
+    launchUiModelItem: LaunchUiModel,
     modifier: Modifier
 ) {
     Column(modifier = modifier) {
-        LaunchItemContentText(launchItem.missionName)
-        LaunchItemContentText(launchItem.launchDate)
-        LaunchItemContentText("${launchItem.rocket.rocketName}/${launchItem.rocket.rocketType}")
-        LaunchItemContentText("+/-${launchItem.differenceOfDays}")
+        LaunchItemContentText(launchUiModelItem.missionName)
+        LaunchItemContentText(launchUiModelItem.launchDate)
+        LaunchItemContentText("${launchUiModelItem.rocketUiModel.rocketName}/${launchUiModelItem.rocketUiModel.rocketType}")
+        LaunchItemContentText("+/-${launchUiModelItem.differenceOfDays}")
     }
 }
 
@@ -411,7 +411,7 @@ fun LaunchItemThumbnail(thumbnailUrl: String) {
 
 @Composable
 fun LaunchItemTags(
-    item: Launch,
+    item: LaunchUiModel,
     modifier: Modifier
 ) {
     Column(modifier = modifier) {

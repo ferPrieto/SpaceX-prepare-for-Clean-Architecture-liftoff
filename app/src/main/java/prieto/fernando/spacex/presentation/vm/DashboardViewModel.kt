@@ -1,7 +1,5 @@
 package prieto.fernando.spacex.presentation.vm
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -10,8 +8,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import prieto.fernando.core.presentation.BaseViewModel
 import prieto.fernando.domain.usecase.GetCompanyInfo
-import prieto.fernando.spacex.presentation.dashboard.CompanyInfo
-import prieto.fernando.spacex.presentation.dashboard.DashboardContract
+import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
+import prieto.fernando.spacex.presentation.screens.dashboard.DashboardContract
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import timber.log.Timber
 import javax.inject.Inject
@@ -43,7 +41,7 @@ class DashboardViewModelImpl @Inject constructor(
 
     override fun setInitialState(): DashboardContract.State =
         DashboardContract.State(
-            companyInfo = CompanyInfo("", "", "", "", -1, -1L),
+            companyInfoUiModel = CompanyInfoUiModel("", "", "", "", -1, -1L),
             isLoading = true,
             isError = false
         )
@@ -62,7 +60,7 @@ class DashboardViewModelImpl @Inject constructor(
                             .let { companyInfo ->
                                 setState {
                                     copy(
-                                        companyInfo = companyInfo,
+                                        companyInfoUiModel = companyInfo,
                                         isLoading = false
                                     )
                                 }
