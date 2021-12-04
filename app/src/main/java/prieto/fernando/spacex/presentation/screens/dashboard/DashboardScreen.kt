@@ -15,6 +15,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import prieto.fernando.spacex.R
+import prieto.fernando.spacex.presentation.screens.common.ErrorAnimation
 import prieto.fernando.spacex.theme.Dark
 import prieto.fernando.spacex.theme.Light
 import prieto.fernando.spacex.theme.SpaceXTypography
@@ -55,27 +56,13 @@ fun DashboardScreen(
                 )
             }
             state.isError -> {
-                Box {
-                    Text(
-                        text = stringResource(id = R.string.launches_error_occurred),
-                        style = SpaceXTypography.h3,
-                        modifier = Modifier
-                            .padding(top = 40.dp)
-                            .align(Alignment.TopCenter),
-                        color = if (MaterialTheme.colors.isLight) Light.Accent
-                        else Dark.Accent
-                    )
-                    LottieAnimation(
-                        composition = errorComposition,
-                        progress = errorProgress,
-                        alignment = Alignment.BottomCenter
-                    )
-                }
+                ErrorAnimation(errorComposition, errorProgress)
             }
             else -> {
                 Text(
                     text = fillCompanyInfo(state.companyInfoUiModel),
                     modifier = Modifier.padding(16.dp),
+                    style = SpaceXTypography.h4,
                     color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary
                     else Dark.TextColorSecondary
                 )

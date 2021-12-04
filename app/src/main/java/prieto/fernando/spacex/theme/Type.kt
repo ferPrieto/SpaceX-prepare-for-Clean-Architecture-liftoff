@@ -33,6 +33,11 @@ val SpaceXTypography = Typography(
         fontSize = 24.sp,
         letterSpacing = 0.5.sp
     ),
+    h4 = TextStyle(
+        fontWeight = FontWeight.Medium,
+        fontSize = 17.sp,
+        letterSpacing = 0.sp
+    ),
     body1 = TextStyle(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
@@ -57,6 +62,6 @@ val SpaceXTypography = Typography(
         fontWeight = FontWeight.SemiBold,
         fontSize = 24.sp,
         letterSpacing = 1.25.sp
-    ),
+    )
 
 )

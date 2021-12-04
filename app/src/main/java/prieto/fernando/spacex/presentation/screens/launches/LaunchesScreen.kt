@@ -34,6 +34,7 @@ import prieto.fernando.spacex.R
 import prieto.fernando.spacex.theme.Dark
 import prieto.fernando.spacex.theme.Light
 import prieto.fernando.spacex.theme.SpaceXTypography
+import prieto.fernando.spacex.presentation.screens.common.ErrorAnimation
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
@@ -65,14 +66,7 @@ fun LaunchesScreen(
     val openDialog = remember { mutableStateOf(false) }
     val orderChecked = remember { mutableStateOf(false) }
 
-    LaunchedEffect(LAUNCH_LISTEN_FOR_EFFECTS) {
-        effectFlow?.onEach { effect ->
-            when (effect) {
-                is LaunchesContract.Effect.ClickableLink -> onClickableLinkRetrieved(effect)
-                is LaunchesContract.Effect.LinkClicked -> onLinkClicked(effect)
-            }
-        }?.collect()
-    }
+    EffectsListener(effectFlow, onClickableLinkRetrieved, onLinkClicked)
 
     Column(
         modifier = Modifier
@@ -96,24 +90,7 @@ fun LaunchesScreen(
                     loadingProgress,
                 )
             }
-            state.isError -> {
-                Box {
-                    Text(
-                        text = stringResource(id = R.string.launches_error_occurred),
-                        style = SpaceXTypography.h3,
-                        modifier = Modifier
-                            .padding(top = 40.dp)
-                            .align(Alignment.TopCenter),
-                        color = if (MaterialTheme.colors.isLight) Light.Accent
-                        else Dark.Accent
-                    )
-                    LottieAnimation(
-                        composition = errorComposition,
-                        progress = errorProgress,
-                        alignment = Alignment.BottomCenter
-                    )
-                }
-            }
+            state.isError -> { ErrorAnimation(errorComposition, errorProgress) }
             else -> {
                 if (bodyProgress == 1f) {
                     FilterIcon(
@@ -147,6 +124,22 @@ fun LaunchesScreen(
                 onEventSent = onEventSent
             )
         }
+    }
+}
+
+@Composable
+private fun EffectsListener(
+    effectFlow: Flow<LaunchesContract.Effect>?,
+    onClickableLinkRetrieved: (clickableLinkEffect: LaunchesContract.Effect.ClickableLink) -> Unit,
+    onLinkClicked: (clickableLinkEffect: LaunchesContract.Effect.LinkClicked) -> Unit
+) {
+    LaunchedEffect(LAUNCH_LISTEN_FOR_EFFECTS) {
+        effectFlow?.onEach { effect ->
+            when (effect) {
+                is LaunchesContract.Effect.ClickableLink -> onClickableLinkRetrieved(effect)
+                is LaunchesContract.Effect.LinkClicked -> onLinkClicked(effect)
+            }
+        }?.collect()
     }
 }
 
@@ -235,32 +228,43 @@ fun FilterDialog(
                 }
             }
         },
-        confirmButton = {
-            TextButton(
-                onClick = {
-                    openDialog.value = false
-                    onEventSent(LaunchesContract.Event.Filter(textState, orderChecked.value))
-                }) {
-                Text(
-                    stringResource(id = R.string.dialog_ok_button),
-                    style = SpaceXTypography.subtitle2,
-                    color = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent
-                )
-            }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = {
-                    openDialog.value = false
-                }) {
-                Text(
-                    text = stringResource(id = R.string.dialog_cancel_button),
-                    style = SpaceXTypography.subtitle2,
-                    color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary
-                )
-            }
-        }
+        confirmButton = { ConfirmButton(openDialog, onEventSent, textState, orderChecked) },
+        dismissButton = { DismissButton(openDialog) }
     )
+}
+
+@Composable
+private fun DismissButton(openDialog: MutableState<Boolean>) {
+    TextButton(
+        onClick = {
+            openDialog.value = false
+        }) {
+        Text(
+            text = stringResource(id = R.string.dialog_cancel_button),
+            style = SpaceXTypography.subtitle2,
+            color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary
+        )
+    }
+}
+
+@Composable
+private fun ConfirmButton(
+    openDialog: MutableState<Boolean>,
+    onEventSent: (event: LaunchesContract.Event) -> Unit,
+    textState: String,
+    orderChecked: MutableState<Boolean>
+) {
+    TextButton(
+        onClick = {
+            openDialog.value = false
+            onEventSent(LaunchesContract.Event.Filter(textState, orderChecked.value))
+        }) {
+        Text(
+            stringResource(id = R.string.dialog_ok_button),
+            style = SpaceXTypography.subtitle2,
+            color = if (MaterialTheme.colors.isLight) Light.Accent else Dark.Accent
+        )
+    }
 }
 
 @ExperimentalMaterialApi
