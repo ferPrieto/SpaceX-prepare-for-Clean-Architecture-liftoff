@@ -1,13 +1,10 @@
 package prieto.fernando.spacex.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
-import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
-import junit.framework.Assert
-import junit.framework.TestCase
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
@@ -20,20 +17,19 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import prieto.fernando.core.event.Event
+import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.LaunchDomainModel
-import prieto.fernando.domain.usecase.GetCompanyInfo
+import prieto.fernando.domain.model.LinksDomainModel
+import prieto.fernando.domain.model.RocketDomainModel
 import prieto.fernando.domain.usecase.GetLaunches
-import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
 import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
 import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
-import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
-class LaunchesViewModelTest{
+class LaunchesViewModelTest {
 
     private lateinit var cut: LaunchesViewModel
 
@@ -46,7 +42,7 @@ class LaunchesViewModelTest{
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = LaunchesViewModel(  getLaunches, launchesMapper)
+        cut = LaunchesViewModel(getLaunches, launchesMapper)
     }
 
     @get:Rule
@@ -54,14 +50,12 @@ class LaunchesViewModelTest{
 
 
     @Test
-    fun `When launches then launchUiModelRetrieved with expected result`() {
-       /* runBlockingTest {
+    fun `When launches Then launchUiModelRetrieved with expected result`() {
+        runBlockingTest {
             // Given
-            val launchUiModelRetrievedTestObserver = mock<Observer<List<LaunchUiModel>>>()
-            cut.launches.observeForever(launchUiModelRetrievedTestObserver)
             val launchDomainModels = listOf(
                 LaunchDomainModel(
-                    "missionName",
+                    missionName = "missionName",
                     buildDate("2019-12-11T12:00:00.000Z"),
                     RocketDomainModel("rocketName", "rocketType"),
                     LinksDomainModel("patchLink", "wikipediaLink", "videoLink"),
@@ -106,34 +100,36 @@ class LaunchesViewModelTest{
             val flow = flow {
                 emit(launchDomainModels)
             }
-            whenever(getLaunches.execute(-1, false)).thenReturn(flow)
+            whenever(getLaunches.execute(0, false)).thenReturn(flow)
             whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
 
             // When
             cut.launches()
-            val actualValue = cut.launches.value
+            val actualValue = cut.viewState.value.launchUiModels
 
             // Then
-            verify(getLaunches, times(1)).execute(-1, false)
-            Assert.assertEquals(expected, actualValue)
-        }*/
+            verify(getLaunches, times(2)).execute(0, false)
+            assertEquals(expected, actualValue)
+        }
     }
 
     @Test
-    fun `When openLink then onOpenLink invoked with expected result`() {
-       /* runBlockingTest {
+    fun `Given Error When launches Then expected error state`() {
+        runBlockingTest {
             // Given
-            val link = "Some cool space related link"
-            val onOpenLinkTestObserver = mock<Observer<Event<String>>>()
-            val expected = "Some cool space related link"
-            cut.openLink.observeForever(onOpenLinkTestObserver)
+            val expectedErrorState = true
+            val flow = flow {
+                emit(throw Exception("Network Exception"))
+            }
+            whenever(getLaunches.execute(0, false)).thenReturn(flow)
 
             // When
-            cut.openLink(link)
-            val actualValue = cut.openLink.value?.peekContent()
+            cut.launches()
+            val actualValue = cut.viewState.value.isError
 
             // Then
-            Assert.assertEquals(expected, actualValue)
-        }*/
+            verify(getLaunches, times(2)).execute(0, false)
+            assertEquals(expectedErrorState, actualValue)
+        }
     }
 }

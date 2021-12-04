@@ -100,5 +100,4 @@ class DashboardViewModelTest {
             assertEquals(expectedErrorState, actualValue)
         }
     }
-
 }

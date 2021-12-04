@@ -32,7 +32,7 @@ class LaunchesViewModel @Inject constructor(
     }
 
     init {
-        launches(0, false)
+        launches()
     }
 
     override fun setInitialState(): LaunchesContract.State =
@@ -59,7 +59,7 @@ class LaunchesViewModel @Inject constructor(
         }
     }
 
-    fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
+    fun launches(yearFilterCriteria: Int = 0, ascendantOrder: Boolean = false) {
         viewModelScope.launch(errorHandler) {
             try {
                 getLaunches.execute(yearFilterCriteria, ascendantOrder)
@@ -96,7 +96,10 @@ class LaunchesViewModel @Inject constructor(
     private fun getClickableLink(linksUiModel: LinksUiModel): LaunchesContract.Effect.ClickableLink =
         when {
             linksUiModel.wikipedia.isNotBlank() && linksUiModel.videoLink.isNotBlank() -> {
-                LaunchesContract.Effect.ClickableLink.All(linksUiModel.videoLink, linksUiModel.wikipedia)
+                LaunchesContract.Effect.ClickableLink.All(
+                    linksUiModel.videoLink,
+                    linksUiModel.wikipedia
+                )
             }
             linksUiModel.wikipedia.isNotBlank() && linksUiModel.videoLink.isBlank() -> {
                 LaunchesContract.Effect.ClickableLink.Wikipedia(linksUiModel.wikipedia)
