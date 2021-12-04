@@ -1,45 +1,25 @@
 package prieto.fernando.spacex.presentation.vm
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.core.event.Event
-import prieto.fernando.core.event.eventOf
 import prieto.fernando.core.presentation.BaseViewModel
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.launches.LaunchesContract
+import prieto.fernando.spacex.presentation.launches.Links
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class LaunchesViewModel : BaseViewModel
-<LaunchesContract.Event, LaunchesContract.State, LaunchesContract.Effect>() {
-    abstract fun launches(yearFilterCriteria: Int = -1, ascendantOrder: Boolean = false)
-    abstract fun openLink(link: String)
-    abstract fun onFilterClicked()
-
-    abstract val openLink: LiveData<Event<String>>
-    abstract val showDialog: LiveData<Event<Unit>>
-}
-
 @HiltViewModel
-class LaunchesViewModelImpl @Inject constructor(
+class LaunchesViewModel @Inject constructor(
     private val getLaunches: GetLaunches,
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
-) : LaunchesViewModel() {
-
-    private val _openLink = MediatorLiveData<Event<String>>()
-    private val _showDialog = MediatorLiveData<Event<Unit>>()
-
-    override val openLink: LiveData<Event<String>>
-        get() = _openLink
-    override val showDialog: LiveData<Event<Unit>>
-        get() = _showDialog
+) : BaseViewModel
+<LaunchesContract.Event, LaunchesContract.State, LaunchesContract.Effect>() {
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
@@ -52,7 +32,7 @@ class LaunchesViewModelImpl @Inject constructor(
     }
 
     init {
-        launches()
+        launches(0, false)
     }
 
     override fun setInitialState(): LaunchesContract.State =
@@ -64,9 +44,14 @@ class LaunchesViewModelImpl @Inject constructor(
 
     override fun handleEvents(event: LaunchesContract.Event) {
         when (event) {
-            is LaunchesContract.Event.Links -> {
-                setEffect { LaunchesContract.Effect.FilterClicked }
+            is LaunchesContract.Event.LinkClicked -> setEffect {
+                LaunchesContract.Effect.LinkClicked(
+                    event.link
+                )
             }
+            is LaunchesContract.Event.ClickableLinks ->
+                setEffect { getClickableLink(event.links) }
+
             is LaunchesContract.Event.Filter -> {
                 val filteredYear = if (event.year.isNotBlank()) event.year.toInt() else 0
                 launches(filteredYear, event.orderedChecked)
@@ -74,7 +59,7 @@ class LaunchesViewModelImpl @Inject constructor(
         }
     }
 
-    override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
+    fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
         viewModelScope.launch(errorHandler) {
             try {
                 getLaunches.execute(yearFilterCriteria, ascendantOrder)
@@ -108,15 +93,19 @@ class LaunchesViewModelImpl @Inject constructor(
         }
     }
 
-    override fun openLink(link: String) {
-        viewModelScope.launch {
-            _openLink.postValue(eventOf(link))
+    private fun getClickableLink(links: Links): LaunchesContract.Effect.ClickableLink =
+        when {
+            links.wikipedia.isNotBlank() && links.videoLink.isNotBlank() -> {
+                LaunchesContract.Effect.ClickableLink.All(links.videoLink, links.wikipedia)
+            }
+            links.wikipedia.isNotBlank() && links.videoLink.isBlank() -> {
+                LaunchesContract.Effect.ClickableLink.Wikipedia(links.wikipedia)
+            }
+            links.wikipedia.isBlank() && links.videoLink.isNotBlank() -> {
+                LaunchesContract.Effect.ClickableLink.Youtube(links.videoLink)
+            }
+            else -> {
+                LaunchesContract.Effect.ClickableLink.None
+            }
         }
-    }
-
-    override fun onFilterClicked() {
-        viewModelScope.launch {
-            _showDialog.postValue(eventOf(Unit))
-        }
-    }
 }

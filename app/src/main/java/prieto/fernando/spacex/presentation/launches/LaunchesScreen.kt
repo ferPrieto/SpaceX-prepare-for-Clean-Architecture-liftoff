@@ -19,15 +19,23 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import coil.request.ImageRequest
-import com.airbnb.lottie.compose.*
+import com.airbnb.lottie.LottieComposition
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light
 import prieto.fernando.spacex.presentation.theme.SpaceXTypography
 
+@InternalCoroutinesApi
 @ExperimentalMaterialApi
 @Composable
 fun LaunchesScreen(
@@ -35,6 +43,9 @@ fun LaunchesScreen(
     coroutineScope: CoroutineScope,
     bottomSheetScaffoldState: BottomSheetScaffoldState,
     onEventSent: (event: LaunchesContract.Event) -> Unit,
+    effectFlow: Flow<LaunchesContract.Effect>?,
+    onClickableLinkRetrieved: (clickableLinkEffect: LaunchesContract.Effect.ClickableLink) -> Unit,
+    onLinkClicked: (clickableLinkEffect: LaunchesContract.Effect.LinkClicked) -> Unit
 ) {
     val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
@@ -53,6 +64,15 @@ fun LaunchesScreen(
 
     val openDialog = remember { mutableStateOf(false) }
     val orderChecked = remember { mutableStateOf(false) }
+
+    LaunchedEffect(LAUNCH_LISTEN_FOR_EFFECTS) {
+        effectFlow?.onEach { effect ->
+            when (effect) {
+                is LaunchesContract.Effect.ClickableLink -> onClickableLinkRetrieved(effect)
+                is LaunchesContract.Effect.LinkClicked -> onLinkClicked(effect)
+            }
+        }?.collect()
+    }
 
     Column(
         modifier = Modifier
@@ -103,32 +123,14 @@ fun LaunchesScreen(
                         onClick = { openDialog.value = true }
                     )
                     if (state.launches.isNotEmpty()) {
-                        LaunchesList(launchesItems = state.launches) { links ->
-                            coroutineScope.launch {
-                                if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
-                                    bottomSheetScaffoldState.bottomSheetState.expand()
-                                } else {
-                                    bottomSheetScaffoldState.bottomSheetState.collapse()
-                                }
-                            }
-                        }
+                        LaunchesList(
+                            launchesItems = state.launches,
+                            onEventSent = onEventSent,
+                            coroutineScope = coroutineScope,
+                            bottomSheetScaffoldState = bottomSheetScaffoldState
+                        )
                     } else {
-                        Box {
-                            Text(
-                                text = stringResource(id = R.string.launches_no_results_found),
-                                style = SpaceXTypography.h3,
-                                modifier = Modifier
-                                    .padding(top = 20.dp)
-                                    .align(Alignment.TopCenter),
-                                color = if (MaterialTheme.colors.isLight) Light.Accent
-                                else Dark.Accent
-                            )
-                            LottieAnimation(
-                                composition = noResultsComposition,
-                                progress = noResultsProgress,
-                                alignment = Alignment.Center
-                            )
-                        }
+                        NoResultsFeedback(noResultsComposition, noResultsProgress)
                     }
                 } else {
                     LottieAnimation(
@@ -145,6 +147,29 @@ fun LaunchesScreen(
                 onEventSent = onEventSent
             )
         }
+    }
+}
+
+@Composable
+private fun NoResultsFeedback(
+    noResultsComposition: LottieComposition?,
+    noResultsProgress: Float
+) {
+    Box {
+        Text(
+            text = stringResource(id = R.string.launches_no_results_found),
+            style = SpaceXTypography.h3,
+            modifier = Modifier
+                .padding(top = 20.dp)
+                .align(Alignment.TopCenter),
+            color = if (MaterialTheme.colors.isLight) Light.Accent
+            else Dark.Accent
+        )
+        LottieAnimation(
+            composition = noResultsComposition,
+            progress = noResultsProgress,
+            alignment = Alignment.Center
+        )
     }
 }
 
@@ -238,25 +263,35 @@ fun FilterDialog(
     )
 }
 
+@ExperimentalMaterialApi
 @Composable
 fun LaunchesList(
     launchesItems: List<Launch>,
-    onItemClicked: (id: Links) -> Unit = { }
+    onEventSent: (event: LaunchesContract.Event) -> Unit,
+    coroutineScope: CoroutineScope,
+    bottomSheetScaffoldState: BottomSheetScaffoldState
 ) {
     LazyColumn(
         contentPadding = PaddingValues(bottom = 16.dp)
     ) {
         items(launchesItems) { item ->
-            LaunchItemRow(launchItem = item, onItemClicked = onItemClicked)
+            LaunchItemRow(
+                launchItem = item,
+                onEventSent = onEventSent,
+                coroutineScope = coroutineScope,
+                bottomSheetScaffoldState = bottomSheetScaffoldState
+            )
         }
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
 fun LaunchItemRow(
     launchItem: Launch,
-    iconTransformationBuilder: ImageRequest.Builder.() -> Unit = { },
-    onItemClicked: (links: Links) -> Unit = { }
+    onEventSent: (event: LaunchesContract.Event) -> Unit,
+    coroutineScope: CoroutineScope,
+    bottomSheetScaffoldState: BottomSheetScaffoldState
 ) {
     Card(
         shape = RoundedCornerShape(12.dp),
@@ -266,7 +301,16 @@ fun LaunchItemRow(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clickable { onItemClicked(launchItem.links) }
+            .clickable {
+                coroutineScope.launch {
+                    if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
+                        bottomSheetScaffoldState.bottomSheetState.expand()
+                    } else {
+                        bottomSheetScaffoldState.bottomSheetState.collapse()
+                    }
+                }
+                onEventSent(LaunchesContract.Event.ClickableLinks(launchItem.links))
+            }
     ) {
         Row(Modifier.animateContentSize()) {
             Box(
@@ -274,7 +318,7 @@ fun LaunchItemRow(
                     .align(alignment = Alignment.CenterVertically)
                     .padding(start = 8.dp)
             ) {
-                LaunchItemThumbnail(launchItem.links.missionPatchSmall, iconTransformationBuilder)
+                LaunchItemThumbnail(launchItem.links.missionPatchSmall)
             }
             LaunchItemTags(
                 item = launchItem,
@@ -354,10 +398,7 @@ private fun LaunchItemContent(
 }
 
 @Composable
-fun LaunchItemThumbnail(
-    thumbnailUrl: String,
-    iconTransformationBuilder: ImageRequest.Builder.() -> Unit
-) {
+fun LaunchItemThumbnail(thumbnailUrl: String) {
     Image(
         painter = rememberImagePainter(
             data = thumbnailUrl,

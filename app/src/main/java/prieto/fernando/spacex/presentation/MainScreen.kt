@@ -5,21 +5,22 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,16 +28,19 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.dashboard.DashboardScreen
-import prieto.fernando.spacex.presentation.launches.LaunchesScreen
+import prieto.fernando.spacex.presentation.launches.*
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.presentation.theme.Dark
 import prieto.fernando.spacex.presentation.theme.Light
 import prieto.fernando.spacex.presentation.theme.SpaceXTypography
+import prieto.fernando.spacex.presentation.util.UrlUtils
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
-import prieto.fernando.spacex.presentation.vm.LaunchesViewModelImpl
+import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 
+@InternalCoroutinesApi
 @ExperimentalMaterialApi
 @Composable
 fun MainScreen() {
@@ -62,6 +66,7 @@ fun MainScreen() {
     }
 }
 
+@InternalCoroutinesApi
 @ExperimentalMaterialApi
 @Composable
 private fun MainScreenNavigationConfigurations(
@@ -84,29 +89,49 @@ private fun InitDashboardScreen() {
     DashboardScreen(state = dashboardViewModel.viewState.value)
 }
 
+@InternalCoroutinesApi
 @ExperimentalMaterialApi
 @Composable
 private fun InitLaunchesScreen(paddingValues: PaddingValues) {
-    val launchesViewModel: LaunchesViewModelImpl = hiltViewModel()
+    val launchesViewModel: LaunchesViewModel = hiltViewModel()
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
     )
     val coroutineScope = rememberCoroutineScope()
-    BottomSheet(bottomSheetScaffoldState, launchesViewModel, coroutineScope, paddingValues)
+    val youTubeLinkState = remember { mutableStateOf("") }
+    val wikipediaLinkState = remember { mutableStateOf("") }
+
+    BottomSheet(
+        bottomSheetScaffoldState,
+        coroutineScope,
+        launchesViewModel,
+        paddingValues,
+        youTubeLinkState,
+        wikipediaLinkState
+    )
 }
 
+@InternalCoroutinesApi
 @ExperimentalMaterialApi
 @Composable
 private fun BottomSheet(
     bottomSheetScaffoldState: BottomSheetScaffoldState,
-    launchesViewModel: LaunchesViewModelImpl,
     coroutineScope: CoroutineScope,
-    paddingValues: PaddingValues
+    launchesViewModel: LaunchesViewModel,
+    paddingValues: PaddingValues,
+    youTubeLinkState: MutableState<String>,
+    wikipediaLinkState: MutableState<String>
 ) {
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
         sheetBackgroundColor = if (MaterialTheme.colors.isLight) Light.BottomTrayBackground else Dark.BottomTrayBackground,
-        sheetContent = { BottomSheetContent() },
+        sheetContent = {
+            BottomSheetContent(
+                youTubeLinkState = youTubeLinkState,
+                wikipediaLinkState = wikipediaLinkState,
+                onEventSent = { event -> launchesViewModel.setEvent(event) }
+            )
+        },
         sheetPeekHeight = 0.dp,
         sheetElevation = 8.dp,
         sheetShape = RoundedCornerShape(
@@ -117,59 +142,112 @@ private fun BottomSheet(
             .padding(paddingValues)
             .wrapContentHeight()
     ) {
+        val context = LocalContext.current
+
         LaunchesScreen(
             state = launchesViewModel.viewState.value,
-            onEventSent = { event -> launchesViewModel.setEvent(event) },
+            bottomSheetScaffoldState = bottomSheetScaffoldState,
             coroutineScope = coroutineScope,
-            bottomSheetScaffoldState = bottomSheetScaffoldState
-        )
+            onEventSent = { event -> launchesViewModel.setEvent(event) },
+            effectFlow = launchesViewModel.effect,
+            onLinkClicked = { linkClickedEffect ->
+                UrlUtils.navigateTo(
+                    context = context,
+                    pageUrl = linkClickedEffect.link
+                )
+            },
+            onClickableLinkRetrieved = { effect ->
+                when (effect) {
+                    is LaunchesContract.Effect.ClickableLink.All -> {
+                        youTubeLinkState.value = effect.youTubeLink
+                        wikipediaLinkState.value = effect.wikipedia
+                    }
+                    is LaunchesContract.Effect.ClickableLink.Youtube -> youTubeLinkState.value =
+                        effect.youTubeLink
+                    is LaunchesContract.Effect.ClickableLink.Wikipedia -> wikipediaLinkState.value =
+                        effect.wikipedia
+                    else -> {
+                        youTubeLinkState.value = ""
+                        wikipediaLinkState.value = ""
+                    }
+                }
+            })
     }
 }
 
 @Composable
-private fun BottomSheetContent(modifier: Modifier = Modifier) {
+private fun BottomSheetContent(
+    modifier: Modifier = Modifier,
+    youTubeLinkState: MutableState<String>,
+    wikipediaLinkState: MutableState<String>,
+    onEventSent: (event: LaunchesContract.Event) -> Unit
+) {
     Box {
         Row(
             modifier
                 .align(Alignment.Center)
-                .padding(top = 16.dp, bottom = 16.dp)) {
-            Text(
-                text = stringResource(id = R.string.bottom_sheet_youtube),
-                modifier = Modifier
-                    .padding(start = 24.dp, end = 16.dp)
-                    .align(Alignment.CenterVertically),
-                style = SpaceXTypography.button,
-                color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
-                else Dark.TextColorPrimary
-            )
-            Image(
-                painter = painterResource(R.drawable.ic_youtube),
-                contentDescription = "YouTube Icon",
-                modifier = modifier
-                    .align(Alignment.CenterVertically)
-            )
-            Divider(
-                color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
-                modifier = modifier
-                    .padding(end = 16.dp, start = 16.dp)
-                    .width(1.dp)
-                    .height(24.dp)
-                    .align(Alignment.CenterVertically)
-            )
-            Text(
-                text = stringResource(id = R.string.bottom_sheet_wikipedia),
-                modifier = Modifier
-                    .padding(end = 16.dp)
-                    .align(Alignment.CenterVertically),
-                style = SpaceXTypography.button,
-                color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
-                else Dark.TextColorPrimary
-            )
-            Image(
-                painter = painterResource(R.drawable.ic_wikipedia),
-                contentDescription = "Wikipedia Icon",
-                modifier = modifier.align(Alignment.CenterVertically)
-            )
+                .padding(top = 16.dp, bottom = 16.dp)
+        ) {
+            if (youTubeLinkState.value.isNotBlank()) {
+                Text(
+                    text = stringResource(id = R.string.bottom_sheet_youtube),
+                    modifier = Modifier
+                        .padding(start = 24.dp, end = 16.dp)
+                        .align(Alignment.CenterVertically)
+                        .clickable { onEventSent(LaunchesContract.Event.LinkClicked(youTubeLinkState.value)) },
+                    style = SpaceXTypography.button,
+                    color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
+                    else Dark.TextColorPrimary
+                )
+                Image(
+                    painter = painterResource(R.drawable.ic_youtube),
+                    contentDescription = "YouTube Icon",
+                    modifier = modifier
+                        .align(Alignment.CenterVertically)
+                        .clickable { onEventSent(LaunchesContract.Event.LinkClicked(youTubeLinkState.value)) }
+                )
+            }
+            if (youTubeLinkState.value.isNotBlank() && wikipediaLinkState.value.isNotBlank()) {
+                Divider(
+                    color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
+                    modifier = modifier
+                        .padding(end = 16.dp, start = 16.dp)
+                        .width(1.dp)
+                        .height(24.dp)
+                        .align(Alignment.CenterVertically)
+                )
+            }
+            if (wikipediaLinkState.value.isNotBlank()) {
+                Text(
+                    text = stringResource(id = R.string.bottom_sheet_wikipedia),
+                    modifier = Modifier
+                        .padding(end = 16.dp)
+                        .align(Alignment.CenterVertically)
+                        .clickable {
+                            onEventSent(
+                                LaunchesContract.Event.LinkClicked(
+                                    wikipediaLinkState.value
+                                )
+                            )
+                        },
+                    style = SpaceXTypography.button,
+                    color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
+                    else Dark.TextColorPrimary
+                )
+                Image(
+                    painter = painterResource(R.drawable.ic_wikipedia),
+                    contentDescription = "Wikipedia Icon",
+                    modifier = modifier
+                        .align(Alignment.CenterVertically)
+                        .clickable {
+                            onEventSent(
+                                LaunchesContract.Event.LinkClicked(
+                                    wikipediaLinkState.value
+                                )
+                            )
+                        }
+                )
+            }
         }
     }
 }

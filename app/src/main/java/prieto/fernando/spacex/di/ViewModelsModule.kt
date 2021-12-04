@@ -7,7 +7,7 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
-import prieto.fernando.spacex.presentation.vm.LaunchesViewModelImpl
+import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 
@@ -24,5 +24,5 @@ class ViewModelsModule {
     fun provideLaunchesViewModel(
         getLaunches: GetLaunches,
         launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
-    ) = LaunchesViewModelImpl(getLaunches, launchesDomainToUiModelMapper)
+    ) = LaunchesViewModel(getLaunches, launchesDomainToUiModelMapper)
 }
