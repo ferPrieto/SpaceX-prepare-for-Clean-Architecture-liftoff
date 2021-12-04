@@ -6,7 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.domain.usecase.GetLaunches
-import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
+import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
@@ -18,7 +18,7 @@ class ViewModelsModule {
     fun provideDashboardViewModel(
         getCompanyInfo: GetCompanyInfo,
         companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
-    ) = DashboardViewModelImpl(getCompanyInfo, companyInfoDomainToUiModelMapper)
+    ) = DashboardViewModel(getCompanyInfo, companyInfoDomainToUiModelMapper)
 
     @Provides
     fun provideLaunchesViewModel(

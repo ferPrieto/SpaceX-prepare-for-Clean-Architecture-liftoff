@@ -39,7 +39,7 @@ import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.theme.Dark
 import prieto.fernando.spacex.theme.Light
 import prieto.fernando.spacex.theme.SpaceXTypography
-import prieto.fernando.spacex.presentation.vm.DashboardViewModelImpl
+import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 
 @InternalCoroutinesApi
@@ -87,7 +87,7 @@ private fun MainScreenNavigationConfigurations(
 
 @Composable
 private fun InitDashboardScreen() {
-    val dashboardViewModel: DashboardViewModelImpl = hiltViewModel()
+    val dashboardViewModel: DashboardViewModel = hiltViewModel()
     DashboardScreen(state = dashboardViewModel.viewState.value)
 }
 

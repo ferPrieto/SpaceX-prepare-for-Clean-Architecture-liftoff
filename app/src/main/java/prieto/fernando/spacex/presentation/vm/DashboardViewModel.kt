@@ -14,16 +14,12 @@ import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelM
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class DashboardViewModel : BaseViewModel
-<DashboardContract.Event, DashboardContract.State, DashboardContract.Effect>() {
-    abstract fun companyInfo()
-}
-
 @HiltViewModel
-class DashboardViewModelImpl @Inject constructor(
+class DashboardViewModel @Inject constructor(
     private val getCompanyInfo: GetCompanyInfo,
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
-) : DashboardViewModel() {
+) : BaseViewModel
+<DashboardContract.Event, DashboardContract.State, DashboardContract.Effect>() {
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
@@ -48,7 +44,7 @@ class DashboardViewModelImpl @Inject constructor(
 
     override fun handleEvents(event: DashboardContract.Event) {}
 
-    override fun companyInfo() {
+    fun companyInfo() {
         viewModelScope.launch(errorHandler) {
             try {
                 getCompanyInfo.execute()

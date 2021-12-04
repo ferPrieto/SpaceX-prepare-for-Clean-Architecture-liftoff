@@ -50,7 +50,7 @@ class DashboardViewModelTest {
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = DashboardViewModelImpl(getLaunches, getCompanyInfo, companyInfoMapper, launchesMapper)
+        cut = DashboardViewModel(getLaunches, getCompanyInfo, companyInfoMapper, launchesMapper)
     }
 
     @get:Rule
