@@ -19,6 +19,7 @@ android {
         applicationId = "prieto.fernando.spacex"
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
         targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
+        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
     }
 
     buildFeatures {
@@ -89,13 +90,17 @@ dependencies {
     testImplementation(project(ProjectModules.domain))
 
     androidTestImplementation(project(ProjectModules.coreAndroidTest))
-    androidTestImplementation(TestDependencies.AndroidX.runner)
-    androidTestImplementation(TestDependencies.AndroidX.rules)
-    androidTestImplementation(TestDependencies.mockWebServer)
     androidTestImplementation(TestDependencies.AndroidX.core)
     androidTestImplementation(TestDependencies.AndroidX.coreKtx)
-
+    androidTestImplementation(TestDependencies.AndroidX.runner)
+    androidTestImplementation(TestDependencies.AndroidX.rules)
     androidTestImplementation(TestDependencies.AndroidX.composeUiTest)
     androidTestImplementation(TestDependencies.AndroidX.composeUiTestJUnit4)
     debugImplementation(TestDependencies.AndroidX.uiTestManifest)
+
+    androidTestImplementation(TestDependencies.mockWebServer)
+
+    androidTestImplementation(TestDependencies.Hilt.androidTesting)
+    kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
+    androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
 }

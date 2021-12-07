@@ -6,6 +6,7 @@ import android.content.res.Resources
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 
@@ -13,9 +14,9 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 open class AppModule {
 
-    @Provides
-    fun provideContext(app: Application): Context = app.applicationContext
+ /*   @Provides
+    fun provideContext(@ApplicationContext app: Application): Context = app.applicationContext
 
     @Provides
-    fun provideResources(app: Application): Resources = app.resources
+    fun provideResources(app: Application): Resources = app.resources*/
 }

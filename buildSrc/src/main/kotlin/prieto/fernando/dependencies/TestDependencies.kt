@@ -49,5 +49,12 @@ object TestDependencies {
             "com.nhaarman:mockito-kotlin:${Versions.mockitoKotlin}"
     }
 
+    object Hilt{
+        const val androidTesting =
+            "com.google.dagger:hilt-android-testing:${Versions.hiltTest}"
+        const val androidCompiler =
+            "com.google.dagger:hilt-android-compiler:${Versions.hiltTest}"
+    }
+
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
 }

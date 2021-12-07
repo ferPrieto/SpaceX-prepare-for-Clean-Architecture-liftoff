@@ -20,17 +20,20 @@ const val RETROFIT_TIMEOUT = 10L
 
 @InstallIn(SingletonComponent::class)
 @Module
-object NetworkModule {
+open class NetworkModule {
+
+    open fun getBaseUrl () ="https://api.spacexdata.com/v3/"
+
     @Provides
     @BaseUrl
-    fun provideBaseUrl() = "https://api.spacexdata.com/v3/"
+    fun provideBaseUrl() = getBaseUrl ()
 
     @Provides
     @Singleton
     fun provideRetrofitBuilder(
         gsonConverterFactory: GsonConverterFactory,
         @BaseUrl baseUrl: String
-    ) = Retrofit.Builder()
+    ): Retrofit.Builder = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(gsonConverterFactory)
 
