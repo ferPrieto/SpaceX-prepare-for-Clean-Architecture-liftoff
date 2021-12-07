@@ -11,6 +11,7 @@ import prieto.fernando.spacex.theme.SpaceXTheme
 
 @AndroidEntryPoint
 class EntryPointActivity : ComponentActivity() {
+
     @InternalCoroutinesApi
     @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {

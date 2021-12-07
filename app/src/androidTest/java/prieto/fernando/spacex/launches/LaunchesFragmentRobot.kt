@@ -18,7 +18,7 @@ fun launchesFragmentRobot(func: LaunchesFragmentRobot.() -> Unit) =
 
 class LaunchesFragmentRobot {
 
-    fun waitForCondition(idlingResource: IdlingResource?) = apply {
+  /*  fun waitForCondition(idlingResource: IdlingResource?) = apply {
         IdlingRegistry.getInstance().register(idlingResource)
     }
 
@@ -126,5 +126,5 @@ class LaunchesFragmentRobot {
         private val dashboardTabViewMatcher = withId(R.id.dashboard)
 
         private val launchesTabViewMatcher = withId(R.id.launches)
-    }
+    }*/
 }

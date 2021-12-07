@@ -18,6 +18,13 @@ object TestDependencies {
             "androidx.test.ext:junit:${Versions.androidxJunit}"
         const val coreTesting =
             "android.arch.core:core-testing:${Versions.coreTesting}"
+
+
+        const val composeUiTest =
+            "androidx.compose.ui:ui-test:${Versions.compose}"
+        const val composeUiTestJUnit4 =
+                "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+        const val uiTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
     }
 
     const val kotlinxCoroutines =

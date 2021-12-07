@@ -20,6 +20,7 @@ class DashboardFragmentRobot {
     fun waitForCondition(idlingResource: IdlingResource?) = apply {
         IdlingRegistry.getInstance().register(idlingResource)
     }
+/*
 
     fun assertCompanyTitleIsDisplayed() = apply {
         onView(companyTitleViewMatcher).check(
@@ -81,10 +82,11 @@ class DashboardFragmentRobot {
         onView(launchesTabViewMatcher).perform(ViewActions.click())
     }
 
+*/
 
     companion object {
 
-        private val companyTitleViewMatcher = withId(R.id.company_title)
+     /*   private val companyTitleViewMatcher = withId(R.id.company_title)
 
         private val companyDescriptionViewMatcher = withId(R.id.company_description)
 
@@ -98,6 +100,6 @@ class DashboardFragmentRobot {
 
         private val dashboardTabViewMatcher = withId(R.id.dashboard)
 
-        private val launchesTabViewMatcher = withId(R.id.launches)
+        private val launchesTabViewMatcher = withId(R.id.launches)*/
     }
 }

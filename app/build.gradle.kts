@@ -94,4 +94,8 @@ dependencies {
     androidTestImplementation(TestDependencies.mockWebServer)
     androidTestImplementation(TestDependencies.AndroidX.core)
     androidTestImplementation(TestDependencies.AndroidX.coreKtx)
+
+    androidTestImplementation(TestDependencies.AndroidX.composeUiTest)
+    androidTestImplementation(TestDependencies.AndroidX.composeUiTestJUnit4)
+    debugImplementation(TestDependencies.AndroidX.uiTestManifest)
 }

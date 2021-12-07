@@ -20,6 +20,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -44,6 +46,7 @@ import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
+@Preview
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
@@ -320,6 +323,7 @@ private fun getTabColour(selected: Boolean) =
         else Dark.UnselectedTab
     }
 
+
 @Composable
 private fun AnimatableIcon(
     modifier: Modifier,
@@ -370,7 +374,6 @@ private fun AnimatableText(
     )
     Text(
         text = stringResource(id = screen.resourceId),
-        modifier = Modifier,
         color = animatedColor
     )
 }

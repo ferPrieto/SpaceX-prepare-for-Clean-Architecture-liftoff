@@ -22,7 +22,7 @@ import prieto.fernando.spacex.webmock.SuccessDispatcher
 @RunWith(AndroidJUnit4::class)
 class DashboardFragmentTest {
 
-    @get:Rule
+  /*  @get:Rule
     val activityTestRule = ActivityTestRule(EntryPointActivity::class.java, true, true)
 
     @get:Rule
@@ -84,5 +84,5 @@ class DashboardFragmentTest {
               waitForCondition(progressBarGoneIdlingResource)
               assertDescriptionErrorDisplayed()
           }
-      }
+      }*/
 }
