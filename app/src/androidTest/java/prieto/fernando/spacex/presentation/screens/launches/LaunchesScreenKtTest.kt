@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.screens.dashboard
+package prieto.fernando.spacex.presentation.screens.launches
 
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.test.assertIsDisplayed
@@ -7,6 +7,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import junit.framework.TestCase
 import kotlinx.coroutines.InternalCoroutinesApi
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -24,7 +25,7 @@ import prieto.fernando.spacex.webmock.SuccessDispatcher
 @ExperimentalMaterialApi
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
-class DashboardScreenTest {
+class LaunchesScreenKtTest{
     @get:Rule
     val hiltRule by lazy { HiltAndroidRule(this) }
 
