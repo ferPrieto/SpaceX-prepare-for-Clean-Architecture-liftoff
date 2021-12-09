@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="letter_xlarge">32sp</dimen>
-    <dimen name="letter_large">24sp</dimen>
-    <dimen name="letter_semi_large">18sp</dimen>
-    <dimen name="letter_normal">15sp</dimen>
-</resources>

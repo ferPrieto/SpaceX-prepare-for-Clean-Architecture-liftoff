@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="card_elevation">4dp</dimen>
-    <dimen name="bottom_bar_elevation">6dp</dimen>
-
-</resources>
