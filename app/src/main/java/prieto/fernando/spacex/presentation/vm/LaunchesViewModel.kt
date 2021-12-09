@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.core.presentation.BaseViewModel
+import prieto.fernando.spacex.presentation.vm.base.BaseViewModel
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
@@ -18,8 +18,7 @@ import javax.inject.Inject
 class LaunchesViewModel @Inject constructor(
     private val getLaunches: GetLaunches,
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
-) : BaseViewModel
-<LaunchesContract.Event, LaunchesContract.State, LaunchesContract.Effect>() {
+) : BaseViewModel<LaunchesContract.Event, LaunchesContract.State, LaunchesContract.Effect>() {
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)

@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.core.presentation.BaseViewModel
+import prieto.fernando.spacex.presentation.vm.base.BaseViewModel
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
 import prieto.fernando.spacex.presentation.screens.dashboard.DashboardContract
@@ -18,8 +18,7 @@ import javax.inject.Inject
 class DashboardViewModel @Inject constructor(
     private val getCompanyInfo: GetCompanyInfo,
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
-) : BaseViewModel
-<DashboardContract.Event, DashboardContract.State, DashboardContract.Effect>() {
+) : BaseViewModel<DashboardContract.Event, DashboardContract.State, DashboardContract.Effect>() {
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)

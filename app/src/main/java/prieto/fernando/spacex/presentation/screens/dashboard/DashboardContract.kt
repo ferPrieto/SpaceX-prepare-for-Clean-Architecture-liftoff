@@ -1,8 +1,8 @@
 package prieto.fernando.spacex.presentation.screens.dashboard
 
-import prieto.fernando.core.presentation.ViewEvent
-import prieto.fernando.core.presentation.ViewSideEffect
-import prieto.fernando.core.presentation.ViewState
+import prieto.fernando.spacex.presentation.vm.base.ViewEvent
+import prieto.fernando.spacex.presentation.vm.base.ViewSideEffect
+import prieto.fernando.spacex.presentation.vm.base.ViewState
 
 class DashboardContract {
     sealed class Event : ViewEvent

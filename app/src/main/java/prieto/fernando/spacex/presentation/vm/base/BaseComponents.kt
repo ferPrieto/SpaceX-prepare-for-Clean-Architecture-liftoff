@@ -1,4 +1,4 @@
-package prieto.fernando.core.presentation
+package prieto.fernando.spacex.presentation.vm.base
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State

@@ -1,8 +1,8 @@
 package prieto.fernando.spacex.presentation.screens.launches
 
-import prieto.fernando.core.presentation.ViewEvent
-import prieto.fernando.core.presentation.ViewSideEffect
-import prieto.fernando.core.presentation.ViewState
+import prieto.fernando.spacex.presentation.vm.base.ViewEvent
+import prieto.fernando.spacex.presentation.vm.base.ViewSideEffect
+import prieto.fernando.spacex.presentation.vm.base.ViewState
 
 const val LAUNCH_LISTEN_FOR_EFFECTS = "launch-listen-to-effects"
 
