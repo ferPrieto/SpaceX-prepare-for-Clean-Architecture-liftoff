@@ -15,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -90,7 +92,9 @@ fun LaunchesScreen(
                     loadingProgress,
                 )
             }
-            state.isError -> { ErrorAnimation(errorComposition, errorProgress) }
+            state.isError -> {
+                ErrorAnimation(errorComposition, errorProgress)
+            }
             else -> {
                 if (bodyProgress == 1f) {
                     FilterIcon(
@@ -305,6 +309,7 @@ fun LaunchItemRow(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .semantics { contentDescription = "Item-${launchUiModelItem.missionName}" }
             .clickable {
                 coroutineScope.launch {
                     if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {

@@ -16,6 +16,7 @@ import org.junit.runner.RunWith
 import prieto.fernando.spacex.BuildConfig
 import prieto.fernando.spacex.presentation.EntryPointActivity
 import prieto.fernando.spacex.theme.SpaceXTheme
+import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 
 @ExperimentalMaterialApi
@@ -30,16 +31,11 @@ class MainScreenKtTest {
 
     private val mockWebServer = MockWebServer()
 
-    @InternalCoroutinesApi
     @Before
     fun setUp() {
         hiltRule.inject()
         mockWebServer.start(BuildConfig.PORT)
-        composeTestRule.setContent {
-            SpaceXTheme {
-                MainScreen()
-            }
-        }
+
     }
 
     @After
@@ -47,23 +43,42 @@ class MainScreenKtTest {
         mockWebServer.shutdown()
     }
 
-
+    @InternalCoroutinesApi
     @Test
     fun bottom_tabs_displayed() {
-        composeTestRule.onRoot(useUnmergedTree = true).printToLog("TAG")
+        mockWebServer.dispatcher = SuccessDispatcher()
+        setMainContent()
+
         composeTestRule.onNodeWithText("Dashboard", useUnmergedTree = true).assertIsDisplayed()
         composeTestRule.onNodeWithText("Launches", useUnmergedTree = true).assertIsDisplayed()
     }
 
+    @InternalCoroutinesApi
     @Test
     fun app_loads_dashboard_by_default() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        setMainContent()
+
         composeTestRule.onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
     }
 
+    @InternalCoroutinesApi
     @Test
     fun appNavigatesToLaunchesTabWhenSelected() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        setMainContent()
+
         composeTestRule.onNodeWithText("Launches", useUnmergedTree = true).assertIsDisplayed()
             .performClick()
         composeTestRule.onNodeWithText("LAUNCHES", useUnmergedTree = true).assertIsDisplayed()
+    }
+
+    @InternalCoroutinesApi
+    private fun setMainContent() {
+        composeTestRule.setContent {
+            SpaceXTheme {
+                MainScreen()
+            }
+        }
     }
 }

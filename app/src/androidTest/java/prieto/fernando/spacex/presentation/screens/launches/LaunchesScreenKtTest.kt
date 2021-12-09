@@ -5,10 +5,8 @@ import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -56,11 +54,23 @@ class LaunchesScreenKtTest {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        composeTestRule.onNodeWithText("Launches", useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithText("Launches").assertIsDisplayed()
             .performClick()
-        composeTestRule.onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithText("COMPANY").assertIsDisplayed()
         composeTestRule.onNodeWithText("was founded by", substring = true)
             .assertIsDisplayed()
+    }
+
+    @Test
+    @InternalCoroutinesApi
+    fun itemsCountAfterOpeningTheScreen() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        setMainContent()
+
+        composeTestRule.onNodeWithText("Launches").performClick()
+        composeTestRule.onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
+
+        composeTestRule.onAllNodesWithContentDescription( "Item",substring = true, useUnmergedTree = true).assertCountEquals(104)
     }
 
     @Test
@@ -97,6 +107,7 @@ class LaunchesScreenKtTest {
         }
         composeTestRule.onNodeWithText("NO RESULTS FOUND", useUnmergedTree = true)
             .assertIsDisplayed()
+        composeTestRule.onAllNodesWithContentDescription( "Item",substring = true, useUnmergedTree = true).assertCountEquals(0)
     }
 
     @Test
@@ -137,6 +148,7 @@ class LaunchesScreenKtTest {
             .assertIsDisplayed()
         composeTestRule.onNodeWithText("Mission2", useUnmergedTree = true)
             .assertIsDisplayed()
+        composeTestRule.onAllNodesWithContentDescription( "Item",substring = true, useUnmergedTree = true).assertCountEquals(2)
     }
 
     @InternalCoroutinesApi
