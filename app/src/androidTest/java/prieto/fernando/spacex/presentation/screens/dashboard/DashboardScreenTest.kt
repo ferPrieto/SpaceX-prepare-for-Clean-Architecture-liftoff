@@ -3,6 +3,7 @@ package prieto.fernando.spacex.presentation.screens.dashboard
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -51,8 +52,8 @@ class DashboardScreenTest {
         setMainContent()
 
         composeTestRule.onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
-        composeTestRule.onNodeWithText("was founded by", substring = true)
-            .assertIsDisplayed()
+        composeTestRule.onNodeWithText("was founded by", substring = true).assertIsDisplayed()
+        composeTestRule.onNodeWithContentDescription("Planet Animation").assertIsDisplayed()
     }
 
     @Test
@@ -63,6 +64,7 @@ class DashboardScreenTest {
 
         composeTestRule.onNodeWithText("AN ERROR OCCURRED", useUnmergedTree = true)
             .assertIsDisplayed()
+        composeTestRule.onNodeWithContentDescription("404 Animation").assertIsDisplayed()
     }
 
     @InternalCoroutinesApi

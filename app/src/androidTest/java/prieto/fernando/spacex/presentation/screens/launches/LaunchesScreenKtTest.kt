@@ -54,23 +54,24 @@ class LaunchesScreenKtTest {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        composeTestRule.onNodeWithText("Launches").assertIsDisplayed()
-            .performClick()
-        composeTestRule.onNodeWithText("COMPANY").assertIsDisplayed()
-        composeTestRule.onNodeWithText("was founded by", substring = true)
-            .assertIsDisplayed()
+        composeTestRule.onNodeWithText("Launches").performClick()
+        composeTestRule.onNodeWithContentDescription("Launches Animation", useUnmergedTree = true).assertIsDisplayed()
+        composeTestRule.onNodeWithText("LAUNCHES").assertIsDisplayed()
     }
 
     @Test
     @InternalCoroutinesApi
-    fun itemsCountAfterOpeningTheScreen() {
+    fun visibleItemsCountAfterOpeningTheScreen() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
         composeTestRule.onNodeWithText("Launches").performClick()
-        composeTestRule.onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
-
-        composeTestRule.onAllNodesWithContentDescription( "Item",substring = true, useUnmergedTree = true).assertCountEquals(104)
+        composeTestRule.mainClock.advanceTimeBy(2000)
+        composeTestRule.onAllNodesWithContentDescription(
+            "Item",
+            substring = true,
+            useUnmergedTree = true
+        ).assertCountEquals(6)
     }
 
     @Test
@@ -83,6 +84,19 @@ class LaunchesScreenKtTest {
             .performClick()
         composeTestRule.onNodeWithText("AN ERROR OCCURRED", useUnmergedTree = true)
             .assertIsDisplayed()
+        composeTestRule.onNodeWithContentDescription("404 Animation").assertIsDisplayed()
+    }
+
+    @Test
+    @InternalCoroutinesApi
+    fun dialogVisibleAfterClickingOnFilter() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        setMainContent()
+
+        composeTestRule.onNodeWithText("Launches").performClick()
+        composeTestRule.mainClock.advanceTimeBy(2000)
+        composeTestRule.onNodeWithContentDescription("Filter Button").assertIsDisplayed().performClick()
+        composeTestRule.onNodeWithText("FILTER BY YEAR", useUnmergedTree = true).assertIsDisplayed()
     }
 
     @Test
@@ -107,7 +121,11 @@ class LaunchesScreenKtTest {
         }
         composeTestRule.onNodeWithText("NO RESULTS FOUND", useUnmergedTree = true)
             .assertIsDisplayed()
-        composeTestRule.onAllNodesWithContentDescription( "Item",substring = true, useUnmergedTree = true).assertCountEquals(0)
+        composeTestRule.onAllNodesWithContentDescription(
+            "Item",
+            substring = true,
+            useUnmergedTree = true
+        ).assertCountEquals(0)
     }
 
     @Test
@@ -148,7 +166,11 @@ class LaunchesScreenKtTest {
             .assertIsDisplayed()
         composeTestRule.onNodeWithText("Mission2", useUnmergedTree = true)
             .assertIsDisplayed()
-        composeTestRule.onAllNodesWithContentDescription( "Item",substring = true, useUnmergedTree = true).assertCountEquals(2)
+        composeTestRule.onAllNodesWithContentDescription(
+            "Item",
+            substring = true,
+            useUnmergedTree = true
+        ).assertCountEquals(2)
     }
 
     @InternalCoroutinesApi

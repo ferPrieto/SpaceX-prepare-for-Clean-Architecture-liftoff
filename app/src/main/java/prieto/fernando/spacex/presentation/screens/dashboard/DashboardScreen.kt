@@ -9,6 +9,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -51,8 +53,9 @@ fun DashboardScreen(
         when {
             state.isLoading -> {
                 LottieAnimation(
-                    loadingComposition,
-                    loadingProgress,
+                   composition =  loadingComposition,
+                    progress = loadingProgress,
+                    modifier = Modifier.semantics { contentDescription= "Loading Animation" }
                 )
             }
             state.isError -> {
@@ -67,11 +70,12 @@ fun DashboardScreen(
                     else Dark.TextColorSecondary
                 )
                 LottieAnimation(
-                    bodyComposition,
-                    bodyProgress,
+                    composition = bodyComposition,
+                    progress = bodyProgress,
                     modifier = Modifier
                         .size(260.dp)
                         .align(Alignment.CenterHorizontally)
+                        .semantics { contentDescription = "Planet Animation" }
                 )
             }
         }

@@ -48,7 +48,8 @@ fun LaunchesScreen(
     onEventSent: (event: LaunchesContract.Event) -> Unit,
     effectFlow: Flow<LaunchesContract.Effect>?,
     onClickableLinkRetrieved: (clickableLinkEffect: LaunchesContract.Effect.ClickableLink) -> Unit,
-    onLinkClicked: (clickableLinkEffect: LaunchesContract.Effect.LinkClicked) -> Unit
+    onLinkClicked: (clickableLinkEffect: LaunchesContract.Effect.LinkClicked) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
@@ -71,7 +72,7 @@ fun LaunchesScreen(
     EffectsListener(effectFlow, onClickableLinkRetrieved, onLinkClicked)
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight()
             .background(
                 if (MaterialTheme.colors.isLight) Light.Background
@@ -80,7 +81,7 @@ fun LaunchesScreen(
     ) {
         Text(
             text = stringResource(id = R.string.launches_title),
-            modifier = Modifier.padding(top = 16.dp, start = 16.dp),
+            modifier = modifier.padding(top = 16.dp, start = 16.dp),
             style = SpaceXTypography.h1,
             color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
             else Dark.TextColorPrimary
@@ -88,8 +89,9 @@ fun LaunchesScreen(
         when {
             state.isLoading -> {
                 LottieAnimation(
-                    loadingComposition,
-                    loadingProgress,
+                    composition = loadingComposition,
+                    progress = loadingProgress,
+                    modifier= modifier.semantics { contentDescription = "Loading Animation" }
                 )
             }
             state.isError -> {
@@ -98,9 +100,10 @@ fun LaunchesScreen(
             else -> {
                 if (bodyProgress == 1f) {
                     FilterIcon(
-                        modifier = Modifier
+                        modifier = modifier
                             .padding(end = 8.dp, bottom = 8.dp)
-                            .align(Alignment.End),
+                            .align(Alignment.End)
+                            .semantics { contentDescription = "Filter Button" },
                         onClick = { openDialog.value = true }
                     )
                     if (state.launchUiModels.isNotEmpty()) {
@@ -115,8 +118,9 @@ fun LaunchesScreen(
                     }
                 } else {
                     LottieAnimation(
-                        bodyComposition,
-                        bodyProgress
+                        composition = bodyComposition,
+                        progress = bodyProgress,
+                        modifier= modifier.semantics { contentDescription = "Launches Animation" }
                     )
                 }
             }
@@ -198,7 +202,8 @@ fun FilterDialog(
                     value = textState,
                     modifier = Modifier
                         .width(180.dp)
-                        .padding(end = 24.dp),
+                        .padding(end = 24.dp)
+                        .semantics { contentDescription = "Year Selection" },
 
                     onValueChange = { if (it.length <= maxYearLength) textState = it },
                     label = { Text(stringResource(id = R.string.dialog_year)) },
@@ -259,6 +264,7 @@ private fun ConfirmButton(
     orderChecked: MutableState<Boolean>
 ) {
     TextButton(
+        modifier = Modifier.semantics { contentDescription ="OK Dialog Button" },
         onClick = {
             openDialog.value = false
             onEventSent(LaunchesContract.Event.Filter(textState, orderChecked.value))
