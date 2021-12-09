@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    implementation(project(prieto.fernando.dependencies.ProjectModules.core))
+    implementation(project(ProjectModules.core))
     implementation(project(ProjectModules.api))
     implementation(project(ProjectModules.domain))
     implementation(project(ProjectModules.data))
@@ -58,7 +58,6 @@ dependencies {
     annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
-    implementation(Dependencies.solidRecyclerView)
 
     implementation(Dependencies.AndroidX.Compose.ui)
     implementation(Dependencies.AndroidX.Compose.systemUiController)
@@ -75,7 +74,6 @@ dependencies {
     implementation(Dependencies.Hilt.hiltNavigationCompose)
 
     implementation(Dependencies.coilCompose)
-    implementation(Dependencies.bottomSheet)
     implementation(Dependencies.lottie)
     implementation(Dependencies.lottieCompose)
 

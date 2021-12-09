@@ -88,11 +88,5 @@ object Dependencies {
 
     const val coilCompose = "io.coil-kt:coil-compose:${Versions.coil}"
 
-    const val bottomSheet =
-        "com.qhutch.bottomsheetlayout:bottomsheetlayout:${Versions.bottomSheet}"
-
     const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
-
-    const val solidRecyclerView =
-        "com.mitteloupe.solid:solidrecyclerview:${Versions.solidRecyclerView}"
 }

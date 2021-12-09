@@ -34,10 +34,8 @@ object Versions {
     const val retrofitConverterGson = "2.4.0"
     const val okhttpLoggingInterceptor = "4.9.1"
     const val coil = "1.4.0"
-    const val bottomSheet = "0.1.9"
     const val jodaTime = "2.10.8"
     const val mockWebServer = "4.9.0"
     const val browser = "1.0.0"
-    const val solidRecyclerView = "1.0.2"
     const val kotlinxCoroutines = "1.5.2"
 }
