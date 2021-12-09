@@ -1,60 +1,25 @@
-[![Android Studio Arctic Fox](https://img.shields.io/badge/AS%20Arctic%20Fox-2020.3.1-9cf)]
-[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-1.0.0--beta03-blueviolet)]
-[![Platform](https://img.shields.io/badge/platform-android-brightgreen)](https://developer.android.com/reference)
-[![Build Status](https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master)](https://app.bitrise.io/app/64cd2ed600a14151)
+<h1 align="center">SpaceX prepare for Clean Architecture liftoff:rocket:</h1>
 
-# SpaceX prepare for Clean Architecture liftoff:rocket:
-![banner](art/CoroutinesFlows-Modularised.jpg)
-
-
-## Table of Contents
-- [Demo](#demo)
-- [Introduction](#introduction)
-- [Modules](#modules)
-- [Testing](#testing)
-- [Libraries Used](#libraries_used)
-- [License](#license)
-
-## Demo
 <p align="center">
-  <img src="art/SpaceX-Dark.gif"  width="49%">
-  <img src="art/SpaceX-Light.gif"  width="49%">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <a href="https://android-developers.googleblog.com/2021/07/android-studio-arctic-fox-202031-stable.html"><img alt="Android Studio Arctic Fox" src="https://img.shields.io/badge/AS%20Arctic%20Fox-2020.3.1-9cf.svg"/></a>
+  <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
+  <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
 </p>
 
-## Introduction
-The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
-This project summarises some of the general use cases and needs that could be demanded on a production project using:`Jetpack Compose`, `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
+<p align="center">
+SpaceX prepare for Clean Architecture liftoff:rocket: is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
+<br>This project summarises some of the general use cases and needs that could be demanded on a production project using:`Jetpack Compose`, `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
-![structure](art/clean_architecture_dark.jpg)
+</p>
+</br>
 
-## Modules
-* **app** - The application module with access to **all the application**
-* **data** - Android module that **can only access domain module**
-* **data-api** - Android module that **can only access data module**
-* **domain** - Kotlin module that **cannot access any other module**
+<p align="center">
+<img src="/art/SpaceX-Latest-Banner"/>
+</p>
 
-And two extra modules:
-* **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
-* **core-android-test** - Tests classes module (rules, date builders,etc.) that **cannot access any other module**
 
-## Testing
-
-### Unit Testing
-
-There are some highlights:
-* Every layer in the architecture has been tested with its mapper|transformer|provider.
-* Mockito has been used for mocking|stubbing.
-* `Given|When|Then` steps have been followed, in order to give a more structured overview.
-* No comments in the tests because the tests functions are already concise and clear.
-
-### UI Testing (Compose)
-
-I opted to use two types of approaches:
-- One using MockWebserver, where I recreate a real scenario where the app connects to an endpoint and I test the cases.
-- Another one, that I consider `Isolated Compose Tests`, where it's possible to mock and set any content, UI state, etc. Which is to emulate very specific cases.
-
-This section is still evolving.
-
+<img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
 
 ## Libraries Used
 * [Compose][0] for building native UI (declarative way using Kotlin).
@@ -84,6 +49,60 @@ This section is still evolving.
 [10]: https://github.com/coil-kt/coil
 [11]: https://airbnb.io/lottie/#/android-compose
 [12]: https://github.com/JodaOrg/joda-time
+
+## Modules
+* **app** - The application module with access to **all the application**
+* **data** - Android module that **can only access domain module**
+* **data-api** - Android module that **can only access data module**
+* **domain** - Kotlin module that **cannot access any other module**
+
+And two extra modules:
+* **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
+* **core-android-test** - Tests classes module (rules, date builders,etc.) that **cannot access any other module**
+
+## Branches
+There are three options depending on different tech-stack desired. The latest codebase will be updated in master.
+These are the three options available (all of them maintained):
+
+- master
+  - Jetpack Compose (declarative UI)
+  - Dagger Hilt
+  - VM approach using UI States and Effects
+  - Kotlin Flows (removed LiveData)
+  - Modules simplification
+  - The rest of modules remain the same (Tests)
+
+- SpaceX-Coroutines-Flows
+  - Imperative UI
+  - Dagger2
+  - Kotlin Coroutines and Flows
+  - Granular modularisation (CleanArchitecture approach)
+  - Unit Tests + UI Tests + MockWebServer + Robot Pattern
+
+- SpaceX-RxJava
+    - VMs and Fragments communication via RxJava
+    - Dagger2
+    - Granular modularisation (CleanArchitecture approach)
+    - Unit Tests + UI Tests + MockWebServer + Robot Pattern
+
+## Testing
+
+### Unit Testing
+
+There are some highlights:
+* Every layer in the architecture has been tested with its mapper|transformer|provider.
+* Mockito has been used for mocking|stubbing.
+* `Given|When|Then` steps have been followed, in order to give a more structured overview.
+* No comments in the tests because the tests functions are already concise and clear.
+
+### UI Testing (Compose)
+
+I opted to use two types of approaches:
+- One using MockWebserver, where I recreate a real scenario where the app connects to an endpoint and I test the cases.
+- Another one, that I consider `Isolated Compose Tests`, where it's possible to mock and set any content, UI state, etc. Which is to emulate very specific cases.
+
+This section is still evolving.
+
 
 ## License
     Copyright 2021 Fernando Prieto Moyano
