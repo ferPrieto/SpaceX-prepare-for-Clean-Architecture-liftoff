@@ -1,3 +1,7 @@
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.ProjectModules
+import prieto.fernando.dependencies.ProjectModules.api
+
 plugins {
     id("com.android.library")
     id("prieto.fernando.android.plugin")
@@ -11,8 +15,10 @@ dependencies {
     api(Dependencies.Retrofit.retrofitConverterGson)
     api(Dependencies.okHttpLoggingInterceptor)
 
+    implementation(Dependencies.Hilt.hiltAndroid)
+    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+
     implementation(Dependencies.jodaTime)
-    implementation(Dependencies.Dagger.daggerAndroid)
 
     testImplementation(Dependencies.jodaTime)
 }

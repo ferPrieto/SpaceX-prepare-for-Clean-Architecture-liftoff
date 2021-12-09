@@ -7,6 +7,8 @@ import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
 import prieto.fernando.spacex.webmock.AssetReaderUtil.asset
+import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 const val COMPANY_INFO = "/info"
 const val LAUNCHES = "/launches"
@@ -31,6 +33,7 @@ class SuccessDispatcher(
             val responseBody = asset(context, responseFile)
             MockResponse().setResponseCode(200).setBody(responseBody)
         } else {
+            throw Throwable("Uri.parse(request.path).path null")
             errorResponse
         }
     }
