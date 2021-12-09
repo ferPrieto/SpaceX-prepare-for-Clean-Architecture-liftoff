@@ -2,48 +2,21 @@ package prieto.fernando.spacex.presentation.screens.dashboard
 
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.InternalCoroutinesApi
-import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import prieto.fernando.spacex.BuildConfig
-import prieto.fernando.spacex.presentation.EntryPointActivity
-import prieto.fernando.spacex.presentation.screens.MainScreen
-import prieto.fernando.spacex.theme.SpaceXTheme
+import prieto.fernando.spacex.presentation.screens.BaseScreenTest
 import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @ExperimentalMaterialApi
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
-class DashboardScreenTest {
-    @get:Rule
-    val hiltRule by lazy { HiltAndroidRule(this) }
-
-    @get:Rule
-    val composeTestRule by lazy { createAndroidComposeRule<EntryPointActivity>() }
-
-    private val mockWebServer = MockWebServer()
-
-    @Before
-    fun setUp() {
-        hiltRule.inject()
-        mockWebServer.start(BuildConfig.PORT)
-    }
-
-    @After
-    fun teardown() {
-        mockWebServer.shutdown()
-    }
+class DashboardScreenTest : BaseScreenTest() {
 
     @Test
     @InternalCoroutinesApi
@@ -65,14 +38,5 @@ class DashboardScreenTest {
         composeTestRule.onNodeWithText("AN ERROR OCCURRED", useUnmergedTree = true)
             .assertIsDisplayed()
         composeTestRule.onNodeWithContentDescription("404 Animation").assertIsDisplayed()
-    }
-
-    @InternalCoroutinesApi
-    private fun setMainContent() {
-        composeTestRule.setContent {
-            SpaceXTheme {
-                MainScreen()
-            }
-        }
     }
 }
