@@ -8,14 +8,14 @@
 </p>
 
 <p align="center">
-SpaceX prepare for Clean Architecture liftoff:rocket: is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
-<br>This project summarises some of the general use cases and needs that could be demanded on a production project using:`Jetpack Compose`, `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
+The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
+</br><br>This project summarises some of the general use cases and needs that could be demanded on a production project using:`Jetpack Compose`, `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
 </p>
 </br>
 
 <p align="center">
-<img src="/art/SpaceX-Latest-Banner"/>
+<img src="/art/SpaceX-Latest-Banner.jpg"/>
 </p>
 
 
@@ -84,6 +84,10 @@ These are the three options available (all of them maintained):
     - Dagger2
     - Granular modularisation (CleanArchitecture approach)
     - Unit Tests + UI Tests + MockWebServer + Robot Pattern
+
+<p align="center">
+<img src="/art/clean_architecture_dark.jpg"/>
+</p>
 
 ## Testing
 
