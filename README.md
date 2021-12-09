@@ -1,18 +1,18 @@
-[![Platform](https://img.shields.io/badge/platform-android-brightgreen)](https://developer.android.com/reference)
-[![Build Status](https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master)](https://app.bitrise.io/app/64cd2ed600a14151)
+<h1 align="center">SpaceX prepare for Clean Architecture liftoff:rocket:</h1>
 
-# Coroutines Flows - Modularised :rocket:
-![banner](art/CoroutinesFlows-Modularised.jpg)
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <a href="https://android-developers.googleblog.com/2021/07/android-studio-arctic-fox-202031-stable.html"><img alt="Android Studio Arctic Fox" src="https://img.shields.io/badge/AS%20Arctic%20Fox-2020.3.1-9cf.svg"/></a>
+  <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
+  <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
+</p>
 
+<p align="center">
+SpaceX prepare for Clean Architecture liftoff:rocket: is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>The purpose of this project is to consolidate some of the learned insights throughout the years about the `Clean Architecture` principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
+<br>This project summarises some of the general use cases and needs that could be demanded on a production project using:`Jetpack Compose`, `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
-## Table of Contents
-- [Demo](#demo)
-- [Introduction](#introduction)
-- [On Going Work](#on_going_work)
-- [Modules](#modules)
-- [Testing](#testing)
-- [Libraries Used](#libraries_used)
-- [License](#license)
+</p>
+</br>
 
 ## Demo
 <p align="center">
@@ -25,11 +25,6 @@ The purpose of this project is to consolidate some of the learned insights throu
 This project summarises some of the general use cases and needs that could be demanded on a production project using: `Functional Programming`,`MVVM` setup, `Coroutines`, `Kotlin Flows` and `LiveData` (I've kept a branch using `RxJava` too).
 
 ![structure](art/clean_architecture_dark.jpg)
-
-## On Going Work
-:on: Paging 2 library integration
-:on: UI Update
-:soon: Jetpack Compose
 
 
 ## Modules
