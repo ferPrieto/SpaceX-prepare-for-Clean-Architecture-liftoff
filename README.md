@@ -21,7 +21,7 @@ The purpose of this project is to consolidate some of the learned insights throu
 
 <img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
 
-## Libraries Used
+## Libraries Used :books:
 * [Compose][0] for building native UI (declarative way using Kotlin).
 * [Coroutines][1] Library support for Kotlin coroutines.
 * [Flows][2] for asynchronous data streams.
@@ -50,7 +50,7 @@ The purpose of this project is to consolidate some of the learned insights throu
 [11]: https://airbnb.io/lottie/#/android-compose
 [12]: https://github.com/JodaOrg/joda-time
 
-## Modules
+## Modules :bookmark_tabs:
 * **app** - The application module with access to **all the application**
 * **data** - Android module that **can only access domain module**
 * **data-api** - Android module that **can only access data module**
@@ -60,7 +60,7 @@ And two extra modules:
 * **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
 * **core-android-test** - Tests classes module (rules, date builders,etc.) that **cannot access any other module**
 
-## Branches
+## Branches :octocat:
 There are three options depending on different tech-stack desired. The latest codebase will be updated in master.
 These are the three options available (all of them maintained):
 
@@ -89,7 +89,7 @@ These are the three options available (all of them maintained):
 <img src="/art/clean_architecture_dark.jpg"/>
 </p>
 
-## Testing
+## Testing :mag:
 
 ### Unit Testing
 
@@ -108,7 +108,7 @@ I opted to use two types of approaches:
 This section is still evolving.
 
 
-## License
+## License :oncoming_police_car:
     Copyright 2021 Fernando Prieto Moyano
 
     Licensed under the Apache License, Version 2.0 (the "License");
