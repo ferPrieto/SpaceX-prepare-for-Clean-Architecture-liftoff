@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.screens
+package prieto.fernando.spacex.presentation.screens.base
 
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -10,6 +10,7 @@ import org.junit.Before
 import org.junit.Rule
 import prieto.fernando.spacex.BuildConfig
 import prieto.fernando.spacex.presentation.EntryPointActivity
+import prieto.fernando.spacex.presentation.screens.MainScreen
 import prieto.fernando.spacex.theme.SpaceXTheme
 
 open class BaseScreenTest {

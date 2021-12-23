@@ -12,7 +12,7 @@ import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import org.junit.Test
 import org.junit.runner.RunWith
-import prieto.fernando.spacex.presentation.screens.BaseScreenTest
+import prieto.fernando.spacex.presentation.screens.base.BaseScreenTest
 import prieto.fernando.spacex.theme.SpaceXTheme
 import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
@@ -28,13 +28,9 @@ class LaunchesScreenKtTest : BaseScreenTest() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        composeTestRule.apply {
-            onNodeWithText("Launches").performClick()
-            onNodeWithContentDescription(
-                "Launches Animation",
-                useUnmergedTree = true
-            ).assertIsDisplayed()
-            onNodeWithText("LAUNCHES").assertIsDisplayed()
+        launchesScreenRobot(composeTestRule) {
+            clickOnLaunchesTab()
+            initialElementsShowed()
         }
     }
 
@@ -44,14 +40,10 @@ class LaunchesScreenKtTest : BaseScreenTest() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        composeTestRule.apply {
-            onNodeWithText("Launches").performClick()
-            mainClock.advanceTimeBy(2000)
-            onAllNodesWithContentDescription(
-                "Item",
-                substring = true,
-                useUnmergedTree = true
-            ).assertCountEquals(6)
+        launchesScreenRobot(composeTestRule) {
+            clickOnLaunchesTab()
+            advanceTimeBy(3000)
+            listItemsShowed(6)
         }
     }
 
@@ -60,14 +52,11 @@ class LaunchesScreenKtTest : BaseScreenTest() {
     fun errorTextVisibleWhenConnectionError() {
         mockWebServer.dispatcher = ErrorDispatcher()
         setMainContent()
-        composeTestRule.apply {
-            onNodeWithText("Launches", useUnmergedTree = true).assertIsDisplayed()
-                .performClick()
-            onNodeWithText("AN ERROR OCCURRED", useUnmergedTree = true)
-                .assertIsDisplayed()
-            onNodeWithContentDescription("404 Animation").assertIsDisplayed()
-        }
 
+        launchesScreenRobot(composeTestRule) {
+            clickOnLaunchesTab()
+            errorElementsDisplayed()
+        }
     }
 
     @Test
@@ -76,14 +65,11 @@ class LaunchesScreenKtTest : BaseScreenTest() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        composeTestRule.apply {
-            onNodeWithText("Launches").performClick()
-            mainClock.advanceTimeBy(2000)
-            onNodeWithContentDescription("Filter Button").assertIsDisplayed()
-                .performClick()
-            onNodeWithText("FILTER BY YEAR", useUnmergedTree = true).assertIsDisplayed()
+        launchesScreenRobot(composeTestRule) {
+            clickOnLaunchesTab()
+            advanceTimeBy(3000)
+            dialogElementsDisplayed()
         }
-
     }
 
     @Test
@@ -111,13 +97,10 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                         onClickableLinkRetrieved = { })
                 }
             }
-            onNodeWithText("NO RESULTS FOUND", useUnmergedTree = true)
-                .assertIsDisplayed()
-            onAllNodesWithContentDescription(
-                "Item",
-                substring = true,
-                useUnmergedTree = true
-            ).assertCountEquals(0)
+
+            launchesScreenRobot(composeTestRule) {
+                noResultsElementsShowed()
+            }
         }
     }
 
@@ -145,7 +128,7 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                                         "Rocket2", "Rocket Type2"
                                     ), LinksUiModel("", "WikiPedia Link", "Youtube Link"), false
                                 )
-                            ), false, false
+                            ), isLoading = false, isError = false
                         ),
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         coroutineScope = coroutineScope,
@@ -160,11 +143,9 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                 .assertIsDisplayed()
             onNodeWithText("Mission2", useUnmergedTree = true)
                 .assertIsDisplayed()
-            onAllNodesWithContentDescription(
-                "Item",
-                substring = true,
-                useUnmergedTree = true
-            ).assertCountEquals(2)
+            launchesScreenRobot(composeTestRule) {
+                listItemsShowed(2)
+            }
         }
     }
 }
