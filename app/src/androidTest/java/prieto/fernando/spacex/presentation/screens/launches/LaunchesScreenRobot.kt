@@ -2,13 +2,17 @@ package prieto.fernando.spacex.presentation.screens.launches
 
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.presentation.EntryPointActivity
 
 internal fun launchesScreenRobot(
     composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<EntryPointActivity>, EntryPointActivity>,
     func: LaunchesScreenRobot.() -> Unit
-) = LaunchesScreenRobot(composeTestRule).apply { func() }
+) = LaunchesScreenRobot(composeTestRule).also { func }
 
 internal open class LaunchesScreenRobot constructor(
     private val composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<EntryPointActivity>, EntryPointActivity>
@@ -20,15 +24,11 @@ internal open class LaunchesScreenRobot constructor(
         )
     }
 
-    private val launchesAnimation by lazy {
-        composeTestRule.onNodeWithContentDescription(
-            "Launches Animation",
+    private val launchesTitle by lazy {
+        composeTestRule.onNodeWithText(
+            "LAUNCHES",
             useUnmergedTree = true
         )
-    }
-
-    private val launchesTitle by lazy {
-        composeTestRule.onNodeWithText("LAUNCHES")
     }
 
     private val launchesListItems by lazy {
@@ -59,11 +59,11 @@ internal open class LaunchesScreenRobot constructor(
         composeTestRule.onNodeWithText("NO RESULTS FOUND", useUnmergedTree = true)
     }
 
-    fun clickOnLaunchesTab() = launchesTabItem.performClick()
+    fun clickOnLaunchesTab() = launchesTabItem.assertIsDisplayed().performClick()
 
     fun initialElementsShowed() {
-        launchesAnimation.assertExists().assertIsDisplayed()
-        launchesTitle.assertExists().assertIsDisplayed()
+        launchesTitle.assertIsDisplayed()
+        dialogFilterButton.assertIsDisplayed()
     }
 
     fun listItemsShowed(numItemsShowed: Int) = launchesListItems.assertCountEquals(numItemsShowed)
@@ -76,7 +76,7 @@ internal open class LaunchesScreenRobot constructor(
     }
 
     fun dialogElementsDisplayed() {
-        dialogFilterButton.assertExists().assertIsDisplayed()
+        dialogFilterButton.assertExists().assertIsDisplayed().performClick()
         dialogText.assertExists().assertIsDisplayed()
     }
 

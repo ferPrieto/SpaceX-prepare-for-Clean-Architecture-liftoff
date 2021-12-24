@@ -28,7 +28,7 @@ class LaunchesScreenKtTest : BaseScreenTest() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        launchesScreenRobot(composeTestRule) {
+       launchesScreenRobot(composeTestRule) {
             clickOnLaunchesTab()
             initialElementsShowed()
         }
@@ -42,7 +42,7 @@ class LaunchesScreenKtTest : BaseScreenTest() {
 
         launchesScreenRobot(composeTestRule) {
             clickOnLaunchesTab()
-            advanceTimeBy(3000)
+            advanceTimeBy(2000)
             listItemsShowed(6)
         }
     }
@@ -67,7 +67,7 @@ class LaunchesScreenKtTest : BaseScreenTest() {
 
         launchesScreenRobot(composeTestRule) {
             clickOnLaunchesTab()
-            advanceTimeBy(3000)
+            advanceTimeBy(5000)
             dialogElementsDisplayed()
         }
     }
@@ -98,7 +98,7 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                 }
             }
 
-            launchesScreenRobot(composeTestRule) {
+            launchesScreenRobot(this) {
                 noResultsElementsShowed()
             }
         }
