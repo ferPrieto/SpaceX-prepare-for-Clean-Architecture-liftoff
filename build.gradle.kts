@@ -7,6 +7,7 @@ buildscript {
         classpath(prieto.fernando.dependencies.BuildDependencies.androidGradle)
         classpath(prieto.fernando.dependencies.BuildDependencies.kotlinGradlePlugin)
         classpath(prieto.fernando.dependencies.BuildDependencies.hiltAndroidGradlePlugin)
+        classpath(prieto.fernando.dependencies.BuildDependencies.karumiShotGradlePlugin)
     }
 }
 

@@ -7,4 +7,5 @@ object BuildDependencies {
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val hiltAndroidGradlePlugin =
         "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
+    const val karumiShotGradlePlugin = "com.karumi:shot:${Versions.karumiShot}"
 }

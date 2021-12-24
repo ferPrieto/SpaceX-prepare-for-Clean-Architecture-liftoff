@@ -65,7 +65,7 @@ And two extra modules:
 There are three options depending on different tech-stack desired. The latest codebase will be updated in master.
 These are the three options available (all of them maintained):
 
-- master
+- [master][13]
   - Jetpack Compose (declarative UI)
   - Dagger Hilt
   - VM approach using UI States and Effects
@@ -73,18 +73,22 @@ These are the three options available (all of them maintained):
   - Modules simplification
   - The rest of modules remain the same (Tests)
 
-- SpaceX-Coroutines-Flows
+- [SpaceX-Coroutines-Flows][14]
   - Imperative UI
   - Dagger2
   - Kotlin Coroutines and Flows
   - Granular modularisation (CleanArchitecture approach)
   - Unit Tests + UI Tests + MockWebServer + Robot Pattern
 
-- SpaceX-RxJava
+- [SpaceX-RxJava][15]
     - VMs and Fragments communication via RxJava
     - Dagger2
     - Granular modularisation (CleanArchitecture approach)
     - Unit Tests + UI Tests + MockWebServer + Robot Pattern
+
+[13]: https://github.com/ferPrieto/SpaceX-prepare-for-Clean-Architecture-liftoff/tree/master
+[14]: https://github.com/ferPrieto/SpaceX-prepare-for-Clean-Architecture-liftoff/tree/feature/SpaceX-Coroutines-Flows
+[15]: https://github.com/ferPrieto/SpaceX-prepare-for-Clean-Architecture-liftoff/tree/feature/SpaceX-RxJava
 
 <p align="center">
 <img src="/art/clean_architecture_dark.jpg"/>
