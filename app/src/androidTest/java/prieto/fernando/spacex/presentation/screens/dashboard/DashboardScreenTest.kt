@@ -24,9 +24,11 @@ class DashboardScreenTest : BaseScreenTest() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-        composeTestRule.onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
-        composeTestRule.onNodeWithText("was founded by", substring = true).assertIsDisplayed()
-        composeTestRule.onNodeWithContentDescription("Planet Animation").assertIsDisplayed()
+        composeTestRule.apply {
+            onNodeWithText("COMPANY", useUnmergedTree = true).assertIsDisplayed()
+            onNodeWithText("was founded by", substring = true).assertIsDisplayed()
+            onNodeWithContentDescription("Planet Animation").assertIsDisplayed()
+        }
     }
 
     @Test
@@ -35,8 +37,9 @@ class DashboardScreenTest : BaseScreenTest() {
         mockWebServer.dispatcher = ErrorDispatcher()
         setMainContent()
 
-        composeTestRule.onNodeWithText("AN ERROR OCCURRED", useUnmergedTree = true)
-            .assertIsDisplayed()
-        composeTestRule.onNodeWithContentDescription("404 Animation").assertIsDisplayed()
+        composeTestRule.apply {
+            onNodeWithText("AN ERROR OCCURRED", useUnmergedTree = true).assertIsDisplayed()
+            onNodeWithContentDescription("404 Animation").assertIsDisplayed()
+        }
     }
 }

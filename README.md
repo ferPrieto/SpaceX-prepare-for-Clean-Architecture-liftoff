@@ -10,7 +10,7 @@
 
 <p align="center">
 The purpose of this project is to consolidate some of the learned insights throughout the years about the <b>Clean Architecture</b> principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
-</br><br>This project summarises some of the general use cases and needs that could be demanded on a production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b> setup, <b>Coroutines</b>, <b>Kotlin Flows</b> (check the branches section for more information).
+</br><br>This project summarises some of the general use cases and needs that could be demanded on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b> approach, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
 
 </p>
 </br>
@@ -23,18 +23,18 @@ The purpose of this project is to consolidate some of the learned insights throu
 <img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
 
 ## Libraries Used :books:
-* [Compose][0] for building native UI (declarative way using Kotlin).
+* [Compose][0] Toolkit for building native UI (in a declarative way - 100% Kotlin).
 * [Coroutines][1] Library support for Kotlin coroutines.
-* [Flows][2] for asynchronous data streams.
+* [Flows][2] Stream processing API, built on top of Coroutines.
 * [Compose Navigation][3] for tabs navigation using Jetpack Compose.
-* [Dagger Hilt][4] for dependency injection.
-* [Retrofit][5] for REST api communication.
-* [Timber][6] for logging.
-* [Espresso][7] for UI tests.
-* [Mockito-Kotlin][8] for mocking in tests.
-* [MockWebServer][9] for Instrumentation tests.
+* [Dagger Hilt][4] Dependency injection library for Android.
+* [Retrofit][5] Type-safe REST client for Android to consume RESTful web services.
+* [Timber][6] Logger with a small API which provides utility on top of Android's normal Log class.
+* [Espresso][7] Android UI Testing framework.
+* [Mockito-Kotlin][8] test functions facilitation for Mockito (mocking framework for testing).
+* [MockWebServer][9] A scriptable web server for testing HTTP clients, used for Instrumentation tests in this project.
 * [Coil Compose][10] Image downloading and caching library supported by Jetpack Compose.
-* [Lottie Compose][11] Library that provides a SolidAdapter implementation, instead of RecyclerView.Adapter
+* [Lottie Compose][11] Library that provides that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile.
 * [JodaTime][12] Date library that lets manage more extensively and easily dates
 
 [0]:  https://developer.android.com/jetpack
@@ -102,11 +102,10 @@ There are some highlights:
 
 ### UI Testing (Compose)
 
-I opted to use two types of approaches:
+I opted to use three types of approaches:
 - One using MockWebserver, where I recreate a real scenario where the app connects to an endpoint and I test the cases.
 - Another one, that I consider `Isolated Compose Tests`, where it's possible to mock and set any content, UI state, etc. Which is to emulate very specific cases.
-
-This section is still evolving.
+- Screenshot (WORK IN PROGRESS)
 
 
 ## License :oncoming_police_car:
