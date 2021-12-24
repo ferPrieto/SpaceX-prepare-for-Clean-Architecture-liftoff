@@ -9,6 +9,7 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.junit.Test
 import org.junit.runner.RunWith
+import prieto.fernando.spacex.presentation.screens.base.BaseScreenTest
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 

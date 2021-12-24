@@ -1,5 +1,3 @@
-import prieto.fernando.dependencies.BuildDependencies
-
 buildscript {
     repositories {
         google()

@@ -91,7 +91,7 @@ fun LaunchesScreen(
                 LottieAnimation(
                     composition = loadingComposition,
                     progress = loadingProgress,
-                    modifier= modifier.semantics { contentDescription = "Loading Animation" }
+                    modifier = modifier.semantics { contentDescription = "Loading Animation" }
                 )
             }
             state.isError -> {
@@ -102,8 +102,7 @@ fun LaunchesScreen(
                     FilterIcon(
                         modifier = modifier
                             .padding(end = 8.dp, bottom = 8.dp)
-                            .align(Alignment.End)
-                            .semantics { contentDescription = "Filter Button" },
+                            .align(Alignment.End),
                         onClick = { openDialog.value = true }
                     )
                     if (state.launchUiModels.isNotEmpty()) {
@@ -120,7 +119,7 @@ fun LaunchesScreen(
                     LottieAnimation(
                         composition = bodyComposition,
                         progress = bodyProgress,
-                        modifier= modifier.semantics { contentDescription = "Launches Animation" }
+                        modifier = modifier.semantics { contentDescription = "Launches Animation" }
                     )
                 }
             }
@@ -264,7 +263,7 @@ private fun ConfirmButton(
     orderChecked: MutableState<Boolean>
 ) {
     TextButton(
-        modifier = Modifier.semantics { contentDescription ="OK Dialog Button" },
+        modifier = Modifier.semantics { contentDescription = "OK Dialog Button" },
         onClick = {
             openDialog.value = false
             onEventSent(LaunchesContract.Event.Filter(textState, orderChecked.value))
@@ -380,7 +379,7 @@ private fun FilterIcon(modifier: Modifier, onClick: () -> Unit) {
         ) {
             Image(
                 painter = painterResource(R.drawable.ic_filter),
-                contentDescription = "Success or Failure launch Icon"
+                contentDescription = "Filter Button"
             )
         }
     }
