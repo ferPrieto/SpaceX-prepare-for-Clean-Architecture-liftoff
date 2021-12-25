@@ -8,6 +8,8 @@ plugins {
     kotlin("android.extensions")
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
+    id("shot")
+    id("com.facebook.testing.screenshot")
 }
 
 androidPlugin{
@@ -19,7 +21,7 @@ android {
         applicationId = "prieto.fernando.spacex"
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
         targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
-        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
+        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
     }
 
     buildFeatures {

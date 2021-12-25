@@ -8,6 +8,7 @@ buildscript {
         classpath(prieto.fernando.dependencies.BuildDependencies.kotlinGradlePlugin)
         classpath(prieto.fernando.dependencies.BuildDependencies.hiltAndroidGradlePlugin)
         classpath(prieto.fernando.dependencies.BuildDependencies.karumiShotGradlePlugin)
+        classpath("com.facebook.testing.screenshot:plugin:0.14.0")
     }
 }
 
