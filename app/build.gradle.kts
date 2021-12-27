@@ -12,7 +12,7 @@ plugins {
     id("com.facebook.testing.screenshot")
 }
 
-androidPlugin{
+androidPlugin {
     buildType = prieto.fernando.android.plugin.BuildType.App
 }
 
@@ -24,13 +24,22 @@ android {
         testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
     }
 
+    kotlinOptions {
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    }
+
     buildFeatures {
         compose = true
         viewBinding = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = prieto.fernando.dependencies.Versions.compose
+        kotlinCompilerExtensionVersion = prieto.fernando.dependencies.Versions.composeCompiler
+    }
+
+    compileOptions{
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -100,6 +109,5 @@ dependencies {
     androidTestImplementation(TestDependencies.mockWebServer)
 
     androidTestImplementation(TestDependencies.Hilt.androidTesting)
-    kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
 }

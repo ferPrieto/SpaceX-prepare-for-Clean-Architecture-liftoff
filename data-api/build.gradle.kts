@@ -16,7 +16,7 @@ dependencies {
     api(Dependencies.okHttpLoggingInterceptor)
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    annotationProcessor(Dependencies.Hilt.hiltAndroidCompiler)
 
     implementation(Dependencies.jodaTime)
 

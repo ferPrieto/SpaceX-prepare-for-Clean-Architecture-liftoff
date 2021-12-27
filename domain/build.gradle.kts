@@ -7,11 +7,10 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.Dagger.daggerAndroid)
     testImplementation(project(ProjectModules.coreAndroidTest))
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    annotationProcessor(Dependencies.Hilt.hiltAndroidCompiler)
 
     implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)

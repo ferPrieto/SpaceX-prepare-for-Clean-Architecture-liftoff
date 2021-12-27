@@ -28,8 +28,7 @@ open class AndroidPlugin : Plugin<Project> {
         when (buildType) {
             BuildType.AndroidLibrary, BuildType.App -> androidPlugins()
             BuildType.Library -> listOf("kotlin")
-        },
-        listOf("kotlin-kapt")
+        }
     ).flatten()
         .also { println("AndroidPlugin: applying plugins $it") }
         .forEach(plugins::apply)
@@ -89,7 +88,7 @@ open class AndroidPlugin : Plugin<Project> {
     }
 
     private fun Project.configureDependencies() = dependencies {
-        fun kapt(definition: Any) = "kapt"(definition)
+        fun annotationProcessor(definition: Any) = "annotationProcessor"(definition)
         fun implementation(definition: Any) = "implementation"(definition)
         fun testImplementation(definition: Any) = "testImplementation"(definition)
         fun androidTestImplementation(definition: Any) = "androidTestImplementation"(definition)
@@ -101,11 +100,8 @@ open class AndroidPlugin : Plugin<Project> {
 
         implementation(Dependencies.timber)
 
-        kapt(Dependencies.Dagger.daggerCompiler)
-        kapt(Dependencies.Dagger.daggerAndroidProcessor)
-
-        kapt(Dependencies.Hilt.hiltAndroid)
-        kapt(Dependencies.Hilt.hiltAndroidCompiler)
+        implementation(Dependencies.Hilt.hiltAndroid)
+        annotationProcessor(Dependencies.Hilt.hiltAndroidCompiler)
 
         androidTestImplementation(TestDependencies.AndroidX.core)
         androidTestImplementation(TestDependencies.AndroidX.coreKtx)
