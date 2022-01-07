@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.vm
+package prieto.fernando.spacex.presentation.vm.mapper
 
 import org.junit.Before
 import org.junit.Test

@@ -21,7 +21,7 @@ class LaunchesDomainToUiModelMapperImpl @Inject constructor(
         val linksUiModel = LinksUiModel(
             missionPatchSmall = launchDomainModel.links.missionPatchSmall,
             wikipedia = launchDomainModel.links.wikipedia,
-            videoLink = launchDomainModel.links.videoLink
+            youTubeLink = launchDomainModel.links.videoLink
         )
 
         val rocketUiModel = RocketUiModel(

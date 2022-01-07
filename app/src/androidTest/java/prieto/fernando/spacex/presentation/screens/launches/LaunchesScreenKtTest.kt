@@ -139,11 +139,8 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                 }
             }
 
-            onNodeWithText("Mission1", useUnmergedTree = true)
-                .assertIsDisplayed()
-            onNodeWithText("Mission2", useUnmergedTree = true)
-                .assertIsDisplayed()
             launchesScreenRobot(composeTestRule) {
+                missionOneAndTwoShowed()
                 listItemsShowed(2)
             }
         }
