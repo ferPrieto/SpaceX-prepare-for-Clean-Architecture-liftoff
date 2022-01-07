@@ -8,6 +8,7 @@ import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
+import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 
@@ -23,6 +24,7 @@ class ViewModelsModule {
     @Provides
     fun provideLaunchesViewModel(
         getLaunches: GetLaunches,
-        launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
-    ) = LaunchesViewModel(getLaunches, launchesDomainToUiModelMapper)
+        launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper,
+        clickableLinkProvider: ClickableLinkProvider
+    ) = LaunchesViewModel(getLaunches, launchesDomainToUiModelMapper, clickableLinkProvider)
 }

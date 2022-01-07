@@ -25,6 +25,7 @@ import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
 import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
+import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 
 @ExperimentalCoroutinesApi
@@ -39,10 +40,13 @@ class LaunchesViewModelTest {
     @Mock
     lateinit var launchesMapper: LaunchesDomainToUiModelMapper
 
+    @Mock
+    lateinit var clickableLinkProvider: ClickableLinkProvider
+
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = LaunchesViewModel(getLaunches, launchesMapper)
+        cut = LaunchesViewModel(getLaunches, launchesMapper,clickableLinkProvider)
     }
 
     @get:Rule

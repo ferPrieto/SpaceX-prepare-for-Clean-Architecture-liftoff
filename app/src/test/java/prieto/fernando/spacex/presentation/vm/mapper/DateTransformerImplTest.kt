@@ -1,4 +1,4 @@
-package prieto.fernando.spacex.presentation.vm.transformer
+package prieto.fernando.spacex.presentation.vm.mapper
 
 import com.nhaarman.mockito_kotlin.given
 import org.joda.time.DateTime

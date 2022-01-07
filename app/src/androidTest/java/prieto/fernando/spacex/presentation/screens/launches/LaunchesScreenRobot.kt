@@ -59,6 +59,14 @@ internal open class LaunchesScreenRobot constructor(
         composeTestRule.onNodeWithText("NO RESULTS FOUND", useUnmergedTree = true)
     }
 
+    private val missionOneText by lazy {
+        composeTestRule.onNodeWithText("Mission1", useUnmergedTree = true)
+    }
+
+    private val missionTwoText by lazy {
+        composeTestRule.onNodeWithText("Mission2", useUnmergedTree = true)
+    }
+
     fun clickOnLaunchesTab() = launchesTabItem.assertIsDisplayed().performClick()
 
     fun initialElementsShowed() {
@@ -83,5 +91,10 @@ internal open class LaunchesScreenRobot constructor(
     fun noResultsElementsShowed() {
         noResultsText.assertExists().assertIsDisplayed()
         listItemsShowed(0)
+    }
+
+    fun missionOneAndTwoShowed(){
+        missionOneText.assertIsDisplayed()
+        missionTwoText.assertIsDisplayed()
     }
 }
