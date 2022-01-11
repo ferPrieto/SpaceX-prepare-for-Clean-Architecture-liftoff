@@ -1,16 +1,16 @@
 <h1 align="center">SpaceX prepare for Clean Architecture liftoff:rocket:</h1>
 
 <p align="center">
-  <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.1--beta03-blueviolet"/></a>
+  <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.0--beta03-blueviolet"/></a>
   <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
-  <a href="https://android-developers.googleblog.com/2021/07/android-studio-arctic-fox-202031-stable.html"><img alt="Android Studio Arctic Fox" src="https://img.shields.io/badge/AS%20Arctic%20Fox-2020.3.1-9cf.svg"/></a>
+  <a href="https://android-developers.googleblog.com/2021/07/android-studio-arctic-fox-202031-stable.html"><img alt="Android Studio Arctic Fox" src="https://img.shields.io/badge/AS%20Arctic%20Fox-2020.3.1%20Patch%204-9cf.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
 </p>
 
 <p align="center">
-The purpose of this project is to consolidate some of the learned insights throughout the years about the <b>Clean Architecture</b> principles and reflect those lesson on Android, taking advantage of the Kotlin programming language features too.
-</br><br>This project summarises some of the general use cases and needs that could be demanded on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b> approach, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
+The purpose of this project is to consolidate some of the learned insights throughout the years about the <b>Clean Architecture</b> principles and reflect those lessons on Android, taking advantage of the Kotlin programming language features too.
+</br><br>This project summarises some of the general use cases and demands on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b>, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
 
 </p>
 </br>
@@ -95,18 +95,19 @@ These are the three options available (all of them maintained):
 ### Unit Testing
 
 There are some highlights:
-* Every layer in the architecture has been tested with its mapper|transformer|provider.
-* Mockito has been used for mocking|stubbing.
-* `Given|When|Then` steps have been followed, in order to give a more structured overview.
-* No comments in the tests because the tests functions are already concise and clear.
+* Every layer in the architecture has been tested.
+* Mockito has been used for mocking | stubbing.
+* `Given | When | Then` code presentation order, in order to give a more structured style.
+* Code Coverage (WORK IN PROGRESS).
 
 ### UI Testing (Compose)
 
 I opted to use three types of approaches:
-- One using MockWebserver, where I recreate a real scenario where the app connects to an endpoint and I test the cases.
-- Another one, that I consider `Isolated Compose Tests`, where it's possible to mock and set any content, UI state, etc. Which is to emulate very specific cases.
-- Screenshot (WORK IN PROGRESS)
+- MockWebserver, where real connection scenarios are setup. More information in my  [Medium Article][13]!
+- `Tests in Isolation`, where it's possible to mock and set any content, UI state, etc. Which allows to emulate very specific edge cases.
+- Screenshot Testing (WORK IN PROGRESS)
 
+[13]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
 
 ## License :oncoming_police_car:
     Copyright 2021 Fernando Prieto Moyano
