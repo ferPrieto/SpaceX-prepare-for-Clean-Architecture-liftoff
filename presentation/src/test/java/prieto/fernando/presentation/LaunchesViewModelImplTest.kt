@@ -6,49 +6,39 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
-import junit.framework.Assert.assertEquals
+import junit.framework.Assert
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core.event.Event
 import prieto.fernando.core_android_test.util.buildDate
-import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
-import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.domain.usecase.GetLaunches
-import prieto.fernando.presentation.mapper.CompanyInfoDomainToUiModelMapper
 import prieto.fernando.presentation.mapper.LaunchesDomainToUiModelMapper
-import prieto.fernando.presentation.model.CompanyInfoUiModel
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.presentation.model.LinksUiModel
 import prieto.fernando.presentation.model.RocketUiModel
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
-class MainViewModelTest {
-    private lateinit var cut: MainViewModel
+class LaunchesViewModelImplTest {
+
+    private lateinit var cut: LaunchesViewModel
 
     @Mock
     lateinit var getLaunches: GetLaunches
-
-    @Mock
-    lateinit var getCompanyInfo: GetCompanyInfo
-
-    @Mock
-    lateinit var companyInfoMapper: CompanyInfoDomainToUiModelMapper
 
     @Mock
     lateinit var launchesMapper: LaunchesDomainToUiModelMapper
@@ -56,12 +46,11 @@ class MainViewModelTest {
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = MainViewModelImpl(getLaunches, getCompanyInfo, companyInfoMapper, launchesMapper)
+        cut = LaunchesViewModelImpl(getLaunches, launchesMapper)
     }
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
-
 
     @Test
     fun `When launches then launchUiModelRetrieved with expected result`() {
@@ -117,44 +106,6 @@ class MainViewModelTest {
 
             // Then
             verify(getLaunches, times(1)).execute(-1, false)
-            assertEquals(expected, actualValue)
-        }
-    }
-
-    @Test
-    fun `When companyInfo then companyInfoUiModelRetrieved with expected result`() {
-        runBlockingTest {
-            // Given
-            val companyInfoUiModelRetrievedTestObserver = mock<Observer<CompanyInfoUiModel>>()
-            cut.companyInfo.observeForever(companyInfoUiModelRetrievedTestObserver)
-            val companyInfoDomainModel = CompanyInfoDomainModel(
-                "name",
-                "founder",
-                "foundedYear",
-                "employees",
-                1,
-                23
-            )
-            val expected = CompanyInfoUiModel(
-                "name",
-                "founder",
-                "founded",
-                "employees",
-                1,
-                23
-            )
-            val flow = flow {
-                emit(companyInfoDomainModel)
-            }
-            whenever(getCompanyInfo.execute()).thenReturn(flow)
-            whenever(companyInfoMapper.toUiModel(companyInfoDomainModel)).thenReturn(expected)
-
-            // When
-            cut.companyInfo()
-            val actualValue = cut.companyInfo.value
-
-            // Then
-            verify(getCompanyInfo, times(1)).execute()
             assertEquals(expected, actualValue)
         }
     }

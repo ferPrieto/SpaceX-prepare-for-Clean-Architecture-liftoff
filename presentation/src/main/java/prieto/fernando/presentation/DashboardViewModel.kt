@@ -1,7 +1,7 @@
 package prieto.fernando.presentation
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -29,26 +29,18 @@ class DashboardViewModelImpl @Inject constructor(
     private val companyInfoDomainToUiModelMapper: CompanyInfoDomainToUiModelMapper
 ) : DashboardViewModel() {
 
-    private val _loadingCompanyInfo = MediatorLiveData<Boolean>()
-    override val loadingCompanyInfo: LiveData<Boolean>
-        get() = _loadingCompanyInfo
-
-    private val _companyInfo = MediatorLiveData<CompanyInfoUiModel>()
-    override val companyInfo: LiveData<CompanyInfoUiModel>
-        get() = _companyInfo
-
-    private val _companyInfoError = MediatorLiveData<Event<Unit>>()
-    override val companyInfoError: LiveData<Event<Unit>>
-        get() = _companyInfoError
+    override val companyInfo = MutableLiveData<CompanyInfoUiModel>()
+    override val loadingCompanyInfo = MutableLiveData<Boolean>()
+    override val companyInfoError = MutableLiveData<Event<Unit>>()
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
-        _loadingCompanyInfo.value = false
+        loadingCompanyInfo.value = false
     }
 
     override fun companyInfo() {
         viewModelScope.launch(errorHandler) {
-            _loadingCompanyInfo.value = true
+            loadingCompanyInfo.value = true
             try {
                 getCompanyInfo.execute()
                     .catch { throwable ->
@@ -57,8 +49,8 @@ class DashboardViewModelImpl @Inject constructor(
                     .collect { companyInfoDomainModel ->
                         val companyInfoUiModel =
                             companyInfoDomainToUiModelMapper.toUiModel(companyInfoDomainModel)
-                        _companyInfo.postValue(companyInfoUiModel)
-                        _loadingCompanyInfo.value = false
+                        companyInfo.postValue(companyInfoUiModel)
+                        loadingCompanyInfo.value = false
                     }
             } catch (throwable: Throwable) {
                 handleExceptions(throwable)
@@ -68,7 +60,7 @@ class DashboardViewModelImpl @Inject constructor(
 
     private fun handleExceptions(throwable: Throwable) {
         Timber.e(throwable)
-        _companyInfoError.postValue(eventOf(Unit))
-        _loadingCompanyInfo.value = false
+        companyInfoError.postValue(eventOf(Unit))
+        loadingCompanyInfo.value = false
     }
 }
