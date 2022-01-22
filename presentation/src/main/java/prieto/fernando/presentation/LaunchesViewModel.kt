@@ -1,7 +1,7 @@
 package prieto.fernando.presentation
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -33,35 +33,20 @@ class LaunchesViewModelImpl @Inject constructor(
     private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
 ) : LaunchesViewModel() {
 
-    private val _openLink = MediatorLiveData<Event<String>>()
-    private val _showDialog = MediatorLiveData<Event<Unit>>()
-
-    override val openLink: LiveData<Event<String>>
-        get() = _openLink
-    override val showDialog: LiveData<Event<Unit>>
-        get() = _showDialog
-
-    private val _loadingLaunches = MediatorLiveData<Boolean>()
-    override val loadingLaunches: LiveData<Boolean>
-        get() = _loadingLaunches
-
-    private val _launches = MediatorLiveData<List<LaunchUiModel>>()
-    override val launches: LiveData<List<LaunchUiModel>>
-        get() = _launches
-
-    private val _launchesError = MediatorLiveData<Event<Unit>>()
-    override val launchesError: LiveData<Event<Unit>>
-        get() = _launchesError
-
+    override val launches = MutableLiveData<List<LaunchUiModel>>()
+    override val loadingLaunches = MutableLiveData<Boolean>()
+    override val launchesError = MutableLiveData<Event<Unit>>()
+    override val openLink = MutableLiveData<Event<String>>()
+    override val showDialog = MutableLiveData<Event<Unit>>()
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception)
-        _loadingLaunches.value = false
+        loadingLaunches.value = false
     }
 
     override fun launches(yearFilterCriteria: Int, ascendantOrder: Boolean) {
         viewModelScope.launch(errorHandler) {
-            _loadingLaunches.value = true
+            loadingLaunches.value = true
             try {
                 getLaunches.execute(yearFilterCriteria, ascendantOrder)
                     .catch { throwable ->
@@ -70,8 +55,8 @@ class LaunchesViewModelImpl @Inject constructor(
                     .collect { launchesDomainModel ->
                         val launchesUiModel =
                             launchesDomainToUiModelMapper.toUiModel(launchesDomainModel)
-                        _launches.postValue(launchesUiModel)
-                        _loadingLaunches.value = false
+                        launches.postValue(launchesUiModel)
+                        loadingLaunches.value = false
                     }
             } catch (throwable: Throwable) {
                 handleExceptions(throwable)
@@ -81,19 +66,19 @@ class LaunchesViewModelImpl @Inject constructor(
 
     private fun handleExceptions(throwable: Throwable) {
         Timber.e(throwable)
-        _launchesError.postValue(eventOf(Unit))
-        _loadingLaunches.value = false
+        launchesError.postValue(eventOf(Unit))
+        loadingLaunches.value = false
     }
 
     override fun openLink(link: String) {
         viewModelScope.launch {
-            _openLink.postValue(eventOf(link))
+            openLink.postValue(eventOf(link))
         }
     }
 
     override fun onFilterClicked() {
         viewModelScope.launch {
-            _showDialog.postValue(eventOf(Unit))
+            showDialog.postValue(eventOf(Unit))
         }
     }
 }
