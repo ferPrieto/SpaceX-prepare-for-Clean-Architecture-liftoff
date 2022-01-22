@@ -10,8 +10,8 @@ plugins {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.android.tools.build:gradle:4.0.0")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
+    implementation("com.android.tools.build:gradle:7.0.3")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
 
     implementation(gradleApi())
 }

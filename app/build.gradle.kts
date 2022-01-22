@@ -1,17 +1,24 @@
-import prieto.fernando.android.plugin.BuildType
+import prieto.fernando.dependencies.ProjectModules
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.TestDependencies
 
 plugins {
     id("com.android.application")
+    kotlin("android")
+    kotlin("android.extensions")
     id("prieto.fernando.android.plugin")
 }
 
-androidPlugin {
-    buildType = BuildType.App
+androidPlugin{
+    buildType = prieto.fernando.android.plugin.BuildType.App
 }
 
 android {
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
+        minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
+        targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
+        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
     }
 
     buildFeatures {
@@ -50,7 +57,7 @@ dependencies {
     implementation(Dependencies.AndroidX.browser)
     implementation(Dependencies.solidRecyclerView)
 
-    implementation(Dependencies.picasso)
+    implementation(Dependencies.coil)
     implementation(Dependencies.bottomSheet)
     implementation(Dependencies.lottie)
 

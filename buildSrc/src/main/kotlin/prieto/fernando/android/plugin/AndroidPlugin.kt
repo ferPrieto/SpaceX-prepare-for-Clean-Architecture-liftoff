@@ -1,16 +1,12 @@
 package prieto.fernando.android.plugin
 
-import AndroidSettings
-import Dependencies
-import TestDependencies
+import prieto.fernando.dependencies.AndroidSettings
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.TestDependencies
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.invoke
-import org.gradle.kotlin.dsl.kotlin
-import org.gradle.kotlin.dsl.withType
+import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 open class AndroidPlugin : Plugin<Project> {
@@ -21,19 +17,6 @@ open class AndroidPlugin : Plugin<Project> {
         project.configurePlugins(extension.buildType)
         project.configureAndroid()
         project.configureDependencies()
-
-        project.afterEvaluate {
-            with(project) {
-                tasks {
-                    withType<KotlinCompile> {
-                        with(kotlinOptions) {
-                            jvmTarget = "1.8"
-                            freeCompilerArgs = listOf("-Xallow-result-return-type")
-                        }
-                    }
-                }
-            }
-        }
     }
 
     private fun androidPlugins() = listOf(
@@ -47,8 +30,7 @@ open class AndroidPlugin : Plugin<Project> {
             BuildType.Library -> listOf("kotlin")
         },
         listOf("kotlin-kapt")
-    )
-        .flatten()
+    ).flatten()
         .also { println("AndroidPlugin: applying plugins $it") }
         .forEach(plugins::apply)
 
@@ -56,28 +38,43 @@ open class AndroidPlugin : Plugin<Project> {
         compileSdkVersion(AndroidSettings.compileSdk)
         buildToolsVersion(AndroidSettings.buildTools)
 
-
         defaultConfig {
             versionCode = 1
             versionName = "1.0"
 
-            minSdkVersion(AndroidSettings.minSdk)
-            targetSdkVersion(AndroidSettings.targetSdk)
-
             testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
 
             packagingOptions {
-                exclude("META-INF/DEPENDENCIES")
-                exclude("META-INF/LICENSE")
-                exclude("META-INF/LICENSE.txt")
-                exclude("META-INF/license.txt")
-                exclude("META-INF/NOTICE")
-                exclude("META-INF/NOTICE.txt")
-                exclude("META-INF/notice.txt")
-                exclude("META-INF/ASL2.0")
-                exclude("META-INF/*.kotlin_module")
-                exclude("META-INF/AL2.0")
-                exclude("META-INF/LGPL2.1")
+                resources.excludes.addAll(
+                    listOf(
+                        "META-INF/DEPENDENCIES",
+                        "META-INF/LICENSE",
+                        "META-INF/LICENSE.txt",
+                        "META-INF/license.txt",
+                        "META-INF/NOTICE",
+                        "META-INF/NOTICE.txt",
+                        "META-INF/notice.txt",
+                        "META-INF/ASL2.0",
+                        "META-INF/*.kotlin_module",
+                        "META-INF/AL2.0",
+                        "META-INF/LGPL2.1",
+                        "META-INF/gradle/incremental.annotation.processors"
+                    )
+                )
+            }
+
+            buildTypes {
+                getByName("debug") {
+                    isDebuggable = true
+                    buildConfigField("Integer", "PORT", "8080")
+                }
+                getByName("release") {
+                    isMinifyEnabled = false
+                    proguardFiles(
+                        getDefaultProguardFile("proguard-android-optimize.txt"),
+                        file("proguard-rules.pro")
+                    )
+                }
             }
         }
 
@@ -139,5 +136,3 @@ enum class BuildType {
     AndroidLibrary,
     App
 }
-
-fun androidPluginId() = "prieto.fernando.android.plugin"

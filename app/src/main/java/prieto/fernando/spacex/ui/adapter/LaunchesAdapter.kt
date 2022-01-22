@@ -6,9 +6,10 @@ import android.view.View
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import coil.Coil
+import coil.load
 import com.mitteloupe.solid.recyclerview.InflatedViewProvider
 import com.mitteloupe.solid.recyclerview.SimpleViewBinder
-import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import prieto.fernando.presentation.model.LaunchUiModel
 import prieto.fernando.spacex.R
@@ -48,11 +49,11 @@ class LaunchViewBinder(
 ) : SimpleViewBinder<LaunchViewHolder, LaunchUiModel>() {
     override fun bindView(viewHolder: LaunchViewHolder, data: LaunchUiModel) {
 
-        Picasso.get()
-            .load(data.links.missionPatchSmall)
-            .resize(150, 150)
-            .centerCrop()
-            .into(viewHolder.missionPatch)
+        viewHolder.missionPatch
+            .load(data.links.missionPatchSmall){
+                size(150,150)
+                transformations()
+            }
         viewHolder.launchDetailsMission.value = data.missionName
         viewHolder.launchDetailsDateTime.value = data.launchDate
         viewHolder.launchDetailsNameTime.value =
