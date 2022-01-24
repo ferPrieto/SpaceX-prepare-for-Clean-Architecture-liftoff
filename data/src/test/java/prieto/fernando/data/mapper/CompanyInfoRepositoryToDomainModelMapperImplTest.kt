@@ -26,7 +26,8 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
                         "employees",
                         1,
                         23
-                    ), CompanyInfoDomainModel(
+                    ),
+                    CompanyInfoDomainModel(
                         "name",
                         "founder",
                         "founded",
@@ -43,7 +44,8 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
                         "employees",
                         3,
                         27500000000
-                    ), CompanyInfoDomainModel(
+                    ),
+                    CompanyInfoDomainModel(
                         "name",
                         "founder",
                         "founded",
@@ -60,7 +62,8 @@ class CompanyInfoRepositoryToDomainModelMapperImplTest(
                         "",
                         0,
                         0
-                    ), CompanyInfoDomainModel(
+                    ),
+                    CompanyInfoDomainModel(
                         "",
                         "",
                         "",

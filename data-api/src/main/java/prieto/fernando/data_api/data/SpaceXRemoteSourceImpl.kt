@@ -14,6 +14,7 @@ import prieto.fernando.data.model.RocketRepositoryModel
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
+import prieto.fernando.data_api.util.safeCall
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
@@ -28,25 +29,21 @@ class SpaceXRemoteSourceImpl @Inject constructor(
     private val launchesSharedFlow = _launchesSharedFlow.asSharedFlow()
 
     override suspend fun getCompanyInfo(): Flow<CompanyInfoRepositoryModel> {
-        try {
-            companyInfoRepositoryMapper.toRepositoryModel(apiService.getCompanyInfo())
-                .let { companyInfoRepositoryModel ->
-                    _companyInfoSharedFlow.emit(companyInfoRepositoryModel)
-                }
-        } catch (connectionException: java.net.UnknownHostException) {
-            throw connectionException
+        safeCall(
+            call = apiService::getCompanyInfo,
+            mapper = companyInfoRepositoryMapper::toRepositoryModel
+        )?.let {
+            _companyInfoSharedFlow.emit(it)
         }
         return companyInfoSharedFlow.distinctUntilChanged()
     }
 
     override suspend fun getAllLaunches(): Flow<List<LaunchRepositoryModel>> {
-        try {
-            launchesRepositoryMapper.toRepositoryModel(apiService.getAllLaunches())
-                .let { launchesRepositoryModel ->
-                    _launchesSharedFlow.emit(launchesRepositoryModel)
-                }
-        } catch (connectionException: java.net.UnknownHostException) {
-            throw connectionException
+        safeCall(
+            call = apiService::getAllLaunches,
+            mapper = launchesRepositoryMapper::toRepositoryModel
+        )?.let {
+            _launchesSharedFlow.emit(it)
         }
         return launchesSharedFlow.distinctUntilChanged()
     }

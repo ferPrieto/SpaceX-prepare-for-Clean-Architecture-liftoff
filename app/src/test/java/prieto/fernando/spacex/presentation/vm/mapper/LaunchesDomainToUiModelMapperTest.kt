@@ -13,8 +13,6 @@ import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
-import prieto.fernando.spacex.presentation.vm.mapper.DateTransformer
-import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapperImpl
 import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
 import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
@@ -105,7 +103,6 @@ class LaunchesDomainToUiModelMapperTest {
 
         // Then
         assertEquals(expected, actualValue)
-
     }
 
     @Test

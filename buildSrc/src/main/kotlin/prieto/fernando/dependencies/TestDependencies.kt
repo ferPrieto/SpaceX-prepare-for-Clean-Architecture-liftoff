@@ -19,11 +19,10 @@ object TestDependencies {
         const val coreTesting =
             "android.arch.core:core-testing:${Versions.coreTesting}"
 
-
         const val composeUiTest =
             "androidx.compose.ui:ui-test:${Versions.compose}"
         const val composeUiTestJUnit4 =
-                "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+            "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
         const val uiTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
     }
 
@@ -49,7 +48,7 @@ object TestDependencies {
             "com.nhaarman:mockito-kotlin:${Versions.mockitoKotlin}"
     }
 
-    object Hilt{
+    object Hilt {
         const val androidTesting =
             "com.google.dagger:hilt-android-testing:${Versions.hiltTest}"
         const val androidCompiler =

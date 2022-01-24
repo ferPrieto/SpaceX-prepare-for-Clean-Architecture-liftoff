@@ -46,12 +46,11 @@ class LaunchesViewModelTest {
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = LaunchesViewModel(getLaunches, launchesMapper,clickableLinkProvider)
+        cut = LaunchesViewModel(getLaunches, launchesMapper, clickableLinkProvider)
     }
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
-
 
     @Test
     fun `When launches Then launchUiModelRetrieved with expected result`() {

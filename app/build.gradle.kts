@@ -1,5 +1,5 @@
-import prieto.fernando.dependencies.ProjectModules
 import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.ProjectModules
 import prieto.fernando.dependencies.TestDependencies
 
 plugins {
@@ -10,7 +10,7 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-androidPlugin{
+androidPlugin {
     buildType = prieto.fernando.android.plugin.BuildType.App
 }
 

@@ -39,8 +39,7 @@ class LaunchesRepositoryToDomainModelMapperImplTest(
                             LinksRepositoryModel("patchLink2", "wikipediaLink2", "videoLink2"),
                             false
                         )
-                    )
-                    ,
+                    ),
                     listOf(
                         LaunchDomainModel(
                             "missionName",

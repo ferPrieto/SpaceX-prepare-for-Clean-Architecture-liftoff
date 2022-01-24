@@ -7,8 +7,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import prieto.fernando.spacex.presentation.vm.mapper.DateTimeProvider
-import prieto.fernando.spacex.presentation.vm.mapper.DateTransformerImpl
 import kotlin.test.assertEquals
 
 @RunWith(MockitoJUnitRunner::class)

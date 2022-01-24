@@ -4,8 +4,8 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.data_api.model.CompanyInfoResponse
 import prieto.fernando.data.model.CompanyInfoRepositoryModel
+import prieto.fernando.data_api.model.CompanyInfoResponse
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
@@ -26,7 +26,8 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
                         "employees",
                         1,
                         23
-                    ), CompanyInfoRepositoryModel(
+                    ),
+                    CompanyInfoRepositoryModel(
                         "name",
                         "founder",
                         "founded",
@@ -43,7 +44,8 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
                         "employees",
                         3,
                         27500000000
-                    ), CompanyInfoRepositoryModel(
+                    ),
+                    CompanyInfoRepositoryModel(
                         "name",
                         "founder",
                         "founded",
@@ -60,7 +62,8 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
                         "",
                         0,
                         0
-                    ), CompanyInfoRepositoryModel(
+                    ),
+                    CompanyInfoRepositoryModel(
                         "",
                         "",
                         "",

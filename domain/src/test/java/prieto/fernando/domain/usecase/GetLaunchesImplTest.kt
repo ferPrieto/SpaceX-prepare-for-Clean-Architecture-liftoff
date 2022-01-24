@@ -29,7 +29,6 @@ class GetLaunchesImplTest {
     @Mock
     lateinit var spaceXRepository: SpaceXRepository
 
-
     @Mock
     lateinit var launchesDomainFilter: LaunchesDomainFilter
 

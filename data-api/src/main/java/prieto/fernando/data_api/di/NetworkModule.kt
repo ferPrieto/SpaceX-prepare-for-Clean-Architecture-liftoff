@@ -22,11 +22,11 @@ const val RETROFIT_TIMEOUT = 10L
 @Module
 open class NetworkModule {
 
-    open fun getBaseUrl () ="https://api.spacexdata.com/v3/"
+    open fun getBaseUrl() = "https://api.spacexdata.com/v3/"
 
     @Provides
     @BaseUrl
-    fun provideBaseUrl() = getBaseUrl ()
+    fun provideBaseUrl() = getBaseUrl()
 
     @Provides
     @Singleton

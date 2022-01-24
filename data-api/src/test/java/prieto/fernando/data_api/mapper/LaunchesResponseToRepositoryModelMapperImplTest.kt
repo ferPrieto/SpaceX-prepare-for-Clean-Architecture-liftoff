@@ -6,12 +6,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.mockito.Mock
-import prieto.fernando.data_api.model.LaunchesResponse
-import prieto.fernando.data_api.model.LinksResponse
-import prieto.fernando.data_api.model.RocketResponse
 import prieto.fernando.data.model.LaunchRepositoryModel
 import prieto.fernando.data.model.LinksRepositoryModel
 import prieto.fernando.data.model.RocketRepositoryModel
+import prieto.fernando.data_api.model.LaunchesResponse
+import prieto.fernando.data_api.model.LinksResponse
+import prieto.fernando.data_api.model.RocketResponse
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
@@ -40,8 +40,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
                             LinksResponse("patchLink2", "wikipediaLink2", "videoLink2"),
                             false
                         )
-                    )
-                    ,
+                    ),
                     listOf(
                         LaunchRepositoryModel(
                             "missionName",

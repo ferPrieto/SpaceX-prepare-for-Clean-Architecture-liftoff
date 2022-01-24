@@ -1,10 +1,10 @@
 package prieto.fernando.data_api.mapper
 
 import dagger.Reusable
-import prieto.fernando.data_api.model.LaunchesResponse
 import prieto.fernando.data.model.LaunchRepositoryModel
 import prieto.fernando.data.model.LinksRepositoryModel
 import prieto.fernando.data.model.RocketRepositoryModel
+import prieto.fernando.data_api.model.LaunchesResponse
 import javax.inject.Inject
 
 interface LaunchesResponseToRepositoryModelMapper {

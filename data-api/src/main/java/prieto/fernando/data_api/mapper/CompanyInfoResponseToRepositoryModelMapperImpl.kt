@@ -1,7 +1,7 @@
 package prieto.fernando.data_api.mapper
 
-import prieto.fernando.data_api.model.CompanyInfoResponse
 import prieto.fernando.data.model.CompanyInfoRepositoryModel
+import prieto.fernando.data_api.model.CompanyInfoResponse
 import javax.inject.Inject
 
 interface CompanyInfoResponseToRepositoryModelMapper {

@@ -1,13 +1,12 @@
 package prieto.fernando.android.plugin
 
-import prieto.fernando.dependencies.AndroidSettings
-import prieto.fernando.dependencies.Dependencies
-import prieto.fernando.dependencies.TestDependencies
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.*
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import prieto.fernando.dependencies.AndroidSettings
+import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.TestDependencies
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {

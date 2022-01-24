@@ -1,7 +1,6 @@
 package prieto.fernando.data.repository
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.supervisorScope
 import prieto.fernando.data.SpaceXRemoteSource
@@ -10,7 +9,6 @@ import prieto.fernando.data.mapper.LaunchesRepositoryToDomainModelMapper
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.domain.model.LaunchDomainModel
-import java.net.UnknownHostException
 import javax.inject.Inject
 
 class SpaceXRepositoryImpl @Inject constructor(

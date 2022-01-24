@@ -1,8 +1,6 @@
 package prieto.fernando.spacex.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
-import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
@@ -43,7 +41,6 @@ class DashboardViewModelTest {
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
-
 
     @Test
     fun `When companyInfo Then companyInfoUiModelRetrieved with expected result`() {

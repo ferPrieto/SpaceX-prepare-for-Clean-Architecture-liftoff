@@ -13,5 +13,4 @@ dependencies {
     implementation(TestDependencies.AndroidX.espressoContrib)
 
     implementation(Dependencies.jodaTime)
-
 }

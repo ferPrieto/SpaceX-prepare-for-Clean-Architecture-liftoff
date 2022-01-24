@@ -12,7 +12,6 @@ import org.junit.runner.RunWith
 import prieto.fernando.spacex.presentation.screens.base.BaseScreenTest
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 
-
 @ExperimentalMaterialApi
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest

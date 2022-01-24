@@ -1,6 +1,5 @@
 package prieto.fernando.domain.mapper
 
-import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
