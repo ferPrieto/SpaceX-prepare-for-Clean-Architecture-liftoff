@@ -1,36 +1,44 @@
 package prieto.fernando.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
+import org.joda.time.DateTime
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core_android_test.MainCoroutineRule
 import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data.mapper.CompanyInfoRepositoryToDomainModelMapper
 import prieto.fernando.data.mapper.LaunchesRepositoryToDomainModelMapper
+import prieto.fernando.data.model.CompanyInfoRepositoryModel
+import prieto.fernando.data.model.LaunchRepositoryModel
+import prieto.fernando.data.model.LinksRepositoryModel
+import prieto.fernando.data.model.RocketRepositoryModel
+import prieto.fernando.domain.model.CompanyInfoDomainModel
+import prieto.fernando.domain.model.LaunchDomainModel
+import prieto.fernando.domain.model.LinksDomainModel
+import prieto.fernando.domain.model.RocketDomainModel
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-@RunWith(MockitoJUnitRunner::class)
 class SpaceXRepositoryImplTest {
     private lateinit var cut: SpaceXRepositoryImpl
 
-    @Mock
+    @Inject
     lateinit var spaceXRemoteSource: SpaceXRemoteSource
 
-    @Mock
+    @Inject
     lateinit var companyInfoDomainMapper: CompanyInfoRepositoryToDomainModelMapper
 
-    @Mock
+    @Inject
     lateinit var launchesDomainMapper: LaunchesRepositoryToDomainModelMapper
 
     @get:Rule
@@ -42,6 +50,9 @@ class SpaceXRepositoryImplTest {
 
     @Before
     fun setUp() {
+        spaceXRemoteSource = mockk()
+        companyInfoDomainMapper = mockk()
+        launchesDomainMapper = mockk()
         cut =
             SpaceXRepositoryImpl(spaceXRemoteSource, companyInfoDomainMapper, launchesDomainMapper)
     }
@@ -49,26 +60,94 @@ class SpaceXRepositoryImplTest {
     @Test
     fun `When getCompanyInfo then spaceXRemoteSource invoked`() {
         runBlockingTest {
+            val companyInfoRepositoryModel = CompanyInfoRepositoryModel(
+                name = "SpaceX",
+                founder = "Ellon",
+                founded = "1999",
+                employees = "Some random employees",
+                launchSites = 1,
+                valuation = 100L
+            )
+            val expected = CompanyInfoDomainModel(
+                name = "SpaceX",
+                founder = "Ellon",
+                founded = "1999",
+                employees = "Some random employees",
+                launchSites = 1,
+                valuation = 100L
+            )
             // When
-            whenever(spaceXRemoteSource.getCompanyInfo()).thenReturn(mock())
+            coEvery { spaceXRemoteSource.getCompanyInfo() } returns flow {
+                emit(
+                    companyInfoRepositoryModel
+                )
+            }
+            coEvery { companyInfoDomainMapper.toDomainModel(companyInfoRepositoryModel) } returns expected
 
-            cut.getCompanyInfo()
+            val flowActual = cut.getCompanyInfo()
 
             // Then
-            verify(spaceXRemoteSource, times(1)).getCompanyInfo()
+            coVerify(exactly = 1) {
+                spaceXRemoteSource.getCompanyInfo()
+            }
+            flowActual.collect { actual: CompanyInfoDomainModel ->
+                assertEquals(expected, actual)
+            }
         }
     }
 
     @Test
     fun `When getAllLaunches then spaceXRemoteSource invoked`() {
         runBlockingTest {
+            val date = DateTime.now()
+            val linksRepositoryModel = LinksRepositoryModel(
+                missionPatchSmall = "Some mission patch",
+                wikipedia = "Link to wikipedia",
+                videoLink = "Link to Youtube"
+            )
+            val rocketRepositoryModel = RocketRepositoryModel(
+                rocketName = "Rocket first",
+                rocketType = "Type1"
+            )
+            val launchRepositoryModel = LaunchRepositoryModel(
+                missionName = "First mission",
+                launchDateLocal = date,
+                rocket = rocketRepositoryModel,
+                links = linksRepositoryModel,
+                launchSuccess = true
+            )
+            val rocketDomainModel = RocketDomainModel(
+                rocketName = "Rocket first",
+                rocketType = "Type1"
+            )
+            val linksDomainModel = LinksDomainModel(
+                missionPatchSmall = "Some mission patch",
+                wikipedia = "Link to wikipedia",
+                videoLink = "Link to Youtube"
+            )
+            val expected = listOf(
+                LaunchDomainModel(
+                    missionName = "First mission",
+                    launchDate = date,
+                    rocket = rocketDomainModel,
+                    links = linksDomainModel,
+                    launchSuccess = true
+                )
+            )
             // When
-            whenever(spaceXRemoteSource.getAllLaunches()).thenReturn(mock())
-
-            cut.getAllLaunches()
+            coEvery { spaceXRemoteSource.getAllLaunches() } returns flow {
+                emit(
+                    listOf(launchRepositoryModel)
+                )
+            }
+            coEvery { launchesDomainMapper.toDomainModel(listOf(launchRepositoryModel)) } returns expected
+            val flowActual = cut.getAllLaunches()
 
             // Then
-            verify(spaceXRemoteSource, times(1)).getAllLaunches()
+            coVerify(exactly = 1) { spaceXRemoteSource.getAllLaunches() }
+            flowActual.collect { actual: List<LaunchDomainModel> ->
+                assertEquals(expected, actual)
+            }
         }
     }
 }

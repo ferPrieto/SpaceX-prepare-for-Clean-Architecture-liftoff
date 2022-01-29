@@ -1,35 +1,30 @@
 package prieto.fernando.spacex.presentation.vm.mapper
 
-import com.nhaarman.mockito_kotlin.given
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.MethodRule
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnit
-import org.mockito.junit.MockitoJUnitRunner
+import org.junit.rules.TestRule
 import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
-import prieto.fernando.spacex.presentation.vm.mapper.DateTransformer
-import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapperImpl
 import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
 import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
 import kotlin.test.assertEquals
 
-@RunWith(MockitoJUnitRunner::class)
 class LaunchesDomainToUiModelMapperTest {
 
     private lateinit var cut: LaunchesDomainToUiModelMapperImpl
 
-    @Mock
+    @MockK
     lateinit var dateTransformer: DateTransformer
 
     @get:Rule
-    var rule: MethodRule = MockitoJUnit.rule()
+    var rule: TestRule = InstantTaskExecutorRule()
 
     @Before
     fun setUp() {
@@ -85,20 +80,20 @@ class LaunchesDomainToUiModelMapperTest {
             )
         )
 
-        given { dateTransformer.dateToDateString(buildDate("2019-12-11T12:00:00.000Z")) }
-            .willReturn("11-12-2019 at 12:00")
-        given { dateTransformer.dateToDateString(buildDate("2020-12-07T12:00:00.000Z")) }
-            .willReturn("07-12-2020 at 12:00")
+        every { dateTransformer.dateToDateString(buildDate("2019-12-11T12:00:00.000Z")) }
+            .returns("11-12-2019 at 12:00")
+        every { dateTransformer.dateToDateString(buildDate("2020-12-07T12:00:00.000Z")) }
+            .returns("07-12-2020 at 12:00")
 
-        given { dateTransformer.getDifferenceOfDays(buildDate("2019-12-11T12:00:00.000Z")) }
-            .willReturn("0")
-        given { dateTransformer.getDifferenceOfDays(buildDate("2020-12-07T12:00:00.000Z")) }
-            .willReturn("361")
+        every { dateTransformer.getDifferenceOfDays(buildDate("2019-12-11T12:00:00.000Z")) }
+            .returns("0")
+        every { dateTransformer.getDifferenceOfDays(buildDate("2020-12-07T12:00:00.000Z")) }
+            .returns("361")
 
-        given { dateTransformer.isPast(buildDate("2019-12-11T12:00:00.000Z")) }
-            .willReturn(true)
-        given { dateTransformer.isPast(buildDate("2020-12-07T12:00:00.000Z")) }
-            .willReturn(false)
+        every { dateTransformer.isPast(buildDate("2019-12-11T12:00:00.000Z")) }
+            .returns(true)
+        every { dateTransformer.isPast(buildDate("2020-12-07T12:00:00.000Z")) }
+            .returns(false)
 
         // When
         val actualValue = cut.toUiModel(launches)
@@ -136,10 +131,10 @@ class LaunchesDomainToUiModelMapperTest {
             )
         )
 
-        given { dateTransformer.dateToDateString(buildDate("2019-12-13T13:00:00.000Z")) }
-            .willReturn("13-12-2019 at 13:00")
-        given { dateTransformer.getDifferenceOfDays(buildDate("2019-12-13T13:00:00.000Z")) }
-            .willReturn("1")
+        every { dateTransformer.dateToDateString(buildDate("2019-12-13T13:00:00.000Z")) }
+            .returns("13-12-2019 at 13:00")
+        every { dateTransformer.getDifferenceOfDays(buildDate("2019-12-13T13:00:00.000Z")) }
+            .returns("1")
 
         // When
         val actualValue = cut.toUiModel(launches)

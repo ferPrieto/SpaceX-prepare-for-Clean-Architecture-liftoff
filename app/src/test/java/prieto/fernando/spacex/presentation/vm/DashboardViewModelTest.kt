@@ -1,11 +1,10 @@
 package prieto.fernando.spacex.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -16,23 +15,19 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 
 @ExperimentalCoroutinesApi
-@RunWith(MockitoJUnitRunner::class)
 class DashboardViewModelTest {
     private lateinit var cut: DashboardViewModel
 
-    @Mock
+    @MockK
     lateinit var getCompanyInfo: GetCompanyInfo
 
-    @Mock
+    @MockK
     lateinit var companyInfoMapper: CompanyInfoDomainToUiModelMapper
 
     @Before
@@ -44,41 +39,39 @@ class DashboardViewModelTest {
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
-
     @Test
     fun `When companyInfo Then companyInfoUiModelRetrieved with expected result`() {
-        runBlockingTest {
-            // Given
-            val companyInfoDomainModel = CompanyInfoDomainModel(
-                "name",
-                "founder",
-                "foundedYear",
-                "employees",
-                1,
-                23
-            )
-            val expected = CompanyInfoUiModel(
-                "name",
-                "founder",
-                "founded",
-                "employees",
-                1,
-                23
-            )
-            val flow = flow {
-                emit(companyInfoDomainModel)
-            }
-            whenever(getCompanyInfo.execute()).thenReturn(flow)
-            whenever(companyInfoMapper.toUiModel(companyInfoDomainModel)).thenReturn(expected)
+        // Given
+        val companyInfoDomainModel = CompanyInfoDomainModel(
+            "name",
+            "founder",
+            "foundedYear",
+            "employees",
+            1,
+            23
+        )
+        val expected = CompanyInfoUiModel(
+            "name",
+            "founder",
+            "founded",
+            "employees",
+            1,
+            23
+        )
 
-            // When
-            cut.companyInfo()
-            val actualValue = cut.viewState.value.companyInfoUiModel
-
-            // Then
-            verify(getCompanyInfo, times(2)).execute()
-            assertEquals(expected, actualValue)
+        coEvery { getCompanyInfo.execute() } returns flow {
+            emit(companyInfoDomainModel)
         }
+        every { companyInfoMapper.toUiModel(companyInfoDomainModel) } returns expected
+
+        // When
+        cut.companyInfo()
+        val actual = cut.viewState.value.companyInfoUiModel
+
+        // Then
+        coVerify(exactly = 2) { getCompanyInfo.execute() }
+
+        assertEquals(expected, actual)
     }
 
     @Test
@@ -86,18 +79,17 @@ class DashboardViewModelTest {
         runBlockingTest {
             // Given
             val expectedErrorState = true
-            val flow = flow {
+            coEvery { getCompanyInfo.execute() } returns flow {
                 emit(throw Exception("Network Exception"))
             }
-            whenever(getCompanyInfo.execute()).thenReturn(flow)
 
             // When
             cut.companyInfo()
-            val actualValue = cut.viewState.value.isError
+            val actual = cut.viewState.value.isError
 
             // Then
-            verify(getCompanyInfo, times(2)).execute()
-            assertEquals(expectedErrorState, actualValue)
+            coVerify(exactly = 2) { getCompanyInfo }
+            assertEquals(expectedErrorState, actual)
         }
     }
 }

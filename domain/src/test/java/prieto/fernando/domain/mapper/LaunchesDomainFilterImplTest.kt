@@ -1,17 +1,13 @@
 package prieto.fernando.domain.mapper
 
-import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
 import kotlin.test.assertEquals
 
-@RunWith(MockitoJUnitRunner::class)
 class LaunchesDomainFilterImplTest {
     private lateinit var cut: LaunchesDomainFilterImpl
 

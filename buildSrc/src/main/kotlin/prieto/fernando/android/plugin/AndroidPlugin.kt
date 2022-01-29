@@ -122,9 +122,8 @@ open class AndroidPlugin : Plugin<Project> {
         testImplementation(TestDependencies.JUnit.junit)
         testImplementation(TestDependencies.JUnit.junitPlatformRunner)
 
-        testImplementation(TestDependencies.Mockito.mockitoCore)
-        testImplementation(TestDependencies.Mockito.mockitoInline)
-        testImplementation(TestDependencies.Mockito.mockitoKotlin)
+        testImplementation(TestDependencies.Mockk.mockk)
+        testImplementation(TestDependencies.Mockk.mockkAgentJvm)
         testImplementation(TestDependencies.AndroidX.coreTesting)
         testImplementation(Dependencies.jodaTime)
     }

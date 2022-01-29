@@ -1,9 +1,9 @@
 package prieto.fernando.spacex.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -14,9 +14,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
@@ -29,24 +26,23 @@ import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 
 @ExperimentalCoroutinesApi
-@RunWith(MockitoJUnitRunner::class)
 class LaunchesViewModelTest {
 
     private lateinit var cut: LaunchesViewModel
 
-    @Mock
+    @MockK
     lateinit var getLaunches: GetLaunches
 
-    @Mock
+    @MockK
     lateinit var launchesMapper: LaunchesDomainToUiModelMapper
 
-    @Mock
+    @MockK
     lateinit var clickableLinkProvider: ClickableLinkProvider
 
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = LaunchesViewModel(getLaunches, launchesMapper,clickableLinkProvider)
+        cut = LaunchesViewModel(getLaunches, launchesMapper, clickableLinkProvider)
     }
 
     @get:Rule
@@ -101,18 +97,17 @@ class LaunchesViewModelTest {
                     false
                 )
             )
-            val flow = flow {
+            coEvery { getLaunches.execute(0, false) } returns flow {
                 emit(launchDomainModels)
             }
-            whenever(getLaunches.execute(0, false)).thenReturn(flow)
-            whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
+            coEvery { launchesMapper.toUiModel(launchDomainModels) } returns expected
 
             // When
             cut.launches()
             val actualValue = cut.viewState.value.launchUiModels
 
             // Then
-            verify(getLaunches, times(2)).execute(0, false)
+            coVerify(exactly = 2) { getLaunches.execute(0, false) }
             assertEquals(expected, actualValue)
         }
     }
@@ -122,17 +117,16 @@ class LaunchesViewModelTest {
         runBlockingTest {
             // Given
             val expectedErrorState = true
-            val flow = flow {
+            coEvery { getLaunches.execute(0, false) } returns flow {
                 emit(throw Exception("Network Exception"))
             }
-            whenever(getLaunches.execute(0, false)).thenReturn(flow)
 
             // When
             cut.launches()
             val actualValue = cut.viewState.value.isError
 
             // Then
-            verify(getLaunches, times(2)).execute(0, false)
+            coVerify(exactly = 2) { getLaunches.execute(0, false) }
             assertEquals(expectedErrorState, actualValue)
         }
     }

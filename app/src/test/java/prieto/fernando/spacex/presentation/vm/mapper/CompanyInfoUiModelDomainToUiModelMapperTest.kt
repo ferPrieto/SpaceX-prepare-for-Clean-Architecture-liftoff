@@ -5,7 +5,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import prieto.fernando.domain.model.CompanyInfoDomainModel
-import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapperImpl
 import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
 import kotlin.test.assertEquals
 

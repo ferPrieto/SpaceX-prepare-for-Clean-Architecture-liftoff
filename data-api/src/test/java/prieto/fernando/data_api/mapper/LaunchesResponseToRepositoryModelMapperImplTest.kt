@@ -1,17 +1,17 @@
 package prieto.fernando.data_api.mapper
 
+import io.mockk.impl.annotations.MockK
 import org.joda.time.format.DateTimeFormat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import org.mockito.Mock
-import prieto.fernando.data_api.model.LaunchesResponse
-import prieto.fernando.data_api.model.LinksResponse
-import prieto.fernando.data_api.model.RocketResponse
 import prieto.fernando.data.model.LaunchRepositoryModel
 import prieto.fernando.data.model.LinksRepositoryModel
 import prieto.fernando.data.model.RocketRepositoryModel
+import prieto.fernando.data_api.model.LaunchesResponse
+import prieto.fernando.data_api.model.LinksResponse
+import prieto.fernando.data_api.model.RocketResponse
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
@@ -93,7 +93,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
 
     private lateinit var cut: LaunchesResponseToRepositoryModelMapperImpl
 
-    @Mock
+    @MockK
     lateinit var dateFormatter: DateFormatter
 
     @Before
