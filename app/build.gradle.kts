@@ -1,16 +1,16 @@
-import prieto.fernando.dependencies.ProjectModules
 import prieto.fernando.dependencies.Dependencies
+import prieto.fernando.dependencies.ProjectModules
 import prieto.fernando.dependencies.TestDependencies
 
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
+    jacoco
 }
 
-androidPlugin{
+androidPlugin {
     buildType = prieto.fernando.android.plugin.BuildType.App
 }
 
@@ -22,18 +22,28 @@ android {
         testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildFeatures {
         compose = true
         viewBinding = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = prieto.fernando.dependencies.Versions.compose
+        kotlinCompilerExtensionVersion = "1.0.5"
     }
 
     buildTypes {
         getByName("debug") {
             isDebuggable = true
+            isTestCoverageEnabled = true
             buildConfigField("Integer", "PORT", "8080")
         }
         getByName("release") {
@@ -54,7 +64,7 @@ dependencies {
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     implementation(Dependencies.AndroidX.Compose.viewModel)
-    annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
+    kapt(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
 
@@ -68,7 +78,6 @@ dependencies {
 
     implementation(Dependencies.Hilt.hiltAndroid)
     implementation(Dependencies.Hilt.hiltAndroidCompiler)
-    implementation(Dependencies.Hilt.hiltViewModel)
     implementation(Dependencies.Hilt.hiltCompiler)
     implementation(Dependencies.Hilt.hiltNavigationCompose)
 
@@ -100,4 +109,8 @@ dependencies {
     androidTestImplementation(TestDependencies.Hilt.androidTesting)
     kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow

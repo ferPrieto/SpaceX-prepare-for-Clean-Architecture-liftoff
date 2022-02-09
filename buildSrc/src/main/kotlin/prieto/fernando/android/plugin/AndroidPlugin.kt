@@ -4,10 +4,10 @@ import prieto.fernando.dependencies.AndroidSettings
 import prieto.fernando.dependencies.Dependencies
 import prieto.fernando.dependencies.TestDependencies
 import com.android.build.gradle.BaseExtension
+import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.*
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -20,8 +20,7 @@ open class AndroidPlugin : Plugin<Project> {
     }
 
     private fun androidPlugins() = listOf(
-        "kotlin-android",
-        "kotlin-android-extensions"
+        "kotlin-android"
     )
 
     private fun Project.configurePlugins(buildType: BuildType) = listOf(
@@ -42,7 +41,7 @@ open class AndroidPlugin : Plugin<Project> {
             versionCode = 1
             versionName = "1.0"
 
-            testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
+            testInstrumentationRunner =  "prieto.fernando.spacex.webmock.MockTestRunner"
 
             packagingOptions {
                 resources.excludes.addAll(
@@ -61,6 +60,11 @@ open class AndroidPlugin : Plugin<Project> {
                         "META-INF/gradle/incremental.annotation.processors"
                     )
                 )
+            }
+
+            compileOptions {
+                sourceCompatibility = JavaVersion.VERSION_1_8
+                targetCompatibility = JavaVersion.VERSION_1_8
             }
 
             buildTypes {

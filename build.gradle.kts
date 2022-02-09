@@ -1,3 +1,5 @@
+import prieto.fernando.dependencies.Versions.jacoco
+
 buildscript {
     repositories {
         google()
@@ -7,6 +9,7 @@ buildscript {
         classpath("com.android.tools.build:gradle:7.0.4")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
+        classpath("org.jacoco:org.jacoco.core:0.8.7")
     }
 }
 

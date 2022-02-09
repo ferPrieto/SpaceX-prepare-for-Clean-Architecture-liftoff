@@ -4,8 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
-import junit.framework.Assert.assertEquals
+import io.mockk.mockk
+import org.junit.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
@@ -19,20 +19,23 @@ import prieto.fernando.domain.model.CompanyInfoDomainModel
 import prieto.fernando.domain.usecase.GetCompanyInfo
 import prieto.fernando.spacex.presentation.screens.dashboard.CompanyInfoUiModel
 import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 class DashboardViewModelTest {
     private lateinit var cut: DashboardViewModel
 
-    @MockK
+    @Inject
     lateinit var getCompanyInfo: GetCompanyInfo
 
-    @MockK
+    @Inject
     lateinit var companyInfoMapper: CompanyInfoDomainToUiModelMapper
 
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
+        getCompanyInfo = mockk()
+        companyInfoMapper = mockk()
         cut = DashboardViewModel(getCompanyInfo, companyInfoMapper)
     }
 
@@ -74,22 +77,23 @@ class DashboardViewModelTest {
         assertEquals(expected, actual)
     }
 
-    @Test
+    @Test(expected = Throwable::class)
     fun `Given Error When companyInfo Then expected error state`() {
         runBlockingTest {
             // Given
-            val expectedErrorState = true
-            coEvery { getCompanyInfo.execute() } returns flow {
-                emit(throw Exception("Network Exception"))
-            }
+            var exceptionThrown = false
 
             // When
-            cut.companyInfo()
+            coEvery { getCompanyInfo.execute() } throws java.lang.Exception("Network exception")
+            try {
+                cut.companyInfo()
+            } catch (exception: Exception) {
+                exceptionThrown = true
+            }
             val actual = cut.viewState.value.isError
 
             // Then
-            coVerify(exactly = 2) { getCompanyInfo }
-            assertEquals(expectedErrorState, actual)
+            assertEquals(exceptionThrown, actual)
         }
     }
 }

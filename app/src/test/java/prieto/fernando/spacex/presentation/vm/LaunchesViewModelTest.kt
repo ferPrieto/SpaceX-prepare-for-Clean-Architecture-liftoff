@@ -3,8 +3,8 @@ package prieto.fernando.spacex.presentation.vm
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.impl.annotations.MockK
-import junit.framework.Assert.assertEquals
+import io.mockk.mockk
+import org.junit.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
@@ -24,24 +24,28 @@ import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
 import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 class LaunchesViewModelTest {
 
     private lateinit var cut: LaunchesViewModel
 
-    @MockK
+    @Inject
     lateinit var getLaunches: GetLaunches
 
-    @MockK
+    @Inject
     lateinit var launchesMapper: LaunchesDomainToUiModelMapper
 
-    @MockK
+    @Inject
     lateinit var clickableLinkProvider: ClickableLinkProvider
 
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
+        getLaunches = mockk()
+        launchesMapper = mockk()
+        clickableLinkProvider = mockk()
         cut = LaunchesViewModel(getLaunches, launchesMapper, clickableLinkProvider)
     }
 
@@ -116,18 +120,20 @@ class LaunchesViewModelTest {
     fun `Given Error When launches Then expected error state`() {
         runBlockingTest {
             // Given
-            val expectedErrorState = true
-            coEvery { getLaunches.execute(0, false) } returns flow {
-                emit(throw Exception("Network Exception"))
-            }
+            var exceptionThrown = true
 
             // When
-            cut.launches()
-            val actualValue = cut.viewState.value.isError
+            coEvery { getLaunches.execute(0, false) } throws java.lang.Exception("Network Exception")
+            try {
+                cut.launches()
+            } catch (exception: Exception) {
+                exceptionThrown = true
+            }
+
+            val actual = cut.viewState.value.isError
 
             // Then
-            coVerify(exactly = 2) { getLaunches.execute(0, false) }
-            assertEquals(expectedErrorState, actualValue)
+            assertEquals(exceptionThrown, actual)
         }
     }
 }

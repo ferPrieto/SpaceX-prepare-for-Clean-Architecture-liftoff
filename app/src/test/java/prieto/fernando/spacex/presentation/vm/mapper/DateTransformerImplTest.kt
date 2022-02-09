@@ -1,20 +1,22 @@
 package prieto.fernando.spacex.presentation.vm.mapper
 
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
 import org.joda.time.DateTime
 import org.junit.Before
 import org.junit.Test
+import javax.inject.Inject
 import kotlin.test.assertEquals
 
 class DateTransformerImplTest {
     private lateinit var cut: DateTransformerImpl
 
-    @MockK
+    @Inject
     lateinit var dateTimeProvider: DateTimeProvider
 
     @Before
     fun setUp() {
+        dateTimeProvider = mockk()
         cut = DateTransformerImpl(dateTimeProvider)
     }
 

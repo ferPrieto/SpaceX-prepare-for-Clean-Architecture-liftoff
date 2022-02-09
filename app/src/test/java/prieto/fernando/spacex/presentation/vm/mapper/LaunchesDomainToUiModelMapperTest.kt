@@ -2,7 +2,7 @@ package prieto.fernando.spacex.presentation.vm.mapper
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -14,13 +14,14 @@ import prieto.fernando.domain.model.RocketDomainModel
 import prieto.fernando.spacex.presentation.screens.launches.LaunchUiModel
 import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
+import javax.inject.Inject
 import kotlin.test.assertEquals
 
 class LaunchesDomainToUiModelMapperTest {
 
     private lateinit var cut: LaunchesDomainToUiModelMapperImpl
 
-    @MockK
+    @Inject
     lateinit var dateTransformer: DateTransformer
 
     @get:Rule
@@ -28,6 +29,7 @@ class LaunchesDomainToUiModelMapperTest {
 
     @Before
     fun setUp() {
+        dateTransformer = mockk()
         cut = LaunchesDomainToUiModelMapperImpl(dateTransformer)
     }
 
@@ -135,6 +137,7 @@ class LaunchesDomainToUiModelMapperTest {
             .returns("13-12-2019 at 13:00")
         every { dateTransformer.getDifferenceOfDays(buildDate("2019-12-13T13:00:00.000Z")) }
             .returns("1")
+        every { dateTransformer.isPast(buildDate("2019-12-13T13:00:00.000Z")) }.returns(false)
 
         // When
         val actualValue = cut.toUiModel(launches)
