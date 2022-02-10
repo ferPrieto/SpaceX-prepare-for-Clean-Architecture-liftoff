@@ -1,12 +1,13 @@
 package prieto.fernando.spacex.presentation.screens.launches
 
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.compose.ui.test.onAllNodesWithContentDescription
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.presentation.EntryPointActivity
 
 internal fun launchesScreenRobot(
@@ -93,7 +94,7 @@ internal open class LaunchesScreenRobot constructor(
         listItemsShowed(0)
     }
 
-    fun missionOneAndTwoShowed(){
+    fun missionOneAndTwoShowed() {
         missionOneText.assertIsDisplayed()
         missionTwoText.assertIsDisplayed()
     }

@@ -7,6 +7,7 @@ plugins {
     kotlin("android")
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
 androidPlugin {
@@ -54,7 +55,7 @@ dependencies {
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     implementation(Dependencies.AndroidX.Compose.viewModel)
-    annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
+    kapt(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
 

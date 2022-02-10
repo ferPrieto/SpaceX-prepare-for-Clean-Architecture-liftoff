@@ -86,10 +86,6 @@ open class AndroidPlugin : Plugin<Project> {
             unitTests.isReturnDefaultValues = true
             animationsDisabled = true
         }
-
-        lintOptions {
-            isAbortOnError = false
-        }
     }
 
     private fun Project.configureDependencies() = dependencies {

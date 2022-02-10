@@ -102,7 +102,6 @@ class LaunchesDomainToUiModelMapperTest {
 
         // Then
         assertEquals(expected, actualValue)
-
     }
 
     @Test

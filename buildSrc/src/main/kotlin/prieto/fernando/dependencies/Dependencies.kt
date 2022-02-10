@@ -87,5 +87,5 @@ object Dependencies {
     const val coilCompose = "io.coil-kt:coil-compose:${Versions.coil}"
 
     const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
-
+    const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
 }

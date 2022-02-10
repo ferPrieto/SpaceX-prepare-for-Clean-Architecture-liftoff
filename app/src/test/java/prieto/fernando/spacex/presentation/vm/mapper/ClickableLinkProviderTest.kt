@@ -23,7 +23,8 @@ class ClickableLinkProviderTest(
                         missionPatchSmall = "",
                         wikipedia = "someWikipedia URL",
                         youTubeLink = "someYoutube URL"
-                    ), LaunchesContract.Effect.ClickableLink.All(
+                    ),
+                    LaunchesContract.Effect.ClickableLink.All(
                         wikipedia = "someWikipedia URL",
                         youTubeLink = "someYoutube URL"
                     )
@@ -33,7 +34,8 @@ class ClickableLinkProviderTest(
                         missionPatchSmall = "",
                         wikipedia = "someWikipedia URL",
                         youTubeLink = " "
-                    ), LaunchesContract.Effect.ClickableLink.Wikipedia(
+                    ),
+                    LaunchesContract.Effect.ClickableLink.Wikipedia(
                         wikipedia = "someWikipedia URL"
                     )
                 ),
@@ -42,7 +44,8 @@ class ClickableLinkProviderTest(
                         missionPatchSmall = "",
                         wikipedia = "",
                         youTubeLink = "someYoutube URL"
-                    ), LaunchesContract.Effect.ClickableLink.Youtube(
+                    ),
+                    LaunchesContract.Effect.ClickableLink.Youtube(
                         youTubeLink = "someYoutube URL"
                     )
                 ),
@@ -51,19 +54,20 @@ class ClickableLinkProviderTest(
                         missionPatchSmall = "",
                         wikipedia = " ",
                         youTubeLink = " "
-                    ), LaunchesContract.Effect.ClickableLink.None
+                    ),
+                    LaunchesContract.Effect.ClickableLink.None
                 ),
                 arrayOf(
                     LinksUiModel(
                         missionPatchSmall = "",
                         wikipedia = "",
                         youTubeLink = ""
-                    ), LaunchesContract.Effect.ClickableLink.None
+                    ),
+                    LaunchesContract.Effect.ClickableLink.None
                 )
             )
         }
     }
-
 
     private lateinit var cut: ClickableLinkProvider
 

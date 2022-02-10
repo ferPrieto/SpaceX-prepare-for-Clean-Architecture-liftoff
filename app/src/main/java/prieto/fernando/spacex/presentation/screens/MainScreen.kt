@@ -21,7 +21,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,15 +33,15 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.R
+import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.spacex.presentation.screens.dashboard.DashboardScreen
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
-import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
+import prieto.fernando.spacex.presentation.vm.DashboardViewModel
+import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 import prieto.fernando.spacex.theme.Dark
 import prieto.fernando.spacex.theme.Light
 import prieto.fernando.spacex.theme.SpaceXTypography
-import prieto.fernando.spacex.presentation.vm.DashboardViewModel
-import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
@@ -167,16 +166,19 @@ private fun BottomSheet(
                         youTubeLinkState.value = effect.youTubeLink
                         wikipediaLinkState.value = effect.wikipedia
                     }
-                    is LaunchesContract.Effect.ClickableLink.Youtube -> youTubeLinkState.value =
-                        effect.youTubeLink
-                    is LaunchesContract.Effect.ClickableLink.Wikipedia -> wikipediaLinkState.value =
-                        effect.wikipedia
+                    is LaunchesContract.Effect.ClickableLink.Youtube ->
+                        youTubeLinkState.value =
+                            effect.youTubeLink
+                    is LaunchesContract.Effect.ClickableLink.Wikipedia ->
+                        wikipediaLinkState.value =
+                            effect.wikipedia
                     else -> {
                         youTubeLinkState.value = ""
                         wikipediaLinkState.value = ""
                     }
                 }
-            })
+            }
+        )
     }
 }
 
@@ -322,7 +324,6 @@ private fun getTabColour(selected: Boolean) =
         if (MaterialTheme.colors.isLight) Light.UnselectedTab
         else Dark.UnselectedTab
     }
-
 
 @Composable
 private fun AnimatableIcon(

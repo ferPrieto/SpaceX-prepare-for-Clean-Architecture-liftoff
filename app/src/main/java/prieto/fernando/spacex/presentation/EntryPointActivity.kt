@@ -12,7 +12,7 @@ import prieto.fernando.spacex.theme.SpaceXTheme
 @AndroidEntryPoint
 class EntryPointActivity : ComponentActivity() {
 
-    @OptIn(InternalCoroutinesApi::class, ExperimentalMaterialApi::class )
+    @OptIn(InternalCoroutinesApi::class, ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

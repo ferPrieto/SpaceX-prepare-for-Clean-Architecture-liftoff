@@ -26,7 +26,8 @@ class CompanyInfoUiModelDomainToUiModelMapperTest(
                         "employees",
                         1,
                         23
-                    ), CompanyInfoUiModel(
+                    ),
+                    CompanyInfoUiModel(
                         "name",
                         "founder",
                         "founded",
@@ -43,7 +44,8 @@ class CompanyInfoUiModelDomainToUiModelMapperTest(
                         "employees",
                         3,
                         27500000000
-                    ), CompanyInfoUiModel(
+                    ),
+                    CompanyInfoUiModel(
                         "name",
                         "founder",
                         "founded",
@@ -60,7 +62,8 @@ class CompanyInfoUiModelDomainToUiModelMapperTest(
                         "",
                         0,
                         0
-                    ), CompanyInfoUiModel(
+                    ),
+                    CompanyInfoUiModel(
                         "",
                         "",
                         "",

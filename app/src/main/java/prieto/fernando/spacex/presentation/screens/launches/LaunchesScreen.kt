@@ -33,10 +33,10 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import prieto.fernando.spacex.R
+import prieto.fernando.spacex.presentation.screens.common.ErrorAnimation
 import prieto.fernando.spacex.theme.Dark
 import prieto.fernando.spacex.theme.Light
 import prieto.fernando.spacex.theme.SpaceXTypography
-import prieto.fernando.spacex.presentation.screens.common.ErrorAnimation
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
@@ -246,7 +246,8 @@ private fun DismissButton(openDialog: MutableState<Boolean>) {
     TextButton(
         onClick = {
             openDialog.value = false
-        }) {
+        }
+    ) {
         Text(
             text = stringResource(id = R.string.dialog_cancel_button),
             style = SpaceXTypography.subtitle2,
@@ -267,7 +268,8 @@ private fun ConfirmButton(
         onClick = {
             openDialog.value = false
             onEventSent(LaunchesContract.Event.Filter(textState, orderChecked.value))
-        }) {
+        }
+    ) {
         Text(
             stringResource(id = R.string.dialog_ok_button),
             style = SpaceXTypography.subtitle2,
