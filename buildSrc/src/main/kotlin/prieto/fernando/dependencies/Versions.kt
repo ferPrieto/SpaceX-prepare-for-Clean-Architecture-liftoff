@@ -21,7 +21,6 @@ object Versions {
     const val espresso = "3.4.0"
     const val androidxJunit = "1.1.1"
     const val junit = "4.13.1"
-    const val jacoco = "0.8.7"
     const val junitPlatformRunner = "1.0.2"
     const val mockk = "1.12.2"
     const val gradle = "7.1.0"

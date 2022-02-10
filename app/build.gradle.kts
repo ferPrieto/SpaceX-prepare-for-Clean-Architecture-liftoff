@@ -7,7 +7,6 @@ plugins {
     kotlin("android")
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
-    jacoco
 }
 
 androidPlugin {
@@ -20,15 +19,6 @@ android {
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
         targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
         testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
 
     buildFeatures {
@@ -64,7 +54,7 @@ dependencies {
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     implementation(Dependencies.AndroidX.Compose.viewModel)
-    kapt(Dependencies.AndroidX.lifecycleCompiler)
+    annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
 
@@ -109,8 +99,4 @@ dependencies {
     androidTestImplementation(TestDependencies.Hilt.androidTesting)
     kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
-}
-
-kapt {
-    correctErrorTypes = true
 }
