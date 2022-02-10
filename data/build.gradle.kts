@@ -10,8 +10,9 @@ dependencies {
     implementation(project(ProjectModules.domain))
     testImplementation(project(ProjectModules.coreAndroidTest))
 
-    implementation(Dependencies.jodaTime)
     implementation(Dependencies.Hilt.hiltAndroid)
     implementation(Dependencies.Hilt.hiltAndroidCompiler)
+
+    implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)
 }

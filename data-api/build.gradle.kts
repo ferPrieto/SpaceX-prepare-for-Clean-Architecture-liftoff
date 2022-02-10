@@ -1,6 +1,5 @@
 import prieto.fernando.dependencies.Dependencies
 import prieto.fernando.dependencies.ProjectModules
-import prieto.fernando.dependencies.ProjectModules.api
 
 plugins {
     id("com.android.library")
@@ -19,6 +18,5 @@ dependencies {
     implementation(Dependencies.Hilt.hiltAndroidCompiler)
 
     implementation(Dependencies.jodaTime)
-
     testImplementation(Dependencies.jodaTime)
 }

@@ -6,10 +6,9 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.spacex.presentation.vm.base.BaseViewModel
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
-import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
+import prieto.fernando.spacex.presentation.vm.base.BaseViewModel
 import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import timber.log.Timber

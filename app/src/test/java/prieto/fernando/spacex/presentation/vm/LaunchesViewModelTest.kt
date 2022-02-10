@@ -1,22 +1,19 @@
 package prieto.fernando.spacex.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
-import junit.framework.Assert.assertEquals
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
@@ -27,31 +24,33 @@ import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
 import prieto.fernando.spacex.presentation.screens.launches.RocketUiModel
 import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-@RunWith(MockitoJUnitRunner::class)
 class LaunchesViewModelTest {
 
     private lateinit var cut: LaunchesViewModel
 
-    @Mock
+    @Inject
     lateinit var getLaunches: GetLaunches
 
-    @Mock
+    @Inject
     lateinit var launchesMapper: LaunchesDomainToUiModelMapper
 
-    @Mock
+    @Inject
     lateinit var clickableLinkProvider: ClickableLinkProvider
 
     @Before
     fun setUp() {
         Dispatchers.setMain(Dispatchers.Unconfined)
-        cut = LaunchesViewModel(getLaunches, launchesMapper,clickableLinkProvider)
+        getLaunches = mockk()
+        launchesMapper = mockk()
+        clickableLinkProvider = mockk()
+        cut = LaunchesViewModel(getLaunches, launchesMapper, clickableLinkProvider)
     }
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
-
 
     @Test
     fun `When launches Then launchUiModelRetrieved with expected result`() {
@@ -101,18 +100,17 @@ class LaunchesViewModelTest {
                     false
                 )
             )
-            val flow = flow {
+            coEvery { getLaunches.execute(0, false) } returns flow {
                 emit(launchDomainModels)
             }
-            whenever(getLaunches.execute(0, false)).thenReturn(flow)
-            whenever(launchesMapper.toUiModel(launchDomainModels)).thenReturn(expected)
+            coEvery { launchesMapper.toUiModel(launchDomainModels) } returns expected
 
             // When
             cut.launches()
             val actualValue = cut.viewState.value.launchUiModels
 
             // Then
-            verify(getLaunches, times(2)).execute(0, false)
+            coVerify(exactly = 2) { getLaunches.execute(0, false) }
             assertEquals(expected, actualValue)
         }
     }
@@ -121,19 +119,20 @@ class LaunchesViewModelTest {
     fun `Given Error When launches Then expected error state`() {
         runBlockingTest {
             // Given
-            val expectedErrorState = true
-            val flow = flow {
-                emit(throw Exception("Network Exception"))
-            }
-            whenever(getLaunches.execute(0, false)).thenReturn(flow)
+            var exceptionThrown = true
 
             // When
-            cut.launches()
-            val actualValue = cut.viewState.value.isError
+            coEvery { getLaunches.execute(0, false) } throws java.lang.Exception("Network Exception")
+            try {
+                cut.launches()
+            } catch (exception: Exception) {
+                exceptionThrown = true
+            }
+
+            val actual = cut.viewState.value.isError
 
             // Then
-            verify(getLaunches, times(2)).execute(0, false)
-            assertEquals(expectedErrorState, actualValue)
+            assertEquals(exceptionThrown, actual)
         }
     }
 }

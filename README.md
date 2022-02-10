@@ -31,7 +31,7 @@ The purpose of this project is to consolidate some of the learned insights throu
 * [Retrofit][5] Type-safe REST client for Android to consume RESTful web services.
 * [Timber][6] Logger with a small API which provides utility on top of Android's normal Log class.
 * [Espresso][7] Android UI Testing framework.
-* [Mockito-Kotlin][8] test functions facilitation for Mockito (mocking framework for testing).
+* [MockK][8] mocking framework for testing.
 * [MockWebServer][9] A scriptable web server for testing HTTP clients, used for Instrumentation tests in this project.
 * [Coil Compose][10] Image downloading and caching library supported by Jetpack Compose.
 * [Lottie Compose][11] Library that provides that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile.
@@ -45,7 +45,7 @@ The purpose of this project is to consolidate some of the learned insights throu
 [5]:  https://github.com/square/retrofit
 [6]:  https://github.com/JakeWharton/timber
 [7]:  https://developer.android.com/training/testing/espresso/
-[8]:  https://github.com/nhaarman/mockito-kotlin
+[8]:  https://mockk.io
 [9]:  https://github.com/square/okhttp/tree/master/mockwebserver
 [10]: https://github.com/coil-kt/coil
 [11]: https://airbnb.io/lottie/#/android-compose
@@ -96,7 +96,7 @@ These are the three options available (all of them maintained):
 
 There are some highlights:
 * Every layer in the architecture has been tested.
-* Mockito has been used for mocking | stubbing.
+* MockK has been used for mocking | stubbing.
 * `Given | When | Then` code presentation order, in order to give a more structured style.
 * Code Coverage (WORK IN PROGRESS).
 
