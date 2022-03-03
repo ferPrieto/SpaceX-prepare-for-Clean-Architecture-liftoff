@@ -8,10 +8,22 @@ plugins {
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
+    id("com.dicedmelon.gradle.jacoco-android")
 }
 
 androidPlugin {
     buildType = prieto.fernando.android.plugin.BuildType.App
+}
+
+jacoco {
+    toolVersion = "0.8.2"
+
+}
+
+jacocoAndroidUnitTestReport {
+    csv.enabled(false)
+    html.enabled(true)
+    xml.enabled(true)
 }
 
 android {

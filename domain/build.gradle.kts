@@ -4,6 +4,7 @@ import prieto.fernando.dependencies.ProjectModules
 plugins {
     id("com.android.library")
     id("prieto.fernando.android.plugin")
+    id("com.dicedmelon.gradle.jacoco-android")
 }
 
 dependencies {

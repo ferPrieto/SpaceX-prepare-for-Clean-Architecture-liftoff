@@ -18,7 +18,6 @@ import prieto.fernando.domain.model.RocketDomainModel
 import javax.inject.Inject
 import kotlin.test.assertEquals
 
-@ExperimentalCoroutinesApi
 class GetLaunchesImplTest {
     private lateinit var cut: GetLaunchesImpl
 

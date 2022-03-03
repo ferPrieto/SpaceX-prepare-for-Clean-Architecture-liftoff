@@ -19,8 +19,6 @@ import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import javax.inject.Inject
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 class GetCompanyInfoImplTest {
     private lateinit var cut: GetCompanyInfoImpl
 
