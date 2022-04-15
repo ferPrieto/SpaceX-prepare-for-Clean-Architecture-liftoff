@@ -90,6 +90,7 @@ open class AndroidPlugin : Plugin<Project> {
 
     private fun Project.configureDependencies() = dependencies {
         fun kapt(definition: Any) = "kapt"(definition)
+
         fun implementation(definition: Any) = "implementation"(definition)
         fun testImplementation(definition: Any) = "testImplementation"(definition)
         fun androidTestImplementation(definition: Any) = "androidTestImplementation"(definition)
