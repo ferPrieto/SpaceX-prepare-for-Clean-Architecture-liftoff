@@ -8,7 +8,6 @@ import android.system.Os
 import androidx.test.runner.AndroidJUnitRunner
 import com.karumi.shot.compose.ComposeScreenshotRunner
 import dagger.hilt.android.testing.HiltTestApplication
-import com.facebook.testing.screenshot.ScreenshotRunner
 import com.karumi.shot.AndroidStorageInfo
 
 class MockAndShotTestRunner : AndroidJUnitRunner() {
@@ -16,12 +15,10 @@ class MockAndShotTestRunner : AndroidJUnitRunner() {
         StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder().permitAll().build())
         super.onCreate(arguments)
         configureFacebookLibFolder()
-        ScreenshotRunner.onCreate(this, arguments)
         ComposeScreenshotRunner.onCreate(this)
     }
 
     override fun finish(resultCode: Int, results: Bundle?) {
-        ScreenshotRunner.onDestroy()
         ComposeScreenshotRunner.onDestroy()
         super.finish(resultCode, results)
     }
