@@ -4,7 +4,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.mapper.LaunchesDomainFilter

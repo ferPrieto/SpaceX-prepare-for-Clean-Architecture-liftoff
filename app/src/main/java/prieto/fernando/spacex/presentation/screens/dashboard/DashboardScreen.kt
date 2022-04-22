@@ -53,9 +53,9 @@ fun DashboardScreen(
         when {
             state.isLoading -> {
                 LottieAnimation(
-                   composition =  loadingComposition,
+                    composition = loadingComposition,
                     progress = loadingProgress,
-                    modifier = Modifier.semantics { contentDescription= "Loading Animation" }
+                    modifier = Modifier.semantics { contentDescription = "Loading Animation" }
                 )
             }
             state.isError -> {

@@ -40,13 +40,9 @@ object TestDependencies {
     const val livedataTesting =
         "com.jraska.livedata:testing-ktx:${Versions.livedataTesting}"
 
-    object Mockito {
-        const val mockitoCore =
-            "org.mockito:mockito-core:${Versions.mockito}"
-        const val mockitoInline =
-            "org.mockito:mockito-inline:${Versions.mockito}"
-        const val mockitoKotlin =
-            "com.nhaarman:mockito-kotlin:${Versions.mockitoKotlin}"
+    object Mockk {
+        const val mockk ="io.mockk:mockk:${Versions.mockk}"
+        const val mockkAgentJvm = "io.mockk:mockk-agent-jvm:${Versions.mockk}"
     }
 
     object Hilt{

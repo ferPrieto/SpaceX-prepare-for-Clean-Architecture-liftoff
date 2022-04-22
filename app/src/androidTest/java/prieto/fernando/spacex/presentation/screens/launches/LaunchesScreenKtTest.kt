@@ -28,7 +28,7 @@ class LaunchesScreenKtTest : BaseScreenTest() {
         mockWebServer.dispatcher = SuccessDispatcher()
         setMainContent()
 
-       launchesScreenRobot(composeTestRule) {
+        launchesScreenRobot(composeTestRule) {
             clickOnLaunchesTab()
             initialElementsShowed()
         }
@@ -94,7 +94,8 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                         onEventSent = {},
                         effectFlow = flow { emit(LaunchesContract.Effect.ClickableLink.None) },
                         onLinkClicked = { },
-                        onClickableLinkRetrieved = { })
+                        onClickableLinkRetrieved = { }
+                    )
                 }
             }
 
@@ -119,31 +120,34 @@ class LaunchesScreenKtTest : BaseScreenTest() {
                         state = LaunchesContract.State(
                             listOf(
                                 LaunchUiModel(
-                                    "Mission1", "08-12-2021", true, "0", RocketUiModel(
+                                    "Mission1", "08-12-2021", true, "0",
+                                    RocketUiModel(
                                         "Rocket1", "Rocket Type1"
-                                    ), LinksUiModel("", "", "Youtube Link"), true
+                                    ),
+                                    LinksUiModel("", "", "Youtube Link"), true
                                 ),
                                 LaunchUiModel(
-                                    "Mission2", "09-12-2021", false, "0", RocketUiModel(
+                                    "Mission2", "09-12-2021", false, "0",
+                                    RocketUiModel(
                                         "Rocket2", "Rocket Type2"
-                                    ), LinksUiModel("", "WikiPedia Link", "Youtube Link"), false
+                                    ),
+                                    LinksUiModel("", "WikiPedia Link", "Youtube Link"), false
                                 )
-                            ), isLoading = false, isError = false
+                            ),
+                            isLoading = false, isError = false
                         ),
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         coroutineScope = coroutineScope,
                         onEventSent = {},
                         effectFlow = flow { emit(LaunchesContract.Effect.ClickableLink.None) },
                         onLinkClicked = { },
-                        onClickableLinkRetrieved = { })
+                        onClickableLinkRetrieved = { }
+                    )
                 }
             }
 
-            onNodeWithText("Mission1", useUnmergedTree = true)
-                .assertIsDisplayed()
-            onNodeWithText("Mission2", useUnmergedTree = true)
-                .assertIsDisplayed()
             launchesScreenRobot(composeTestRule) {
+                missionOneAndTwoShowed()
                 listItemsShowed(2)
             }
         }

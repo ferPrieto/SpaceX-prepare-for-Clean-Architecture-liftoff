@@ -18,10 +18,10 @@ interface ViewEvent
 interface ViewSideEffect
 
 abstract class BaseViewModel<
-        Event : ViewEvent,
-        UiState : ViewState,
-        Effect : ViewSideEffect>
-    : ViewModel() {
+    Event : ViewEvent,
+    UiState : ViewState,
+    Effect : ViewSideEffect> :
+    ViewModel() {
 
     private val initialState: UiState by lazy { setInitialState() }
     abstract fun setInitialState(): UiState

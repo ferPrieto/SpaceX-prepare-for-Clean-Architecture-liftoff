@@ -53,8 +53,6 @@ object Dependencies {
             "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
         const val hiltCompiler =
             "androidx.hilt:hilt-compiler:${Versions.hiltJetpack}"
-        const val hiltViewModel =
-            "com.google.dagger:hilt-android-compiler:${Versions.hiltVM}"
         const val hiltNavigationCompose =
             "androidx.hilt:hilt-navigation-compose:${Versions.hiltVM}"
     }
@@ -76,4 +74,5 @@ object Dependencies {
     const val coilCompose = "io.coil-kt:coil-compose:${Versions.coil}"
 
     const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
+    const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
 }

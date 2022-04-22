@@ -1,12 +1,13 @@
 package prieto.fernando.spacex.presentation.screens.launches
 
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.compose.ui.test.onAllNodesWithContentDescription
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.presentation.EntryPointActivity
 
 internal fun launchesScreenRobot(
@@ -59,6 +60,14 @@ internal open class LaunchesScreenRobot constructor(
         composeTestRule.onNodeWithText("NO RESULTS FOUND", useUnmergedTree = true)
     }
 
+    private val missionOneText by lazy {
+        composeTestRule.onNodeWithText("Mission1", useUnmergedTree = true)
+    }
+
+    private val missionTwoText by lazy {
+        composeTestRule.onNodeWithText("Mission2", useUnmergedTree = true)
+    }
+
     fun clickOnLaunchesTab() = launchesTabItem.assertIsDisplayed().performClick()
 
     fun initialElementsShowed() {
@@ -83,5 +92,10 @@ internal open class LaunchesScreenRobot constructor(
     fun noResultsElementsShowed() {
         noResultsText.assertExists().assertIsDisplayed()
         listItemsShowed(0)
+    }
+
+    fun missionOneAndTwoShowed() {
+        missionOneText.assertIsDisplayed()
+        missionTwoText.assertIsDisplayed()
     }
 }

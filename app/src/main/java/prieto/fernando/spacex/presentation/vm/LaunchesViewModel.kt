@@ -6,10 +6,10 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.spacex.presentation.vm.base.BaseViewModel
 import prieto.fernando.domain.usecase.GetLaunches
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
-import prieto.fernando.spacex.presentation.screens.launches.LinksUiModel
+import prieto.fernando.spacex.presentation.vm.base.BaseViewModel
+import prieto.fernando.spacex.presentation.vm.mapper.ClickableLinkProvider
 import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import timber.log.Timber
 import javax.inject.Inject
@@ -17,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LaunchesViewModel @Inject constructor(
     private val getLaunches: GetLaunches,
-    private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper
+    private val launchesDomainToUiModelMapper: LaunchesDomainToUiModelMapper,
+    private val clickableLinkProvider: ClickableLinkProvider
 ) : BaseViewModel<LaunchesContract.Event, LaunchesContract.State, LaunchesContract.Effect>() {
 
     private val errorHandler = CoroutineExceptionHandler { _, exception ->
@@ -49,7 +50,7 @@ class LaunchesViewModel @Inject constructor(
                 )
             }
             is LaunchesContract.Event.ClickableLinks ->
-                setEffect { getClickableLink(event.linksUiModel) }
+                setEffect { clickableLinkProvider.getClickableLink(event.linksUiModel) }
 
             is LaunchesContract.Event.Filter -> {
                 val filteredYear = if (event.year.isNotBlank()) event.year.toInt() else 0
@@ -91,23 +92,4 @@ class LaunchesViewModel @Inject constructor(
             )
         }
     }
-
-    private fun getClickableLink(linksUiModel: LinksUiModel): LaunchesContract.Effect.ClickableLink =
-        when {
-            linksUiModel.wikipedia.isNotBlank() && linksUiModel.videoLink.isNotBlank() -> {
-                LaunchesContract.Effect.ClickableLink.All(
-                    linksUiModel.videoLink,
-                    linksUiModel.wikipedia
-                )
-            }
-            linksUiModel.wikipedia.isNotBlank() && linksUiModel.videoLink.isBlank() -> {
-                LaunchesContract.Effect.ClickableLink.Wikipedia(linksUiModel.wikipedia)
-            }
-            linksUiModel.wikipedia.isBlank() && linksUiModel.videoLink.isNotBlank() -> {
-                LaunchesContract.Effect.ClickableLink.Youtube(linksUiModel.videoLink)
-            }
-            else -> {
-                LaunchesContract.Effect.ClickableLink.None
-            }
-        }
 }

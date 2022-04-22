@@ -1,40 +1,38 @@
 package prieto.fernando.domain.usecase
 
-import com.nhaarman.mockito_kotlin.times
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 import prieto.fernando.core_android_test.util.buildDate
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.mapper.LaunchesDomainFilter
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
+import javax.inject.Inject
 import kotlin.test.assertEquals
 
 @ExperimentalCoroutinesApi
-@RunWith(MockitoJUnitRunner::class)
 class GetLaunchesImplTest {
     private lateinit var cut: GetLaunchesImpl
 
-    @Mock
+    @Inject
     lateinit var spaceXRepository: SpaceXRepository
 
 
-    @Mock
+    @Inject
     lateinit var launchesDomainFilter: LaunchesDomainFilter
 
     @Before
     fun setUp() {
+        spaceXRepository = mockk()
+        launchesDomainFilter = mockk()
         cut = GetLaunchesImpl(spaceXRepository, launchesDomainFilter)
     }
 
@@ -58,8 +56,6 @@ class GetLaunchesImplTest {
                     false
                 )
             )
-            val launchesChannel = ConflatedBroadcastChannel<List<LaunchDomainModel>>()
-            launchesChannel.offer(launchDomainModels)
             val expected = listOf(
                 LaunchDomainModel(
                     "missionName",
@@ -77,16 +73,20 @@ class GetLaunchesImplTest {
                 )
             )
 
-            whenever(spaceXRepository.getAllLaunches()).thenReturn(launchesChannel.asFlow())
-            whenever(launchesDomainFilter.filter(launchDomainModels, -1, false)).thenReturn(
-                launchDomainModels
-            )
+            coEvery { spaceXRepository.getAllLaunches() } returns flowOf(launchDomainModels)
+            coEvery {
+                launchesDomainFilter.filter(
+                    launchDomainModels,
+                    -1,
+                    false
+                )
+            } returns launchDomainModels
 
             // When
             val actualValue = cut.execute(-1, false).first()
 
             // Then
-            verify(spaceXRepository, times(1)).getAllLaunches()
+            coVerify(exactly = 1) { spaceXRepository.getAllLaunches() }
             assertEquals(expected, actualValue)
         }
     }
