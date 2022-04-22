@@ -15,7 +15,7 @@ object Versions {
     const val livedataTesting = "1.1.1"
     const val dagger = "2.24"
     const val hilt = "2.38.1"
-    const val karumiShot = "5.12.2"
+    const val karumiShot = "5.13.0"
     const val hiltJetpack = "1.0.0"
     const val hiltVM = "1.0.0-rc01"
     const val hiltTest = "2.37"
