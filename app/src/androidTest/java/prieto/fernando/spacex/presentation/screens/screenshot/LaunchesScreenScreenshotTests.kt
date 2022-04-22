@@ -13,7 +13,6 @@ import org.junit.Test
 import prieto.fernando.spacex.presentation.screens.base.BaseScreenTest
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
-import prieto.fernando.spacex.presentation.screens.launches.launchesScreenRobot
 import prieto.fernando.spacex.theme.SpaceXTheme
 import prieto.fernando.spacex.webmock.ErrorDispatcher
 

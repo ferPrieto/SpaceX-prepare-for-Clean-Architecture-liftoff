@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.0--beta03-blueviolet"/></a>
   <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
-  <a href="https://android-developers.googleblog.com/2021/07/android-studio-arctic-fox-202031-stable.html"><img alt="Android Studio Arctic Fox" src="https://img.shields.io/badge/AS%20Arctic%20Fox-2020.3.1%20Patch%204-9cf.svg"/></a>
+  <a href="https://android-developers.googleblog.com/2022/01/android-studio-bumblebee-202111-stable.html"><img alt="Android Studio Bumblebee" src="https://img.shields.io/badge/AS%20Bumblebee-2021.1.1%20Patch%203.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
 </p>
@@ -36,6 +36,8 @@ The purpose of this project is to consolidate some of the learned insights throu
 * [Coil Compose][10] Image downloading and caching library supported by Jetpack Compose.
 * [Lottie Compose][11] Library that provides that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile.
 * [JodaTime][12] Date library that lets manage more extensively and easily dates
+* [Shot][13] Shot is a Gradle plugin and a core android library thought to run screenshot tests for Android.
+
 
 [0]:  https://developer.android.com/jetpack
 [1]:  https://github.com/Kotlin/kotlinx.coroutines
@@ -50,6 +52,7 @@ The purpose of this project is to consolidate some of the learned insights throu
 [10]: https://github.com/coil-kt/coil
 [11]: https://airbnb.io/lottie/#/android-compose
 [12]: https://github.com/JodaOrg/joda-time
+[13]: https://github.com/pedrovgs/Shot
 
 ## Modules :bookmark_tabs:
 * **app** - The application module with access to **all the application**
@@ -107,14 +110,18 @@ There are some highlights:
 ### UI Testing (Compose)
 
 I opted to use three types of approaches:
-- MockWebserver, where real connection scenarios are setup. More information in my  [Medium Article][13]!
+- MockWebserver, where real connection scenarios are setup. More information in my  [MockWebServer Medium Article][14]!
 - `Tests in Isolation`, where it's possible to mock and set any content, UI state, etc. Which allows to emulate very specific edge cases.
-- Screenshot Testing (WORK IN PROGRESS)
+- Screenshot Testing :camera_flash:
 
-[13]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
+In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPatter Medium Article][15]!
+
+
+[14]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
+[15]: https://medium.com/proandroiddev/lessons-learned-on-jetpack-compose-ui-testing-robot-pattern-d5e82a9f4efc
 
 ## License :oncoming_police_car:
-    Copyright 2021 Fernando Prieto Moyano
+    Copyright 2022 Fernando Prieto Moyano
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
