@@ -11,7 +11,7 @@ dependencies {
     testImplementation(project(ProjectModules.coreAndroidTest))
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    annotationProcessor(Dependencies.Hilt.hiltAndroidCompiler)
+    implementation(Dependencies.Hilt.hiltAndroidCompiler)
 
     implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)

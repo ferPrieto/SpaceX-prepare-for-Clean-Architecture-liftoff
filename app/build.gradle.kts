@@ -8,7 +8,6 @@ plugins {
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
     id("shot")
-    id("com.facebook.testing.screenshot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
@@ -22,10 +21,6 @@ android {
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
         targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
         testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
-    }
-
-    kotlinOptions {
-        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
 
     buildFeatures {
@@ -61,7 +56,7 @@ dependencies {
     implementation(Dependencies.AndroidX.fragmentKtx)
     implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
     implementation(Dependencies.AndroidX.Compose.viewModel)
-    annotationProcessor(Dependencies.AndroidX.lifecycleCompiler)
+    kapt(Dependencies.AndroidX.lifecycleCompiler)
     implementation(Dependencies.AndroidX.archComponents)
     implementation(Dependencies.AndroidX.browser)
 
@@ -104,5 +99,6 @@ dependencies {
     androidTestImplementation(TestDependencies.mockWebServer)
 
     androidTestImplementation(TestDependencies.Hilt.androidTesting)
+    kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
 }
