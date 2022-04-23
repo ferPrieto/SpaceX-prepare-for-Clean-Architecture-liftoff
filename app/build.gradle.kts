@@ -7,6 +7,7 @@ plugins {
     kotlin("android")
     id("prieto.fernando.android.plugin")
     id("dagger.hilt.android.plugin")
+    id("shot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
@@ -19,7 +20,7 @@ android {
         applicationId = "prieto.fernando.spacex"
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
         targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
-        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
+        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
     }
 
     buildFeatures {
