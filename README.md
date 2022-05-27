@@ -3,24 +3,20 @@
 <p align="center">
   <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.0--beta03-blueviolet"/></a>
   <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
-  <a href="https://android-developers.googleblog.com/2022/01/android-studio-bumblebee-202111-stable.html"><img alt="Android Studio Bumblebee" src="https://img.shields.io/badge/AS%20Bumblebee-2021.1.1%20Patch%203.svg"/></a>
+  <a href="https://android-developers.googleblog.com/2022/01/android-studio-bumblebee-202111-stable.html"><img alt="Android Studio Dolphin" src="https://img.shields.io/badge/AS%20Bumblebee-2021.3.1%20Patch%204-9cf.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
 </p>
 
 <p align="center">
 The purpose of this project is to consolidate some of the learned insights throughout the years about the <b>Clean Architecture</b> principles and reflect those lessons on Android, taking advantage of the Kotlin programming language features too.
-</br><br>This project summarises some of the general use cases and demands on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b>, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
-
-</p>
-</br>
+<br/><br>This project summarises some of the general use cases and demands on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b>, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
+</p> 
 
 <p align="center">
 <img src="/art/SpaceX-Latest-Banner.jpg"/>
 </p>
 
-
-<img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
 
 ## Libraries Used :books:
 * [Compose][0] Toolkit for building native UI (in a declarative way - 100% Kotlin).
@@ -55,6 +51,9 @@ The purpose of this project is to consolidate some of the learned insights throu
 [13]: https://github.com/pedrovgs/Shot
 
 ## Modules :bookmark_tabs:
+
+<img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
+
 * **app** - The application module with access to **all the application**
 * **data** - Android module that **can only access domain module**
 * **data-api** - Android module that **can only access data module**
@@ -114,7 +113,7 @@ I opted to use three types of approaches:
 - `Tests in Isolation`, where it's possible to mock and set any content, UI state, etc. Which allows to emulate very specific edge cases.
 - Screenshot Testing :camera_flash:
 
-In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPatter Medium Article][15]!
+In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPattern Medium Article][15]!
 
 
 [14]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
