@@ -10,10 +10,8 @@
 
 <p align="center">
 The purpose of this project is to consolidate some of the learned insights throughout the years about the <b>Clean Architecture</b> principles and reflect those lessons on Android, taking advantage of the Kotlin programming language features too.
-</br><br>This project summarises some of the general use cases and demands on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b>, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
-
-</p>
-</br>
+<br/><br>This project summarises some of the general use cases and demands on a typical production project using: <b>Jetpack Compose</b>, <b>Functional Programming</b>,<b>MVVM</b>, <b>Kotlin Coroutines</b> and <b>Kotlin Flows</b> (check the branches section for more information).
+</p> 
 
 <p align="center">
 <img src="/art/SpaceX-Latest-Banner.jpg"/>
