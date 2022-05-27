@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.0--beta03-blueviolet"/></a>
   <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
-  <a href="https://android-developers.googleblog.com/2022/01/android-studio-bumblebee-202111-stable.html"><img alt="Android Studio Bumblebee" src="https://img.shields.io/badge/AS%20Bumblebee-2021.1.1%20Patch%204-9cf.svg"/></a>
+  <a href="https://android-developers.googleblog.com/2022/01/android-studio-bumblebee-202111-stable.html"><img alt="Android Studio Dolphin" src="https://img.shields.io/badge/AS%20Bumblebee-2021.3.1%20Patch%204-9cf.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
 </p>
@@ -19,7 +19,6 @@ The purpose of this project is to consolidate some of the learned insights throu
 
 
 <img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
-
 ## Libraries Used :books:
 * [Compose][0] Toolkit for building native UI (in a declarative way - 100% Kotlin).
 * [Coroutines][1] Library support for Kotlin coroutines.
