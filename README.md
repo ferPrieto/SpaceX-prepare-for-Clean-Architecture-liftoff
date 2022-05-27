@@ -17,12 +17,6 @@ The purpose of this project is to consolidate some of the learned insights throu
 <img src="/art/SpaceX-Latest-Banner.jpg"/>
 </p>
 
-<p>
-<p align="right">
-<img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
-</p>
-
-<p align="left">
 
 ## Libraries Used :books:
 * [Compose][0] Toolkit for building native UI (in a declarative way - 100% Kotlin).
@@ -40,9 +34,6 @@ The purpose of this project is to consolidate some of the learned insights throu
 * [JodaTime][12] Date library that lets manage more extensively and easily dates
 * [Shot][13] Shot is a Gradle plugin and a core android library thought to run screenshot tests for Android.
 
-</p>
-
-</p>
 
 [0]:  https://developer.android.com/jetpack
 [1]:  https://github.com/Kotlin/kotlinx.coroutines
@@ -58,6 +49,8 @@ The purpose of this project is to consolidate some of the learned insights throu
 [11]: https://airbnb.io/lottie/#/android-compose
 [12]: https://github.com/JodaOrg/joda-time
 [13]: https://github.com/pedrovgs/Shot
+
+<img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
 
 ## Modules :bookmark_tabs:
 * **app** - The application module with access to **all the application**
