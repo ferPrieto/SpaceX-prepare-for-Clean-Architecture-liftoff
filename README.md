@@ -50,9 +50,10 @@ The purpose of this project is to consolidate some of the learned insights throu
 [12]: https://github.com/JodaOrg/joda-time
 [13]: https://github.com/pedrovgs/Shot
 
+## Modules :bookmark_tabs:
+
 <img src="/art/SpaceX-Demo.gif" align="right" width="32%"/>
 
-## Modules :bookmark_tabs:
 * **app** - The application module with access to **all the application**
 * **data** - Android module that **can only access domain module**
 * **data-api** - Android module that **can only access data module**
