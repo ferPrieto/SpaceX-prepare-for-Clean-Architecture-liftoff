@@ -113,7 +113,7 @@ I opted to use three types of approaches:
 - `Tests in Isolation`, where it's possible to mock and set any content, UI state, etc. Which allows to emulate very specific edge cases.
 - Screenshot Testing :camera_flash:
 
-In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPatter Medium Article][15]!
+In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPattern Medium Article][15]!
 
 
 [14]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
