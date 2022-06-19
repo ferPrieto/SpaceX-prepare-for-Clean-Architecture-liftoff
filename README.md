@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.0--beta03-blueviolet"/></a>
   <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
-  <a href="https://android-developers.googleblog.com/2022/01/android-studio-bumblebee-202111-stable.html"><img alt="Android Studio Dolphin" src="https://img.shields.io/badge/AS%20Bumblebee-2021.3.1%20Patch%204-9cf.svg"/></a>
+  <a href="https://androidstudio.googleblog.com/2022/05/android-studio-dolphin-beta-1-now.html"><img alt="Android Studio Dolphin" src="https://img.shields.io/badge/AS%20Dolphin-2021.3.1%20Patch%204-9cf.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://app.bitrise.io/app/64cd2ed600a14151"><img alt="Build Status" src="https://app.bitrise.io/app/64cd2ed600a14151/status.svg?token=9eYCKzT6HcFJeAGeZmEH6g&branch=master"/></a>
 </p>
@@ -109,15 +109,15 @@ There are some highlights:
 ### UI Testing (Compose)
 
 I opted to use three types of approaches:
-- MockWebserver, where real connection scenarios are setup. More information in my  [MockWebServer Medium Article][14]!
+- MockWebserver, where real connection scenarios are setup. More information in my  [MockWebServer Medium Article][16]!
 - `Tests in Isolation`, where it's possible to mock and set any content, UI state, etc. Which allows to emulate very specific edge cases.
 - Screenshot Testing :camera_flash:
 
-In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPattern Medium Article][15]!
+In the two first types of tests I used Robot Pattern to improve cleanliness and ease of readability. More information in my [RobotPattern Medium Article][17]!
 
 
-[14]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
-[15]: https://medium.com/proandroiddev/lessons-learned-on-jetpack-compose-ui-testing-robot-pattern-d5e82a9f4efc
+[16]: https://proandroiddev.com/lessons-learned-on-jetpack-compose-ui-testing-mockwebserver-848c262e799c
+[17]: https://medium.com/proandroiddev/lessons-learned-on-jetpack-compose-ui-testing-robot-pattern-d5e82a9f4efc
 
 ## License :oncoming_police_car:
     Copyright 2022 Fernando Prieto Moyano
