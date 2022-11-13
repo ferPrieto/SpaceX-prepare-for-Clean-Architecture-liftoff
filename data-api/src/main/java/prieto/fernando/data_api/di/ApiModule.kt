@@ -2,6 +2,7 @@ package prieto.fernando.data_api.di
 
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -23,16 +24,19 @@ object ApiModule {
         SpaceXRemoteSourceImpl(apiService, companyInfoRepositoryMapper, launchesRepositoryMapper)
 
     @Provides
+    @Reusable
     fun provideCompanyInfoResponseToRepositoryModelMapper(): CompanyInfoResponseToRepositoryModelMapper =
         CompanyInfoResponseToRepositoryModelMapperImpl()
 
     @Provides
+    @Reusable
     fun provideLaunchesResponseToRepositoryModelMapper(
         dateFormatter: DateFormatter
     ): LaunchesResponseToRepositoryModelMapper =
         LaunchesResponseToRepositoryModelMapperImpl(dateFormatter)
 
     @Provides
+    @Reusable
     fun provideDateFormatter(): DateFormatter =
         DateFormatterImpl()
 
@@ -43,6 +47,7 @@ object ApiModule {
 
     @Provides
     @JvmStatic
+    @Reusable
     internal fun provideRetrofit(
         httpBuilder: OkHttpClient.Builder,
         retrofitBuilder: Retrofit.Builder
