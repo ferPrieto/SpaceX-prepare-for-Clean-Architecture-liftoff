@@ -14,8 +14,6 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLivedataKtx}"
         const val lifecycleCompiler =
             "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleLivedataKtx}"
-        const val archViewModel =
-            "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycleLivedataKtx}"
         const val archComponents =
             "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleLivedataKtx}"
         const val browser = "androidx.browser:browser:${Versions.browser}"

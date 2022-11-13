@@ -4,6 +4,7 @@ import prieto.fernando.dependencies.ProjectModules
 plugins {
     id("com.android.library")
     id("prieto.fernando.android.plugin")
+    kotlin("kapt")
 }
 
 dependencies {
@@ -11,7 +12,7 @@ dependencies {
     testImplementation(project(ProjectModules.coreAndroidTest))
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltAndroidCompiler)
 
     implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)
