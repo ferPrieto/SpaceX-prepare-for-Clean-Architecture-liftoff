@@ -13,8 +13,10 @@ import org.junit.Test
 import prieto.fernando.spacex.presentation.screens.base.BaseScreenTest
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
+import prieto.fernando.spacex.presentation.screens.launches.launchesScreenRobot
 import prieto.fernando.spacex.theme.SpaceXTheme
 import prieto.fernando.spacex.webmock.ErrorDispatcher
+import prieto.fernando.spacex.webmock.SuccessDispatcher
 
 @HiltAndroidTest
 class LaunchesScreenScreenshotTests : ScreenshotTest, BaseScreenTest() {
@@ -56,5 +58,18 @@ class LaunchesScreenScreenshotTests : ScreenshotTest, BaseScreenTest() {
         setMainContent()
 
         compareScreenshot(composeTestRule)
+    }
+
+    @Test
+    @InternalCoroutinesApi
+    fun showsDialogAfterFilterIconIsClicked() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        setMainContent()
+
+        launchesScreenRobot(composeTestRule) {
+            clickOnLaunchesTab()
+
+            compareScreenshot(composeTestRule)
+        }
     }
 }
