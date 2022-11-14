@@ -1,7 +1,7 @@
 <h1 align="center">SpaceX prepare for Clean Architecture liftoff:rocket:</h1>
 
 <p align="center">
-  <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.1.0--beta03-blueviolet"/></a>
+  <a href="https://developer.android.com/jetpack/androidx/releases/compose"><img alt="JetpackCompose" src="https://img.shields.io/badge/Jetpack%20Compose-1.2.1-blueviolet"/></a>
   <a href="https://developer.android.com/reference"><img alt="Platform" src="https://img.shields.io/badge/platform-android-brightgreen.svg"/></a>
   <a href="https://androidstudio.googleblog.com/2022/05/android-studio-dolphin-beta-1-now.html"><img alt="Android Studio Dolphin" src="https://img.shields.io/badge/AS%20Dolphin-2021.3.1%20Patch%204-9cf.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
