@@ -7,7 +7,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.presentation.screens.MainScreen
-import prieto.fernando.spacex.theme.SpaceXTheme
+import prieto.fernando.spacex.theme.SpaceX
 
 @AndroidEntryPoint
 class EntryPointActivity : ComponentActivity() {
@@ -16,7 +16,7 @@ class EntryPointActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SpaceXTheme {
+            SpaceX.SpaceXTheme {
                 MainScreen()
             }
         }

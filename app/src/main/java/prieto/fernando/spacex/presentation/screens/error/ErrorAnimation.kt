@@ -1,8 +1,7 @@
-package prieto.fernando.spacex.presentation.screens.common
+package prieto.fernando.spacex.presentation.screens.error
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,9 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.LottieComposition
 import com.airbnb.lottie.compose.LottieAnimation
 import prieto.fernando.spacex.R
-import prieto.fernando.spacex.theme.Dark
-import prieto.fernando.spacex.theme.Light
-import prieto.fernando.spacex.theme.SpaceXTypography
+import prieto.fernando.spacex.theme.SpaceX
 
 @Composable
 fun ErrorAnimation(
@@ -27,12 +24,11 @@ fun ErrorAnimation(
     Box {
         Text(
             text = stringResource(id = R.string.launches_error_occurred),
-            style = SpaceXTypography.h3,
+            style = SpaceX.LocalTypography.current.h3,
             modifier = modifier
                 .padding(top = 40.dp)
                 .align(Alignment.TopCenter),
-            color = if (MaterialTheme.colors.isLight) Light.Accent
-            else Dark.Accent
+            color = SpaceX.LocalColors.current.accent
         )
         LottieAnimation(
             composition = errorComposition,
