@@ -39,9 +39,10 @@ import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
 import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
-import prieto.fernando.spacex.theme.Dark
-import prieto.fernando.spacex.theme.Light
-import prieto.fernando.spacex.theme.SpaceXTypography
+import prieto.fernando.spacex.theme.SpaceX.LocalColors
+import prieto.fernando.spacex.theme.SpaceX.LocalTypography
+import prieto.fernando.spacex.theme.darkSpaceXColors
+import prieto.fernando.spacex.theme.lightSpaceXColors
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
@@ -52,19 +53,19 @@ fun MainScreen() {
 
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(
-        if (MaterialTheme.colors.isLight) Light.StatusBar
-        else Dark.StatusBar
+            if (MaterialTheme.colors.isLight) lightSpaceXColors.statusBar
+            else darkSpaceXColors.statusBar
     )
 
     val bottomNavigationItems = listOf(
-        BottomNavigationScreens.Dashboard,
-        BottomNavigationScreens.Launches
+            BottomNavigationScreens.Dashboard,
+            BottomNavigationScreens.Launches
     )
 
     Scaffold(
-        bottomBar = {
-            BottomNavigation(navController, bottomNavigationItems, Modifier)
-        }
+            bottomBar = {
+                BottomNavigation(navController, bottomNavigationItems, Modifier)
+            }
     ) { innerPadding ->
         MainScreenNavigationConfigurations(navController, innerPadding)
     }
@@ -74,8 +75,8 @@ fun MainScreen() {
 @ExperimentalMaterialApi
 @Composable
 private fun MainScreenNavigationConfigurations(
-    navController: NavHostController,
-    paddingValues: PaddingValues
+        navController: NavHostController,
+        paddingValues: PaddingValues
 ) {
     NavHost(navController, startDestination = BottomNavigationScreens.Dashboard.route) {
         composable(BottomNavigationScreens.Dashboard.route) {
@@ -99,19 +100,19 @@ private fun InitDashboardScreen() {
 private fun InitLaunchesScreen(paddingValues: PaddingValues) {
     val launchesViewModel: LaunchesViewModel = hiltViewModel()
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
-        bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
+            bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
     )
     val coroutineScope = rememberCoroutineScope()
     val youTubeLinkState = remember { mutableStateOf("") }
     val wikipediaLinkState = remember { mutableStateOf("") }
 
     BottomSheet(
-        bottomSheetScaffoldState,
-        coroutineScope,
-        launchesViewModel,
-        paddingValues,
-        youTubeLinkState,
-        wikipediaLinkState
+            bottomSheetScaffoldState,
+            coroutineScope,
+            launchesViewModel,
+            paddingValues,
+            youTubeLinkState,
+            wikipediaLinkState
     )
 }
 
@@ -119,65 +120,65 @@ private fun InitLaunchesScreen(paddingValues: PaddingValues) {
 @ExperimentalMaterialApi
 @Composable
 private fun BottomSheet(
-    bottomSheetScaffoldState: BottomSheetScaffoldState,
-    coroutineScope: CoroutineScope,
-    launchesViewModel: LaunchesViewModel,
-    paddingValues: PaddingValues,
-    youTubeLinkState: MutableState<String>,
-    wikipediaLinkState: MutableState<String>
+        bottomSheetScaffoldState: BottomSheetScaffoldState,
+        coroutineScope: CoroutineScope,
+        launchesViewModel: LaunchesViewModel,
+        paddingValues: PaddingValues,
+        youTubeLinkState: MutableState<String>,
+        wikipediaLinkState: MutableState<String>
 ) {
     BottomSheetScaffold(
-        scaffoldState = bottomSheetScaffoldState,
-        sheetBackgroundColor = if (MaterialTheme.colors.isLight) Light.BottomTrayBackground else Dark.BottomTrayBackground,
-        sheetContent = {
-            BottomSheetContent(
-                youTubeLinkState = youTubeLinkState,
-                wikipediaLinkState = wikipediaLinkState,
-                onEventSent = { event -> launchesViewModel.setEvent(event) }
-            )
-        },
-        sheetPeekHeight = 0.dp,
-        sheetElevation = 8.dp,
-        sheetShape = RoundedCornerShape(
-            topStart = 12.dp,
-            topEnd = 12.dp
-        ),
-        modifier = Modifier
-            .padding(paddingValues)
-            .wrapContentHeight()
+            scaffoldState = bottomSheetScaffoldState,
+            sheetBackgroundColor = LocalColors.current.bottomTrayBackground,
+            sheetContent = {
+                BottomSheetContent(
+                        youTubeLinkState = youTubeLinkState,
+                        wikipediaLinkState = wikipediaLinkState,
+                        onEventSent = { event -> launchesViewModel.setEvent(event) }
+                )
+            },
+            sheetPeekHeight = 0.dp,
+            sheetElevation = 8.dp,
+            sheetShape = RoundedCornerShape(
+                    topStart = 12.dp,
+                    topEnd = 12.dp
+            ),
+            modifier = Modifier
+                    .padding(paddingValues)
+                    .wrapContentHeight()
     ) {
         val context = LocalContext.current
 
         LaunchesScreen(
-            state = launchesViewModel.viewState.value,
-            bottomSheetScaffoldState = bottomSheetScaffoldState,
-            coroutineScope = coroutineScope,
-            onEventSent = { event -> launchesViewModel.setEvent(event) },
-            effectFlow = launchesViewModel.effect,
-            onLinkClicked = { linkClickedEffect ->
-                navigateTo(
-                    context = context,
-                    pageUrl = linkClickedEffect.link
-                )
-            },
-            onClickableLinkRetrieved = { effect ->
-                when (effect) {
-                    is LaunchesContract.Effect.ClickableLink.All -> {
-                        youTubeLinkState.value = effect.youTubeLink
-                        wikipediaLinkState.value = effect.wikipedia
-                    }
-                    is LaunchesContract.Effect.ClickableLink.Youtube ->
-                        youTubeLinkState.value =
-                            effect.youTubeLink
-                    is LaunchesContract.Effect.ClickableLink.Wikipedia ->
-                        wikipediaLinkState.value =
-                            effect.wikipedia
-                    else -> {
-                        youTubeLinkState.value = ""
-                        wikipediaLinkState.value = ""
+                state = launchesViewModel.viewState.value,
+                bottomSheetScaffoldState = bottomSheetScaffoldState,
+                coroutineScope = coroutineScope,
+                onEventSent = { event -> launchesViewModel.setEvent(event) },
+                effectFlow = launchesViewModel.effect,
+                onLinkClicked = { linkClickedEffect ->
+                    navigateTo(
+                            context = context,
+                            pageUrl = linkClickedEffect.link
+                    )
+                },
+                onClickableLinkRetrieved = { effect ->
+                    when (effect) {
+                        is LaunchesContract.Effect.ClickableLink.All -> {
+                            youTubeLinkState.value = effect.youTubeLink
+                            wikipediaLinkState.value = effect.wikipedia
+                        }
+                        is LaunchesContract.Effect.ClickableLink.Youtube ->
+                            youTubeLinkState.value =
+                                    effect.youTubeLink
+                        is LaunchesContract.Effect.ClickableLink.Wikipedia ->
+                            wikipediaLinkState.value =
+                                    effect.wikipedia
+                        else -> {
+                            youTubeLinkState.value = ""
+                            wikipediaLinkState.value = ""
+                        }
                     }
                 }
-            }
         )
     }
 }
@@ -190,75 +191,73 @@ private fun navigateTo(context: Context, pageUrl: String) {
 
 @Composable
 private fun BottomSheetContent(
-    modifier: Modifier = Modifier,
-    youTubeLinkState: MutableState<String>,
-    wikipediaLinkState: MutableState<String>,
-    onEventSent: (event: LaunchesContract.Event) -> Unit
+        modifier: Modifier = Modifier,
+        youTubeLinkState: MutableState<String>,
+        wikipediaLinkState: MutableState<String>,
+        onEventSent: (event: LaunchesContract.Event) -> Unit
 ) {
     Box {
         Row(
-            modifier
-                .align(Alignment.Center)
-                .padding(top = 16.dp, bottom = 16.dp)
+                modifier
+                        .align(Alignment.Center)
+                        .padding(top = 16.dp, bottom = 16.dp)
         ) {
             if (youTubeLinkState.value.isNotBlank()) {
                 Text(
-                    text = stringResource(id = R.string.bottom_sheet_youtube),
-                    modifier = Modifier
-                        .padding(start = 24.dp, end = 16.dp)
-                        .align(Alignment.CenterVertically)
-                        .clickable { onEventSent(LaunchesContract.Event.LinkClicked(youTubeLinkState.value)) },
-                    style = SpaceXTypography.button,
-                    color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
-                    else Dark.TextColorPrimary
+                        text = stringResource(id = R.string.bottom_sheet_youtube),
+                        modifier = Modifier
+                                .padding(start = 24.dp, end = 16.dp)
+                                .align(Alignment.CenterVertically)
+                                .clickable { onEventSent(LaunchesContract.Event.LinkClicked(youTubeLinkState.value)) },
+                        style = LocalTypography.current.button,
+                        color = LocalColors.current.textColorPrimary
                 )
                 Image(
-                    painter = painterResource(R.drawable.ic_youtube),
-                    contentDescription = "YouTube Icon",
-                    modifier = modifier
-                        .align(Alignment.CenterVertically)
-                        .clickable { onEventSent(LaunchesContract.Event.LinkClicked(youTubeLinkState.value)) }
+                        painter = painterResource(R.drawable.ic_youtube),
+                        contentDescription = "YouTube Icon",
+                        modifier = modifier
+                                .align(Alignment.CenterVertically)
+                                .clickable { onEventSent(LaunchesContract.Event.LinkClicked(youTubeLinkState.value)) }
                 )
             }
             if (youTubeLinkState.value.isNotBlank() && wikipediaLinkState.value.isNotBlank()) {
                 Divider(
-                    color = if (MaterialTheme.colors.isLight) Light.TextColorSecondary else Dark.TextColorSecondary,
-                    modifier = modifier
-                        .padding(end = 16.dp, start = 16.dp)
-                        .width(1.dp)
-                        .height(24.dp)
-                        .align(Alignment.CenterVertically)
+                        color = LocalColors.current.textColorSecondary,
+                        modifier = modifier
+                                .padding(end = 16.dp, start = 16.dp)
+                                .width(1.dp)
+                                .height(24.dp)
+                                .align(Alignment.CenterVertically)
                 )
             }
             if (wikipediaLinkState.value.isNotBlank()) {
                 Text(
-                    text = stringResource(id = R.string.bottom_sheet_wikipedia),
-                    modifier = Modifier
-                        .padding(end = 16.dp)
-                        .align(Alignment.CenterVertically)
-                        .clickable {
-                            onEventSent(
-                                LaunchesContract.Event.LinkClicked(
-                                    wikipediaLinkState.value
-                                )
-                            )
-                        },
-                    style = SpaceXTypography.button,
-                    color = if (MaterialTheme.colors.isLight) Light.TextColorPrimary
-                    else Dark.TextColorPrimary
+                        text = stringResource(id = R.string.bottom_sheet_wikipedia),
+                        modifier = Modifier
+                                .padding(end = 16.dp)
+                                .align(Alignment.CenterVertically)
+                                .clickable {
+                                    onEventSent(
+                                            LaunchesContract.Event.LinkClicked(
+                                                    wikipediaLinkState.value
+                                            )
+                                    )
+                                },
+                        style = LocalTypography.current.button,
+                        color = LocalColors.current.textColorPrimary
                 )
                 Image(
-                    painter = painterResource(R.drawable.ic_wikipedia),
-                    contentDescription = "Wikipedia Icon",
-                    modifier = modifier
-                        .align(Alignment.CenterVertically)
-                        .clickable {
-                            onEventSent(
-                                LaunchesContract.Event.LinkClicked(
-                                    wikipediaLinkState.value
-                                )
-                            )
-                        }
+                        painter = painterResource(R.drawable.ic_wikipedia),
+                        contentDescription = "Wikipedia Icon",
+                        modifier = modifier
+                                .align(Alignment.CenterVertically)
+                                .clickable {
+                                    onEventSent(
+                                            LaunchesContract.Event.LinkClicked(
+                                                    wikipediaLinkState.value
+                                            )
+                                    )
+                                }
                 )
             }
         }
@@ -267,13 +266,12 @@ private fun BottomSheetContent(
 
 @Composable
 private fun BottomNavigation(
-    navController: NavHostController,
-    items: List<BottomNavigationScreens>,
-    modifier: Modifier = Modifier
+        navController: NavHostController,
+        items: List<BottomNavigationScreens>,
+        modifier: Modifier = Modifier
 ) {
     BottomNavigation(
-        backgroundColor = if (MaterialTheme.colors.isLight) Light.BottomNavBackground
-        else Dark.BottomNavBackground
+            backgroundColor = LocalColors.current.bottomNavBackground
     ) {
         val currentRoute = currentRoute(navController)
         items.forEach { screen ->
@@ -284,10 +282,10 @@ private fun BottomNavigation(
 
 @Composable
 private fun RowScope.BottomTab(
-    modifier: Modifier,
-    screen: BottomNavigationScreens,
-    currentRoute: String?,
-    navController: NavHostController
+        modifier: Modifier,
+        screen: BottomNavigationScreens,
+        currentRoute: String?,
+        navController: NavHostController
 ) {
     val onClick: () -> Unit = {
         if (currentRoute != screen.route) {
@@ -295,87 +293,82 @@ private fun RowScope.BottomTab(
         }
     }
     BottomNavigationItem(
-        icon = {
-            AnimatableIcon(
-                modifier = modifier,
-                screen = screen,
-                scale = if (currentRoute == screen.route) 1.2f else 1f,
-                color = getTabColour(currentRoute == screen.route),
-                onClick = onClick
-            )
-        },
-        label = {
-            AnimatableText(
-                screen = screen,
-                color = getTabColour(currentRoute == screen.route)
-            )
-        },
-        selected = currentRoute == screen.route,
-        onClick = onClick
+            icon = {
+                AnimatableIcon(
+                        modifier = modifier,
+                        screen = screen,
+                        scale = if (currentRoute == screen.route) 1.2f else 1f,
+                        color = getTabColour(currentRoute == screen.route),
+                        onClick = onClick
+                )
+            },
+            label = {
+                AnimatableText(
+                        screen = screen,
+                        color = getTabColour(currentRoute == screen.route)
+                )
+            },
+            selected = currentRoute == screen.route,
+            onClick = onClick
     )
 }
 
 @Composable
 private fun getTabColour(selected: Boolean) =
-    if (selected) {
-        if (MaterialTheme.colors.isLight) Light.SelectedTab
-        else Dark.SelectedTab
-    } else {
-        if (MaterialTheme.colors.isLight) Light.UnselectedTab
-        else Dark.UnselectedTab
-    }
+        if (selected) LocalColors.current.selectedTab
+        else LocalColors.current.unselectedTab
 
 @Composable
 private fun AnimatableIcon(
-    modifier: Modifier,
-    screen: BottomNavigationScreens,
-    iconSize: Dp = 24.dp,
-    scale: Float = 1f,
-    color: Color,
-    onClick: () -> Unit
+        modifier: Modifier,
+        screen: BottomNavigationScreens,
+        iconSize: Dp = 24.dp,
+        scale: Float = 1f,
+        color: Color,
+        onClick: () -> Unit
 ) {
     val animatedScale: Float by animateFloatAsState(
-        targetValue = scale,
-        animationSpec = TweenSpec(
-            durationMillis = 200,
-            easing = FastOutSlowInEasing
-        )
+            targetValue = scale,
+            animationSpec = TweenSpec(
+                    durationMillis = 200,
+                    easing = FastOutSlowInEasing
+            )
     )
     val animatedColor by animateColorAsState(
-        targetValue = color,
-        animationSpec = TweenSpec(
-            durationMillis = 200,
-            easing = FastOutSlowInEasing
-        )
+            targetValue = color,
+            animationSpec = TweenSpec(
+                    durationMillis = 200,
+                    easing = FastOutSlowInEasing
+            )
     )
     IconButton(
-        modifier = modifier.size(iconSize),
-        onClick = onClick
+            modifier = modifier.size(iconSize),
+            onClick = onClick
     ) {
         Icon(
-            painterResource(screen.drawableRes),
-            stringResource(id = screen.resourceId),
-            tint = animatedColor,
-            modifier = modifier.scale(animatedScale)
+                painterResource(screen.drawableRes),
+                stringResource(id = screen.resourceId),
+                tint = animatedColor,
+                modifier = modifier.scale(animatedScale)
         )
     }
 }
 
 @Composable
 private fun AnimatableText(
-    screen: BottomNavigationScreens,
-    color: Color
+        screen: BottomNavigationScreens,
+        color: Color
 ) {
     val animatedColor by animateColorAsState(
-        targetValue = color,
-        animationSpec = TweenSpec(
-            durationMillis = 200,
-            easing = FastOutSlowInEasing
-        )
+            targetValue = color,
+            animationSpec = TweenSpec(
+                    durationMillis = 200,
+                    easing = FastOutSlowInEasing
+            )
     )
     Text(
-        text = stringResource(id = screen.resourceId),
-        color = animatedColor
+            text = stringResource(id = screen.resourceId),
+            color = animatedColor
     )
 }
 
