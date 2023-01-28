@@ -11,16 +11,16 @@ object SpaceX {
 
     @Composable
     fun SpaceXTheme(
-            isDarkMode: Boolean = isSystemInDarkTheme(),
-            content: @Composable () -> Unit
+        isDarkMode: Boolean = isSystemInDarkTheme(),
+        content: @Composable () -> Unit
     ) {
         val colors = if (isDarkMode) darkSpaceXColors else lightSpaceXColors
         val typography = SpaceXTypography(colors)
 
         CompositionLocalProvider(
-                LocalColors provides colors,
-                LocalTypography provides typography,
-                content = content
+            LocalColors provides colors,
+            LocalTypography provides typography,
+            content = content
         )
     }
 }
