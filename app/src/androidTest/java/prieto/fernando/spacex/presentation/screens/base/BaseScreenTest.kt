@@ -11,7 +11,7 @@ import org.junit.Rule
 import prieto.fernando.spacex.BuildConfig
 import prieto.fernando.spacex.presentation.EntryPointActivity
 import prieto.fernando.spacex.presentation.screens.MainScreen
-import prieto.fernando.spacex.theme.SpaceXTheme
+import prieto.fernando.spacex.theme.SpaceX.SpaceXTheme
 
 open class BaseScreenTest {
     @get:Rule

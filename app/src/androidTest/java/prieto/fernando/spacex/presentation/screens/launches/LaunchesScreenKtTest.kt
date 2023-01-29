@@ -5,7 +5,6 @@ import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.test.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -13,7 +12,7 @@ import kotlinx.coroutines.flow.flow
 import org.junit.Test
 import org.junit.runner.RunWith
 import prieto.fernando.spacex.presentation.screens.base.BaseScreenTest
-import prieto.fernando.spacex.theme.SpaceXTheme
+import prieto.fernando.spacex.theme.SpaceX.SpaceXTheme
 import prieto.fernando.spacex.webmock.ErrorDispatcher
 import prieto.fernando.spacex.webmock.SuccessDispatcher
 

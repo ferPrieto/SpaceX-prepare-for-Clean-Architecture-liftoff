@@ -17,7 +17,7 @@ object Versions {
     const val hilt = "2.44"
     const val hiltVM = "1.0.0-alpha03"
     const val hiltTest = "2.37"
-    const val androidxTest = "1.2.0"
+    const val androidxTest = "1.5.0"
     const val espresso = "3.4.0"
     const val androidxJunit = "1.1.1"
     const val junit = "4.13.1"
@@ -37,5 +37,5 @@ object Versions {
     const val ktlint = "0.43.1"
     const val mockWebServer = "4.9.0"
     const val browser = "1.0.0"
-    const val kotlinxCoroutines = "1.5.2"
+    const val kotlinxCoroutines = "1.6.4"
 }

@@ -52,6 +52,7 @@ class LaunchesScreenScreenshotTests : ScreenshotTest, BaseScreenTest() {
         }
     }
 
+    @OptIn(ExperimentalMaterialApi::class)
     @Test
     @InternalCoroutinesApi
     fun errorTextVisibleWhenConnectionError() {
@@ -61,6 +62,7 @@ class LaunchesScreenScreenshotTests : ScreenshotTest, BaseScreenTest() {
         compareScreenshot(composeTestRule)
     }
 
+    @OptIn(ExperimentalMaterialApi::class)
     @Test
     @InternalCoroutinesApi
     fun showsDialogAfterFilterIconIsClicked() {
