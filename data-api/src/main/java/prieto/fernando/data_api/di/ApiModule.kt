@@ -9,7 +9,12 @@ import okhttp3.OkHttpClient
 import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data_api.ApiService
 import prieto.fernando.data_api.data.SpaceXRemoteSourceImpl
-import prieto.fernando.data_api.mapper.*
+import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapper
+import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMapperImpl
+import prieto.fernando.data_api.mapper.DateFormatter
+import prieto.fernando.data_api.mapper.DateFormatterImpl
+import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
+import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapperImpl
 import retrofit2.Retrofit
 
 @Module
