@@ -107,3 +107,26 @@ dependencies {
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
 }
 
+detekt {
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = false 
+    config = files("$projectDir/config/detekt.yml")  
+    baseline = file("$projectDir/config/baseline.xml") 
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(true) 
+        txt.required.set(false) 
+        sarif.required.set(false) 
+        md.required.set(true) // simple Markdown format
+    }
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "1.8"
+}
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "1.8"
+}
