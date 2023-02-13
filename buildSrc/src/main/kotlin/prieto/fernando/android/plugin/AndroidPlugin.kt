@@ -41,7 +41,7 @@ open class AndroidPlugin : Plugin<Project> {
             versionCode = 1
             versionName = "1.0"
 
-            testInstrumentationRunner =  "prieto.fernando.spacex.webmock.MockTestRunner"
+            testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
 
             packagingOptions {
                 resources.excludes.addAll(

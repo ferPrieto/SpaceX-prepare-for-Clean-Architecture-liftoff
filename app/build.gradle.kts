@@ -9,6 +9,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("shot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
 androidPlugin {
@@ -101,3 +102,4 @@ dependencies {
     kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
 }
+
