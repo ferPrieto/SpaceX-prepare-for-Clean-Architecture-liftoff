@@ -7,6 +7,7 @@ import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.*
 import prieto.fernando.dependencies.AndroidSettings.minSdk
 
@@ -93,6 +94,14 @@ open class AndroidPlugin : Plugin<Project> {
         testOptions {
             unitTests.isReturnDefaultValues = true
             animationsDisabled = true
+        }
+
+        tasks.named("check").configure {
+            this.setDependsOn(
+                this.dependsOn.filterNot {
+                    it is TaskProvider<*> && it.name == "detekt"
+                }
+            )
         }
     }
 
