@@ -17,7 +17,7 @@ object Versions {
     const val hilt = "2.44"
     const val hiltVM = "1.0.0-alpha03"
     const val hiltTest = "2.37"
-    const val androidxTest = "1.5.0"
+    const val androidxTest = "1.4.0"
     const val espresso = "3.4.0"
     const val androidxJunit = "1.1.1"
     const val junit = "4.13.1"
