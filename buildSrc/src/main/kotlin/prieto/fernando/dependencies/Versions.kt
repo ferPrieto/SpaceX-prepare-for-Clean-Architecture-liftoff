@@ -28,7 +28,7 @@ object Versions {
     const val timber = "4.7.1"
     const val lottie = "4.2.0"
     const val lottieCompose = "4.2.1"
-    const val coreTesting = "1.1.1"
+    const val coreTesting = "2.1.0" // 2.1.0 Doesn't find TaskExecutorRule
     const val retrofit = "2.6.2"
     const val retrofitConverterGson = "2.4.0"
     const val okhttpLoggingInterceptor = "4.9.1"
