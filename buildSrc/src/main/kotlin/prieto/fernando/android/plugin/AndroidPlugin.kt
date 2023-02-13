@@ -8,6 +8,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.*
+import prieto.fernando.dependencies.AndroidSettings.minSdk
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -40,6 +41,7 @@ open class AndroidPlugin : Plugin<Project> {
         defaultConfig {
             versionCode = 1
             versionName = "1.0"
+            minSdk = AndroidSettings.minSdk
 
             testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
 
@@ -70,6 +72,11 @@ open class AndroidPlugin : Plugin<Project> {
             buildTypes {
                 getByName("debug") {
                     isDebuggable = true
+                    // AGP 7.3+
+                    enableAndroidTestCoverage = true
+                    enableUnitTestCoverage = true
+                    // AGP before 7.3
+                    isTestCoverageEnabled = true
                     buildConfigField("Integer", "PORT", "8080")
                 }
                 getByName("release") {

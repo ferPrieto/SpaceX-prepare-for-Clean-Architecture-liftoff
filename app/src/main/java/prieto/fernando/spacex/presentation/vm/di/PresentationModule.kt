@@ -5,7 +5,13 @@ import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import prieto.fernando.spacex.presentation.vm.mapper.*
+import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
+import prieto.fernando.spacex.presentation.vm.mapper.CompanyInfoDomainToUiModelMapperImpl
+import prieto.fernando.spacex.presentation.vm.mapper.DateTimeProvider
+import prieto.fernando.spacex.presentation.vm.mapper.DateTransformer
+import prieto.fernando.spacex.presentation.vm.mapper.DateTransformerImpl
+import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapper
+import prieto.fernando.spacex.presentation.vm.mapper.LaunchesDomainToUiModelMapperImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
