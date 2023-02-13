@@ -110,8 +110,6 @@ dependencies {
 detekt {
     buildUponDefaultConfig = true // preconfigure defaults
     allRules = false 
-    config = files("$projectDir/config/detekt.yml")  
-    baseline = file("$projectDir/config/baseline.xml") 
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
