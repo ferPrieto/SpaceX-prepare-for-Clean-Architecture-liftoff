@@ -3,7 +3,6 @@ package prieto.fernando.domain.usecase
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

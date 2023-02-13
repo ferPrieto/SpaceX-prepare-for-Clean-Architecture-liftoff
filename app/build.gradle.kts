@@ -34,6 +34,10 @@ android {
     buildTypes {
         getByName("debug") {
             isDebuggable = true
+            // AGP 7.3+
+            enableAndroidTestCoverage = true
+            enableUnitTestCoverage = true
+            // AGP before 7.3
             isTestCoverageEnabled = true
             buildConfigField("Integer", "PORT", "8080")
         }

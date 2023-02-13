@@ -17,7 +17,7 @@ object TestDependencies {
         const val junit =
             "androidx.test.ext:junit:${Versions.androidxJunit}"
         const val coreTesting =
-            "android.arch.core:core-testing:${Versions.coreTesting}"
+            "androidx.arch.core:core-testing:${Versions.coreTesting}"
 
 
         const val composeUiTest =

@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.system.Os
 import androidx.test.runner.AndroidJUnitRunner
+import com.karumi.shot.AndroidStorageInfo
 import com.karumi.shot.compose.ComposeScreenshotRunner
 import dagger.hilt.android.testing.HiltTestApplication
-import com.karumi.shot.AndroidStorageInfo
 
 class MockAndShotTestRunner : AndroidJUnitRunner() {
     override fun onCreate(arguments: Bundle?) {
