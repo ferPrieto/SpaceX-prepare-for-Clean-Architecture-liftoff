@@ -29,7 +29,8 @@ open class AndroidPlugin : Plugin<Project> {
             BuildType.AndroidLibrary, BuildType.App -> androidPlugins()
             BuildType.Library -> listOf("kotlin")
         },
-        listOf("kotlin-kapt")
+        listOf("kotlin-kapt"),
+        listOf("io.gitlab.arturbosch.detekt")
     ).flatten()
         .also { println("AndroidPlugin: applying plugins $it") }
         .forEach(plugins::apply)

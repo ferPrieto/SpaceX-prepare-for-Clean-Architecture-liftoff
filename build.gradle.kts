@@ -13,6 +13,7 @@ buildscript {
 
 plugins {
     id("nl.neotech.plugin.rootcoverage") version "1.6.0"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
 allprojects {
@@ -28,7 +29,6 @@ allprojects {
 task("clean") {
     delete(rootProject.buildDir)
 }
-
 
 rootCoverage {
     // The default build variant for every module
