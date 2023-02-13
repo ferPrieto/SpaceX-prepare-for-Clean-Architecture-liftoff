@@ -109,23 +109,25 @@ dependencies {
 
 detekt {
     buildUponDefaultConfig = true // preconfigure defaults
-    allRules = false 
+    allRules = false
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     reports {
         html.required.set(true)
-        xml.required.set(true) 
-        txt.required.set(false) 
-        sarif.required.set(false) 
+        xml.required.set(true)
+        txt.required.set(false)
+        sarif.required.set(false)
         md.required.set(true) // simple Markdown format
     }
 }
 
 tasks.named("check").configure {
-    this.setDependsOn(this.dependsOn.filterNot {
-        it is TaskProvider<*> && it.name == "detekt"
-    })
+    this.setDependsOn(
+        this.dependsOn.filterNot {
+            it is TaskProvider<*> && it.name == "detekt"
+        }
+    )
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
