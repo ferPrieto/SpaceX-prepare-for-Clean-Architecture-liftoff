@@ -73,7 +73,7 @@ rootCoverage {
     // Since 1.1 generateHtml is by default true
     generateCsv = false
     generateHtml = true
-    generateXml = false
+    generateXml = true
 
     // Since 1.2: When false the plugin does not execute any tests, useful when you run the tests manually or remote (Firebase Test Lab)
     executeTests = true
