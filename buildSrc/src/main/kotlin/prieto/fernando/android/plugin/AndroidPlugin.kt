@@ -7,6 +7,7 @@ import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.*
 import prieto.fernando.dependencies.AndroidSettings.minSdk
 
@@ -29,7 +30,8 @@ open class AndroidPlugin : Plugin<Project> {
             BuildType.AndroidLibrary, BuildType.App -> androidPlugins()
             BuildType.Library -> listOf("kotlin")
         },
-        listOf("kotlin-kapt")
+        listOf("kotlin-kapt"),
+        listOf("io.gitlab.arturbosch.detekt")
     ).flatten()
         .also { println("AndroidPlugin: applying plugins $it") }
         .forEach(plugins::apply)
@@ -43,7 +45,7 @@ open class AndroidPlugin : Plugin<Project> {
             versionName = "1.0"
             minSdk = AndroidSettings.minSdk
 
-            testInstrumentationRunner =  "prieto.fernando.spacex.webmock.MockTestRunner"
+            testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockTestRunner"
 
             packagingOptions {
                 resources.excludes.addAll(
@@ -92,6 +94,14 @@ open class AndroidPlugin : Plugin<Project> {
         testOptions {
             unitTests.isReturnDefaultValues = true
             animationsDisabled = true
+        }
+
+        tasks.named("check").configure {
+            this.setDependsOn(
+                this.dependsOn.filterNot {
+                    it is TaskProvider<*> && it.name == "detekt"
+                }
+            )
         }
     }
 

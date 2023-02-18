@@ -9,6 +9,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("shot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
 androidPlugin {
@@ -104,4 +105,34 @@ dependencies {
     androidTestImplementation(TestDependencies.Hilt.androidTesting)
     kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
     androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
+}
+
+detekt {
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = false
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+        txt.required.set(false)
+        sarif.required.set(false)
+        md.required.set(true) // simple Markdown format
+    }
+}
+
+tasks.named("check").configure {
+    this.setDependsOn(
+        this.dependsOn.filterNot {
+            it is TaskProvider<*> && it.name == "detekt"
+        }
+    )
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "1.8"
+}
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "1.8"
 }

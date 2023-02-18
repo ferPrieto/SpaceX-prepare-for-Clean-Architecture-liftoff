@@ -13,6 +13,7 @@ buildscript {
 
 plugins {
     id("nl.neotech.plugin.rootcoverage") version "1.6.0"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
 allprojects {
@@ -21,13 +22,13 @@ allprojects {
         google()
         jcenter()
         maven("https://oss.sonatype.org/content/repositories/snapshots/")
+        mavenCentral()
     }
 }
 
 task("clean") {
     delete(rootProject.buildDir)
 }
-
 
 rootCoverage {
     // The default build variant for every module
@@ -72,7 +73,7 @@ rootCoverage {
     // Since 1.1 generateHtml is by default true
     generateCsv = false
     generateHtml = true
-    generateXml = false
+    generateXml = true
 
     // Since 1.2: When false the plugin does not execute any tests, useful when you run the tests manually or remote (Firebase Test Lab)
     executeTests = true
