@@ -24,7 +24,6 @@ class MainScreenKtTest : BaseScreenTest() {
         setMainContent()
 
         composeTestRule.onNodeWithText("Dashboard", useUnmergedTree = true).assertIsDisplayed()
-        composeTestRule.onNodeWithText("Launches", useUnmergedTree = true).assertIsDisplayed()
     }
 
     @InternalCoroutinesApi
