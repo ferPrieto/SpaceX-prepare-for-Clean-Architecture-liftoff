@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">이 항목은 접근성과 관련하여 중요한 항목이 아닙니다.</string>
+  
+  <string name="result_message_no_content_desc">이 항목에는 &lt;tt&gt;android:contentDescription&lt;/tt&gt;이(가) 없습니다.</string>
+  
+  <string name="result_message_not_visible">이 항목은 화면에 표시되지 않습니다.</string>
+  
+  <string name="result_message_not_enabled">이 항목은 사용 설정되지 않았습니다.</string>
+  
+  <string name="result_message_not_text_view">이 항목은 &lt;tt&gt;TextView&lt;/tt&gt;이(가) 아닙니다.</string>
+  
+  <string name="result_message_no_screencapture">화면 캡처 데이터를 가져오지 못했습니다.</string>
+  
+  <string name="result_message_view_not_within_screencapture">이 항목의 화면 위치(&lt;tt&gt;%1$s&lt;/tt&gt;)가 화면 캡처의 화면 위치(&lt;tt&gt;%2$s&lt;/tt&gt;)를 벗어났습니다.</string>
+  
+  <string name="result_message_screencapture_data_hidden">이 항목의 화면 캡처 정보가 숨겨져 있습니다.</string>
+  
+  <string name="result_message_screencapture_uniform_color">화면 캡처의 색상이 균일합니다.</string>
+  
+  <string name="clickable">클릭 가능</string>
+  
+  <string name="non_clickable">클릭 불가능</string>
+  
+  <string name="long_clickable">길게 클릭 가능</string>
+  
+  <string name="clickable_and_long_clickable">클릭 가능, 길게 클릭 가능</string>
+  
+  <string name="actionable">작업 가능</string>
+  
+  <string name="result_message_sdk_version_not_applicable">이 검사는 Android 버전 %1$s 이상을 실행하는 기기에는 적용되지 않습니다.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">화면의 다른 요소가 이 항목을 가린 것일 수 있습니다. 이 항목의 대비를 직접 테스트해 보세요.</string>
+  
+  <string name="check_title_clickablespan">링크</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">이 항목의 유형을 알 수 없습니다.</string>
+  
+  <string name="result_message_urlspan_invalid_url">이 항목의 &lt;tt&gt;URLSpan&lt;/tt&gt;에 포함된 URL이 올바른지 확인하세요.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">이 항목은 &lt;tt&gt;ClickableSpan&lt;/tt&gt; 대신 &lt;tt&gt;URLSpan&lt;/tt&gt;을(를) 사용해야 합니다.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">클릭 가능한 항목</string>
+  
+  <string name="result_message_brief_same_view_bounds">여러 %1$s 항목이 화면에서 이 위치를 공유합니다.</string>
+  
+  <string name="result_message_same_view_bounds">이 %1$s 항목의 화면 위치(&lt;tt&gt;%2$s&lt;/tt&gt;)가 이러한 속성을 갖는 다른 항목 %3$d개와 동일합니다.</string>
+  
+  <string name="result_message_view_bounds">이 %1$s 항목의 화면 위치도 &lt;tt&gt;%2$s&lt;/tt&gt;입니다.</string>
+  
+  <string name="check_title_duplicate_speakable_text">항목 설명</string>
+  
+  <string name="result_message_brief_same_speakable_text">여러 항목의 설명이 동일합니다.</string>
+  
+  <string name="result_message_same_speakable_text">이 %1$s 항목의 발음 가능 텍스트(\'&lt;tt&gt;%2$s&lt;/tt&gt;\')가 다른 항목 %3$d개와 동일합니다.</string>
+  
+  <string name="result_message_speakable_text">이 %1$s 항목의 발음 가능 텍스트도 \'&lt;tt&gt;%2$s&lt;/tt&gt;\'입니다.</string>
+  
+  <string name="check_title_editable_content_desc">수정 가능한 항목 라벨</string>
+  
+  <string name="result_message_editable_textview_content_desc">이 수정 가능한 &lt;tt&gt;TextView&lt;/tt&gt;에 &lt;tt&gt;android:contentDescription&lt;/tt&gt;이(가) 있습니다. 사용자가 탐색할 때 스크린 리더가 수정 가능한 콘텐츠 대신 이 속성을 읽을 수 있습니다.</string>
+  
+  <string name="result_message_not_editable_textview">이 항목은 수정 가능한 &lt;tt&gt;TextView&lt;/tt&gt;이(가) 아닙니다.</string>
+  
+  <string name="check_title_image_contrast">이미지 대비</string>
+  
+  <string name="result_message_not_imageview">이 항목은 &lt;tt&gt;ImageView&lt;/tt&gt;이(가) 아닙니다.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">이미지의 전경과 배경 사이의 대비율을 늘려보세요.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">이미지의 대비율이 %1$.2f입니다. 이 비율은 예상 전경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt; 및 예상 배경 색상 &lt;tt&gt;#%4$06X&lt;/tt&gt;에 기반한 수치입니다. 이 비율을 %2$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">이미지의 대비율이 %1$.2f입니다. 이 대비율은 제공된 전경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt; 및 제공된 배경 색상 &lt;tt&gt;#%4$06X&lt;/tt&gt;에 기반한 수치입니다. 대비율을 %2$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">이미지의 대비율이 %1$.2f입니다. 이 비율은 예상 전경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt; 및 예상 배경 색상 &lt;tt&gt;#%4$06X&lt;/tt&gt;에 기반한 수치입니다. 이 값을 구성 비율인 %2$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">이미지의 대비율이 %1$.2f입니다. 이 대비율은 제공된 전경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt; 및 제공된 배경 색상 &lt;tt&gt;#%4$06X&lt;/tt&gt;에 기반한 수치입니다. 대비율을 구성 비율인 %2$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="check_title_redundant_description">항목 유형 라벨</string>
+  
+  <string name="result_message_english_locale_only">이 검사는 언어가 영어로 설정된 기기에서만 실행됩니다.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">이 항목의 &lt;tt&gt;android:contentDescription&lt;/tt&gt;에 불필요한 텍스트가 포함되었을 수 있습니다.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">이 항목의 &lt;tt&gt;android:contentDescription&lt;/tt&gt;인 \'&lt;tt&gt;%1$s&lt;/tt&gt;\'이(가) 항목의 유형으로 끝납니다.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">이 항목의 &lt;tt&gt;android:contentDescription&lt;/tt&gt;인 \'&lt;tt&gt;%1$s&lt;/tt&gt;\'에 \'&lt;tt&gt;%2$s&lt;/tt&gt;\' 항목 유형이 포함됩니다.</string>
+  
+  <string name="result_message_content_desc_contains_action">이 항목의 &lt;tt&gt;android:contentDescription&lt;/tt&gt; 속성
+    \'&lt;tt&gt;%1$s&lt;/tt&gt;\'에
+    \'&lt;tt&gt;%2$s&lt;/tt&gt;\' 작업이 포함되어 있습니다.</string>
+  
+  <string name="result_message_content_desc_contains_state">이 항목의 &lt;tt&gt;android:contentDescription&lt;/tt&gt; 속성
+    \'&lt;tt&gt;%1$s&lt;/tt&gt;\'에
+    \'&lt;tt&gt;%2$s&lt;/tt&gt;\' 상태가 포함되어 있습니다.</string>
+  
+  <string name="button_item_type">버튼</string>
+  
+  <string name="checkbox_item_type">체크박스</string>
+  
+  <string name="checkbox_item_type_separate_words">체크박스</string>
+  
+  <string name="checked_state">선택됨</string>
+  
+  <string name="unchecked_state">선택 해제됨</string>
+  
+  <string name="selected_state">선택됨</string>
+  
+  <string name="unselected_state">선택 해제됨</string>
+  
+  <string name="click_action">클릭</string>
+  
+  <string name="swipe_action">스와이프</string>
+  
+  <string name="tap_action">탭</string>
+  
+  <string name="check_title_speakable_text_present">항목 라벨</string>
+  
+  <string name="result_message_should_not_focus">스크린 리더로 초점을 맞출 수 없는 항목입니다.</string>
+  
+  <string name="result_message_web_content">웹 콘텐츠가 평가되지 않았습니다.</string>
+  
+  <string name="result_message_missing_speakable_text">이 항목에 스크린 리더가 읽을 수 있는 라벨이 없습니다.</string>
+  
+  <string name="check_title_text_contrast">텍스트 대비</string>
+  
+  <string name="result_message_textview_empty">이 &lt;tt&gt;TextView&lt;/tt&gt;에 내용이 없습니다.</string>
+  
+  <string name="result_message_could_not_get_text_color">이 항목의 텍스트 색상을 알 수 없습니다.</string>
+  
+  <string name="result_message_could_not_get_background_color">이 항목의 배경 색상을 알 수 없습니다.</string>
+  
+  <string name="result_message_text_must_be_opaque">이 항목의 텍스트 색상이 불투명하지 않습니다.</string>
+  
+  <string name="result_message_background_must_be_opaque">이 항목의 배경 색상이 불투명하지 않습니다.</string>
+  
+  <string name="result_message_addendum_opacity_description">실제 불투명도가 %1$.2f%%입니다.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">이 항목의 텍스트 전경과 배경의 대비율을 늘려보세요.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">항목의 텍스트 대비율이 %1$.2f입니다. 이 비율은 텍스트 색상 &lt;tt&gt;#%2$06X&lt;/tt&gt; 및 배경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt;에 기반한 수치입니다. 이 항목의 텍스트 대비율을 %4$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">항목의 텍스트 대비율이 %1$.2f입니다. 이 비율은 예상 전경 색상 &lt;tt&gt;#%2$06X&lt;/tt&gt; 및 예상 배경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt;에 기반한 수치입니다. 대비율을 작은 텍스트에서는 %4$.2f 이상, 큰 텍스트에서는 %5$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">항목의 텍스트 대비율이 %1$.2f입니다. 이 비율은 제공된 전경 색상 &lt;tt&gt;#%2$06X&lt;/tt&gt; 및 제공된 배경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt;에 기반한 수치입니다. 대비율을 작은 텍스트에서는 %4$.2f 이상, 큰 텍스트에서는 %5$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">항목의 텍스트 대비율이 %1$.2f입니다. 이 비율은 예상 전경 색상 &lt;tt&gt;#%2$06X&lt;/tt&gt; 및 예상 배경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt;에 기반한 수치입니다. 이 항목의 텍스트 대비율을 구성 비율인 %4$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">항목의 텍스트 대비율이 %1$.2f입니다. 이 비율은 제공된 전경 색상 &lt;tt&gt;#%2$06X&lt;/tt&gt; 및 제공된 배경 색상 &lt;tt&gt;#%3$06X&lt;/tt&gt;에 기반한 수치입니다. 이 항목의 텍스트 대비율을 구성 비율인 %4$.2f 이상으로 늘려보세요.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">전경 및 배경 색상이 올바르게 감지되었나요?</string>
+  
+  <string name="question_option_message_both_correct">모두 올바릅니다.</string>
+  
+  <string name="question_option_message_foreground_incorrect">전경이 잘못되었습니다.</string>
+  
+  <string name="question_option_message_background_incorrect">배경이 잘못되었습니다.</string>
+  
+  <string name="question_option_message_both_incorrect">전경 및 배경이 잘못되었습니다.</string>
+  
+  <string name="question_option_message_unknown">알 수 없습니다.</string>
+  
+  <string name="question_id_message_provide_foreground_color">올바른 전경 색상은 무엇인가요?</string>
+  
+  <string name="question_id_message_provide_background_color">올바른 배경 색상은 무엇인가요?</string>
+  
+  <string name="check_title_touch_target_size">터치할 대상</string>
+  
+  <string name="result_message_not_clickable">이 보기는 클릭 가능하지 않습니다.</string>
+  
+  <string name="result_message_brief_small_touch_target">이 클릭 가능 항목을 확대해 보세요.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">이 항목의 크기가 &lt;tt&gt;%1$ddp&lt;/tt&gt;x&lt;tt&gt;%2$ddp&lt;/tt&gt;입니다. 터치할 대상의 폭을 &lt;tt&gt;%3$ddp&lt;/tt&gt;, 높이를 &lt;tt&gt;%4$ddp&lt;/tt&gt; 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_small_touch_target_height">이 항목의 높이가 &lt;tt&gt;%1$ddp&lt;/tt&gt;입니다. 터치할 대상의 높이를 &lt;tt&gt;%2$ddp&lt;/tt&gt; 이상으로 늘리는 것이 좋습니다.</string>
+  
+  <string name="result_message_small_touch_target_width">이 항목의 폭이 &lt;tt&gt;%1$ddp&lt;/tt&gt;입니다. 터치할 대상의 폭을 &lt;tt&gt;%2$ddp&lt;/tt&gt; 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">이 항목의 크기가 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;입니다. 터치할 대상을 구성된 최소 크기인 &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt; 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">이 항목의 높이가 &lt;tt&gt;%1$ddp&lt;/tt&gt;입니다. 터치할 대상의 높이를 구성된 최소 높이인 &lt;tt&gt;%2$ddp&lt;/tt&gt; 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">이 항목의 폭이 &lt;tt&gt;%1$ddp&lt;/tt&gt;입니다. 터치할 대상의 폭을 구성된 최소 폭인 &lt;tt&gt;%2$ddp&lt;/tt&gt; 이상으로 늘려보세요.</string>
+  
+  <string name="result_message_addendum_touch_delegate">이 항목의 상위 항목 중 하나에서 &lt;tt&gt;TouchDelegate&lt;/tt&gt;이(가) 발견되었습니다. 이 항목의 터치를 처리하는 위임 요소의 크기가 충분하다면 이 메시지를 무시해도 됩니다.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">이 항목에서 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; 크기의 &lt;tt&gt;TouchDelegate&lt;/tt&gt; 클래스가 감지되었습니다. &lt;tt&gt;Rect&lt;/tt&gt;의 터치 가능 크기를 늘려보세요.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">상위 컨테이너가 이 항목의 터치를 처리하는 것 같습니다. 더 큰 컨테이너를 선택해도 이 항목을 선택하는 것과 동일한 작업이 실행되는 경우 이 항목을 클릭 불가능으로 정의하는 것이 좋습니다. 다른 작업이 실행되는 경우에는 이 항목의 크기를 늘리는 것이 좋습니다.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">그리기 영역이 &lt;tt&gt;%1$ddp&lt;/tt&gt;x&lt;tt&gt;%2$ddp&lt;/tt&gt;인 항목 크기에 맞게 상위 컨테이너가 잘릴 수 있습니다. 이 항목의 잘라내기 상위 항목 크기를 늘리거나 이 항목 대신 크기가 더 큰 상위 컨테이너가 작업을 처리하도록 허용해 보세요.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">이 항목은 스크롤 가능한 컨테이너 내에서 일부만 표시될 수도 있습니다.</string>
+  
+  <string name="check_title_class_name_not_supported">지원되지 않는 항목 유형</string>
+  
+  <string name="result_message_class_name_not_supported_brief">지원되지 않는 유형의 항목일 수 있습니다.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">&lt;tt&gt;%1$s&lt;/tt&gt;은(는) 접근성 서비스에서 인식할 수 없는 유형의 항목일 수 있습니다. Android SDK에 정의된 유형을 사용해 보세요.</string>
+  
+  <string name="result_message_class_name_is_empty">접근성 서비스에서 보고할 수 없는 유형의 항목일 수 있습니다. Android SDK에 정의된 유형을 사용해 보세요.</string>
+  
+  <string name="result_message_class_name_is_unknown">이 항목의 유형을 알 수 없습니다.</string>
+  
+  <string name="check_title_accessibility_traversal">순회 순서</string>
+  
+  <string name="result_message_traversal_cycle">&lt;tt&gt;%1$s&lt;/tt&gt; 속성으로 인해 순회 순서 주기에 속하는 항목일 수 있습니다. 스크린 리더의 순회 행동을 예측할 수 없습니다.</string>
+  
+  <string name="result_message_traversal_over_constrained">이 항목의 순회 순서가 &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; 및 &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; 속성에 따라 과도하게 제한될 수 있습니다. 스크린 리더의 순회 행동을 예측할 수 없습니다.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">스크린 리더의 순회 행동을 예측할 수 없습니다.</string>
+  
+  <string name="result_message_disruptive_announcement">작동을 방해하는 접근성 공지가 사용되었습니다.</string>
+  
+  <string name="check_view_banned_word">차단된 단어</string>
+  
+  <string name="result_message_banned_word">이 항목의 텍스트에 부적절한 단어(\'&lt;tt&gt;%1$s&lt;/tt&gt;\')가 포함되어 있을 수 있습니다.</string>
+  
+  <string name="result_message_brief_banned_word">항목의 텍스트에서 부적절한 단어를 삭제해 보세요.</string>
+  
+  <string name="check_title_text_style">텍스트 스타일</string>
+  
+  <string name="result_message_styled_text">이 항목에서는 긴 텍스트 구절에 %1$s 글꼴을 사용할 수 있습니다. 가독성을 개선하기 위해 글꼴에서 스타일을 삭제해 보세요.</string>
+  
+  <string name="result_message_brief_styled_text">긴 텍스트 구절에서 %1$s 스타일을 삭제해 보세요.</string>
+  
+  <string name="italic_text">기울임꼴</string>
+  
+  <string name="underline_text">밑줄</string>
+  
+  <string name="italic_underline_text">기울임꼴 및 밑줄</string>
+  
+  <string name="result_message_no_typeface_info">이 항목의 글꼴을 확인할 수 없습니다.</string>
+  
+  <string name="check_title_link_test">링크 텍스트</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">링크에 더 자세히 설명하는 텍스트를 사용해 보세요.</string>
+  
+  <string name="result_message_link_text_not_descriptive">\'&lt;tt&gt;%1$s&lt;/tt&gt;\' 링크 텍스트가 링크의 용도를 독립적으로 전달하지 않는 것일 수 있습니다.</string>
+  
+  <string name="check_title_reading_score">가독성</string>
+  
+  <string name="result_message_low_reading_score">이 항목의 텍스트 가독성 점수는 약 %1$.0f이며 권장 점수인 %2$.0f보다 낮습니다. 텍스트를 보다 쉽게 읽을 수 있도록 더 간단한 단어나 문장을 사용해 보세요.</string>
+  
+  <string name="result_message_brief_low_reading_score">텍스트의 가독성 점수가 낮을 수 있습니다.</string>
+  
+  <string name="result_message_short_text">이 항목의 텍스트가 너무 짧아서 평가할 수 없습니다.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">모든 항목이 접근성 서비스에 노출되도록 하려면 이 화면을 직접 검사해야 합니다.</string>
+  
+  <string name="result_message_has_unexposed_items">이 화면에는 접근성 서비스에 노출되지 않은 항목이 있을 수 있습니다.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">화면 위치가 &lt;tt&gt;%1$s&lt;/tt&gt;인 지역에 접근성 서비스에 노출되지 않은 항목이 하나 이상 포함되어 있습니다.</string>
+  
+  <string name="check_title_item_exposed">노출된 항목</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">이 지역의 항목을 접근성 서비스에 노출해 보세요.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">이 화면에 윤곽선이 표시되지 않은 중요한 항목이 포함되어 있나요?</string>
+  
+  <string name="question_message_identify_unexposed_items">식별되지 않은 항목이 있는 화면의 지역을 선택하세요.</string>
+
+</resources>

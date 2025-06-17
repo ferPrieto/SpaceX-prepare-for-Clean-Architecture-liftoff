@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Ez az elem nem minősült fontosnak a kisegítő lehetőségek szempontjából.</string>
+  
+  <string name="result_message_no_content_desc">Ez az elem nem rendelkezik a következővel: &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Ez az elem nem látható.</string>
+  
+  <string name="result_message_not_enabled">Ez az elem nincs bekapcsolva.</string>
+  
+  <string name="result_message_not_text_view">Ez az elem nem a következő: &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Nem sikerült megszerezni a képernyőkép készítéséhez szükséges adatokat.</string>
+  
+  <string name="result_message_view_not_within_screencapture">Az elem képernyőn való elhelyezkedése (&lt;tt&gt;%1$s&lt;/tt&gt;) nem egyezett meg a készített képernyőkép helyével (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">Az elemre vonatkozó képernyőkép-készítési adatok rejtettek voltak.</string>
+  
+  <string name="result_message_screencapture_uniform_color">A képernyőfelvételek ugyanolyan színűek.</string>
+  
+  <string name="clickable">kattintható</string>
+  
+  <string name="non_clickable">nem kattintható</string>
+  
+  <string name="long_clickable">hosszan kattintható</string>
+  
+  <string name="clickable_and_long_clickable">kattintható és hosszan kattintható</string>
+  
+  <string name="actionable">végrehajtható</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Ez az ellenőrzés nem áll rendelkezésre Android %1$s vagy újabb rendszert futtató eszközöknél.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Ezt az elemet a képernyőn megjelenő egyéb tartalom eltakarhatja. Érdemes lehet manuálisan tesztelni az elem kontrasztját.</string>
+  
+  <string name="check_title_clickablespan">Link</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Az elem típusa nincs meghatározva.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Ellenőrizze, hogy az elem &lt;tt&gt;URLSpan&lt;/tt&gt; részében szereplő URL érvényes-e.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Az elemnek a következőt kellene használnia: &lt;tt&gt;URLSpan&lt;/tt&gt;, ehelyett: &lt;tt&gt;ClickableSpan&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Kattintható elemek</string>
+  
+  <string name="result_message_brief_same_view_bounds">Ez a hely több %1$s elem között oszlik meg a képernyőn.</string>
+  
+  <string name="result_message_same_view_bounds">Ez a %1$s elem ugyanazon a helyen található a képernyőn (&lt;tt&gt;%2$s&lt;/tt&gt;), mint %3$d további, ugyanezekkel a tulajdonságokkal rendelkező elem.</string>
+  
+  <string name="result_message_view_bounds">Ennek a %1$s elemnek a képernyőn elfoglalt helye szintén &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Elemleírások</string>
+  
+  <string name="result_message_brief_same_speakable_text">Több elem rendelkezik ugyanazzal a leírással.</string>
+  
+  <string name="result_message_same_speakable_text">Ehhez a %1$s elemhez a következő kimondható szöveg tartozik: a „&lt;tt&gt;%2$s&lt;/tt&gt;” megegyezik %3$d másik elemével.</string>
+  
+  <string name="result_message_speakable_text">Ehhez a %1$s elemhez is a következő kimondható szöveg tartozik: „&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="check_title_editable_content_desc">Szerkeszthető elemcímke</string>
+  
+  <string name="result_message_editable_textview_content_desc">Ez a szerkeszthető &lt;tt&gt;TextView&lt;/tt&gt; &lt;tt&gt;android:contentDescription&lt;/tt&gt; címkével rendelkezik. A felhasználó navigálása közben a képernyőolvasó felolvashatja ezt az attribútumot a szerkeszthető tartalom helyett.</string>
+  
+  <string name="result_message_not_editable_textview">Ez az elem nem szerkeszthető &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="check_title_image_contrast">Képkontraszt</string>
+  
+  <string name="result_message_not_imageview">Ez az elem nem &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Érdemes lenne növelni a kép előtere és háttere közötti kontrasztarányt.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">A kép kontrasztaránya %1$.2f. Ez az érték a(z) &lt;tt&gt;#%3$06X&lt;/tt&gt; becsült előtérszínen, valamint a(z) &lt;tt&gt;#%4$06X&lt;/tt&gt; becsült háttérszínen alapul. Érdemes lenne %2$.2f értékre (vagy nagyobbra) növelni az arányt.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">A kép kontrasztaránya: %1$.2f. Ez az arány a megadott &lt;tt&gt;#%3$06X&lt;/tt&gt; előtérszínen és &lt;tt&gt;#%4$06X&lt;/tt&gt; háttérszínen alapul. Érdemes lenne %2$.2f értékre (vagy nagyobbra) növelni.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">A kép kontrasztaránya %1$.2f. Ez az arány a(z) &lt;tt&gt;#%3$06X&lt;/tt&gt; becsült előtérszínen, valamint a(z) &lt;tt&gt;#%4$06X&lt;/tt&gt; becsült háttérszínen alapul. Érdemes lenne a beállított %2$.2f értékre (vagy nagyobbra) növelni az arányt.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">A kép kontrasztaránya: %1$.2f. Ez az arány a megadott &lt;tt&gt;#%3$06X&lt;/tt&gt; előtérszínen és &lt;tt&gt;#%4$06X&lt;/tt&gt; háttérszínen alapul. Érdemes lenne a beállított %2$.2f értékre (vagy nagyobbra) növelni.</string>
+  
+  <string name="check_title_redundant_description">Elemtípuscímke</string>
+  
+  <string name="result_message_english_locale_only">Ez az ellenőrzés csak angol nyelvre állított eszközökön fut.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">Az elem &lt;tt&gt;android:contentDescription&lt;/tt&gt; attribútuma felesleges szöveget tartalmazhat.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">Az elem &lt;tt&gt;android:contentDescription&lt;/tt&gt; attribútuma, „&lt;tt&gt;%1$s&lt;/tt&gt;” az elem típusával végződik.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">Az elem &lt;tt&gt;android:contentDescription&lt;/tt&gt; attribútuma („&lt;tt&gt;%1$s&lt;/tt&gt;”) tartalmazza az elem típusát („&lt;tt&gt;%2$s&lt;/tt&gt;”).</string>
+  
+  <string name="result_message_content_desc_contains_action">Az elem &lt;tt&gt;android:contentDescription&lt;/tt&gt; attribútuma (&lt;tt&gt;%1$s&lt;/tt&gt;) tartalmazza a műveletet (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_content_desc_contains_state">Az elem &lt;tt&gt;android:contentDescription&lt;/tt&gt; attribútuma (&lt;tt&gt;%1$s&lt;/tt&gt;) tartalmazza az állapotot (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="button_item_type">gomb</string>
+  
+  <string name="checkbox_item_type">jelölőnégyzet</string>
+  
+  <string name="checkbox_item_type_separate_words">jelölőnégyzet</string>
+  
+  <string name="checked_state">bejelölve</string>
+  
+  <string name="unchecked_state">nincs bejelölve</string>
+  
+  <string name="selected_state">kiválasztva</string>
+  
+  <string name="unselected_state">nincs kiválasztva</string>
+  
+  <string name="click_action">kattintás</string>
+  
+  <string name="swipe_action">csúsztatás</string>
+  
+  <string name="tap_action">koppintás</string>
+  
+  <string name="check_title_speakable_text_present">Elemcímke</string>
+  
+  <string name="result_message_should_not_focus">Erre az elemre nem fókuszálna a képernyőolvasó.</string>
+  
+  <string name="result_message_web_content">A webes tartalom nincs megvizsgálva.</string>
+  
+  <string name="result_message_missing_speakable_text">Ez az elem nem rendelkezik képernyőolvasó által olvasható címkével.</string>
+  
+  <string name="check_title_text_contrast">Szövegkontraszt</string>
+  
+  <string name="result_message_textview_empty">Ez a(z) &lt;tt&gt;TextView&lt;/tt&gt; üres.</string>
+  
+  <string name="result_message_could_not_get_text_color">Nem sikerült meghatározni az elem szövegének színét.</string>
+  
+  <string name="result_message_could_not_get_background_color">Nem sikerült meghatározni az elem háttérszínét.</string>
+  
+  <string name="result_message_text_must_be_opaque">Az elem szövegének színe nem átlátszó.</string>
+  
+  <string name="result_message_background_must_be_opaque">Az elem háttérszíne nem átlátszó.</string>
+  
+  <string name="result_message_addendum_opacity_description">A tényleges átlátszóság %1$.2f %%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Érdemes lenne növelni az elemszöveg előterének és hátterének kontrasztarányát.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Az elem szövegének kontrasztaránya %1$.2f. Ez az érték a(z) &lt;tt&gt;#%2$06X&lt;/tt&gt; szövegszínen és a(z) &lt;tt&gt;#%3$06X&lt;/tt&gt; háttérszínen alapul. Érdemes lenne %4$.2f értékre (vagy nagyobbra) növelni az elem szövegének kontrasztarányát.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Az elem szövegének kontrasztaránya %1$.2f. Ez az arány a(z) &lt;tt&gt;#%2$06X&lt;/tt&gt; becsült előtérszínen és a(z) &lt;tt&gt;#%3$06X&lt;/tt&gt; becsült háttérszínen alapul. Érdemes lenne olyan színeket használni, amelyek %4$.2f értéknél nagyobbra növelik a kontrasztarányt kis méretű szövegnél, vagy %5$.2f értéknél nagyobbra nagy méretű szövegnél.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Az elem szövegének kontrasztaránya %1$.2f. Ez az arány a megadott &lt;tt&gt;#%2$06X&lt;/tt&gt; előtérszínen és &lt;tt&gt;#%3$06X&lt;/tt&gt; háttérszínen alapul. Érdemes lenne olyan színeket használni, amelyek %4$.2f értéknél nagyobbra növelik a kontrasztarányt kis méretű szövegnél, vagy %5$.2f értéknél nagyobbra nagy méretű szövegnél.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Az elem szövegének kontrasztaránya %1$.2f. Ez az érték a(z) &lt;tt&gt;#%2$06X&lt;/tt&gt; becsült előtérszínen és a(z) &lt;tt&gt;#%3$06X&lt;/tt&gt; becsült háttérszínen alapul. Érdemes lenne a beállított %4$.2f értékre (vagy nagyobbra) növelni az elem szövegének kontrasztarányát.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Az elem szövegének kontrasztaránya %1$.2f. Ez az arány a megadott &lt;tt&gt;#%2$06X&lt;/tt&gt; előtérszínen és &lt;tt&gt;#%3$06X&lt;/tt&gt; háttérszínen alapul. Érdemes lenne a beállított %4$.2f értékre (vagy nagyobbra) növelni az elem szövegének kontrasztarányát.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Helyes az észlelt előtérszín és háttérszín?</string>
+  
+  <string name="question_option_message_both_correct">Mindkettő helyes</string>
+  
+  <string name="question_option_message_foreground_incorrect">Az előtérszín helytelen</string>
+  
+  <string name="question_option_message_background_incorrect">A háttérszín helytelen</string>
+  
+  <string name="question_option_message_both_incorrect">Az előtérszín és a háttérszín helytelen</string>
+  
+  <string name="question_option_message_unknown">Nem tudni</string>
+  
+  <string name="question_id_message_provide_foreground_color">Mi a helyes előtérszín?</string>
+  
+  <string name="question_id_message_provide_background_color">Mi a helyes háttérszín?</string>
+  
+  <string name="check_title_touch_target_size">Érintési célelem</string>
+  
+  <string name="result_message_not_clickable">Ez a nézet nem kattintható.</string>
+  
+  <string name="result_message_brief_small_touch_target">Érdemes lenne nagyobbra venni ezt a kattintható elemet.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Az elem mérete &lt;tt&gt;%1$ddp&lt;/tt&gt;x&lt;tt&gt;%2$ddp&lt;/tt&gt;. Érdemes lenne ezt az érintési célelemet &lt;tt&gt;%3$ddp&lt;/tt&gt; szélesre és &lt;tt&gt;%4$ddp&lt;/tt&gt; magasra (vagy ennél nagyobbra) venni.</string>
+  
+  <string name="result_message_small_touch_target_height">Az elem magassága &lt;tt&gt;%1$ddp&lt;/tt&gt;. Érdemes lenne ezt az érintési célelemet &lt;tt&gt;%2$ddp&lt;/tt&gt; vagy még magasabbra venni.</string>
+  
+  <string name="result_message_small_touch_target_width">Az elem szélessége &lt;tt&gt;%1$ddp&lt;/tt&gt;. Érdemes lenne ezt az érintési célelemet &lt;tt&gt;%2$ddp&lt;/tt&gt; vagy még szélesebbre venni.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Az elem mérete &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Érdemes lenne az érintési célelem méretét legalább a beállított minimális méretre (&lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;) növelni.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">Az elem magassága &lt;tt&gt;%1$ddp&lt;/tt&gt;. Érdemes lenne az érintési célelem magasságát legalább a beállított minimális magasságra (&lt;tt&gt;%2$ddp&lt;/tt&gt;) növelni.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">Az elem szélessége &lt;tt&gt;%1$ddp&lt;/tt&gt;. Érdemes lenne az érintési célelem szélességét legalább a beállított minimális szélességre (&lt;tt&gt;%2$ddp&lt;/tt&gt;) növelni.</string>
+  
+  <string name="result_message_addendum_touch_delegate">Az elem egyik elődjénél &lt;tt&gt;TouchDelegate&lt;/tt&gt; osztályt észleltünk. Ez az üzenet figyelmen kívül hagyható, ha a delegált megfelelő méretű, és kezeli az elemhez tartozó érintéseket.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">&lt;tt&gt;%1$ddp&lt;/tt&gt;x&lt;tt&gt;%2$ddp&lt;/tt&gt; méretű &lt;tt&gt;TouchDelegate&lt;/tt&gt; elemet észleltünk. Érdemes lehet megnövelni a(z) &lt;tt&gt;Rect&lt;/tt&gt; méretét.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">Az elemhez tartozó érintéseseményeket szülőtároló kezelheti. Ha a nagyobb tároló kiválasztása ugyanazt a műveletet idézi elő, mint az elem kiválasztása, akkor érdemes lenne nem kattinthatóként definiálni ezt az elemet. Ha másik műveletre kerül sor, akkor érdemes lenne növelni az elem méretét.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">A szülő tároló levághat az elemből, amelynek rajzterülete &lt;tt&gt;%1$ddp&lt;/tt&gt;x&lt;tt&gt;%2$ddp&lt;/tt&gt;. Érdemes megfontolni az elem vágási elődje méretének növelését, vagy engedélyezni, hogy nagyobb szülő tároló kezelje a műveleteket az elem esetében.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Előfordulhat, hogy ez az elem csak részben látható a görgethető tárolón belül.</string>
+  
+  <string name="check_title_class_name_not_supported">Nem támogatott elemtípus</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Előfordulhat, hogy ez az elemtípus nem támogatott.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Előfordulhat, hogy a(z) &lt;tt&gt;%1$s&lt;/tt&gt; elemtípust nem támogatják a kisegítő lehetőségek szolgáltatásai. Érdemes lenne az Android SDK által meghatározott típust használni.</string>
+  
+  <string name="result_message_class_name_is_empty">Előfordulhat, hogy ezt az elemtípust nem támogatják a kisegítő lehetőségek szolgáltatásai. Érdemes lenne az Android SDK által meghatározott típust használni.</string>
+  
+  <string name="result_message_class_name_is_unknown">Nem sikerült meghatározni ezt az elemtípust.</string>
+  
+  <string name="check_title_accessibility_traversal">Bejárási sorrend</string>
+  
+  <string name="result_message_traversal_cycle">&lt;tt&gt;%1$s&lt;/tt&gt; attribútuma miatt ez az elem bejárási sorrend ciklus része lehet. Előfordulhat, hogy képernyőolvasóval végzett bejárás esetén nem megfelelően viselkedik.</string>
+  
+  <string name="result_message_traversal_over_constrained">&lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; és &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; attribútuma miatt ennek az elemnek a bejárási sorrendje túlságosan korlátozott lehet. Előfordulhat, hogy képernyőolvasóval végzett bejárás esetén nem megfelelően viselkedik.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Előfordulhat, hogy képernyőolvasóval végzett bejárás esetén nem megfelelően viselkedik.</string>
+  
+  <string name="result_message_disruptive_announcement">A kisegítő lehetőségeknél zavaró esemény található</string>
+  
+  <string name="check_view_banned_word">Tiltott szó</string>
+  
+  <string name="result_message_banned_word">Az elem szövege a következő kifogásolható szót tartalmazhatja: „&lt;tt&gt;%1$s&lt;/tt&gt;”</string>
+  
+  <string name="result_message_brief_banned_word">Érdemes lehet eltávolítani a kifogásolható szavakat az elem szövegéből</string>
+  
+  <string name="check_title_text_style">Szövegstílus</string>
+  
+  <string name="result_message_styled_text">Lehetséges, hogy az elemben hosszabb szövegrészben %1$s betű található. Az olvashatóság javítása érdekében érdemes eltávolítani a szöveg formázását.</string>
+  
+  <string name="result_message_brief_styled_text">Érdemes eltávolítani a(z) %1$s formázást a hosszabb szövegrészekből.</string>
+  
+  <string name="italic_text">dőlt</string>
+  
+  <string name="underline_text">aláhúzott</string>
+  
+  <string name="italic_underline_text">dőlt és aláhúzott</string>
+  
+  <string name="result_message_no_typeface_info">Nem sikerült meghatározni az elem betűtípusát.</string>
+  
+  <string name="check_title_link_test">Link szövege</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Érdemes lehet részletesebb leíró szöveget használni a linkben.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Előfordulhat, hogy a link szövege (&lt;tt&gt;%1$s&lt;/tt&gt;) önmagában nem közvetíti a link üzenetét.</string>
+  
+  <string name="check_title_reading_score">Olvashatóság</string>
+  
+  <string name="result_message_low_reading_score">Ennek az elemnek a szövege kb. %1$.0f olvashatósági pontszámmal rendelkezik, amely alacsonyabb az ajánlott %2$.0f pontszámnál. A szöveg olvashatóbbá tétele érdekében érdemes lenne egyszerűbb szavakat vagy mondatokat használni.</string>
+  
+  <string name="result_message_brief_low_reading_score">Előfordulhat, hogy ez a szöveg alacsony olvashatósági pontszámmal rendelkezik.</string>
+  
+  <string name="result_message_short_text">Az elem szövege túl rövid, ezért nem lehet kiértékelni.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Ennél a képernyőnél manuálisan kell megvizsgálni, hogy az összes elemnél rendelkezésre állnak-e a kisegítő lehetőségek szolgáltatásai.</string>
+  
+  <string name="result_message_has_unexposed_items">Ez a képernyő olyan elemeket tartalmazhat, amelyeknél nem állnak rendelkezésre a kisegítő lehetőségek szolgáltatásai.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">A régió, amelynek képernyőn elfoglalt helye &lt;tt&gt;%1$s&lt;/tt&gt;, legalább egy olyan elemet tartalmaz, amelynél nem állnak rendelkezésre a kisegítő lehetőségek szolgáltatásai.</string>
+  
+  <string name="check_title_item_exposed">Elemek, amelyeknél rendelkezésre állnak a kisegítő lehetőségek szolgáltatásai</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Érdemes lehet az ebben a régióban található elemeknél is alkalmazni a kisegítő lehetőségek szolgáltatásait.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Tartalmaz ez a képernyő olyan fontos elemeket, amelyeknél nem állnak rendelkezésre a kisegítő lehetőségek szolgáltatásai?</string>
+  
+  <string name="question_message_identify_unexposed_items">Válassza ki a nem azonosított elemeket tartalmazó képernyőrégiókat.</string>
+
+</resources>

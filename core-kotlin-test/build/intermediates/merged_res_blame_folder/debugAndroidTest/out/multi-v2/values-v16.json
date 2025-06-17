@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "prieto.fernando.core_android_test.test.core-android-test-mergeDebugAndroidTestResources-16:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/fprieto/.gradle/caches/transforms-3/b6cc50f84462fecf585259e41907f6a6/transformed/appcompat-1.1.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/Users/fprieto/.gradle/caches/transforms-3/fe811d64e3228f96927c32e562aa94e4/transformed/core-1.2.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">รายการนี้ไม่พบว่ามีความสำคัญสำหรับการเข้าถึง</string>
+  
+  <string name="result_message_no_content_desc">รายการนี้ไม่มี &lt;tt&gt;android:contentDescription&lt;/tt&gt;</string>
+  
+  <string name="result_message_not_visible">รายการนี้ไม่สามารถมองเห็นได้</string>
+  
+  <string name="result_message_not_enabled">รายการนี้ไม่ได้เปิดใช้</string>
+  
+  <string name="result_message_not_text_view">รายการนี้ไม่ใช่ &lt;tt&gt;TextView&lt;/tt&gt;</string>
+  
+  <string name="result_message_no_screencapture">ไม่สามารถรับข้อมูลการจับภาพหน้าจอได้</string>
+  
+  <string name="result_message_view_not_within_screencapture">ตำแหน่งบนหน้าจอของรายการนี้ (&lt;tt&gt;%1$s&lt;/tt&gt;) จะไม่อยู่ในตำแหน่งบนหน้าจอของการจับภาพหน้าจอ (&lt;tt&gt;%2$s&lt;/tt&gt;)</string>
+  
+  <string name="result_message_screencapture_data_hidden">มีการซ่อนข้อมูลการจับภาพหน้าจอสำหรับรายการนี้</string>
+  
+  <string name="result_message_screencapture_uniform_color">ภาพหน้าจอมีสีเดียวกัน</string>
+  
+  <string name="clickable">คลิกได้</string>
+  
+  <string name="non_clickable">ไม่สามารถคลิกได้</string>
+  
+  <string name="long_clickable">คลิกได้นาน</string>
+  
+  <string name="clickable_and_long_clickable">คลิกได้และคลิกได้นาน</string>
+  
+  <string name="actionable">ดำเนินการได้</string>
+  
+  <string name="result_message_sdk_version_not_applicable">การทำเครื่องหมายนี้ไม่เกี่ยวข้องกับอุปกรณ์ที่ใช้ Android เวอร์ชัน %1$s ขึ้นไป</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">อาจมีเนื้อหาอื่นบนหน้าจอบังรายการนี้อยู่ ลองทดสอบความคมชัดของรายการนี้ด้วยตนเอง</string>
+  
+  <string name="check_title_clickablespan">ลิงก์</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">ไม่ได้กำหนดประเภทของรายการนี้</string>
+  
+  <string name="result_message_urlspan_invalid_url">ตรวจสอบว่า URL ภายใน &lt;tt&gt;URLSpan&lt;/tt&gt; ของรายการนี้ถูกต้อง</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">รายการนี้ควรใช้ &lt;tt&gt;URLSpan&lt;/tt&gt; แทน &lt;tt&gt;ClickableSpan&lt;/tt&gt;</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">รายการที่คลิกได้</string>
+  
+  <string name="result_message_brief_same_view_bounds">รายการที่%1$sหลายรายการแชร์ตำแหน่งนี้บนหน้าจอ</string>
+  
+  <string name="result_message_same_view_bounds">รายการที่%1$sนี้อยู่ในตำแหน่งเดียวกันบนหน้าจอ (&lt;tt&gt;%2$s&lt;/tt&gt;) กับรายการอื่นๆ อีก %3$d รายการที่มีพร็อพเพอร์ตี้เหล่านั้น</string>
+  
+  <string name="result_message_view_bounds">รายการที่%1$sนี้ยังมีตำแหน่งบนหน้าจอที่ &lt;tt&gt;%2$s&lt;/tt&gt;</string>
+  
+  <string name="check_title_duplicate_speakable_text">คำอธิบายรายการ</string>
+  
+  <string name="result_message_brief_same_speakable_text">หลายรายการมีรายละเอียดเหมือนกัน</string>
+  
+  <string name="result_message_same_speakable_text">ข้อความที่พูดได้ของรายการที่%1$sนี้: \"&lt;tt&gt;%2$s&lt;/tt&gt;\" เหมือนกันกับของรายการอื่นๆ %3$d รายการ</string>
+  
+  <string name="result_message_speakable_text">รายการที่%1$sนี้ยังมีข้อความที่พูดได้คือ: \"&lt;tt&gt;%2$s&lt;/tt&gt;\"</string>
+  
+  <string name="check_title_editable_content_desc">ป้ายกำกับรายการที่สามารถแก้ไขได้</string>
+  
+  <string name="result_message_editable_textview_content_desc">&lt;tt&gt;TextView&lt;/tt&gt; ที่สามารถแก้ไขได้นี้มี &lt;tt&gt;android:contentDescription&lt;/tt&gt; โปรแกรมอ่านหน้าจออาจอ่านแอตทริบิวต์นี้แทนเนื้อหาที่สามารถแก้ไขได้เมื่อผู้ใช้กำลังนำทาง</string>
+  
+  <string name="result_message_not_editable_textview">รายการนี้เป็น &lt;tt&gt;TextView&lt;/tt&gt; ที่ไม่สามารถแก้ไขได้</string>
+  
+  <string name="check_title_image_contrast">ความคมชัดของรูปภาพ</string>
+  
+  <string name="result_message_not_imageview">รายการนี้ไม่ใช่ &lt;tt&gt;ImageView&lt;/tt&gt;</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">พิจารณาเพิ่มอัตราความคมชัดระหว่างพื้นหน้าและพื้นหลังของรูปภาพนี้</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">อัตราส่วนความคมชัดของรูปภาพนี้คือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีพื้นหน้าโดยประมาณของ &lt;tt&gt;#%3$06X&lt;/tt&gt; และสีพื้นหลังโดยประมาณของ &lt;tt&gt;#%4$06X&lt;/tt&gt; พิจารณาเพิ่มอัตราส่วนนี้เป็น %2$.2f หรือสูงกว่า</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">อัตราส่วนความคมชัดของรูปภาพคือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีพื้นหน้า &lt;tt&gt;#%3$06X&lt;/tt&gt; และสีพื้นหลัง &lt;tt&gt;#%4$06X&lt;/tt&gt; ที่ระบุไว้ ลองเพิ่มอัตราส่วนนี้เป็น %2$.2f หรือมากกว่า</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">อัตราส่วนความคมชัดของรูปภาพคือ %1$.2f โดยจะขึ้นอยู่กับสีพื้นหน้าโดยประมาณของ &lt;tt&gt;#%3$06X&lt;/tt&gt; และสีพื้นหลังโดยประมาณของ &lt;tt&gt;#%4$06X&lt;/tt&gt; ลองเพิ่มอัตราส่วนดังกล่าวให้มีอัตราส่วนที่กำหนดค่าเป็นจำนวน %2$.2f หรือมากกว่า</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">อัตราส่วนความคมชัดของรูปภาพคือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีพื้นหน้า &lt;tt&gt;#%3$06X&lt;/tt&gt; และสีพื้นหลัง &lt;tt&gt;#%4$06X&lt;/tt&gt; ที่ระบุไว้ ลองเพิ่มอัตราส่วนนี้ให้มีอัตราส่วนที่กำหนดค่าเป็น %2$.2f หรือมากกว่า</string>
+  
+  <string name="check_title_redundant_description">ป้ายกำกับประเภทรายการ</string>
+  
+  <string name="result_message_english_locale_only">การตรวจสอบนี้จะทำงานบนอุปกรณ์ที่มีการตั้งค่าภาษาเป็นภาษาอังกฤษเท่านั้น</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">&lt;tt&gt;android:contentDescription&lt;/tt&gt; ของรายการนี้อาจมีข้อความที่ไม่จำเป็น</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">&lt;tt&gt;android:contentDescription&lt;/tt&gt;, \"&lt;tt&gt;%1$s&lt;/tt&gt;\" ของรายการนี้ลงท้ายด้วยประเภทของรายการ</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">&lt;tt&gt;android:contentDescription&lt;/tt&gt;, \"&lt;tt&gt;%1$s&lt;/tt&gt;\" ของรายการนี้มีประเภทรายการ \"&lt;tt&gt;%2$s&lt;/tt&gt;\"</string>
+  
+  <string name="result_message_content_desc_contains_action">&lt;tt&gt;android:contentDescription&lt;/tt&gt; ของรายการนี้ \"&lt;tt&gt;%1$s&lt;/tt&gt;\" มีการดำเนินการ \"&lt;tt&gt;%2$s&lt;/tt&gt;\"</string>
+  
+  <string name="result_message_content_desc_contains_state">&lt;tt&gt;android:contentDescription&lt;/tt&gt; ของรายการนี้ \"&lt;tt&gt;%1$s&lt;/tt&gt;\" มีสถานะ \"&lt;tt&gt;%2$s&lt;/tt&gt;\"</string>
+  
+  <string name="button_item_type">ปุ่ม</string>
+  
+  <string name="checkbox_item_type">ช่องทำเครื่องหมาย</string>
+  
+  <string name="checkbox_item_type_separate_words">ช่องทำเครื่องหมาย</string>
+  
+  <string name="checked_state">เลือกแล้ว</string>
+  
+  <string name="unchecked_state">ยกเลิกการเลือกแล้ว</string>
+  
+  <string name="selected_state">เลือกแล้ว</string>
+  
+  <string name="unselected_state">ยกเลิกการเลือกแล้ว</string>
+  
+  <string name="click_action">คลิก</string>
+  
+  <string name="swipe_action">เลื่อน</string>
+  
+  <string name="tap_action">แตะ</string>
+  
+  <string name="check_title_speakable_text_present">ป้ายกำกับรายการ</string>
+  
+  <string name="result_message_should_not_focus">รายการนี้จะไม่ได้รับการเน้นโดยโปรแกรมอ่านหน้าจอ</string>
+  
+  <string name="result_message_web_content">ยังไม่ได้ประเมินเนื้อหาเว็บ</string>
+  
+  <string name="result_message_missing_speakable_text">รายการนี้อาจไม่มีป้ายกำกับที่โปรแกรมอ่านหน้าจอสามารถอ่านได้</string>
+  
+  <string name="check_title_text_contrast">ความคมชัดของข้อความ</string>
+  
+  <string name="result_message_textview_empty">&lt;tt&gt;TextView&lt;/tt&gt; นี้ว่างเปล่า</string>
+  
+  <string name="result_message_could_not_get_text_color">ไม่สามารถกำหนดสีข้อความของรายการนี้ได้</string>
+  
+  <string name="result_message_could_not_get_background_color">ไม่สามารถกำหนดสีพื้นหลังของรายการนี้ได้</string>
+  
+  <string name="result_message_text_must_be_opaque">สีข้อความของรายการนี้ไม่ทึบแสง</string>
+  
+  <string name="result_message_background_must_be_opaque">สีพื้นหลังของรายการนี้ไม่ทึบแสง</string>
+  
+  <string name="result_message_addendum_opacity_description">ความโปร่งแสงแท้จริงคือ %1$.2f%%</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">พิจารณาเพิ่มอัตราส่วนความคมชัดของพื้นหน้าต่อพื้นหลังของข้อความรายการนี้</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">อัตราส่วนความคมชัดของข้อความรายการนี้คือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีข้อความของ &lt;tt&gt;#%2$06X&lt;/tt&gt; และสีพื้นหลังของ &lt;tt&gt;#%3$06X&lt;/tt&gt; พิจารณาเพิ่มอัตราส่วนความคมชัดของข้อความของรายการนี้เป็น %4$.2f หรือสูงกว่า</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">อัตราส่วนความคมชัดของข้อความของรายการนี้คือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีพื้นหน้าโดยประมาณของ &lt;tt&gt;#%2$06X&lt;/tt&gt; และสีพื้นหลังโดยประมาณของ &lt;tt&gt;#%3$06X&lt;/tt&gt; ลองใช้สีที่ทำให้มีอัตราส่วนความคมชัดมากกว่า %4$.2f สำหรับข้อความขนาดเล็ก หรือ %5$.2f สำหรับข้อความขนาดใหญ่</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">อัตราส่วนความคมชัดของข้อความของรายการนี้คือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีพื้นหน้า &lt;tt&gt;#%2$06X&lt;/tt&gt; และสีพื้นหลัง &lt;tt&gt;#%3$06X&lt;/tt&gt; ที่ระบุไว้ ลองใช้สีที่ทำให้มีอัตราส่วนความคมชัดมากกว่า %4$.2f สำหรับข้อความขนาดเล็ก หรือ %5$.2f สำหรับข้อความขนาดใหญ่</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">อัตราส่วนความคมชัดของข้อความของรายการนี้คือ %1$.2f โดยจะขึ้นอยู่กับสีพื้นหน้าโดยประมาณของ &lt;tt&gt;#%2$06X&lt;/tt&gt; และสีพื้นหลังโดยประมาณของ &lt;tt&gt;#%3$06X&lt;/tt&gt; ลองเพิ่มอัตราส่วนดังกล่าวให้มีอัตราส่วนที่กำหนดค่าเป็นจำนวน %4$.2f หรือมากกว่า</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">อัตราส่วนความคมชัดของข้อความของรายการนี้คือ %1$.2f อัตราส่วนนี้จะขึ้นอยู่กับสีพื้นหน้า &lt;tt&gt;#%2$06X&lt;/tt&gt; และสีพื้นหลัง &lt;tt&gt;#%3$06X&lt;/tt&gt; ที่ระบุไว้ ลองเพิ่มอัตราส่วนดังกล่าวให้มีอัตราส่วนที่กำหนดค่าเป็น %4$.2f หรือมากกว่า</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">สีพื้นหน้าและสีพื้นหลังที่ตรวจพบถูกต้องไหม</string>
+  
+  <string name="question_option_message_both_correct">ถูกทั้งคู่</string>
+  
+  <string name="question_option_message_foreground_incorrect">สีพื้นหน้าไม่ถูกต้อง</string>
+  
+  <string name="question_option_message_background_incorrect">สีพื้นหลังไม่ถูกต้อง</string>
+  
+  <string name="question_option_message_both_incorrect">สีพื้นหน้าและสีพื้นหลังไม่ถูกต้อง</string>
+  
+  <string name="question_option_message_unknown">ไม่ทราบ</string>
+  
+  <string name="question_id_message_provide_foreground_color">โปรดระบุสีพื้นหน้าที่ถูกต้อง</string>
+  
+  <string name="question_id_message_provide_background_color">โปรดระบุสีพื้นหลังที่ถูกต้อง</string>
+  
+  <string name="check_title_touch_target_size">เป้าหมายการสัมผัส</string>
+  
+  <string name="result_message_not_clickable">มุมมองนี้ไม่สามารถคลิกได้</string>
+  
+  <string name="result_message_brief_small_touch_target">พิจารณาสร้างรายการที่คลิกได้นี้ให้มีขนาดใหญ่ขึ้น</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">ขนาดของรายการนี้คือ &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; พิจารณาสร้างเป้าหมายการสัมผัสนี้ให้มีความกว้าง &lt;tt&gt;%3$ddp&lt;/tt&gt; และความสูง &lt;tt&gt;%4$ddp&lt;/tt&gt; หรือใหญ่กว่า</string>
+  
+  <string name="result_message_small_touch_target_height">ความสูงของรายการนี้คือ &lt;tt&gt;%1$ddp&lt;/tt&gt; พิจารณาสร้างความสูงของเป้าหมายการสัมผัสนี้ให้มีขนาด &lt;tt&gt;%2$ddp&lt;/tt&gt; หรือใหญ่กว่า</string>
+  
+  <string name="result_message_small_touch_target_width">ความกว้างของรายการนี้คือ &lt;tt&gt;%1$ddp&lt;/tt&gt; พิจารณาสร้างความกว้างของเป้าหมายการสัมผัสนี้ให้มีขนาด &lt;tt&gt;%2$ddp&lt;/tt&gt; หรือใหญ่กว่า</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">ขนาดของรายการนี้คือ &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; ลองเพิ่มเป้าหมายการสัมผัสนี้ให้มีขนาดที่กำหนดค่าขั้นต่ำอย่างน้อย &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;</string>
+  
+  <string name="result_message_customized_small_touch_target_height">ความสูงของรายการนี้คือ &lt;tt&gt;%1$ddp&lt;/tt&gt; ลองเพิ่มความสูงของเป้าหมายการสัมผัสนี้ให้มีความสูงที่กำหนดค่าขั้นต่ำอย่างน้อย &lt;tt&gt;%2$ddp&lt;/tt&gt;</string>
+  
+  <string name="result_message_customized_small_touch_target_width">ความกว้างของรายการนี้คือ &lt;tt&gt;%1$ddp&lt;/tt&gt; ลองเพิ่มความกว้างของเป้าหมายการสัมผัสนี้ให้มีความกว้างที่กำหนดค่าขั้นต่ำอย่างน้อย &lt;tt&gt;%2$ddp&lt;/tt&gt;</string>
+  
+  <string name="result_message_addendum_touch_delegate">ตรวจพบ &lt;tt&gt;TouchDelegate&lt;/tt&gt; บนหนึ่งในรายการก่อนหน้ารายการนี้ คุณสามารถละเว้นข้อความนี้ได้หากสัญลักษณ์แทนการสัมผัสมีขนาดเพียงพอและสามารถจัดการการสัมผัสสำหรับรายการนี้ได้</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">ตรวจพบ &lt;tt&gt;TouchDelegate&lt;/tt&gt; ที่มีขนาด &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; สำหรับรายการนี้ ลองเพิ่มขนาดของพื้นที่ &lt;tt&gt;Rect&lt;/tt&gt; ในการแตะ</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">คอนเทนเนอร์ระดับบนสุดอาจกำลังจัดการกับกิจกรรมการสัมผัสสำหรับรายการนี้ หากการเลือกคอนเทนเนอร์ที่มีขนาดใหญ่กว่ามีการดำเนินการแบบเดียวกับการเลือกรายการนี้ ลองพิจารณากำหนดรายการนี้เป็นไม่สามารถคลิกได้ หากมีการดำเนินการที่แตกต่างกัน ลองพิจารณาเพิ่มขนาดรายการนี้</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">คอนเทนเนอร์ระดับบนสุดอาจกำลังตัดทอนขนาดของรายการนี้ซึ่งมีพื้นที่สำหรับเขียน &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; ลองเพิ่มขนาดการตัดทอนก่อนหน้า (clipping ancestor) ของรายการ หรืออนุญาตให้คอนเทนเนอร์ระดับบนสุดที่ใหญ่กว่าดำเนินงานต่างๆ ในนามของรายการนี้</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">อาจมองเห็นรายการนี้ได้เพียงบางส่วนเท่านั้นในกรอบที่เลื่อนได้</string>
+  
+  <string name="check_title_class_name_not_supported">ประเภทรายการที่ไม่รองรับ</string>
+  
+  <string name="result_message_class_name_not_supported_brief">อาจไม่รองรับประเภทของรายการนี้</string>
+  
+  <string name="result_message_class_name_not_supported_detail">บริการเพื่อการเข้าถึงอาจแก้ไขประเภทของรายการนี้ &lt;tt&gt;%1$s&lt;/tt&gt; ไม่ได้ ลองใช้ประเภทที่ Android SDK กำหนด</string>
+  
+  <string name="result_message_class_name_is_empty">ประเภทของรายการนี้อาจไม่มีการรายงานแก่บริการเพื่อการเข้าถึง ลองใช้ประเภทที่ Android SDK กำหนด</string>
+  
+  <string name="result_message_class_name_is_unknown">กำหนดประเภทของรายการนี้ไม่ได้</string>
+  
+  <string name="check_title_accessibility_traversal">ลำดับการส่งผ่าน</string>
+  
+  <string name="result_message_traversal_cycle">รายการนี้อาจเป็นส่วนหนึ่งของวงจรลำดับการส่งผลเนื่องจากแอตทริบิวต์ &lt;tt&gt;%1$s&lt;/tt&gt;  ทั้งนี้พฤติกรรมการส่งผ่านด้วยโปรแกรมอ่านหน้าจออาจคาดการณ์ไม่ได้</string>
+  
+  <string name="result_message_traversal_over_constrained">การจัดลำดับการส่งผ่านสำหรับรายการนี้อาจมีการจำกัดมากเกินไปโดยอิงจากแอตทริบิวต์ &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; และ &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; ทั้งนี้พฤติกรรมการส่งผ่านด้วยโปรแกรมอ่านหน้าจออาจคาดการณ์ไม่ได้</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">พฤติกรรมการส่งผ่านด้วยโปรแกรมอ่านหน้าจออาจคาดการณ์ไม่ได้</string>
+  
+  <string name="result_message_disruptive_announcement">ใช้การประกาศการเข้าถึงพิเศษที่ทำให้เกิดการหยุดชะงักแล้ว</string>
+  
+  <string name="check_view_banned_word">คำที่ห้ามใช้</string>
+  
+  <string name="result_message_banned_word">ข้อความของรายการนี้อาจมีคำที่ไม่เหมาะสม เช่น \"&lt;tt&gt;%1$s&lt;/tt&gt;\"</string>
+  
+  <string name="result_message_brief_banned_word">คุณควรนำคำที่ไม่เหมาะสมออกจากข้อความของรายการ</string>
+  
+  <string name="check_title_text_style">รูปแบบข้อความ</string>
+  
+  <string name="result_message_styled_text">รายการนี้อาจใช้แบบอักษร %1$s สำหรับข้อความขนาดยาว ลองนำรูปแบบออกจากแบบอักษรเพื่อให้อ่านง่ายขึ้น</string>
+  
+  <string name="result_message_brief_styled_text">ลองนำการจัดรูปแบบ %1$s ในข้อความขนาดยาวออก</string>
+  
+  <string name="italic_text">ตัวเอียง</string>
+  
+  <string name="underline_text">ขีดเส้นใต้</string>
+  
+  <string name="italic_underline_text">ตัวเอียงและขีดเส้นใต้</string>
+  
+  <string name="result_message_no_typeface_info">กำหนดแบบอักษรของรายการนี้ไม่ได้</string>
+  
+  <string name="check_title_link_test">ข้อความลิงก์</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">ลองใช้ข้อความที่สื่อความมากยิ่งขึ้นในลิงก์</string>
+  
+  <string name="result_message_link_text_not_descriptive">ข้อความลิงก์ \"&lt;tt&gt;%1$s&lt;/tt&gt;\" อาจไม่สื่อถึงวัตถุประสงค์ของลิงก์ได้ด้วยตัวเอง</string>
+  
+  <string name="check_title_reading_score">ความอ่านง่าย</string>
+  
+  <string name="result_message_low_reading_score">ข้อความของรายการนี้มีคะแนนความอ่านง่ายโดยประมาณอยู่ที่ %1$.0f คะแนน ซึ่งต่ำกว่าคะแนนแนะนำคือ %2$.0f คะแนน ลองใช้คำหรือประโยคที่เข้าใจง่ายเพื่อให้ข้อความอ่านง่ายขึ้น</string>
+  
+  <string name="result_message_brief_low_reading_score">ข้อความนี้อาจมีคะแนนความอ่านง่ายต่ำ</string>
+  
+  <string name="result_message_short_text">ข้อความของรายการนี้สั้นเกินกว่าที่จะประเมินได้</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">หน้าจอนี้จำเป็นต้องมีการตรวจสอบด้วยตนเองเพื่อให้มั่นใจว่าองค์ประกอบทั้งหมดแสดงในบริการเพื่อการเข้าถึง</string>
+  
+  <string name="result_message_has_unexposed_items">หน้าจอนี้อาจมีองค์ประกอบที่ไม่แสดงในบริการเพื่อการเข้าถึง</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">พื้นที่ในตำแหน่ง &lt;tt&gt;%1$s&lt;/tt&gt; บนหน้าจอมีองค์ประกอบอย่างน้อย 1 รายการที่ไม่แสดงในบริการเพื่อการเข้าถึง</string>
+  
+  <string name="check_title_item_exposed">องค์ประกอบที่แสดง</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">ลองใส่องค์ประกอบในพื้นที่นี้ลงในบริการเพื่อการเข้าถึง</string>
+  
+  <string name="question_message_screen_has_unexposed_items">หน้าจอนี้มีองค์ประกอบสำคัญที่ไม่ได้ทำกรอบไว้ไหม</string>
+  
+  <string name="question_message_identify_unexposed_items">เลือกพื้นที่ของหน้าจอที่มีองค์ประกอบที่ไม่ได้ระบุ</string>
+
+</resources>

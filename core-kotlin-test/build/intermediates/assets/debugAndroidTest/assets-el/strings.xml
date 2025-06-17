@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Αυτό το στοιχείο δεν διαπιστώθηκε ότι είναι σημαντικό όσον αφορά την προσβασιμότητα.</string>
+  
+  <string name="result_message_no_content_desc">Αυτό το στοιχείο δεν διαθέτει &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Αυτό το στοιχείο δεν είναι ορατό.</string>
+  
+  <string name="result_message_not_enabled">Αυτό το στοιχείο δεν είναι ενεργοποιημένο.</string>
+  
+  <string name="result_message_not_text_view">Αυτό το στοιχείο δεν είναι &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Δεν ήταν δυνατή η ανάκτηση των δεδομένων στιγμιότυπου.</string>
+  
+  <string name="result_message_view_not_within_screencapture">Η θέση του στοιχείου στην οθόνη (&lt;tt&gt;%1$s&lt;/tt&gt;) δεν ήταν εντός του στιγμιότυπου στην οθόνη (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">Οι πληροφορίες στιγμιότυπου για αυτό το στοιχείο ήταν κρυμμένες.</string>
+  
+  <string name="result_message_screencapture_uniform_color">Η λήψη οθόνης έχει ομοιόμορφο χρώμα.</string>
+  
+  <string name="clickable">με δυνατότητα κλικ</string>
+  
+  <string name="non_clickable">χωρίς δυνατότητα κλικ</string>
+  
+  <string name="long_clickable">με δυνατότητα παρατεταμένου κλικ</string>
+  
+  <string name="clickable_and_long_clickable">με δυνατότητα κλικ και παρατεταμένου κλικ</string>
+  
+  <string name="actionable">με δυνατότητα ενέργειας</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Αυτός ο έλεγχος δεν ισχύει σε συσκευές με έκδοση Android %1$s και μεταγενέστερη.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Αυτό το στοιχείο μπορεί να κρύβεται από άλλο περιεχόμενο στην οθόνη. Σκεφτείτε να δοκιμάσετε μη αυτόματα την αντίθεση αυτού του στοιχείου.</string>
+  
+  <string name="check_title_clickablespan">Σύνδεσμος</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Ο τύπος στοιχείου δεν είναι καθορισμένος.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Επαληθεύστε ότι το URL στο &lt;tt&gt;URLSpan&lt;/tt&gt; αυτού του στοιχείου είναι έγκυρο.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Αυτό το στοιχείο θα πρέπει να χρησιμοποιήσει &lt;tt&gt;URLSpan&lt;/tt&gt; αντί για &lt;tt&gt;ClickableSpan&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Στοιχεία με δυνατότητα κλικ</string>
+  
+  <string name="result_message_brief_same_view_bounds">Πολλά στοιχεία %1$s έχουν την ίδια θέση στην οθόνη.</string>
+  
+  <string name="result_message_same_view_bounds">Αυτό το στοιχείο %1$s έχει την ίδια θέση στην οθόνη (&lt;tt&gt;%2$s&lt;/tt&gt;) με άλλα %3$d στοιχεία με αυτές τις ιδιότητες</string>
+  
+  <string name="result_message_view_bounds">Αυτό το στοιχείο %1$s έχει επίσης μια θέση στην οθόνη &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Περιγραφές στοιχείων</string>
+  
+  <string name="result_message_brief_same_speakable_text">Πολλά στοιχεία έχουν την ίδια περιγραφή.</string>
+  
+  <string name="result_message_same_speakable_text">To κείμενο εκφώνησης αυτού του στοιχείου %1$s: \"&lt;tt&gt;%2$s&lt;/tt&gt;\" είναι ίδιο με το κείμενο %3$d ακόμη στοιχείων.</string>
+  
+  <string name="result_message_speakable_text">Αυτό το στοιχείο %1$s διαθέτει επίσης κείμενο εκφώνησης: \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="check_title_editable_content_desc">Ετικέτα στοιχείου με δυνατότητα επεξεργασίας</string>
+  
+  <string name="result_message_editable_textview_content_desc">Το &lt;tt&gt;TextView&lt;/tt&gt; με δυνατότητα επεξεργασίας έχει ετικέτα &lt;tt&gt;android:contentDescription&lt;/tt&gt;. Κατά την περιήγηση του χρήστη, μια εφαρμογή ανάγνωσης οθόνης μπορεί να διαβάσει αυτό το χαρακτηριστικό αντί για το περιεχόμενο με δυνατότητα επεξεργασίας.</string>
+  
+  <string name="result_message_not_editable_textview">Αυτό το στοιχείο δεν είναι &lt;tt&gt;TextView&lt;/tt&gt; με δυνατότητα επεξεργασίας.</string>
+  
+  <string name="check_title_image_contrast">Αντίθεση εικόνας</string>
+  
+  <string name="result_message_not_imageview">Αυτό το στοιχείο δεν είναι &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Αυξήστε το λόγο αντίθεσης ανάμεσα στο προσκήνιο και το παρασκήνιο αυτής της εικόνας.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">Ο λόγος αντίθεσης της εικόνας είναι %1$.2f. Αυτός ο λόγος βασίζεται σε ένα εκτιμώμενο χρώμα προσκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt; και ένα εκτιμώμενο χρώμα παρασκηνίου &lt;tt&gt;#%4$06X&lt;/tt&gt;. Αυξήστε αυτό το λόγο σε %2$.2f και πάνω.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">Η αναλογία αντίθεσης της εικόνας είναι %1$.2f. Αυτή η αναλογία βασίζεται στο παρεχόμενο χρώμα προσκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt; και το παρεχόμενο χρώμα φόντου &lt;tt&gt;#%4$06X&lt;/tt&gt;. Μπορείτε να αυξήσετε αυτήν την αναλογία σε%2$.2f ή μεγαλύτερη.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">Η αναλογία αντίθεσης της εικόνας είναι %1$.2f. Αυτή η αναλογία βασίζεται σε ένα εκτιμώμενο χρώμα προσκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt; και σε ένα εκτιμώμενο χρώμα παρασκηνίου &lt;tt&gt;#%4$06X&lt;/tt&gt;. Αυξήστε αυτήν την αναλογία στη διαμορφωμένη αναλογία %2$.2f ή μεγαλύτερη.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">Η αναλογία αντίθεσης της εικόνας είναι %1$.2f. Αυτή η αναλογία βασίζεται στο παρεχόμενο χρώμα προσκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt; και το παρεχόμενο χρώμα φόντου &lt;tt&gt;#%4$06X&lt;/tt&gt;. Μπορείτε να αυξήσετε αυτήν την αναλογία στη διαμορφωμένη αναλογία %2$.2f ή μεγαλύτερη.</string>
+  
+  <string name="check_title_redundant_description">Ετικέτα τύπου στοιχείου</string>
+  
+  <string name="result_message_english_locale_only">Αυτός ο έλεγχος γίνεται μόνο σε συσκευές στις οποίες έχουν οριστεί ως γλώσσα τα Αγγλικά.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">Το &lt;tt&gt;android:contentDescription&lt;/tt&gt; αυτού του στοιχείου ίσως περιέχει περιττό κείμενο.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">Το &lt;tt&gt;android:contentDescription&lt;/tt&gt;, \"&lt;tt&gt;%1$s&lt;/tt&gt;\" αυτού του στοιχείου λήγει με τον τύπο του στοιχείου.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">Το \"&lt;tt&gt;%1$s&lt;/tt&gt;\" του στοιχείου &lt;tt&gt;android:contentDescription&lt;/tt&gt; περιέχει τον τύπο στοιχείου \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="result_message_content_desc_contains_action">Το χαρακτηριστικό &lt;tt&gt;android:contentDescription&lt;/tt&gt;,
+    \"&lt;tt&gt;%1$s&lt;/tt&gt;\", αυτού του στοιχείου
+    περιέχει την ενέργεια \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="result_message_content_desc_contains_state">Το χαρακτηριστικό &lt;tt&gt;android:contentDescription&lt;/tt&gt;,
+    \"&lt;tt&gt;%1$s&lt;/tt&gt;\", αυτού του στοιχείου
+    περιέχει την κατάσταση \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="button_item_type">κουμπί</string>
+  
+  <string name="checkbox_item_type">πλαίσιο ελέγχου</string>
+  
+  <string name="checkbox_item_type_separate_words">πλαίσιο ελέγχου</string>
+  
+  <string name="checked_state">επιλεγμένο</string>
+  
+  <string name="unchecked_state">μη επιλεγμένο</string>
+  
+  <string name="selected_state">επιλεγμένο</string>
+  
+  <string name="unselected_state">μη επιλεγμένο</string>
+  
+  <string name="click_action">κλικ</string>
+  
+  <string name="swipe_action">ολίσθηση</string>
+  
+  <string name="tap_action">πάτημα</string>
+  
+  <string name="check_title_speakable_text_present">Ετικέτα στοιχείου</string>
+  
+  <string name="result_message_should_not_focus">Η εφαρμογή ανάγνωσης οθόνης δεν θα εστιάσει σε αυτό το στοιχείο.</string>
+  
+  <string name="result_message_web_content">Το περιεχόμενο ιστού δεν έχει αξιολογηθεί.</string>
+  
+  <string name="result_message_missing_speakable_text">Αυτό το στοιχείο μπορεί να μην έχει ετικέτα που μπορούν να διαβάσουν οι εφαρμογές ανάγνωσης οθόνης.</string>
+  
+  <string name="check_title_text_contrast">Αντίθεση κειμένου</string>
+  
+  <string name="result_message_textview_empty">Αυτό το στοιχείο &lt;tt&gt;TextView&lt;/tt&gt; είναι κενό.</string>
+  
+  <string name="result_message_could_not_get_text_color">Δεν ήταν δυνατός ο καθορισμός του χρώματος κειμένου αυτού του στοιχείου.</string>
+  
+  <string name="result_message_could_not_get_background_color">Δεν ήταν δυνατός ο καθορισμός του χρώματος παρασκηνίου αυτού του στοιχείου.</string>
+  
+  <string name="result_message_text_must_be_opaque">Το χρώμα κειμένου αυτού του στοιχείου δεν είναι αδιαφανές.</string>
+  
+  <string name="result_message_background_must_be_opaque">Το χρώμα παρασκηνίου αυτού του στοιχείου δεν είναι αδιαφανές.</string>
+  
+  <string name="result_message_addendum_opacity_description">Η πραγματική αδιαφάνεια είναι %1$.2f%%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Αυξήστε το λόγο αντίθεσης μεταξύ προσκηνίου και παρασκηνίου για το κείμενο αυτού του στοιχείου.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Ο λόγος αντίθεσης του κειμένου του στοιχείου είναι %1$.2f. Αυτός ο λόγος βασίζεται στο χρώμα κειμένου &lt;tt&gt;#%2$06X&lt;/tt&gt; και το χρώμα παρασκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt;. Αυξήστε το λόγο αντίθεσης του κειμένου του στοιχείου σε %4$.2f και πάνω.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Η αναλογία αντίθεσης του κειμένου στο στοιχείο είναι %1$.2f. Αυτή η αναλογία βασίζεται σε ένα εκτιμώμενο χρώμα προσκηνίου &lt;tt&gt;#%2$06X&lt;/tt&gt; κι ένα εκτιμώμενο χρώμα παρασκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt;. Μπορείτε να χρησιμοποιήσετε χρώματα που οδηγούν σε αναλογία αντίθεσης μεγαλύτερη από %4$.2f για μικρό κείμενο ή %5$.2f για μεγάλο κείμενο.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Η αναλογία αντίθεσης του κειμένου στο στοιχείο είναι %1$.2f. Αυτή η αναλογία βασίζεται στο παρεχόμενο χρώμα προσκηνίου &lt;tt&gt;#%2$06X&lt;/tt&gt; και το παρεχόμενο χρώμα φόντου &lt;tt&gt;#%3$06X&lt;/tt&gt;. Μπορείτε να χρησιμοποιήσετε χρώματα που οδηγούν σε αναλογία αντίθεσης μεγαλύτερη από %4$.2f για μικρό κείμενο ή %5$.2f για μεγάλο κείμενο.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Η αναλογία αντίθεσης του κειμένου στοιχείου είναι %1$.2f. Αυτή η αναλογία βασίζεται σε ένα εκτιμώμενο χρώμα προσκηνίου &lt;tt&gt;#%2$06X&lt;/tt&gt; και σε ένα εκτιμώμενο χρώμα παρασκηνίου &lt;tt&gt;#%3$06X&lt;/tt&gt;. Αυξήστε την αναλογία αντίθεσης αυτού του κειμένου στοιχείου στη διαμορφωμένη αναλογία %4$.2f ή μεγαλύτερη.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Η αναλογία αντίθεσης του κειμένου στο στοιχείο είναι %1$.2f. Αυτή η αναλογία βασίζεται στο παρεχόμενο χρώμα προσκηνίου &lt;tt&gt;#%2$06X&lt;/tt&gt; και το παρεχόμενο χρώμα φόντου &lt;tt&gt;#%3$06X&lt;/tt&gt;. Μπορείτε να αυξήσετε την αναλογία αντίθεσης κειμένου αυτού του στοιχείου στην προσαρμοσμένη αναλογία %4$.2f ή μεγαλύτερη.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Είναι σωστά τα χρώματα προσκηνίου και φόντου που εντοπίστηκαν;</string>
+  
+  <string name="question_option_message_both_correct">Και τα δύο σωστά</string>
+  
+  <string name="question_option_message_foreground_incorrect">Προσκήνιο λανθασμένο</string>
+  
+  <string name="question_option_message_background_incorrect">Το φόντο είναι λανθασμένο</string>
+  
+  <string name="question_option_message_both_incorrect">Προσκήνιο και φόντο λανθασμένα</string>
+  
+  <string name="question_option_message_unknown">Άγνωστο</string>
+  
+  <string name="question_id_message_provide_foreground_color">Ποιο είναι το σωστό χρώμα για το προσκήνιο;</string>
+  
+  <string name="question_id_message_provide_background_color">Ποιο είναι το σωστό χρώμα φόντου;</string>
+  
+  <string name="check_title_touch_target_size">Στόχος αφής</string>
+  
+  <string name="result_message_not_clickable">Αυτή η προβολή δεν έχει δυνατότητα κλικ.</string>
+  
+  <string name="result_message_brief_small_touch_target">Σκεφτείτε το ενδεχόμενο να κάνετε μεγαλύτερο αυτό το στοιχείο με δυνατότητα κλικ.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Το μέγεθος αυτού του στοιχείου είναι &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Μπορείτε να κάνετε το πλάτος &lt;tt&gt;%3$ddp&lt;/tt&gt; και το ύψος &lt;tt&gt;%4$ddp&lt;/tt&gt; τουλάχιστον, για αυτόν το στόχο αφής.</string>
+  
+  <string name="result_message_small_touch_target_height">Το ύψος αυτού του στοιχείου είναι &lt;tt&gt;%1$ddp&lt;/tt&gt;. Αυξήστε το ύψος αυτού του στόχου αφής σε &lt;tt&gt;%2$ddp&lt;/tt&gt; και πάνω.</string>
+  
+  <string name="result_message_small_touch_target_width">Το πλάτος αυτού του στοιχείου είναι &lt;tt&gt;%1$ddp&lt;/tt&gt;. Αυξήστε το πλάτος αυτού του στόχου αφής σε &lt;tt&gt;%2$ddp&lt;/tt&gt; και πάνω.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Το μέγεθος αυτού του στοιχείου είναι &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Αυξήστε αυτόν τον στόχο αφής τουλάχιστον στο διαμορφωμένο ελάχιστο μέγεθος &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">Το ύψος αυτού του στοιχείου είναι &lt;tt&gt;%1$ddp&lt;/tt&gt;. Αυξήστε το ύψος αυτού του στόχου αφής τουλάχιστον στο διαμορφωμένο ελάχιστο ύψος &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">Το πλάτος αυτού του στοιχείου είναι &lt;tt&gt;%1$ddp&lt;/tt&gt;. Αυξήστε το πλάτος αυτού του στόχου αφής τουλάχιστον στο διαμορφωμένο ελάχιστο πλάτος &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_touch_delegate">Εντοπίστηκε &lt;tt&gt;TouchDelegate&lt;/tt&gt; σε ένα από τα γονικά στοιχεία αυτού του στοιχείου. Αυτό το μήνυμα μπορεί να αγνοηθεί αν η παραπομπή δεν έχει επαρκές μέγεθος και χειρίζεται αγγίγματα για αυτό το στοιχείο.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">Εντοπίστηκε μια περιοχή &lt;tt&gt;TouchDelegate&lt;/tt&gt; με μέγεθος &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; για αυτό το στοιχείο. Σκεφτείτε το ενδεχόμενο να αυξήσετε το μέγεθος του στόχου &lt;tt&gt;Rect&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">Ένα γονικό κοντέινερ μπορεί να χειρίζεται τα συμβάντα αφής για αυτό το στοιχείο. Αν με την επιλογή του μεγαλύτερου κοντέινερ εκτελείται η ίδια ενέργεια με την επιλογή αυτού του στοιχείου, ορίστε αυτό το στοιχείο ώστε να μην έχει δυνατότητα κλικ. Αν εκτελείται διαφορετική ενέργεια, αυξήστε το μέγεθος αυτού του στοιχείου.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">Ένα μητρικό κοντέινερ μπορεί να μειώσει το μέγεθος αυτού του στοιχείου, το οποίο διαθέτει μια περιοχή σχεδίασης &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Σκεφτείτε να αυξήσετε το μέγεθος αυτού του αρχικού κοντέινερ μείωσης μεγέθους ή επιτρέψτε σε ένα μεγαλύτερο μητρικό κοντέινερ να διαχειριστεί τις ενέργειες για αυτό το στοιχείο.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Αυτό το στοιχείο μπορεί να είναι μόνο εν μέρει ορατό σε ένα κοντέινερ με δυνατότητα κύλισης.</string>
+  
+  <string name="check_title_class_name_not_supported">Μη υποστηριζόμενος τύπος στοιχείου</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Ο τύπος αυτού του στοιχείου μπορεί να μην υποστηρίζεται.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Ο τύπος αυτού του στοιχείου &lt;tt&gt;%1$s&lt;/tt&gt; ενδέχεται να μην μπορεί να επιλυθεί μέσω υπηρεσιών προσβασιμότητας. Χρησιμοποιήστε έναν τύπο που ορίζεται από το Android SDK.</string>
+  
+  <string name="result_message_class_name_is_empty">Ο τύπος αυτού του στοιχείου μπορεί να μην αναφέρεται στις υπηρεσίες προσβασιμότητας. Χρησιμοποιήστε έναν τύπο που ορίζεται από το Android SDK.</string>
+  
+  <string name="result_message_class_name_is_unknown">Δεν ήταν δυνατός ο προσδιορισμός του τύπου αυτού του στοιχείου.</string>
+  
+  <string name="check_title_accessibility_traversal">Σειρά διέλευσης</string>
+  
+  <string name="result_message_traversal_cycle">Αυτό το στοιχείο μπορεί να μην είναι μέρος ενός κύκλου σειράς διέλευσης λόγω του χαρακτηριστικού &lt;tt&gt;%1$s&lt;/tt&gt; που διαθέτει.  Η συμπεριφορά διέλευσης με τους αναγνώστες οθόνης μπορεί να είναι απρόβλεπτη.</string>
+  
+  <string name="result_message_traversal_over_constrained">Η σειρά διέλευσης για αυτό το στοιχείο μπορεί να είναι υπερβολικά περιορισμένη βάσει των χαρακτηριστικών &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; και &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; που διαθέτει. Η συμπεριφορά διέλευσης με τους αναγνώστες οθόνης μπορεί να είναι απρόβλεπτη.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Η συμπεριφορά διέλευσης με τους αναγνώστες οθόνης μπορεί να είναι απρόβλεπτη.</string>
+  
+  <string name="result_message_disruptive_announcement">Χρησιμοποιήθηκε μια ανακοίνωση διασπαστικής προσβασιμότητας.</string>
+  
+  <string name="check_view_banned_word">Αποκλεισμένη λέξη</string>
+  
+  <string name="result_message_banned_word">Το κείμενο αυτού του στοιχείου ενδέχεται να περιέχει μια ανάρμοστη λέξη, \"&lt;tt&gt;%1$s&lt;/tt&gt;\"</string>
+  
+  <string name="result_message_brief_banned_word">Σκεφτείτε το ενδεχόμενο να αφαιρέσετε τις ανάρμοστες λέξεις από το κείμενο αυτού στοιχείου.</string>
+  
+  <string name="check_title_text_style">Στιλ κειμένου</string>
+  
+  <string name="result_message_styled_text">Αυτό το στοιχείο μπορεί να χρησιμοποιεί %1$s γραμματοσειρά για μεγάλο απόσπασμα κειμένου. Σκεφτείτε το ενδεχόμενο να καταργήσετε το στιλ από τη γραμματοσειρά για να βελτιώσετε την αναγνωσιμότητα.</string>
+  
+  <string name="result_message_brief_styled_text">Σκεφτείτε το ενδεχόμενο να καταργήσετε το στιλ %1$s σε μεγαλύτερα αποσπάσματα κειμένου.</string>
+  
+  <string name="italic_text">πλάγια</string>
+  
+  <string name="underline_text">με υπογράμμιση</string>
+  
+  <string name="italic_underline_text">πλάγια και με υπογράμμιση</string>
+  
+  <string name="result_message_no_typeface_info">Δεν ήταν δυνατός ο προσδιορισμός της γραμματοσειράς αυτού του στοιχείου.</string>
+  
+  <string name="check_title_link_test">Κείμενο συνδέσμου</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Σκεφτείτε το ενδεχόμενο να χρησιμοποιήσετε περισσότερο περιγραφικό κείμενο στον σύνδεσμο.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Το κείμενο συνδέσμου \"&lt;tt&gt;%1$s&lt;/tt&gt;\" μπορεί να μην μεταφέρει ανεξάρτητα τον σκοπό του συνδέσμου.</string>
+  
+  <string name="check_title_reading_score">Αναγνωσιμότητα</string>
+  
+  <string name="result_message_low_reading_score">Το κείμενο αυτού του στοιχείου έχει μια προσεγγιστική βαθμολογία αναγνωσιμότητας %1$.0f, η οποία είναι χαμηλότερη από την προτεινόμενη βαθμολογία %2$.0f. Μπορείτε να χρησιμοποιήσετε πιο απλές λέξεις ή προτάσεις για να κάνετε το κείμενο πιο ευανάγνωστο.</string>
+  
+  <string name="result_message_brief_low_reading_score">Αυτό το κείμενο μπορεί να έχει χαμηλή βαθμολογία αναγνωσιμότητας.</string>
+  
+  <string name="result_message_short_text">Το κείμενο αυτού του στοιχείου είναι πολύ σύντομο, ώστε να αξιολογηθεί.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Αυτή η οθόνη χρειάζεται μη αυτόματη αναθεώρηση για να διασφαλιστεί ότι όλα τα στοιχεία εκτίθενται σε υπηρεσίες προσβασιμότητας.</string>
+  
+  <string name="result_message_has_unexposed_items">Αυτή η οθόνη μπορεί να έχει στοιχεία που δεν εκτίθενται σε υπηρεσίες προσβασιμότητας.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">Η περιοχή με την τοποθεσία στην οθόνη &lt;tt&gt;%1$s&lt;/tt&gt; περιέχει τουλάχιστον ένα στοιχείο που δεν εκτίθεται σε υπηρεσίες προσβασιμότητας.</string>
+  
+  <string name="check_title_item_exposed">Εκτεθειμένα στοιχεία</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Σκεφτείτε το ενδεχόμενο να εκθέσετε στοιχεία σε αυτήν την περιοχή στις υπηρεσίες προσβασιμότητας.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Αυτή η οθόνη περιέχει σημαντικά στοιχεία που δεν επισημαίνονται;</string>
+  
+  <string name="question_message_identify_unexposed_items">Επιλέξτε περιοχές της οθόνης με μη προσδιορισμένα στοιχεία.</string>
+
+</resources>

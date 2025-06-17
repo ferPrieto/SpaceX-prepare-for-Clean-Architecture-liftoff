@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Det här objektet var inte viktigt för åtkomlighet.</string>
+  
+  <string name="result_message_no_content_desc">Det här objektet saknar &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Det här objektet visas inte.</string>
+  
+  <string name="result_message_not_enabled">Det här objektet är inte aktiverat.</string>
+  
+  <string name="result_message_not_text_view">Det här objektet är inte en &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Data från skärmbild kunde inte visas.</string>
+  
+  <string name="result_message_view_not_within_screencapture">Objektets plats på skärmen (&lt;tt&gt;%1$s&lt;/tt&gt;) var inte inom skärmbilden (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">Skärmbildsinformation för det här objektet doldes.</string>
+  
+  <string name="result_message_screencapture_uniform_color">Skärmbilden har en enhetlig färg.</string>
+  
+  <string name="clickable">klickbar</string>
+  
+  <string name="non_clickable">inte klickbar</string>
+  
+  <string name="long_clickable">lång klickbar</string>
+  
+  <string name="clickable_and_long_clickable">klickbar och lång klickbar</string>
+  
+  <string name="actionable">handlingsbar</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Kontrollen är inte tillämplig på enheter med Android %1$s eller senare.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Det här objektet kan skymmas av annat innehåll på skärmen. Överväg att manuellt testa kontrasten för det här objektet.</string>
+  
+  <string name="check_title_clickablespan">Länk</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Objekttypen är obestämd.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Verifiera att webbadressen inom objektets &lt;tt&gt;URLSpan&lt;/tt&gt; är giltig.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Det här objektet ska använda &lt;tt&gt;URLSpan&lt;/tt&gt; istället för &lt;tt&gt;ClickableSpan&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Klickbara objekt</string>
+  
+  <string name="result_message_brief_same_view_bounds">Flera %1$s objekt delar platsen på skärmen.</string>
+  
+  <string name="result_message_same_view_bounds">Det här %1$s objektet har samma plats på skärmen (&lt;tt&gt;%2$s&lt;/tt&gt;) som %3$d andra objekt med samma egenskaper.</string>
+  
+  <string name="result_message_view_bounds">Det här %1$s objektet har också en plats på skärmen på &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Objektsbeskrivningar</string>
+  
+  <string name="result_message_brief_same_speakable_text">Flera objekt har samma beskrivning.</string>
+  
+  <string name="result_message_same_speakable_text">Det här %1$s objektets &lt;tt&gt;%2$s&lt;/tt&gt; är identiskt med %3$d andra objekt.</string>
+  
+  <string name="result_message_speakable_text">Det här %1$s objektet har uttalbar text: &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_editable_content_desc">Objektsbeteckningen kan redigeras</string>
+  
+  <string name="result_message_editable_textview_content_desc">&lt;tt&gt;TextView&lt;/tt&gt; kan redigeras och har &lt;tt&gt;android:contentDescription&lt;/tt&gt;. En skärmläsare kan läsa det här attributet istället för det redigerbara innehållet när användaren navigerar.</string>
+  
+  <string name="result_message_not_editable_textview">Det här objektet är inte en redigerbar &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="check_title_image_contrast">Bildkontrast</string>
+  
+  <string name="result_message_not_imageview">Det här objektet är inte &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Du kan öka kontrastförhållandet mellan bildens förgrund och bakgrund.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">Bildens kontrastförhållande är %1$.2f. Det här förhållandet baseras på den uppskattade förgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt; och den uppskattade bakgrundsfärgen &lt;tt&gt;#%4$06X&lt;/tt&gt;. Du kan öka förhållandet till %2$.2f eller större.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">Bildens kontrastförhållande är %1$.2f. Förhållandet baseras på den angivna förgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt; och den angivna bakgrundsfärgen &lt;tt&gt;#%4$06X&lt;/tt&gt;. Det kan vara bra att öka kontrastförhållandet till minst %2$.2f.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">Bildens kontrastförhållande är %1$.2f. Det här förhållandet baseras på den uppskattade förgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt; och den uppskattade bakgrundsfärgen &lt;tt&gt;#%4$06X&lt;/tt&gt;. Du kan öka förhållandet till %2$.2f eller större.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">Bildens kontrastförhållande är %1$.2f. Förhållandet baseras på den angivna förgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt; och den angivna bakgrundsfärgen &lt;tt&gt;#%4$06X&lt;/tt&gt;. Det kan vara bra att öka kontrastförhållandet till det konfigurerade värdet på minst %2$.2f.</string>
+  
+  <string name="check_title_redundant_description">Objekttypsbeteckning</string>
+  
+  <string name="result_message_english_locale_only">Kontrollen körs på enheter där engelska har ställts in.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">Objektets &lt;tt&gt;android:contentDescription&lt;/tt&gt; kan innehålla onödig text.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">Objektets &lt;tt&gt;android:contentDescription&lt;/tt&gt;, ”&lt;tt&gt;%1$s&lt;/tt&gt;” slutar med objekttyp.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">Objektets &lt;tt&gt;android:contentDescription&lt;/tt&gt;, ”&lt;tt&gt;%1$s&lt;/tt&gt;” innehåller objekttypen ”&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="result_message_content_desc_contains_action">Objektets &lt;tt&gt;android:contentDescription&lt;/tt&gt;,
+    ”&lt;tt&gt;%1$s&lt;/tt&gt;”,
+    innehåller åtgärden ”&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="result_message_content_desc_contains_state">Objektets &lt;tt&gt;android:contentDescription&lt;/tt&gt;,
+    ”&lt;tt&gt;%1$s&lt;/tt&gt;”,
+    innehåller statusen ”&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="button_item_type">knapp</string>
+  
+  <string name="checkbox_item_type">kryssruta</string>
+  
+  <string name="checkbox_item_type_separate_words">kryssruta</string>
+  
+  <string name="checked_state">markerad</string>
+  
+  <string name="unchecked_state">avmarkerad</string>
+  
+  <string name="selected_state">vald</string>
+  
+  <string name="unselected_state">inte vald</string>
+  
+  <string name="click_action">klicka</string>
+  
+  <string name="swipe_action">svep</string>
+  
+  <string name="tap_action">tryck</string>
+  
+  <string name="check_title_speakable_text_present">Objektsbeteckning</string>
+  
+  <string name="result_message_should_not_focus">Objektet fokuseras inte av skärmläsare.</string>
+  
+  <string name="result_message_web_content">Webbinnehåll utvärderas inte.</string>
+  
+  <string name="result_message_missing_speakable_text">Objektet saknar kanske en beteckning som kan läsas av skärmläsare.</string>
+  
+  <string name="check_title_text_contrast">Textkontrast</string>
+  
+  <string name="result_message_textview_empty">&lt;tt&gt;TextView&lt;/tt&gt; är tom.</string>
+  
+  <string name="result_message_could_not_get_text_color">Det gick inte att fastställa objektets textfärg.</string>
+  
+  <string name="result_message_could_not_get_background_color">Det gick inte att fastställa objektets bakgrundsfärg.</string>
+  
+  <string name="result_message_text_must_be_opaque">Objektets textfärg är inte ogenomskinlig.</string>
+  
+  <string name="result_message_background_must_be_opaque">Objektets bakgrund är inte ogenomskinlig.</string>
+  
+  <string name="result_message_addendum_opacity_description">Den faktiska ogenomskinligheten är %1$.2f%%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Du kan öka kontrastförhållandet mellan objekttextens förgrund och bakgrund.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Objektets textkontrastförhållande är %1$.2f. Förhållandet baseras på textfärgen &lt;tt&gt;#%2$06X&lt;/tt&gt; och bakgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt;. Du kan öka textens kontrastförhållande till %4$.2f eller större.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Objektets textkontrastförhållande är %1$.2f. Förhållandet baseras på den uppskattade förgrundsfärgen &lt;tt&gt;#%2$06X&lt;/tt&gt; och den uppskattade bakgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt;. Du kan använda färger som resulterar i ett kontrastförhållande som är större än %4$.2f för liten text eller %5$.2f för stor text.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Objektets textkontrastförhållande är %1$.2f. Förhållandet baseras på den angivna förgrundsfärgen &lt;tt&gt;#%2$06X&lt;/tt&gt; och den angivna bakgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt;. Du kan använda färger som resulterar i ett kontrastförhållande som är större än %4$.2f för liten text eller %5$.2f för stor text.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Objektets textkontrastförhållande är %1$.2f. Förhållandet baseras på den uppskattade förgrundsfärgen &lt;tt&gt;#%2$06X&lt;/tt&gt; och den uppskattade bakgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt;. Du kan öka objektets textkontrastförhållande till %4$.2f eller större.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Objektets textkontrastförhållande är %1$.2f. Förhållandet baseras på den angivna förgrundsfärgen &lt;tt&gt;#%2$06X&lt;/tt&gt; och den angivna bakgrundsfärgen &lt;tt&gt;#%3$06X&lt;/tt&gt;. Du kan öka objektets kontrastförhållande till %4$.2f eller större.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Är de identifierade förgrunds- och bakgrundsfärgerna rätt?</string>
+  
+  <string name="question_option_message_both_correct">Båda är rätt</string>
+  
+  <string name="question_option_message_foreground_incorrect">Förgrunden är felaktig</string>
+  
+  <string name="question_option_message_background_incorrect">Bakgrunden är felaktig</string>
+  
+  <string name="question_option_message_both_incorrect">Förgrunden och bakgrunden är felaktiga</string>
+  
+  <string name="question_option_message_unknown">Okänt</string>
+  
+  <string name="question_id_message_provide_foreground_color">Vad är rätt förgrundsfärg?</string>
+  
+  <string name="question_id_message_provide_background_color">Vad är rätt bakgrundsfärg?</string>
+  
+  <string name="check_title_touch_target_size">Tryckområde</string>
+  
+  <string name="result_message_not_clickable">Den här vyn är inte klickbar.</string>
+  
+  <string name="result_message_brief_small_touch_target">Du kan göra det här klickbara objektet större.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Objektets storlek är &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Du kan göra den tryckbara vyn &lt;tt&gt;%3$ddp&lt;/tt&gt; bred och &lt;tt&gt;%4$ddp&lt;/tt&gt; hög eller större.</string>
+  
+  <string name="result_message_small_touch_target_height">Objektets höjd är &lt;tt&gt;%1$ddp&lt;/tt&gt;. Du kan göra den tryckbara vyns höjd &lt;tt&gt;%2$ddp&lt;/tt&gt; eller större.</string>
+  
+  <string name="result_message_small_touch_target_width">Objektets bredd är &lt;tt&gt;%1$ddp&lt;/tt&gt;. Du kan göra den tryckbara vyns bredd &lt;tt&gt;%2$ddp&lt;/tt&gt; eller större.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Objektets storlek är &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Du kan öka den tryckbara vyn till minst den konfigurerade minimistorleken &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">Objektets höjd är &lt;tt&gt;%1$ddp&lt;/tt&gt;. Du kan öka den tryckbara vyns höjd till minst den konfigurerade minimihöjden &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">Objektets bredd är &lt;tt&gt;%1$ddp&lt;/tt&gt;. Du kan öka den tryckbara vyns bredd till minst den konfigurerade minimibredden &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_touch_delegate">&lt;tt&gt;TouchDelegate&lt;/tt&gt; har identifierats på ett tidigare objekt. Meddelandet kan ignoreras om ytan är tillräckligt stor och hanterar tryckningar för objektet.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">En &lt;tt&gt;TouchDelegate&lt;/tt&gt; med storleken &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; har identifierats för det här objektet. Prova att öka storleken på träffen &lt;tt&gt;Rect&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">En överordnad ruta kan hantera tryckhändelser för det här objektet. Om den större rutan utför samma åtgärd som det här objektet kan du definiera objektet som inte klickbart. Om en annan åtgärd genomförs kan du göra objektet större.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">En överordnad ruta kan påverka storleken på objektet, som har en rityta på &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Överväg att öka storleken på objektets överordnade element, eller tillåt en större, överordnad ruta att hantera åtgärder åt objektet.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Det kan hända att det här objektet endast är delvis synligt inom en rullningsbar ruta.</string>
+  
+  <string name="check_title_class_name_not_supported">Objekttyp som inte stöds</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Objekttypen kanske inte stöds.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Denna objekttyp &lt;tt&gt;%1$s&lt;/tt&gt; kanske inte kan matchas av tillgänglighetstjänster. Överväg att använda en typ som definieras av Android SDK.</string>
+  
+  <string name="result_message_class_name_is_empty">Denna objekttyp kanske inte har rapporteras till tillgänglighetstjänster. Överväg att använda en typ som definieras av Android SDK.</string>
+  
+  <string name="result_message_class_name_is_unknown">Objekttypen kunde inte fastställas.</string>
+  
+  <string name="check_title_accessibility_traversal">Objektens ordning</string>
+  
+  <string name="result_message_traversal_cycle">Objektet kan ingå i en ordningscykel på grund av attributet &lt;tt&gt;%1$s&lt;/tt&gt;. Ordningsbeteendet kan bli oförutsägbart i skärmläsningsprogram.</string>
+  
+  <string name="result_message_traversal_over_constrained">Ordningen av objektet kan begränsas i för hög grad på grund av attributen &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; och &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt;. Ordningsbeteendet kan bli oförutsägbart i skärmläsningsprogram.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Ordningsbeteendet kan bli oförutsägbart i skärmläsningsprogram.</string>
+  
+  <string name="result_message_disruptive_announcement">Ett tillgänglighetsstörande kommando har använts.</string>
+  
+  <string name="check_view_banned_word">Förbjudet ord</string>
+  
+  <string name="result_message_banned_word">Texten för det här objektet innehåller eventuellt ett olämpligt ord, ”&lt;tt&gt;%1$s&lt;/tt&gt;”</string>
+  
+  <string name="result_message_brief_banned_word">Överväg att ta bort olämpliga ord från texten för det här objektet</string>
+  
+  <string name="check_title_text_style">Textformat</string>
+  
+  <string name="result_message_styled_text">Det här objektet kan använda %1$s för långa textavsnitt. Prova att ta bort teckensnittets format för att förbättra läsbarheten.</string>
+  
+  <string name="result_message_brief_styled_text">Prova att ta bort %1$s vid långa textavsnitt.</string>
+  
+  <string name="italic_text">kursiv text</string>
+  
+  <string name="underline_text">understruken text</string>
+  
+  <string name="italic_underline_text">kursiv och understruken text</string>
+  
+  <string name="result_message_no_typeface_info">Objektets teckensnitt kunde inte fastställas.</string>
+  
+  <string name="check_title_link_test">Länktext</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Överväg att använda mer beskrivande text i länken.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Länktexten ”&lt;tt&gt;%1$s&lt;/tt&gt;” kanske inte förmedlar syftet med länken.</string>
+  
+  <string name="check_title_reading_score">Läsbarhet</string>
+  
+  <string name="result_message_low_reading_score">Objektets text har det ungefärliga läsbarhetsresultatet %1$.0f, vilket är lägre än det rekommenderade resultatet %2$.0f. Du kan använda enklare ord eller meningar så att texten blir lättare att läsa.</string>
+  
+  <string name="result_message_brief_low_reading_score">Den här texten kan ha ett lägre läsbarhetsresultat.</string>
+  
+  <string name="result_message_short_text">Texten för det här objektet är för kort för att kunna utvärderas.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Du måste granska den här skärmen manuellt för att se till att alla objekt exponeras för tillgänglighetstjänster.</string>
+  
+  <string name="result_message_has_unexposed_items">Den här skärmen kan ha objekt som inte exponeras för tillgänglighetstjänster.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">Regionen med platsen &lt;tt&gt;%1$s&lt;/tt&gt; på skärmen innehåller minst ett objekt som inte exponeras för tillgänglighetstjänster.</string>
+  
+  <string name="check_title_item_exposed">Exponerade objekt</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Överväg att exponera objekt i den här regionen för tillgänglighetstjänster.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Innehåller skärmen viktiga objekt som inte beskrivs?</string>
+  
+  <string name="question_message_identify_unexposed_items">Välj regioner på skärmen med oidentifierade objekt.</string>
+
+</resources>

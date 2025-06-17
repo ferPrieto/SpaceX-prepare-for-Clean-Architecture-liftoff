@@ -1,0 +1,99 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="prieto.fernando.core_android_test.test" >
+4
+5    <uses-sdk
+5-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:5:5-74
+6        android:minSdkVersion="26"
+6-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:5:15-41
+7        android:targetSdkVersion="26" />
+7-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:5:42-71
+8
+9    <instrumentation
+9-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:11:5-15:88
+10        android:name="prieto.fernando.spacex.webmock.MockTestRunner"
+10-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:11:22-82
+11        android:functionalTest="false"
+11-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:13:22-53
+13        android:label="Tests for prieto.fernando.core_android_test.test"
+13-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:15:22-86
+14        android:targetPackage="prieto.fernando.core_android_test.test" />
+14-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:12:22-84
+15
+16    <uses-permission android:name="android.permission.REORDER_TASKS" />
+16-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:24:5-72
+16-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:24:22-69
+17
+18    <queries>
+18-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:24:5-28:15
+19        <package android:name="androidx.test.orchestrator" />
+19-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:25:9-62
+19-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:25:18-59
+20        <package android:name="androidx.test.services" />
+20-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:26:9-58
+20-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:26:18-55
+21        <package android:name="com.google.android.apps.common.testing.services" />
+21-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:27:9-83
+21-->[androidx.test:runner:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/9a9536006f85d401b0e521a331be2716/transformed/runner-1.4.0/AndroidManifest.xml:27:18-80
+22    </queries>
+23
+24    <application
+24-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:7:5-9:19
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.2.0] /Users/fprieto/.gradle/caches/transforms-3/fe811d64e3228f96927c32e562aa94e4/transformed/core-1.2.0/AndroidManifest.xml:24:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false" >
+28        <uses-library android:name="android.test.runner" />
+28-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:8:9-60
+28-->/Users/fprieto/PersonalProjects/SpaceX-prepare-for-Clean-Architecture-liftoff/core-android-test/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest18032902160454582361.xml:8:23-57
+29
+30        <activity
+30-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:27:9-34:20
+31            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+31-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:28:13-99
+32            android:exported="true"
+32-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:29:13-36
+33            android:theme="@android:style/Theme" >
+33-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:30:13-49
+34            <intent-filter>
+34-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:31:13-33:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:32:17-69
+35-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:32:25-66
+36            </intent-filter>
+37        </activity>
+38        <activity
+38-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:35:9-42:20
+39            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+39-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:36:13-95
+40            android:exported="true"
+40-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:37:13-36
+41            android:theme="@android:style/Theme" >
+41-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:38:13-49
+42            <intent-filter>
+42-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:31:13-33:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:32:17-69
+43-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:32:25-66
+44            </intent-filter>
+45        </activity>
+46        <activity
+46-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:43:9-50:20
+47            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+47-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:44:13-103
+48            android:exported="true"
+48-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:45:13-36
+49            android:theme="@android:style/Theme.Dialog" >
+49-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:46:13-56
+50            <intent-filter>
+50-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:31:13-33:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:32:17-69
+51-->[androidx.test:core:1.4.0] /Users/fprieto/.gradle/caches/transforms-3/d4ed68fb27d7368342b7388e906eda95/transformed/core-1.4.0/AndroidManifest.xml:32:25-66
+52            </intent-filter>
+53        </activity>
+54    </application>
+55
+56</manifest>

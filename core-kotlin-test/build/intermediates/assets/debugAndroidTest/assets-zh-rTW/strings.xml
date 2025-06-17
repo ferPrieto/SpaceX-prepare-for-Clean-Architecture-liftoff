@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">經過掃描，這個項目並不會影響應用程式的無障礙程度。</string>
+  
+  <string name="result_message_no_content_desc">這個項目不含 &lt;tt&gt;android:contentDescription&lt;/tt&gt;。</string>
+  
+  <string name="result_message_not_visible">這個項目不會顯示在畫面上。</string>
+  
+  <string name="result_message_not_enabled">這個項目未啟用。</string>
+  
+  <string name="result_message_not_text_view">這個項目不是 &lt;tt&gt;TextView&lt;/tt&gt;。</string>
+  
+  <string name="result_message_no_screencapture">無法取得螢幕擷取資料。</string>
+  
+  <string name="result_message_view_not_within_screencapture">這個項目在畫面上的位置 (&lt;tt&gt;%1$s&lt;/tt&gt;) 不在螢幕擷取的畫面範圍 (&lt;tt&gt;%2$s&lt;/tt&gt;) 內。</string>
+  
+  <string name="result_message_screencapture_data_hidden">這個項目的螢幕擷取資訊已隱藏。</string>
+  
+  <string name="result_message_screencapture_uniform_color">螢幕截圖只有單一色彩。</string>
+  
+  <string name="clickable">可點擊</string>
+  
+  <string name="non_clickable">不可點擊</string>
+  
+  <string name="long_clickable">可長按</string>
+  
+  <string name="clickable_and_long_clickable">可點擊與長按的</string>
+  
+  <string name="actionable">可操作</string>
+  
+  <string name="result_message_sdk_version_not_applicable">這項檢查功能不適用於執行 Android %1$s 以上版本的裝置。</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">這個項目可能已遭其他螢幕內容遮蓋，建議你手動測試這個項目的對比。</string>
+  
+  <string name="check_title_clickablespan">連結</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">無法判定這個項目的類型。</string>
+  
+  <string name="result_message_urlspan_invalid_url">建議檢查這個項目的 &lt;tt&gt;URLSpan&lt;/tt&gt; 內的網址是否有效。</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">這個項目應使用 &lt;tt&gt;URLSpan&lt;/tt&gt;，而不是 &lt;tt&gt;ClickableSpan&lt;/tt&gt;。</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">可點擊的項目</string>
+  
+  <string name="result_message_brief_same_view_bounds">畫面上的這個位置有多個%1$s項目。</string>
+  
+  <string name="result_message_same_view_bounds">這個%1$s項目在畫面上的位置 (&lt;tt&gt;%2$s&lt;/tt&gt;) 與另外 %3$d 個具備這些屬性的項目相同。</string>
+  
+  <string name="result_message_view_bounds">這個%1$s項目在畫面上的位置同樣是 &lt;tt&gt;%2$s&lt;/tt&gt;。</string>
+  
+  <string name="check_title_duplicate_speakable_text">項目說明</string>
+  
+  <string name="result_message_brief_same_speakable_text">多個項目的說明重複。</string>
+  
+  <string name="result_message_same_speakable_text">這個%1$s項目的朗讀文字「&lt;tt&gt;%2$s&lt;/tt&gt;」與另外 %3$d 個項目相同。</string>
+  
+  <string name="result_message_speakable_text">這個%1$s項目的朗讀文字同樣是「&lt;tt&gt;%2$s&lt;/tt&gt;」。</string>
+  
+  <string name="check_title_editable_content_desc">可編輯的項目標籤</string>
+  
+  <string name="result_message_editable_textview_content_desc">這個可編輯的 &lt;tt&gt;TextView&lt;/tt&gt; 含有 &lt;tt&gt;android:contentDescription&lt;/tt&gt;。使用者操作應用程式時，螢幕閱讀器可能會朗讀這個屬性，而非朗讀可編輯的內容。</string>
+  
+  <string name="result_message_not_editable_textview">這個項目不是可編輯的 &lt;tt&gt;TextView&lt;/tt&gt;。</string>
+  
+  <string name="check_title_image_contrast">圖片對比度</string>
+  
+  <string name="result_message_not_imageview">這個項目不是 &lt;tt&gt;ImageView&lt;/tt&gt;。</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">建議提高這張圖片前景和背景之間的對比度。</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">這張圖片的對比度為 %1$.2f。這個比例是根據估計前景顏色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和估計背景顏色 &lt;tt&gt;#%4$06X&lt;/tt&gt; 計算而得。建議將對比度提高為 %2$.2f 以上。</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">這張圖片的對比度為 %1$.2f。這個比值是根據既有的前景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%4$06X&lt;/tt&gt; 計算而得。建議將這個對比度提高至 %2$.2f 以上。</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">這張圖片的對比度為 %1$.2f。這個比值是根據系統預估的前景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%4$06X&lt;/tt&gt; 計算而得。建議提高對比度，最低值最好不要小於你設定的比值 (%2$.2f)。</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">這張圖片的對比度為 %1$.2f。這個比值是根據既有的前景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%4$06X&lt;/tt&gt; 計算而得。建議將這個對比度提高至設定的比值 (%2$.2f) 以上。</string>
+  
+  <string name="check_title_redundant_description">項目類型標籤</string>
+  
+  <string name="result_message_english_locale_only">這項檢查只能在語系設為英文的裝置上執行。</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">這個項目的 &lt;tt&gt;android:contentDescription&lt;/tt&gt; 可能含有不必要的文字。</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">這個項目的 &lt;tt&gt;android:contentDescription&lt;/tt&gt; (&lt;tt&gt;%1$s&lt;/tt&gt;) 結尾是項目的類型。</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">這個項目的 &lt;tt&gt;android:contentDescription&lt;/tt&gt; (&lt;tt&gt;%1$s&lt;/tt&gt;) 含有「&lt;tt&gt;%2$s&lt;/tt&gt;」項目類型。</string>
+  
+  <string name="result_message_content_desc_contains_action">這個項目的&lt;tt&gt;android:contentDescription&lt;/tt&gt;「&lt;tt&gt;%1$s&lt;/tt&gt;」包含「&lt;tt&gt;%2$s&lt;/tt&gt;」動作。</string>
+  
+  <string name="result_message_content_desc_contains_state">這個項目的&lt;tt&gt;android:contentDescription&lt;/tt&gt;「&lt;tt&gt;%1$s&lt;/tt&gt;」包含「&lt;tt&gt;%2$s&lt;/tt&gt;」狀態。</string>
+  
+  <string name="button_item_type">按鈕</string>
+  
+  <string name="checkbox_item_type">核取方塊</string>
+  
+  <string name="checkbox_item_type_separate_words">核取方塊</string>
+  
+  <string name="checked_state">已勾選</string>
+  
+  <string name="unchecked_state">未勾選</string>
+  
+  <string name="selected_state">已選取</string>
+  
+  <string name="unselected_state">未選取</string>
+  
+  <string name="click_action">按一下</string>
+  
+  <string name="swipe_action">滑動</string>
+  
+  <string name="tap_action">輕觸</string>
+  
+  <string name="check_title_speakable_text_present">項目標籤</string>
+  
+  <string name="result_message_should_not_focus">螢幕閱讀器不會朗讀到這個項目。</string>
+  
+  <string name="result_message_web_content">未評估網頁內容。</string>
+  
+  <string name="result_message_missing_speakable_text">這個項目可能含有螢幕閱讀器無法讀出的標籤。</string>
+  
+  <string name="check_title_text_contrast">文字對比度</string>
+  
+  <string name="result_message_textview_empty">這個 &lt;tt&gt;TextView&lt;/tt&gt; 沒有任何內容。</string>
+  
+  <string name="result_message_could_not_get_text_color">無法判定這個項目的文字顏色。</string>
+  
+  <string name="result_message_could_not_get_background_color">無法判定這個項目的背景顏色。</string>
+  
+  <string name="result_message_text_must_be_opaque">這個項目的文字顏色並非不透明色。</string>
+  
+  <string name="result_message_background_must_be_opaque">這個項目的背景顏色並非不透明色。</string>
+  
+  <string name="result_message_addendum_opacity_description">實際不透明度為 %1$.2f%%。</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">建議提高這個項目的文字前景與背景之間的對比度。</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">這個項目的文字對比度為 %1$.2f。這個比例是根據文字顏色 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和背景顏色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 計算而得。建議將項目的文字對比度提高為 %4$.2f 以上。</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">這個項目的文字對比度為 %1$.2f。這個比值是根據系統預估的前景色彩 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 計算而得。建議使用其他色彩，讓小型文字的對比度超過 %4$.2f，或是讓大型文字的對比度超過 %5$.2f。</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">這個項目的文字對比度為 %1$.2f。這個比值是根據既有的前景色彩 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 計算而得。建議使用其他色彩，讓小型文字的對比度超過 %4$.2f，或是讓大型文字的對比度超過 %5$.2f。</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">這個項目的文字對比度為 %1$.2f。這個比值是根據系統預估的前景色彩 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 計算而得。建議提高這個項目的文字對比度，最低值最好不要小於你設定的比值 (%4$.2f)。</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">這個項目的文字對比度為 %1$.2f。這個比值是根據既有的前景色彩 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和背景色彩 &lt;tt&gt;#%3$06X&lt;/tt&gt; 計算而得。建議將這個項目的文字對比度提高至所設比值 (%4$.2f) 以上。</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">系統偵測到的前景和背景色彩是否正確？</string>
+  
+  <string name="question_option_message_both_correct">前景與背景色彩均正確無誤</string>
+  
+  <string name="question_option_message_foreground_incorrect">前景色彩有誤</string>
+  
+  <string name="question_option_message_background_incorrect">背景色彩有誤</string>
+  
+  <string name="question_option_message_both_incorrect">前景與背景色彩均有誤</string>
+  
+  <string name="question_option_message_unknown">不明</string>
+  
+  <string name="question_id_message_provide_foreground_color">正確的前景色彩為何？</string>
+  
+  <string name="question_id_message_provide_background_color">正確的背景色彩為何？</string>
+  
+  <string name="check_title_touch_target_size">觸控目標</string>
+  
+  <string name="result_message_not_clickable">這個檢視畫面是不可點擊的。</string>
+  
+  <string name="result_message_brief_small_touch_target">建議您放大這個可點擊項目。</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">這個項目的大小為 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;。建議將這個觸控目標的寬度和高度分別設為 &lt;tt&gt;%3$ddp&lt;/tt&gt; 和 &lt;tt&gt;%4$ddp&lt;/tt&gt; 以上。</string>
+  
+  <string name="result_message_small_touch_target_height">這個項目的高度為 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建議將這個觸控目標的高度設為 &lt;tt&gt;%2$ddp&lt;/tt&gt; 以上。</string>
+  
+  <string name="result_message_small_touch_target_width">這個項目的寬度為 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建議將這個觸控目標的寬度設為 &lt;tt&gt;%2$ddp&lt;/tt&gt; 以上。</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">這個項目的大小為 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;。建議增加這個觸控目標的大小，最低值最好不要小於你設定的尺寸下限 (&lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;)。</string>
+  
+  <string name="result_message_customized_small_touch_target_height">這個項目的高度為 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建議增加這個觸控目標的高度，最低值最好不要小於你設定的高度下限 (&lt;tt&gt;%2$ddp&lt;/tt&gt;)。</string>
+  
+  <string name="result_message_customized_small_touch_target_width">這個項目的寬度為 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建議增加這個觸控目標的寬度，最低值最好不要小於你設定的寬度下限 (&lt;tt&gt;%2$ddp&lt;/tt&gt;)。</string>
+  
+  <string name="result_message_addendum_touch_delegate">系統在這個項目的祖系偵測到 &lt;tt&gt;TouchDelegate&lt;/tt&gt;。如果該委派項目的大小足夠，並且可處理這個項目的觸控活動，則可忽略這項訊息。</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">系統偵測到這個項目含有大小為 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; 的 &lt;tt&gt;TouchDelegate&lt;/tt&gt;。建議你增加點選&lt;tt&gt;Rect&lt;/tt&gt;的大小。</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">這個項目的觸控活動可能是由上層容器處理。如果選取較大的容器時執行的動作與選取這個項目時相同，建議將這個項目定義為不可點擊；如果執行的動作不同，則建議增加這個項目的大小。</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">這個項目可能被某個上層容器裁掉了一部分的大小 (這個項目的繪圖區大小為 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;)。建議您增加這個項目上層容器的大小，或是讓較大的上層容器代為處理這個項目的動作。</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">這個項目可能只有部分顯示在可捲動的容器內。</string>
+  
+  <string name="check_title_class_name_not_supported">不支援的項目類型</string>
+  
+  <string name="result_message_class_name_not_supported_brief">本服務不支援這個項目類型。</string>
+  
+  <string name="result_message_class_name_not_supported_detail">無障礙服務無法處理這個項目類型 (&lt;tt&gt;%1$s&lt;/tt&gt;)，建議使用 Android SDK 定義的類型。</string>
+  
+  <string name="result_message_class_name_is_empty">這個項目的類型可能無法成功回報給無障礙服務，建議使用 Android SDK 定義的類型。</string>
+  
+  <string name="result_message_class_name_is_unknown">無法判定這個項目的類型。</string>
+  
+  <string name="check_title_accessibility_traversal">遍歷順序</string>
+  
+  <string name="result_message_traversal_cycle">這個項目具備 &lt;tt&gt;%1$s&lt;/tt&gt; 屬性，因此可能成為遍歷順序循環中的一部分，並導致螢幕閱讀器的遍歷行為可能與預期情況不符。</string>
+  
+  <string name="result_message_traversal_over_constrained">這個項目具備 &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; 和 &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; 屬性，可能導致遍歷順序過度受限，且螢幕閱讀器的遍歷行為可能與預期情況不符。</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">螢幕閱讀器的遍歷行為可能與預期情況不符。</string>
+  
+  <string name="result_message_disruptive_announcement">無障礙工具讀出了令人混淆的內容。</string>
+  
+  <string name="check_view_banned_word">禁用字詞</string>
+  
+  <string name="result_message_banned_word">這個項目的文字內容可能含有不當字詞「&lt;tt&gt;%1$s&lt;/tt&gt;」</string>
+  
+  <string name="result_message_brief_banned_word">建議你將不當字詞從項目的文字內容中移除</string>
+  
+  <string name="check_title_text_style">文字樣式</string>
+  
+  <string name="result_message_styled_text">這個項目可能在較長的文字段落中使用了%1$s，建議你從字型中移除上述樣式來提升可讀性。</string>
+  
+  <string name="result_message_brief_styled_text">建議你移除較長文字段落的%1$s樣式。</string>
+  
+  <string name="italic_text">斜體</string>
+  
+  <string name="underline_text">底線</string>
+  
+  <string name="italic_underline_text">斜體與底線</string>
+  
+  <string name="result_message_no_typeface_info">無法判定這個項目的字體。</string>
+  
+  <string name="check_title_link_test">連結文字</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">建議你在連結中使用更多說明文字。</string>
+  
+  <string name="result_message_link_text_not_descriptive">連結文字「&lt;tt&gt;%1$s&lt;/tt&gt;」可能無法完整表達連結的用途。</string>
+  
+  <string name="check_title_reading_score">可讀性</string>
+  
+  <string name="result_message_low_reading_score">這個項目的文字可讀性分數約為 %1$.0f 分，低於建議的 %2$.0f 分。建議使用更簡單易懂的字詞或語句，讓使用者能夠更輕鬆地瞭解文字內容。</string>
+  
+  <string name="result_message_brief_low_reading_score">這段文字的可讀性分數可能偏低。</string>
+  
+  <string name="result_message_short_text">這個項目的文字過短，因此無法評估。</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">你必須以人工方式檢查這個畫面，確保無障礙服務偵測出所有項目。</string>
+  
+  <string name="result_message_has_unexposed_items">這個畫面中可能包含無障礙服務未偵測出的項目。</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">包含畫面位置 &lt;tt&gt;%1$s&lt;/tt&gt; 的區塊至少含有一個無障礙服務未偵測出的項目。</string>
+  
+  <string name="check_title_item_exposed">已偵測出的項目</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">不妨讓無障礙服務偵測出這個區塊中的項目。</string>
+  
+  <string name="question_message_screen_has_unexposed_items">這個畫面中是否包含任何未偵測出的重要項目？</string>
+  
+  <string name="question_message_identify_unexposed_items">請選取含有未知項目的畫面區塊。</string>
+
+</resources>

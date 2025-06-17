@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">此项目对于辅助功能而言不重要。</string>
+  
+  <string name="result_message_no_content_desc">此项目没有 &lt;tt&gt;android:contentDescription&lt;/tt&gt;。</string>
+  
+  <string name="result_message_not_visible">此项目不会向用户显示。</string>
+  
+  <string name="result_message_not_enabled">此项目处于未启用状态。</string>
+  
+  <string name="result_message_not_text_view">此项目不属于 &lt;tt&gt;TextView&lt;/tt&gt;。</string>
+  
+  <string name="result_message_no_screencapture">无法获取屏幕截图数据。</string>
+  
+  <string name="result_message_view_not_within_screencapture">抓取屏幕截图 (&lt;tt&gt;%2$s&lt;/tt&gt;) 时，此项目 (&lt;tt&gt;%1$s&lt;/tt&gt;) 不在屏幕显示的范围内。</string>
+  
+  <string name="result_message_screencapture_data_hidden">已隐藏此项目的屏幕截图信息。</string>
+  
+  <string name="result_message_screencapture_uniform_color">屏幕截图呈现同一种颜色。</string>
+  
+  <string name="clickable">可点按</string>
+  
+  <string name="non_clickable">不可点按</string>
+  
+  <string name="long_clickable">可长按</string>
+  
+  <string name="clickable_and_long_clickable">可点按并可长按</string>
+  
+  <string name="actionable">可执行操作</string>
+  
+  <string name="result_message_sdk_version_not_applicable">此检查不适用于运行 Android %1$s 及更高版本的设备。</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">此项目可能会被屏幕上的其他内容遮挡。请考虑手动测试该项目的对比度。</string>
+  
+  <string name="check_title_clickablespan">链接</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">无法确定此项目的类型。</string>
+  
+  <string name="result_message_urlspan_invalid_url">请验证此项目的 &lt;tt&gt;URLSpan&lt;/tt&gt; 中的网址是否有效。</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">此项目应使用 &lt;tt&gt;URLSpan&lt;/tt&gt;，而非 &lt;tt&gt;ClickableSpan&lt;/tt&gt;。</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">可点按的项目</string>
+  
+  <string name="result_message_brief_same_view_bounds">屏幕上的此位置存在多个%1$s的项目。</string>
+  
+  <string name="result_message_same_view_bounds">此%1$s的项目在屏幕上的位置 (&lt;tt&gt;%2$s&lt;/tt&gt;) 与其他 %3$d 个具有同样位置属性的项目相同。</string>
+  
+  <string name="result_message_view_bounds">此%1$s的项目在屏幕上的位置也是 &lt;tt&gt;%2$s&lt;/tt&gt;。</string>
+  
+  <string name="check_title_duplicate_speakable_text">项目说明</string>
+  
+  <string name="result_message_brief_same_speakable_text">多个项目具有相同的说明。</string>
+  
+  <string name="result_message_same_speakable_text">此%1$s的项目的可读文本为“&lt;tt&gt;%2$s&lt;/tt&gt;”，与其他 %3$d 个项目的相同。</string>
+  
+  <string name="result_message_speakable_text">此%1$s的项目的可读文本也是“&lt;tt&gt;%2$s&lt;/tt&gt;”。</string>
+  
+  <string name="check_title_editable_content_desc">可修改的项目标签</string>
+  
+  <string name="result_message_editable_textview_content_desc">此可修改的 &lt;tt&gt;TextView&lt;/tt&gt; 具有 &lt;tt&gt;android:contentDescription&lt;/tt&gt;。在用户浏览过程中，屏幕阅读器可能会朗读此属性，而非可修改的内容。</string>
+  
+  <string name="result_message_not_editable_textview">此项目不是可修改的 &lt;tt&gt;TextView&lt;/tt&gt;。</string>
+  
+  <string name="check_title_image_contrast">图片对比度</string>
+  
+  <string name="result_message_not_imageview">此项目不属于 &lt;tt&gt;ImageView&lt;/tt&gt;。</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">建议提高此图片前景与背景之间的对比度。</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">此图片的对比度为 %1$.2f。该比率是根据估算的前景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和估算的背景颜色 &lt;tt&gt;#%4$06X&lt;/tt&gt; 计算得出的。建议将此比率提高至 %2$.2f 以上。</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">此图片的对比度为 %1$.2f。该比率是根据提供的前景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和提供的背景颜色 &lt;tt&gt;#%4$06X&lt;/tt&gt; 计算得出的。建议将此对比度提高至 %2$.2f 或更高。</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">此图片的对比度为 %1$.2f。该比率是根据估算的前景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和估算的背景颜色 &lt;tt&gt;#%4$06X&lt;/tt&gt; 计算得出的。建议将此比率提高至配置的比率 %2$.2f 或更高。</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">此图片的对比度为 %1$.2f。该比率是根据提供的前景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 和提供的背景颜色 &lt;tt&gt;#%4$06X&lt;/tt&gt; 计算得出的。建议将此比率提高至配置的比率 %2$.2f 或更高。</string>
+  
+  <string name="check_title_redundant_description">项目类型标签</string>
+  
+  <string name="result_message_english_locale_only">此检查只能在语言区域设为英语的设备上运行。</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">此项目的 &lt;tt&gt;android:contentDescription&lt;/tt&gt; 可能包含不必要的文本。</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">此项目的 &lt;tt&gt;android:contentDescription&lt;/tt&gt; 为“&lt;tt&gt;%1$s&lt;/tt&gt;”，以该项目的类型结尾。</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">此项目的 &lt;tt&gt;android:contentDescription&lt;/tt&gt; 为“&lt;tt&gt;%1$s&lt;/tt&gt;”，包含该项目的类型“&lt;tt&gt;%2$s&lt;/tt&gt;”。</string>
+  
+  <string name="result_message_content_desc_contains_action">此项目的&lt;tt&gt;android:contentDescription&lt;/tt&gt;“&lt;tt&gt;%1$s&lt;/tt&gt;”中包含操作“&lt;tt&gt;%2$s&lt;/tt&gt;”。</string>
+  
+  <string name="result_message_content_desc_contains_state">此项目的&lt;tt&gt;android:contentDescription&lt;/tt&gt;“&lt;tt&gt;%1$s&lt;/tt&gt;”中包含状态“&lt;tt&gt;%2$s&lt;/tt&gt;”。</string>
+  
+  <string name="button_item_type">按钮</string>
+  
+  <string name="checkbox_item_type">复选框</string>
+  
+  <string name="checkbox_item_type_separate_words">复选框</string>
+  
+  <string name="checked_state">已勾选</string>
+  
+  <string name="unchecked_state">未勾选</string>
+  
+  <string name="selected_state">已选择</string>
+  
+  <string name="unselected_state">已取消选择</string>
+  
+  <string name="click_action">点击</string>
+  
+  <string name="swipe_action">滑动</string>
+  
+  <string name="tap_action">点按</string>
+  
+  <string name="check_title_speakable_text_present">项目标签</string>
+  
+  <string name="result_message_should_not_focus">屏幕阅读器不会聚焦在此项目上。</string>
+  
+  <string name="result_message_web_content">未评估网页内容。</string>
+  
+  <string name="result_message_missing_speakable_text">此项目可能没有屏幕阅读器可读的标签。</string>
+  
+  <string name="check_title_text_contrast">文本对比度</string>
+  
+  <string name="result_message_textview_empty">此 &lt;tt&gt;TextView&lt;/tt&gt; 为空白。</string>
+  
+  <string name="result_message_could_not_get_text_color">无法确定此项目的文本颜色。</string>
+  
+  <string name="result_message_could_not_get_background_color">无法确定此项目的背景颜色。</string>
+  
+  <string name="result_message_text_must_be_opaque">此项目的文本颜色是半透明的。</string>
+  
+  <string name="result_message_background_must_be_opaque">此项目的背景颜色是半透明的。</string>
+  
+  <string name="result_message_addendum_opacity_description">其实际透明度为 %1$.2f%%。</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">建议提高此项目文本前景相对于背景的对比度。</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">此项目的文本对比度为 %1$.2f。该比率是根据文本颜色 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和背景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 计算得出的。建议将此项目的文本对比度提高至 %4$.2f 或更高。</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">此项目的文本对比度为 %1$.2f。该比率是根据估算的前景颜色 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和估算的背景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 计算得出的。建议针对小文本和大文本分别使用会使对比度高于 %4$.2f 和 %5$.2f 的颜色。</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">此项目的文本对比度为 %1$.2f。该比率是根据给定的前景颜色 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和给定的背景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 计算得出的。建议针对小文本和大文本分别使用会使对比度高于 %4$.2f 和 %5$.2f 的颜色。</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">此项目的文本对比度为 %1$.2f。该比率是根据估算的前景颜色 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和估算的背景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 计算得出的。建议将此项目的文本对比度提高至配置的比率 %4$.2f 或更高。</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">此项目的文本对比度为 %1$.2f。该比率是根据给定的前景颜色 &lt;tt&gt;#%2$06X&lt;/tt&gt; 和给定的背景颜色 &lt;tt&gt;#%3$06X&lt;/tt&gt; 计算得出的。建议将此项目的文本对比度提高至配置的比率 %4$.2f 或更高。</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">检测到的前景和背景颜色是否正确？</string>
+  
+  <string name="question_option_message_both_correct">都正确</string>
+  
+  <string name="question_option_message_foreground_incorrect">前景不正确</string>
+  
+  <string name="question_option_message_background_incorrect">背景不正确</string>
+  
+  <string name="question_option_message_both_incorrect">前景和背景不正确</string>
+  
+  <string name="question_option_message_unknown">未知</string>
+  
+  <string name="question_id_message_provide_foreground_color">正确的前景颜色是什么？</string>
+  
+  <string name="question_id_message_provide_background_color">正确的背景颜色是什么？</string>
+  
+  <string name="check_title_touch_target_size">触摸目标</string>
+  
+  <string name="result_message_not_clickable">无法点按此项目。</string>
+  
+  <string name="result_message_brief_small_touch_target">建议增加此可点按的项目的大小。</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">此项目的大小为 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;。建议将此触摸目标的宽度增加至 &lt;tt&gt;%3$ddp&lt;/tt&gt;，高度增加至 &lt;tt&gt;%4$ddp&lt;/tt&gt; 或以上。</string>
+  
+  <string name="result_message_small_touch_target_height">此项目的高度为 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建议将此触摸目标的高度增加至 &lt;tt&gt;%2$ddp&lt;/tt&gt; 或以上。</string>
+  
+  <string name="result_message_small_touch_target_width">此项目的宽度为 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建议将此触摸目标的宽度增加至 &lt;tt&gt;%2$ddp&lt;/tt&gt; 或以上。</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">此项目的大小为 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;。建议将此触摸目标的大小增加至配置的最小值 &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt; 或以上。</string>
+  
+  <string name="result_message_customized_small_touch_target_height">此项目的高度为 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建议将此触摸目标的高度增加至配置的最低高度 &lt;tt&gt;%2$ddp&lt;/tt&gt; 或以上。</string>
+  
+  <string name="result_message_customized_small_touch_target_width">此项目的宽度为 &lt;tt&gt;%1$ddp&lt;/tt&gt;。建议将此触摸目标的宽度增加至配置的最小宽度 &lt;tt&gt;%2$ddp&lt;/tt&gt; 或以上。</string>
+  
+  <string name="result_message_addendum_touch_delegate">在此项目的一个祖先实体上检测到了 &lt;tt&gt;TouchDelegate&lt;/tt&gt;。如果代理的空间充足，并且用于处理针对此项目的触摸操作，则可忽略此消息。</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">在此项中检测到大小为 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; 的 &lt;tt&gt;TouchDelegate&lt;/tt&gt;。请考虑增大其点按 &lt;tt&gt;Rect&lt;/tt&gt; 的大小。</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">父容器可能正在处理针对此项目的触摸事件。如果选择更大的容器触发的操作与选择此项目触发的操作相同，建议将此项目指定为不可点按。如果触发的操作不同，则建议增加此项目的大小。</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">父级容器可能会裁剪此项目的大小（绘图区域为 &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;）。您可以考虑加大裁剪此项目的祖先容器的大小，或允许更大的父级容器代表此项目来处理操作。</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">此项目可能无法在可滚动的容器中完全显示。</string>
+  
+  <string name="check_title_class_name_not_supported">不支持的项目类型</string>
+  
+  <string name="result_message_class_name_not_supported_brief">此项目的类型可能不受支持。</string>
+  
+  <string name="result_message_class_name_not_supported_detail">无障碍服务可能无法解析此项目的类型 &lt;tt&gt;%1$s&lt;/tt&gt;。建议您使用 Android SDK 定义的类型。</string>
+  
+  <string name="result_message_class_name_is_empty">此项目的类型可能不会被报告给无障碍服务。建议您使用 Android SDK 定义的类型。</string>
+  
+  <string name="result_message_class_name_is_unknown">无法确定此项目的类型。</string>
+  
+  <string name="check_title_accessibility_traversal">遍历顺序</string>
+  
+  <string name="result_message_traversal_cycle">由于其 &lt;tt&gt;%1$s&lt;/tt&gt; 属性，此项目可能是遍历顺序循环的一部分。屏幕阅读器的遍历行为可能无法预测。</string>
+  
+  <string name="result_message_traversal_over_constrained">基于此项目的 &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; 和 &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; 属性，项目的遍历顺序可能受到过度约束。屏幕阅读器的遍历行为可能无法预测。</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">屏幕阅读器的遍历行为可能无法预测。</string>
+  
+  <string name="result_message_disruptive_announcement">使用的无障碍通告会对用户造成干扰。</string>
+  
+  <string name="check_view_banned_word">禁止的字词</string>
+  
+  <string name="result_message_banned_word">此项目的文本中可能包含不当字词“&lt;tt&gt;%1$s&lt;/tt&gt;”</string>
+  
+  <string name="result_message_brief_banned_word">建议从此项目的文本中移除不当字词</string>
+  
+  <string name="check_title_text_style">文字样式</string>
+  
+  <string name="result_message_styled_text">此项可能为大段文本使用了%1$s样式。请考虑去掉字体样式，方便阅读。</string>
+  
+  <string name="result_message_brief_styled_text">请考虑去掉大段文本的%1$s样式。</string>
+  
+  <string name="italic_text">斜体</string>
+  
+  <string name="underline_text">下划线</string>
+  
+  <string name="italic_underline_text">斜体和下划线</string>
+  
+  <string name="result_message_no_typeface_info">无法确定此项目的字体。</string>
+  
+  <string name="check_title_link_test">链接文本</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">请考虑使用更具描述性的链接文本。</string>
+  
+  <string name="result_message_link_text_not_descriptive">链接文本“&lt;tt&gt;%1$s&lt;/tt&gt;”可能无法充分传达出该链接的用途。</string>
+  
+  <string name="check_title_reading_score">可读性</string>
+  
+  <string name="result_message_low_reading_score">此项目文本的近似可读性得分为 %1$.0f，这低于建议的得分 (%2$.0f)。建议您使用更简单的字词或句子，以使文本更易于阅读。</string>
+  
+  <string name="result_message_brief_low_reading_score">此文本的可读性得分较低。</string>
+  
+  <string name="result_message_short_text">此项目的文本太短，无法进行评估。</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">此屏幕需要手动检测以确保所有内容都已向无障碍服务公开。</string>
+  
+  <string name="result_message_has_unexposed_items">此屏幕可能包含未向无障碍服务公开的内容。</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">屏幕上位置为 &lt;tt&gt;%1$s&lt;/tt&gt; 的区域至少包含一项未向无障碍服务公开的内容。</string>
+  
+  <string name="check_title_item_exposed">已公开的内容</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">请考虑向无障碍服务公开此区域中的内容。</string>
+  
+  <string name="question_message_screen_has_unexposed_items">此屏幕是否包含未描绘轮廓的重要内容？</string>
+  
+  <string name="question_message_identify_unexposed_items">选择包含无法识别的内容的屏幕区域。</string>
+
+</resources>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Acest element nu este important pentru accesibilitate.</string>
+  
+  <string name="result_message_no_content_desc">Acest element nu are un atribut &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Acest element nu este vizibil.</string>
+  
+  <string name="result_message_not_enabled">Acest element nu este activat.</string>
+  
+  <string name="result_message_not_text_view">Acest element nu este o clasă &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Datele privind captura de ecran nu au fost obținute.</string>
+  
+  <string name="result_message_view_not_within_screencapture">Locația pe ecran a acestui element (&lt;tt&gt;%1$s&lt;/tt&gt;) nu se încadrează în locația din captura de ecran (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">Informațiile privind captura de ecran a acestui element sunt ascunse.</string>
+  
+  <string name="result_message_screencapture_uniform_color">Captura de ecran are o culoare uniformă.</string>
+  
+  <string name="clickable">se poate da clic</string>
+  
+  <string name="non_clickable">nu se poate da clic</string>
+  
+  <string name="long_clickable">se poate da clic lung</string>
+  
+  <string name="clickable_and_long_clickable">se poate da clic și clic lung</string>
+  
+  <string name="actionable">se poate acționa</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Această verificare nu se aplică pe dispozitive cu Android %1$s sau versiuni ulterioare.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Acest element poate fi acoperit de alt conținut de pe ecran. Vă recomandăm să testați manual contrastul acestui element.</string>
+  
+  <string name="check_title_clickablespan">Link</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Tipul acestui element nu este stabilit.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Verificați dacă adresa URL din clasa &lt;tt&gt;URLSpan&lt;/tt&gt; a acestui element este validă.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Acest element ar trebui să folosească o clasă &lt;tt&gt;URLSpan&lt;/tt&gt; în loc de o clasă &lt;tt&gt;ClickableSpan&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Elemente pe care se poate da clic</string>
+  
+  <string name="result_message_brief_same_view_bounds">Mai multe elemente pe care %1$s au aceeași locație pe ecran.</string>
+  
+  <string name="result_message_same_view_bounds">Acest element pe care %1$s are aceeași locație pe ecran (&lt;tt&gt;%2$s&lt;/tt&gt;) ca alte %3$d elemente cu proprietățile respective.</string>
+  
+  <string name="result_message_view_bounds">Acest element pe care %1$s are și o locație pe ecran de &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Descrierile elementului</string>
+  
+  <string name="result_message_brief_same_speakable_text">Mai multe elemente au aceeași descriere.</string>
+  
+  <string name="result_message_same_speakable_text">Textul rostit al acestui element pe care %1$s („&lt;tt&gt;%2$s&lt;/tt&gt;”) este identic cu cel al altor %3$d elemente.</string>
+  
+  <string name="result_message_speakable_text">Și acest element pe care %1$s are text rostit: „&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="check_title_editable_content_desc">Eticheta elementului care poate fi modificat</string>
+  
+  <string name="result_message_editable_textview_content_desc">Această clasă &lt;tt&gt;TextView&lt;/tt&gt; care poate fi modificată are un atribut &lt;tt&gt;android:contentDescription&lt;/tt&gt;. Atunci când utilizatorul navighează, este posibil ca cititorul de ecran să citească acest atribut în locul conținutului care poate fi modificat.</string>
+  
+  <string name="result_message_not_editable_textview">Acest element nu este o clasă &lt;tt&gt;TextView&lt;/tt&gt; care poate fi modificată.</string>
+  
+  <string name="check_title_image_contrast">Contrastul imaginii</string>
+  
+  <string name="result_message_not_imageview">Acest element nu este &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Vă recomandăm să măriți raportul de contrast dintre prim-planul imaginii și fundalul acesteia.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">Raportul de contrast al imaginii este de %1$.2f. Raportul se bazează pe o culoare estimată a prim-planului de &lt;tt&gt;#%3$06X&lt;/tt&gt; și pe o culoare estimată a fundalului de &lt;tt&gt;#%4$06X&lt;/tt&gt;. Vă recomandăm să măriți acest raport la %2$.2f sau mai mult.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">Raportul de contrast al imaginii este %1$.2f. Acest raport se bazează pe o culoare &lt;tt&gt;#%3$06X&lt;/tt&gt; specificată a prim-planului și pe o culoare &lt;tt&gt;#%4$06X&lt;/tt&gt; specificată a fundalului. Vă recomandăm să măriți raportul la %2$.2f sau la o valoare mai mare.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">Raportul de contrast al imaginii este de %1$.2f. Raportul se bazează pe o culoare estimată a prim-planului de &lt;tt&gt;#%3$06X&lt;/tt&gt; și pe o culoare estimată a fundalului de &lt;tt&gt;#%4$06X&lt;/tt&gt;. Vă recomandăm să măriți acest raport la raportul configurat de %2$.2f sau mai mult.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">Raportul de contrast al imaginii este %1$.2f. Acest raport se bazează pe o culoare &lt;tt&gt;#%3$06X&lt;/tt&gt; specificată a prim-planului și pe o culoare &lt;tt&gt;#%4$06X&lt;/tt&gt; specificată a fundalului. Vă recomandăm să măriți raportul de contrast la raportul configurat %2$.2f sau la o valoare mai mare.</string>
+  
+  <string name="check_title_redundant_description">Eticheta cu tipul de element</string>
+  
+  <string name="result_message_english_locale_only">Această verificare rulează numai pe dispozitivele cu opțiunea de limbă setată la engleză.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">Este posibil ca atributul &lt;tt&gt;android:contentDescription&lt;/tt&gt; al elementului să conțină text inutil.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">Atributul &lt;tt&gt;android:contentDescription&lt;/tt&gt; al elementului („&lt;tt&gt;%1$s&lt;/tt&gt;”) se încheie cu tipul de element.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">Atributul &lt;tt&gt;android:contentDescription&lt;/tt&gt; al elementului. „&lt;tt&gt;%1$s&lt;/tt&gt;” include tipul de element „&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="result_message_content_desc_contains_action">&lt;tt&gt;android:contentDescription&lt;/tt&gt; pentru acest element,
+    „&lt;tt&gt;%1$s&lt;/tt&gt;”,
+    conține acțiunea „&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="result_message_content_desc_contains_state">&lt;tt&gt;android:contentDescription&lt;/tt&gt; pentru acest element,
+    „&lt;tt&gt;%1$s&lt;/tt&gt;”,
+    conține starea „&lt;tt&gt;%2$s&lt;/tt&gt;”.</string>
+  
+  <string name="button_item_type">buton</string>
+  
+  <string name="checkbox_item_type">casetă de selectare</string>
+  
+  <string name="checkbox_item_type_separate_words">casetă de selectare</string>
+  
+  <string name="checked_state">bifată</string>
+  
+  <string name="unchecked_state">debifată</string>
+  
+  <string name="selected_state">selectată</string>
+  
+  <string name="unselected_state">deselectată</string>
+  
+  <string name="click_action">dați clic</string>
+  
+  <string name="swipe_action">glisați</string>
+  
+  <string name="tap_action">atingeți</string>
+  
+  <string name="check_title_speakable_text_present">Eticheta elementului</string>
+  
+  <string name="result_message_should_not_focus">Un cititor de ecran nu a putut să focalizeze pe acest element.</string>
+  
+  <string name="result_message_web_content">Conținutul web nu a fost evaluat.</string>
+  
+  <string name="result_message_missing_speakable_text">Este posibil ca acest element să nu aibă o etichetă lizibilă pentru un cititor de ecran.</string>
+  
+  <string name="check_title_text_contrast">Contrastul textului</string>
+  
+  <string name="result_message_textview_empty">Această clasă &lt;tt&gt;TextView&lt;/tt&gt; este goală.</string>
+  
+  <string name="result_message_could_not_get_text_color">Culoarea textului pentru acest element nu a fost stabilită.</string>
+  
+  <string name="result_message_could_not_get_background_color">Culoarea de fundal a acestui element nu a fost stabilită.</string>
+  
+  <string name="result_message_text_must_be_opaque">Culoarea textului pentru acest element nu este opacă.</string>
+  
+  <string name="result_message_background_must_be_opaque">Culoarea de fundal a acestui element nu este opacă.</string>
+  
+  <string name="result_message_addendum_opacity_description">Opacitatea actuală este de %1$.2f %%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Vă recomandăm să măriți raportul de contrast dintre prim-planul textului acestui element și fundalul acestuia.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Raportul de contrast al textului elementului este de %1$.2f. Raportul se bazează pe o culoare a textului de &lt;tt&gt;#%2$06X&lt;/tt&gt; și pe o culoare de fundal de &lt;tt&gt;#%3$06X&lt;/tt&gt;. Vă recomandăm să măriți raportul la %4$.2f sau mai mult.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Raportul de contrast al textului elementului este %1$.2f. Acest raport se bazează pe o culoare estimată a prim-planului &lt;tt&gt;#%2$06X&lt;/tt&gt; și pe o culoare estimată a fundalului &lt;tt&gt;#%3$06X&lt;/tt&gt;. Vă recomandăm să folosiți culori care generează un raport de contrast mai mare de %4$.2f pentru text mic sau de %5$.2f pentru text mare.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Raportul de contrast al textului elementului este %1$.2f. Acest raport se bazează pe o culoare &lt;tt&gt;#%2$06X&lt;/tt&gt; specificată a prim-planului și pe o culoare &lt;tt&gt;#%3$06X&lt;/tt&gt; specificată a fundalului. Vă recomandăm să folosiți culori care generează un raport de contrast mai mare de %4$.2f pentru text mic sau de %5$.2f pentru text mare.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Raportul de contrast al textului elementului este de %1$.2f. Raportul se bazează pe o culoare estimată a prim-planului de &lt;tt&gt;#%2$06X&lt;/tt&gt; și pe o culoare estimată a fundalului de &lt;tt&gt;#%3$06X&lt;/tt&gt;. Vă recomandăm să măriți acest raport la raportul configurat de %4$.2f sau mai mult.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Raportul de contrast al textului elementului este %1$.2f. Acest raport se bazează pe o culoare &lt;tt&gt;#%2$06X&lt;/tt&gt; specificată a prim-planului și pe o culoare &lt;tt&gt;#%3$06X&lt;/tt&gt; specificată a fundalului. Vă recomandăm să măriți raportul de contrast al textului elementului la raportul configurat %4$.2f sau la o valoare mai mare.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Sunt corecte culorile detectate pentru prim-plan și fundal?</string>
+  
+  <string name="question_option_message_both_correct">Ambele corecte</string>
+  
+  <string name="question_option_message_foreground_incorrect">Prim-plan incorect</string>
+  
+  <string name="question_option_message_background_incorrect">Fundal incorect</string>
+  
+  <string name="question_option_message_both_incorrect">Prim-planul și fundalul sunt incorecte</string>
+  
+  <string name="question_option_message_unknown">Necunoscute</string>
+  
+  <string name="question_id_message_provide_foreground_color">Care este culoarea corectă a prim-planului?</string>
+  
+  <string name="question_id_message_provide_background_color">Care este culoarea corectă a fundalului?</string>
+  
+  <string name="check_title_touch_target_size">Ținta de atins</string>
+  
+  <string name="result_message_not_clickable">Nu se poate da clic pe această vizualizare.</string>
+  
+  <string name="result_message_brief_small_touch_target">Vă recomandăm să măriți acest element pe care se poate da clic.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Dimensiunea elementului este de &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Vă recomandăm să măriți lățimea la &lt;tt&gt;%3$ddp&lt;/tt&gt; și înălțimea la &lt;tt&gt;%4$ddp&lt;/tt&gt; sau mai mult pentru ținta de atins.</string>
+  
+  <string name="result_message_small_touch_target_height">Înălțimea acestui element este de &lt;tt&gt;%1$ddp&lt;/tt&gt;. Vă recomandăm să folosiți o înălțime de &lt;tt&gt;%2$ddp&lt;/tt&gt; sau mai mare pentru ținta de atins.</string>
+  
+  <string name="result_message_small_touch_target_width">Lățimea acestui element este de &lt;tt&gt;%1$ddp&lt;/tt&gt;. Vă recomandăm să folosiți o lățime de &lt;tt&gt;%2$ddp&lt;/tt&gt; sau mai mare pentru ținta de atins.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Dimensiunea elementului este de &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Vă recomandăm să măriți ținta de atins la cel puțin dimensiunea minimă configurată de &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">Înălțimea elementului este de &lt;tt&gt;%1$ddp&lt;/tt&gt;. Vă recomandăm să măriți înălțimea țintei de atins la cel puțin dimensiunea minimă configurată de &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">Lățimea elementului este de &lt;tt&gt;%1$ddp&lt;/tt&gt;. Vă recomandăm să măriți lățimea țintei de atins la cel puțin dimensiunea minimă configurată de &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_touch_delegate">A fost detectată o clasă &lt;tt&gt;TouchDelegate&lt;/tt&gt; pentru unul dintre predecesorii acestui element. Acest mesaj poate fi ignorat dacă delegatul are dimensiunea necesară și acceptă atingerea pentru acest element.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">Pentru acest element a fost detectat un &lt;tt&gt;TouchDelegate&lt;/tt&gt; cu dimensiunea &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Vă recomandăm să măriți dimensiunea accesării &lt;tt&gt;Rect&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">Un container părinte poate să accepte atingerea pentru acest element. Dacă selectarea containerului mai mare realizează aceeași acțiune ca selectarea elementului, vă recomandăm să definiți acest element ca „nu se poate da clic”. Dacă este realizată altă acțiune, vă recomandăm să măriți dimensiunea acestui element.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">Un container părinte poate să restrângă dimensiunea acestui element, care are o zonă de desenat de &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Vă recomandăm să măriți dimensiunea precursorului de restrângere a elementului sau să permiteți unui container părinte mai mare să gestioneze acțiunile în locul elementului.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Acest element poate fi parțial vizibil într-un container derulant.</string>
+  
+  <string name="check_title_class_name_not_supported">Tip de element neacceptat</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Tipul acestui element poate să nu fie acceptat.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Tipul acestui element &lt;tt&gt;%1$s&lt;/tt&gt; poate să nu fie soluționat prin servicii de accesibilitate. Vă recomandăm să folosiți un tip definit de SDK-ul Android.</string>
+  
+  <string name="result_message_class_name_is_empty">Tipul acestui element poate să nu fie soluționat prin servicii de accesibilitate. Vă recomandăm să folosiți un tip definit de SDK-ul Android.</string>
+  
+  <string name="result_message_class_name_is_unknown">Tipul acestui element nu a putut fi stabilit.</string>
+  
+  <string name="check_title_accessibility_traversal">Ordinea transversală</string>
+  
+  <string name="result_message_traversal_cycle">Acest element poate face parte dintr-un ciclu de ordonare transversală deoarece are atributul &lt;tt&gt;%1$s&lt;/tt&gt;. Ordonarea transversală pe cititoare de ecran poate fi neprevizibilă.</string>
+  
+  <string name="result_message_traversal_over_constrained">Ordonarea transversală pentru acest element poate fi limitată excesiv deoarece are atributele &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; și &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt;. Ordonarea transversală pe cititoare de ecran poate fi neprevizibilă.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Ordonarea transversală pe cititoare de ecran poate fi neprevizibilă.</string>
+  
+  <string name="result_message_disruptive_announcement">A fost folosit un anunț deranjant de accesibilitate.</string>
+  
+  <string name="check_view_banned_word">Cuvânt interzis</string>
+  
+  <string name="result_message_banned_word">Textul acestui articol poate conține un cuvânt neadecvat, „&lt;tt&gt;%1$s&lt;/tt&gt;”</string>
+  
+  <string name="result_message_brief_banned_word">Este recomandat să înlăturați cuvintele neadecvate din textul acestui articol</string>
+  
+  <string name="check_title_text_style">Stilul textului</string>
+  
+  <string name="result_message_styled_text">Este posibil ca acest element să folosească un font %1$s pentru pasajele lungi de text. Vă recomandăm să eliminați stilul din font, astfel încât să poată fi citit mai ușor.</string>
+  
+  <string name="result_message_brief_styled_text">Vă recomandăm să eliminați fontul %1$s pentru pasajele lungi de text.</string>
+  
+  <string name="italic_text">cursiv</string>
+  
+  <string name="underline_text">subliniat</string>
+  
+  <string name="italic_underline_text">cursiv și subliniat</string>
+  
+  <string name="result_message_no_typeface_info">Fontul elementului nu a putut fi determinat.</string>
+  
+  <string name="check_title_link_test">Textul linkului</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Vă recomandăm să folosiți un text descriptiv în link.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Este posibil ca textul linkului, „&lt;tt&gt;%1$s&lt;/tt&gt;”, să nu redea întocmai scopul acestui link.</string>
+  
+  <string name="check_title_reading_score">Lizibilitate</string>
+  
+  <string name="result_message_low_reading_score">Scorul de lizibilitate aproximativ al textului acestui element este %1$.0f, fiind mai mic decât scorul recomandat de %2$.0f. Vă recomandăm să folosiți cuvinte și propoziții mai simple pentru ca textul să poată fi citit mai ușor.</string>
+  
+  <string name="result_message_brief_low_reading_score">Acest text poate avea un scor mic în ceea ce privește lizibilitatea.</string>
+  
+  <string name="result_message_short_text">Textul acestui articol este prea scurt pentru a fi evaluat.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Acest ecran necesită o verificare manuală pentru a vă asigura că toate elementele sunt afișate pentru serviciile de accesibilitate.</string>
+  
+  <string name="result_message_has_unexposed_items">Acest ecran poate avea elemente care nu sunt afișate pentru serviciile de accesibilitate.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">Regiunea cu locația de pe ecran &lt;tt&gt;%1$s&lt;/tt&gt; conține cel puțin un element care nu este afișat pentru serviciile de accesibilitate.</string>
+  
+  <string name="check_title_item_exposed">Elemente afișate</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Vă recomandăm să afișați elementele din această regiune pentru serviciile de accesibilitate.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Acest ecran conține elemente importante care nu sunt conturate?</string>
+  
+  <string name="question_message_identify_unexposed_items">Selectați regiunile de pe ecran cu elementele neidentificate.</string>
+
+</resources>

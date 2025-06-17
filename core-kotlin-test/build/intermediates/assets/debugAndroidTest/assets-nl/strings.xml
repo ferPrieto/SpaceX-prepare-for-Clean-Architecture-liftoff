@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Dit item is niet belangrijk voor toegankelijkheid.</string>
+  
+  <string name="result_message_no_content_desc">Dit item heeft geen &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Dit item is niet zichtbaar.</string>
+  
+  <string name="result_message_not_enabled">Dit item is niet ingeschakeld.</string>
+  
+  <string name="result_message_not_text_view">Dit item is geen &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Schermopnamegegevens kunnen niet worden opgehaald.</string>
+  
+  <string name="result_message_view_not_within_screencapture">De locatie van dit item op het scherm (&lt;tt&gt;%1$s&lt;/tt&gt;) valt buiten de schermopname (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">De schermopnamegegevens van dit item zijn verborgen.</string>
+  
+  <string name="result_message_screencapture_uniform_color">De schermopname heeft een uniforme kleur.</string>
+  
+  <string name="clickable">klikbaar</string>
+  
+  <string name="non_clickable">niet-klikbaar</string>
+  
+  <string name="long_clickable">lang-klikbaar</string>
+  
+  <string name="clickable_and_long_clickable">klikbaar en lang-klikbaar</string>
+  
+  <string name="actionable">uitvoerbaar</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Deze controle is niet van toepassing op apparaten met Android %1$s en hoger.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Dit item wordt mogelijk verborgen door andere content op het scherm. Overweeg het contrast van dit item handmatig te testen.</string>
+  
+  <string name="check_title_clickablespan">Link</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Het type van dit item is onbepaald.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Controleer of de URL binnen de &lt;tt&gt;URLSpan&lt;/tt&gt; van dit item geldig is.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Gebruik een &lt;tt&gt;URLSpan&lt;/tt&gt; in plaats van een &lt;tt&gt;ClickableSpan&lt;/tt&gt; voor dit item.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Klikbare items</string>
+  
+  <string name="result_message_brief_same_view_bounds">Meerdere %1$s items delen deze locatie op het scherm.</string>
+  
+  <string name="result_message_same_view_bounds">Dit %1$s item heeft dezelfde locatie op het scherm (&lt;tt&gt;%2$s&lt;/tt&gt;) als %3$d ander(e) item(s) met die eigenschappen.</string>
+  
+  <string name="result_message_view_bounds">Dit %1$s item heeft ook de locatie op het scherm &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Itembeschrijvingen</string>
+  
+  <string name="result_message_brief_same_speakable_text">Meerdere items hebben dezelfde beschrijving.</string>
+  
+  <string name="result_message_same_speakable_text">De uitspreekbare tekst van dit %1$s item (\'&lt;tt&gt;%2$s&lt;/tt&gt;\') is hetzelfde als de tekst van %3$d ander(e) item(s).</string>
+  
+  <string name="result_message_speakable_text">Dit %1$s item heeft ook uitspreekbare tekst: \'&lt;tt&gt;%2$s&lt;/tt&gt;\'.</string>
+  
+  <string name="check_title_editable_content_desc">Bewerkbaar itemlabel</string>
+  
+  <string name="result_message_editable_textview_content_desc">Deze bewerkbare &lt;tt&gt;TextView&lt;/tt&gt; heeft een &lt;tt&gt;android:contentDescription&lt;/tt&gt;. Een schermlezer kan dit kenmerk lezen in plaats van de bewerkbare content wanneer de gebruiker navigeert.</string>
+  
+  <string name="result_message_not_editable_textview">Dit item is geen bewerkbare &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="check_title_image_contrast">Contrast afbeelding</string>
+  
+  <string name="result_message_not_imageview">Dit item is geen &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Overweeg de contrastverhouding te verhogen tussen de voorgrond en achtergrond van deze afbeelding.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">De contrastverhouding van deze afbeelding is %1$.2f. Deze verhouding is gebaseerd op een geschatte voorgrondkleur van &lt;tt&gt;#%3$06X&lt;/tt&gt; en een geschatte achtergrondkleur van &lt;tt&gt;#%4$06X&lt;/tt&gt;. Overweeg deze verhouding te verhogen naar %2$.2f of hoger.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">De contrastverhouding van de afbeelding is %1$.2f. Deze verhouding is gebaseerd op de opgegeven voorgrondkleur &lt;tt&gt;#%3$06X&lt;/tt&gt; en de opgegeven achtergrondkleur &lt;tt&gt;#%4$06X&lt;/tt&gt;. Overweeg deze verhouding te verhogen naar %2$.2f of hoger.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">De contrastverhouding van deze afbeelding is %1$.2f. Deze verhouding is gebaseerd op een geschatte voorgrondkleur van &lt;tt&gt;#%3$06X&lt;/tt&gt; en een geschatte achtergrondkleur van &lt;tt&gt;#%4$06X&lt;/tt&gt;. Overweeg deze verhouding te verhogen naar de geconfigureerde verhouding van %2$.2f of hoger.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">De contrastverhouding van de afbeelding is %1$.2f. Deze verhouding is gebaseerd op de opgegeven voorgrondkleur &lt;tt&gt;#%3$06X&lt;/tt&gt; en de opgegeven achtergrondkleur &lt;tt&gt;#%4$06X&lt;/tt&gt;. Overweeg deze verhouding te verhogen naar de geconfigureerde verhouding van %2$.2f of hoger.</string>
+  
+  <string name="check_title_redundant_description">Label itemtype</string>
+  
+  <string name="result_message_english_locale_only">Deze controle werkt alleen op apparaten met de taalinstelling Engels.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">De &lt;tt&gt;android:contentDescription&lt;/tt&gt; van dit item bevat mogelijk overbodige tekst.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">De &lt;tt&gt;android:contentDescription&lt;/tt&gt; van dit item, \'&lt;tt&gt;%1$s&lt;/tt&gt;\', eindigt met het itemtype.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">De beschrijving &lt;tt&gt;android:contentDescription&lt;/tt&gt; van dit item, \'&lt;tt&gt;%1$s&lt;/tt&gt;\', bevat het itemtype \'&lt;tt&gt;%2$s&lt;/tt&gt;\'.</string>
+  
+  <string name="result_message_content_desc_contains_action">De &lt;tt&gt;android:contentDescription&lt;/tt&gt; van dit item, \'&lt;tt&gt;%1$s&lt;/tt&gt;\', bevat de actie \'&lt;tt&gt;%2$s&lt;/tt&gt;\'.</string>
+  
+  <string name="result_message_content_desc_contains_state">De &lt;tt&gt;android:contentDescription&lt;/tt&gt; van dit item, \'&lt;tt&gt;%1$s&lt;/tt&gt;\', bevat de status \'&lt;tt&gt;%2$s&lt;/tt&gt;\'.</string>
+  
+  <string name="button_item_type">knop</string>
+  
+  <string name="checkbox_item_type">selectievakje</string>
+  
+  <string name="checkbox_item_type_separate_words">selectievakje</string>
+  
+  <string name="checked_state">aangevinkt</string>
+  
+  <string name="unchecked_state">uitgevinkt</string>
+  
+  <string name="selected_state">geselecteerd</string>
+  
+  <string name="unselected_state">gedeselecteerd</string>
+  
+  <string name="click_action">klik</string>
+  
+  <string name="swipe_action">swipe</string>
+  
+  <string name="tap_action">tik</string>
+  
+  <string name="check_title_speakable_text_present">Itemlabel</string>
+  
+  <string name="result_message_should_not_focus">Dit item krijgt geen nadruk van een schermlezer.</string>
+  
+  <string name="result_message_web_content">Webcontent is niet geëvalueerd.</string>
+  
+  <string name="result_message_missing_speakable_text">Dit item heeft mogelijk geen label dat leesbaar is voor schermlezers.</string>
+  
+  <string name="check_title_text_contrast">Contrast tekst</string>
+  
+  <string name="result_message_textview_empty">Deze &lt;tt&gt;TextView&lt;/tt&gt; is leeg.</string>
+  
+  <string name="result_message_could_not_get_text_color">De tekstkleur van dit item kan niet worden bepaald.</string>
+  
+  <string name="result_message_could_not_get_background_color">De achtergrondkleur van dit item kan niet worden bepaald.</string>
+  
+  <string name="result_message_text_must_be_opaque">De tekstkleur van dit item is niet ondoorzichtig.</string>
+  
+  <string name="result_message_background_must_be_opaque">De achtergrondkleur van dit item is niet ondoorzichtig.</string>
+  
+  <string name="result_message_addendum_opacity_description">De daadwerkelijke dekking is %1$.2f%%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Overweeg de contrastverhouding tussen de voorgrond en achtergrond van deze afbeeldingstekst te verhogen.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">De contrastverhouding van de itemtekst is %1$.2f. Deze verhouding is gebaseerd op een tekstkleur van &lt;tt&gt;#%2$06X&lt;/tt&gt; en een achtergrondkleur van &lt;tt&gt;#%3$06X&lt;/tt&gt;. Overweeg de contrastverhouding van de itemtekst te verhogen naar %4$.2f of hoger.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">De contrastverhouding van de tekst van dit item is %1$.2f. Deze verhouding is gebaseerd op een geschatte voorgrondkleur van &lt;tt&gt;#%2$06X&lt;/tt&gt; en een geschatte achtergrondkleur van &lt;tt&gt;#%3$06X&lt;/tt&gt;. Overweeg kleuren te gebruiken die een contrastverhouding opleveren die hoger is dan %4$.2f voor kleine tekst of %5$.2f voor grote tekst.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">De contrastverhouding van de tekst van dit item is %1$.2f. Deze verhouding is gebaseerd op de opgegeven voorgrondkleur &lt;tt&gt;#%2$06X&lt;/tt&gt; en de opgegeven achtergrondkleur &lt;tt&gt;#%3$06X&lt;/tt&gt;. Overweeg kleuren te gebruiken die een contrastverhouding opleveren die hoger is dan %4$.2f voor kleine tekst of %5$.2f voor grote tekst.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">De contrastverhouding van de itemtekst is %1$.2f. Deze verhouding is gebaseerd op een geschatte voorgrondkleur van &lt;tt&gt;#%2$06X&lt;/tt&gt; en een geschatte achtergrondkleur van &lt;tt&gt;#%3$06X&lt;/tt&gt;. Overweeg de contrastverhouding van de itemtekst te verhogen naar de geconfigureerde verhouding van %4$.2f of hoger.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">De contrastverhouding van de tekst van dit item is %1$.2f. Deze verhouding is gebaseerd op de opgegeven voorgrondkleur &lt;tt&gt;#%2$06X&lt;/tt&gt; en de opgegeven achtergrondkleur &lt;tt&gt;#%3$06X&lt;/tt&gt;. Overweeg de contrastverhouding van de tekst van dit item te verhogen naar de geconfigureerde verhouding van %4$.2f of hoger.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Zijn de gedetecteerde voor- en achtergrondkleur juist?</string>
+  
+  <string name="question_option_message_both_correct">Beide juist</string>
+  
+  <string name="question_option_message_foreground_incorrect">Onjuiste voorgrondkleur</string>
+  
+  <string name="question_option_message_background_incorrect">Onjuiste achtergrondkleur</string>
+  
+  <string name="question_option_message_both_incorrect">Onjuiste voorgrond- en achtergrondkleur</string>
+  
+  <string name="question_option_message_unknown">Onbekend</string>
+  
+  <string name="question_id_message_provide_foreground_color">Wat is de juiste voorgrondkleur?</string>
+  
+  <string name="question_id_message_provide_background_color">Wat is de juiste achtergrondkleur?</string>
+  
+  <string name="check_title_touch_target_size">Tikdoel</string>
+  
+  <string name="result_message_not_clickable">Deze weergave is niet klikbaar.</string>
+  
+  <string name="result_message_brief_small_touch_target">Overweeg dit klikbare item groter te maken.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">De grootte van dit item is &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Overweeg dit tikdoel &lt;tt&gt;%3$ddp&lt;/tt&gt; breed en &lt;tt&gt;%4$ddp&lt;/tt&gt; hoog of groter te maken.</string>
+  
+  <string name="result_message_small_touch_target_height">De hoogte van dit item is &lt;tt&gt;%1$ddp&lt;/tt&gt;. Overweeg dit tikdoel &lt;tt&gt;%2$ddp&lt;/tt&gt; hoog of groter te maken.</string>
+  
+  <string name="result_message_small_touch_target_width">De breedte van dit item is &lt;tt&gt;%1$ddp&lt;/tt&gt;. Overweeg dit tikdoel &lt;tt&gt;%2$ddp&lt;/tt&gt; breed of groter te maken.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">De grootte van dit item is &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Overweeg om dit tikdoel minimaal de geconfigureerde minimale grootte van &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt; te geven.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">De hoogte van dit item is &lt;tt&gt;%1$ddp&lt;/tt&gt;. Overweeg om dit tikdoel minimaal de geconfigureerde minimale hoogte van &lt;tt&gt;%2$ddp&lt;/tt&gt; te geven.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">De breedte van dit item is &lt;tt&gt;%1$ddp&lt;/tt&gt;. Overweeg om dit tikdoel minimaal de geconfigureerde minimale breedte van &lt;tt&gt;%2$ddp&lt;/tt&gt; te geven.</string>
+  
+  <string name="result_message_addendum_touch_delegate">Er is een &lt;tt&gt;TouchDelegate&lt;/tt&gt; gedetecteerd in een bovenliggend element van dit item. Dit bericht kan worden genegeerd als de gemachtigde groot genoeg is en tikken kan verwerken voor dit item.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">Er is een &lt;tt&gt;TouchDelegate&lt;/tt&gt; met het formaat &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; gedetecteerd voor dit item. Overweeg het formaat van het resultaat &lt;tt&gt;Rect&lt;/tt&gt; te vergroten.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">Een bovenliggende container verwerkt mogelijk tikken voor dit item. Als dezelfde actie wordt uitgevoerd bij het selecteren van de grotere container en bij het selecteren van dit item, overweeg dan dit item als niet-klikbaar te definiëren. Als er een andere actie wordt uitgevoerd, kun je dit item groter maken.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">Een bovenliggende container beperkt mogelijk de afmetingen van dit item, dat een tekengrootte heeft van &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Je kunt de afmetingen vergroten van de ancestor die deze beperking veroorzaakt of een grotere bovenliggende container de specifieke acties van dit item laten uitvoeren.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Dit item is mogelijk slechts deels zichtbaar binnen een scollbare container.</string>
+  
+  <string name="check_title_class_name_not_supported">Niet-ondersteund itemtype</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Het type van dit item wordt mogelijk niet ondersteund.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Het type &lt;tt&gt;%1$s&lt;/tt&gt; van dit item kan mogelijk niet door toegankelijkheidsservices worden verwerkt. Overweeg een type te gebruiken dat door de SDK van Android is gedefinieerd.</string>
+  
+  <string name="result_message_class_name_is_empty">Het type van dit item kan mogelijk niet door toegankelijkheidsservices worden gemeld. Overweeg een type te gebruiken dat door de SDK van Android is gedefinieerd.</string>
+  
+  <string name="result_message_class_name_is_unknown">Het type van dit item kan niet worden vastgesteld.</string>
+  
+  <string name="check_title_accessibility_traversal">Doorloopvolgorde</string>
+  
+  <string name="result_message_traversal_cycle">Dit item maakt vanwege het kenmerk &lt;tt&gt;%1$s&lt;/tt&gt; mogelijk deel uit van een cyclus voor doorloopvolgorde. De doorloopvolgorde op schermlezers is mogelijk onvoorspelbaar.</string>
+  
+  <string name="result_message_traversal_over_constrained">Vanwege de kenmerken &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; en &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; is de doorloopvolgorde voor dit item mogelijk te beperkt. De doorloopvolgorde op schermlezers is mogelijk onvoorspelbaar.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">De doorloopvolgorde op schermlezers is mogelijk onvoorspelbaar.</string>
+  
+  <string name="result_message_disruptive_announcement">Misleidend toegankelijkheidsbericht gebruikt.</string>
+  
+  <string name="check_view_banned_word">Verboden woord</string>
+  
+  <string name="result_message_banned_word">De tekst van dit item bevat mogelijk het ongepaste woord \'&lt;tt&gt;%1$s&lt;/tt&gt;\'</string>
+  
+  <string name="result_message_brief_banned_word">Verwijder ongepaste woorden uit de tekst van dit item</string>
+  
+  <string name="check_title_text_style">Tekststijl</string>
+  
+  <string name="result_message_styled_text">In dit item wordt mogelijk een %1$s lettertype gebruikt voor een lang stuk tekst. Overweeg deze lettertypestijl te verwijderen om de leesbaarheid te vergroten.</string>
+  
+  <string name="result_message_brief_styled_text">Overweeg een %1$s lettertype te verwijderen voor langere stukken tekst.</string>
+  
+  <string name="italic_text">cursief</string>
+  
+  <string name="underline_text">onderstreept</string>
+  
+  <string name="italic_underline_text">cursief en onderstreept</string>
+  
+  <string name="result_message_no_typeface_info">De lettertypefamilie van dit item kan niet worden vastgesteld.</string>
+  
+  <string name="check_title_link_test">Linktekst</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Overweeg beschrijvendere tekst te gebruiken in de link.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Het doel van de link wordt mogelijk niet duidelijk uit alleen de tekst \'&lt;tt&gt;%1$s&lt;/tt&gt;\'.</string>
+  
+  <string name="check_title_reading_score">Leesbaarheid</string>
+  
+  <string name="result_message_low_reading_score">De tekst van dit item heeft een geschatte leesbaarheidsscore van %1$.0f. Dat is lager dan de aanbevolen score van %2$.0f. Probeer eenvoudigere woorden of zinnen te gebruiken zodat de tekst gemakkelijker te lezen is.</string>
+  
+  <string name="result_message_brief_low_reading_score">Deze tekst heeft mogelijk een lage leesbaarheidsscore.</string>
+  
+  <string name="result_message_short_text">De tekst van dit item is te kort voor een evaluatie.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Dit scherm moet handmatig worden gecontroleerd om te zorgen dat alle items zichtbaar zijn voor toegankelijkheidsservices.</string>
+  
+  <string name="result_message_has_unexposed_items">Dit scherm bevat mogelijk items die niet zichtbaar zijn voor toegankelijkheidsservices.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">Het gedeelte met schermlocatie &lt;tt&gt;%1$s&lt;/tt&gt; bevat minimaal één item dat niet zichtbaar is voor toegankelijkheidsservices.</string>
+  
+  <string name="check_title_item_exposed">Zichtbare items</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Maak items in dit gedeelte zichtbaar voor toegankelijkheidsservices.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Bevat dit scherm belangrijke items die niet zijn beschreven?</string>
+  
+  <string name="question_message_identify_unexposed_items">Selecteer de gedeelten van het scherm met niet-geïdentificeerde items.</string>
+
+</resources>

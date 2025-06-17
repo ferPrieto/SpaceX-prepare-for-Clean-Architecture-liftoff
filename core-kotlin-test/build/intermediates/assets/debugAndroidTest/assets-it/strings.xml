@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Questo elemento non è stato ritenuto importante per l\'accessibilità.</string>
+  
+  <string name="result_message_no_content_desc">Questo elemento non include l\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Questo elemento non è visibile.</string>
+  
+  <string name="result_message_not_enabled">Questo elemento non è attivo.</string>
+  
+  <string name="result_message_not_text_view">Questo elemento non è un\'istanza della classe &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Impossibile ottenere i dati di acquisizione schermata.</string>
+  
+  <string name="result_message_view_not_within_screencapture">La posizione sullo schermo (&lt;tt&gt;%1$s&lt;/tt&gt;) di questo elemento non era all\'interno dell\'area di acquisizione schermata (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">I dati di acquisizione schermata di questo elemento erano nascosti.</string>
+  
+  <string name="result_message_screencapture_uniform_color">La schermata acquisita ha un colore uniforme.</string>
+  
+  <string name="clickable">selezionabile</string>
+  
+  <string name="non_clickable">non selezionabile</string>
+  
+  <string name="long_clickable">selezionabile mediante clic prolungato</string>
+  
+  <string name="clickable_and_long_clickable">selezionabile e selezionabile mediante clic prolungato</string>
+  
+  <string name="actionable">processabile</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Questo controllo non è applicabile ai dispositivi con sistema operativo Android %1$s e versioni successive.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Questo elemento può essere oscurato da altri elementi presenti sullo schermo. Ti consigliamo di testare manualmente il contrasto di questo elemento.</string>
+  
+  <string name="check_title_clickablespan">Link</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Tipo dell\'elemento non determinato.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Verifica che l\'URL nella classe &lt;tt&gt;URLSpan&lt;/tt&gt; di questo elemento sia valido.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Questo elemento deve utilizzare una classe &lt;tt&gt;URLSpan&lt;/tt&gt; anziché una classe &lt;tt&gt;ClickableSpan&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Elementi selezionabili</string>
+  
+  <string name="result_message_brief_same_view_bounds">Più elementi %1$s condividono questa posizione sullo schermo.</string>
+  
+  <string name="result_message_same_view_bounds">Questo elemento %1$s ha la stessa posizione sullo schermo (&lt;tt&gt;%2$s&lt;/tt&gt;) degli altri %3$d elementi con le stesse proprietà.</string>
+  
+  <string name="result_message_view_bounds">Anche questo elemento %1$s ha la posizione sullo schermo &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Descrizioni elemento</string>
+  
+  <string name="result_message_brief_same_speakable_text">Più elementi hanno la stessa descrizione.</string>
+  
+  <string name="result_message_same_speakable_text">Il testo pronunciabile di questo elemento %1$s, \"&lt;tt&gt;%2$s&lt;/tt&gt;\", è identico a quello di altri %3$d elementi.</string>
+  
+  <string name="result_message_speakable_text">Anche questo elemento %1$s contiene testo pronunciabile: \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="check_title_editable_content_desc">Etichetta elemento modificabile</string>
+  
+  <string name="result_message_editable_textview_content_desc">Questa classe modificabile &lt;tt&gt;TextView&lt;/tt&gt; include l\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt;. Uno screen reader potrebbe leggere questo attributo anziché i contenuti modificabili durante la navigazione.</string>
+  
+  <string name="result_message_not_editable_textview">Questo elemento non è una classe &lt;tt&gt;TextView&lt;/tt&gt; modificabile.</string>
+  
+  <string name="check_title_image_contrast">Contrasto immagine</string>
+  
+  <string name="result_message_not_imageview">Questo elemento non è un\'istanza della classe &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">È consigliabile aumentare il rapporto del contrasto tra il primo piano e lo sfondo di questa immagine.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">Il rapporto del contrasto dell\'immagine è %1$.2f. Questo valore si basa sul colore in primo piano &lt;tt&gt;#%3$06X&lt;/tt&gt; e sul colore di sfondo &lt;tt&gt;#%4$06X&lt;/tt&gt; stimati. È consigliabile impostare un rapporto pari o superiore a %2$.2f.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">Il rapporto del contrasto dell\'immagine è %1$.2f. Questo rapporto si basa sul colore specificato per il primo piano, uguale a &lt;tt&gt;#%3$06X&lt;/tt&gt;, e il colore specificato per lo sfondo, uguale a &lt;tt&gt;#%4$06X&lt;/tt&gt;. Ti consigliamo di aumentare questo rapporto impostando %2$.2f o un valore maggiore.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">Il rapporto del contrasto dell\'immagine è %1$.2f. Questo valore si basa sulla stima del colore &lt;tt&gt;#%3$06X&lt;/tt&gt; in primo piano e del colore &lt;tt&gt;#%4$06X&lt;/tt&gt; sullo sfondo. Prova ad aumentare questo rapporto impostandolo sul valore configurato di %2$.2f o su un valore superiore.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">Il rapporto del contrasto dell\'immagine è %1$.2f. Questo rapporto si basa sul colore specificato per il primo piano, uguale a &lt;tt&gt;#%3$06X&lt;/tt&gt;, e il colore specificato per lo sfondo, uguale a &lt;tt&gt;#%4$06X&lt;/tt&gt;. Ti consigliamo di aumentare questo rapporto impostando un valore maggiore o uguale al rapporto configurato (%2$.2f).</string>
+  
+  <string name="check_title_redundant_description">Etichetta tipo di elemento</string>
+  
+  <string name="result_message_english_locale_only">Questo controllo viene eseguito solo sui dispositivi con le impostazioni internazionali in inglese.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">L\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt; di questo elemento potrebbe includere testo non necessario.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">L\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt; di questo elemento, \"&lt;tt&gt;%1$s&lt;/tt&gt;\", termina con il tipo dell\'elemento.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">L\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt; di questo elemento, \"&lt;tt&gt;%1$s&lt;/tt&gt;\", contiene il tipo di articolo \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="result_message_content_desc_contains_action">L\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt; di questo elemento, \"&lt;tt&gt;%1$s&lt;/tt&gt;\", contiene l\'azione \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="result_message_content_desc_contains_state">L\'attributo &lt;tt&gt;android:contentDescription&lt;/tt&gt; di questo elemento, \"&lt;tt&gt;%1$s&lt;/tt&gt;\", contiene lo stato \"&lt;tt&gt;%2$s&lt;/tt&gt;\".</string>
+  
+  <string name="button_item_type">pulsante</string>
+  
+  <string name="checkbox_item_type">casella di controllo</string>
+  
+  <string name="checkbox_item_type_separate_words">casella di controllo</string>
+  
+  <string name="checked_state">selezionata</string>
+  
+  <string name="unchecked_state">non selezionata</string>
+  
+  <string name="selected_state">selezionata</string>
+  
+  <string name="unselected_state">non selezionata</string>
+  
+  <string name="click_action">fai clic</string>
+  
+  <string name="swipe_action">fai scorrere</string>
+  
+  <string name="tap_action">tocca</string>
+  
+  <string name="check_title_speakable_text_present">Etichetta elemento</string>
+  
+  <string name="result_message_should_not_focus">Questo elemento non verrebbe attivato da uno screen reader.</string>
+  
+  <string name="result_message_web_content">I contenuti web non sono valutati.</string>
+  
+  <string name="result_message_missing_speakable_text">Questo elemento potrebbe non avere un\'etichetta leggibile dagli screen reader.</string>
+  
+  <string name="check_title_text_contrast">Contrasto del testo</string>
+  
+  <string name="result_message_textview_empty">La classe &lt;tt&gt;TextView&lt;/tt&gt; è vuota.</string>
+  
+  <string name="result_message_could_not_get_text_color">Impossibile determinare il colore del testo di questo elemento.</string>
+  
+  <string name="result_message_could_not_get_background_color">Impossibile determinare il colore di sfondo di questo elemento.</string>
+  
+  <string name="result_message_text_must_be_opaque">Il colore del testo di questo elemento non è opaco.</string>
+  
+  <string name="result_message_background_must_be_opaque">Il colore di sfondo di questo elemento non è opaco.</string>
+  
+  <string name="result_message_addendum_opacity_description">L\'opacità attuale è %1$.2f%%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">È consigliabile aumentare il rapporto del contrasto tra il primo piano e lo sfondo del testo dell\'elemento.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Il rapporto del contrasto del testo dell\'elemento è %1$.2f. Questo valore si basa sul colore del testo &lt;tt&gt;#%2$06X&lt;/tt&gt; e sul colore di sfondo &lt;tt&gt;#%3$06X&lt;/tt&gt;. È consigliabile impostare un rapporto del contrasto del testo pari o superiore a %4$.2f.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Il rapporto di contrasto è %1$.2f. Questo rapporto si basa su un colore di primo piano stimato uguale a &lt;tt&gt;#%2$06X&lt;/tt&gt; e un colore di sfondo stimato uguale a &lt;tt&gt;#%3$06X&lt;/tt&gt;. Ti consigliamo di utilizzare colori che diano un rapporto di contrasto maggiore di %4$.2f in caso di caratteri piccoli o %5$.2f in caso di caratteri grandi.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Il rapporto del contrasto del testo è %1$.2f. Questo rapporto si basa sul colore specificato per il primo piano, uguale a &lt;tt&gt;#%2$06X&lt;/tt&gt;, e il colore specificato per lo sfondo, uguale a &lt;tt&gt;#%3$06X&lt;/tt&gt;. Ti consigliamo di utilizzare colori che diano un rapporto di contrasto maggiore di %4$.2f in caso di caratteri piccoli o %5$.2f in caso di caratteri grandi.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Il rapporto del contrasto del testo dell\'elemento è %1$.2f. Questo valore si basa sulla stima del colore &lt;tt&gt;#%2$06X&lt;/tt&gt; in primo piano e del colore &lt;tt&gt;#%3$06X&lt;/tt&gt; sullo sfondo. Prova ad aumentare questo rapporto impostandolo sul valore configurato di %4$.2f o su un valore superiore.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Il rapporto del contrasto del testo è %1$.2f. Questo rapporto si basa sul colore specificato per il primo piano, uguale a &lt;tt&gt;#%2$06X&lt;/tt&gt;, e il colore specificato per lo sfondo, uguale a &lt;tt&gt;#%3$06X&lt;/tt&gt;. Ti consigliamo di aumentare il rapporto del contrasto del testo di questo elemento impostando un valore maggiore o uguale al rapporto configurato (%4$.2f).</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">I colori rilevati per il primo piano e per lo sfondo sono corretti?</string>
+  
+  <string name="question_option_message_both_correct">Entrambi corretti</string>
+  
+  <string name="question_option_message_foreground_incorrect">Primo piano non corretto</string>
+  
+  <string name="question_option_message_background_incorrect">Sfondo non corretto</string>
+  
+  <string name="question_option_message_both_incorrect">Primo piano e sfondo non corretti</string>
+  
+  <string name="question_option_message_unknown">Sconosciuto</string>
+  
+  <string name="question_id_message_provide_foreground_color">Qual è il colore corretto per il primo piano?</string>
+  
+  <string name="question_id_message_provide_background_color">Qual è il colore corretto per lo sfondo?</string>
+  
+  <string name="check_title_touch_target_size">Touch target</string>
+  
+  <string name="result_message_not_clickable">Questa vista non è selezionabile.</string>
+  
+  <string name="result_message_brief_small_touch_target">È consigliabile ingrandire questo elemento selezionabile.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Le dimensioni di questo elemento sono pari a &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. È consigliabile impostare la larghezza del touch target su &lt;tt&gt;%3$ddp&lt;/tt&gt; e l\'altezza su &lt;tt&gt;%4$ddp&lt;/tt&gt; o un valore superiore.</string>
+  
+  <string name="result_message_small_touch_target_height">L\'altezza di questo elemento è pari a &lt;tt&gt;%1$ddp&lt;/tt&gt;. È consigliabile impostare l\'altezza di questo touch target su &lt;tt&gt;%2$ddp&lt;/tt&gt; o un valore superiore.</string>
+  
+  <string name="result_message_small_touch_target_width">La larghezza di questo elemento è pari a &lt;tt&gt;%1$ddp&lt;/tt&gt;. È consigliabile impostare la larghezza di questo touch target su &lt;tt&gt;%2$ddp&lt;/tt&gt; o un valore superiore.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Le dimensioni di questo elemento sono pari a &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Prova ad aumentare le dimensioni di questo touch target portandole almeno al valore minimo configurato di &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">L\'altezza di questo elemento è pari a &lt;tt&gt;%1$ddp&lt;/tt&gt;. Prova ad aumentare le dimensioni di questo touch target portandola almeno al valore minimo configurato di &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">La larghezza di questo elemento è pari a &lt;tt&gt;%1$ddp&lt;/tt&gt;. Prova ad aumentare la larghezza di questo touch target portandola almeno al valore minimo configurato di &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_touch_delegate">È stata rilevata la classe &lt;tt&gt;TouchDelegate&lt;/tt&gt; su uno dei predecessori di questo elemento. Questo messaggio può essere ignorato se il delegato ha dimensioni sufficienti e gestisce le aree selezionabili di questo elemento.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">Per questo elemento è stata rilevata una classe &lt;tt&gt;TouchDelegate&lt;/tt&gt; di dimensioni &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Ti consigliamo di aumentare le dimensioni della relativa &lt;tt&gt;Rect&lt;/tt&gt; dei risultati.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">È possibile che un contenitore padre gestisca gli eventi tocco per questo elemento. Se selezionando il contenitore più grande si esegue la stessa operazione che si ottiene selezionando questo elemento, è consigliabile definire l\'elemento come non selezionabile. Se viene eseguita un\'azione diversa, dovresti ingrandire questo elemento.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">Un contenitore principale potrebbe troncare questo elemento, la cui area di disegno è pari a &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Valuta la possibilità di aumentare le dimensioni del predecessore di ritaglio dell\'elemento o di utilizzare un contenitore principale più grande per gestire le operazioni per conto di questo elemento.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Questo elemento potrebbe essere visibile solo parzialmente all\'interno di un contenitore a scorrimento.</string>
+  
+  <string name="check_title_class_name_not_supported">Tipo di elemento non supportato</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Questo tipo di elemento potrebbe non essere supportato.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">I servizi di accessibilità potrebbero non essere in grado di elaborare il tipo di elemento &lt;tt&gt;%1$s&lt;/tt&gt;. Prova a utilizzare un tipo definito dall\'SDK di Android.</string>
+  
+  <string name="result_message_class_name_is_empty">Questo tipo di elemento potrebbe non essere stato segnalato ai servizi di accessibilità. Prova a utilizzare un tipo definito dall\'SDK di Android.</string>
+  
+  <string name="result_message_class_name_is_unknown">Impossibile determinare questo tipo di elemento.</string>
+  
+  <string name="check_title_accessibility_traversal">Ordine di attraversamento</string>
+  
+  <string name="result_message_traversal_cycle">Questo elemento potrebbe far parte di un ciclo di ordine di attraversamento a causa dell\'attributo &lt;tt&gt;%1$s&lt;/tt&gt;. Il comportamento di attraversamento con screen reader potrebbe essere imprevedibile.</string>
+  
+  <string name="result_message_traversal_over_constrained">L\'ordine di attraversamento per questo elemento potrebbe essere eccessivamente vincolato in base agli attributi &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; e &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt;. Il comportamento di attraversamento con screen reader potrebbe essere imprevedibile.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Il comportamento di attraversamento con screen reader potrebbe essere imprevedibile.</string>
+  
+  <string name="result_message_disruptive_announcement">Annuncio di accessibilità fuorviante.</string>
+  
+  <string name="check_view_banned_word">Parola vietata</string>
+  
+  <string name="result_message_banned_word">Il testo di questo elemento potrebbe contenere una parola inappropriata, \"&lt;tt&gt;%1$s&lt;/tt&gt;\"</string>
+  
+  <string name="result_message_brief_banned_word">Valuta se rimuovere le parole inappropriate dal testo di questo elemento</string>
+  
+  <string name="check_title_text_style">Stile testo</string>
+  
+  <string name="result_message_styled_text">In questo elemento è possibile che sia presente lo stile %1$s in un lungo passaggio del testo. Ti consigliamo di rimuovere lo stile dal carattere per migliorare la leggibilità.</string>
+  
+  <string name="result_message_brief_styled_text">Ti consigliamo di rimuovere lo stile %1$s dai passaggi più lunghi del testo.</string>
+  
+  <string name="italic_text">corsivo</string>
+  
+  <string name="underline_text">sottolineato</string>
+  
+  <string name="italic_underline_text">corsivo e sottolineato</string>
+  
+  <string name="result_message_no_typeface_info">Impossibile determinare il tipo di carattere dell\'elemento.</string>
+  
+  <string name="check_title_link_test">Testo del link</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Ti consigliamo di usare un testo più descrittivo nel link.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Il testo del link \"&lt;tt&gt;%1$s&lt;/tt&gt;\" potrebbe non mostrare indipendentemente il fine del link.</string>
+  
+  <string name="check_title_reading_score">Leggibilità</string>
+  
+  <string name="result_message_low_reading_score">Il testo di questo elemento ha un punteggio di leggibilità approssimativo di %1$.0f, inferiore al punteggio consigliato di %2$.0f. Ti consigliamo di utilizzare parole o frasi più semplici, per facilitare la lettura del testo.</string>
+  
+  <string name="result_message_brief_low_reading_score">Questo testo potrebbe avere un punteggio di leggibilità basso.</string>
+  
+  <string name="result_message_short_text">Il testo di questo elemento è troppo breve per essere valutato.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Questa schermata richiede un\'ispezione manuale per verificare che tutti gli elementi siano esposti ai servizi di accessibilità.</string>
+  
+  <string name="result_message_has_unexposed_items">Questa schermata potrebbe includere elementi non esposti ai servizi di accessibilità.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">L\'area con la posizione &lt;tt&gt;%1$s&lt;/tt&gt; sullo schermo contiene almeno un elemento non esposto ai servizi di accessibilità.</string>
+  
+  <string name="check_title_item_exposed">Elementi esposti</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Ti consigliamo di esporre gli elementi di quest\'area ai servizi di accessibilità.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Questa schermata contiene elementi importanti che non sono evidenziati da un contorno?</string>
+  
+  <string name="question_message_identify_unexposed_items">Seleziona le aree della schermata che includono elementi non identificati.</string>
+
+</resources>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Bu öğe erişilebilirlik için önemli bulunmadı.</string>
+  
+  <string name="result_message_no_content_desc">Bu öğede &lt;tt&gt;android:contentDescription&lt;/tt&gt; yok.</string>
+  
+  <string name="result_message_not_visible">Bu öğe görünmüyor.</string>
+  
+  <string name="result_message_not_enabled">Bu öğe etkin değil.</string>
+  
+  <string name="result_message_not_text_view">Bu öğe bir &lt;tt&gt;TextView&lt;/tt&gt; örneği değil.</string>
+  
+  <string name="result_message_no_screencapture">Ekran yakalama verileri alınamadı.</string>
+  
+  <string name="result_message_view_not_within_screencapture">Bu öğenin ekrandaki konumu (&lt;tt&gt;%1$s&lt;/tt&gt;) yakalanan ekrandaki konumun içinde (&lt;tt&gt;%2$s&lt;/tt&gt;) değil.</string>
+  
+  <string name="result_message_screencapture_data_hidden">Bu öğe için ekran yakalama bilgileri gizli.</string>
+  
+  <string name="result_message_screencapture_uniform_color">Yakalanan ekran görüntüsünde tek tip renk var.</string>
+  
+  <string name="clickable">tıklanabilir</string>
+  
+  <string name="non_clickable">tıklanamaz</string>
+  
+  <string name="long_clickable">uzun tıklanabilir</string>
+  
+  <string name="clickable_and_long_clickable">tıklanabilir ve uzun tıklanabilir</string>
+  
+  <string name="actionable">işlem yapılabilir</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Bu denetim, Android %1$s veya üzeri sürümleri çalıştıran cihazlarda geçerli değildir.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Bu öğenin görünmesi ekrandaki diğer içerikler tarafından engellenebilir. Öğenin karşıtlığını manuel olarak test edin.</string>
+  
+  <string name="check_title_clickablespan">Bağlantı</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Bu öğenin türü belirli değil.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Bu öğenin &lt;tt&gt;URLSpan&lt;/tt&gt; etiketleri arasındaki URL\'nin geçerli olduğunu doğrulayın.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Bu öğe, &lt;tt&gt;ClickableSpan&lt;/tt&gt; yerine bir &lt;tt&gt;URLSpan&lt;/tt&gt; kullanmalıdır.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Tıklanabilir öğeler</string>
+  
+  <string name="result_message_brief_same_view_bounds">Ekranda birden çok %1$s öğe bu konumu paylaşıyor.</string>
+  
+  <string name="result_message_same_view_bounds">Bu %1$s öğe, ekranda bu özellikleri içeren %3$d öğeyle daha aynı konuma (&lt;tt&gt;%2$s&lt;/tt&gt;) sahip.</string>
+  
+  <string name="result_message_view_bounds">Bu %1$s öğenin ekranda &lt;tt&gt;%2$s&lt;/tt&gt; sınırlarına sahip bir konumu da var.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Öğe açıklamaları</string>
+  
+  <string name="result_message_brief_same_speakable_text">Birden fazla öğe aynı açıklamaya sahip.</string>
+  
+  <string name="result_message_same_speakable_text">Bu %1$s öğenin okunabilir metni olan \"&lt;tt&gt;%2$s&lt;/tt&gt;\", %3$d öğenin daha metniyle aynı.</string>
+  
+  <string name="result_message_speakable_text">Bu %1$s öğenin \"&lt;tt&gt;%2$s&lt;/tt&gt;\" şeklinde bir okunabilir metni daha var.</string>
+  
+  <string name="check_title_editable_content_desc">Düzenlenebilir öğe etiketi</string>
+  
+  <string name="result_message_editable_textview_content_desc">Bu düzenlenebilir &lt;tt&gt;TextView&lt;/tt&gt;, &lt;tt&gt;android:contentDescription&lt;/tt&gt; özelliğine sahip. Bir ekran okuyucu, kullanıcı gezinirken düzenlenebilir içerik yerine bu özelliği okuyabilir.</string>
+  
+  <string name="result_message_not_editable_textview">Bu öğe düzenlenebilir bir &lt;tt&gt;TextView&lt;/tt&gt; değil.</string>
+  
+  <string name="check_title_image_contrast">Resim kontrastı</string>
+  
+  <string name="result_message_not_imageview">Bu öğe bir &lt;tt&gt;ImageView&lt;/tt&gt; değil.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Resmin ön ve arka planı arasındaki kontrast oranını artırmayı düşünün.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">Bu resmin kontrast oranı %1$.2f. Bu oran, tahmini ön plan rengi (&lt;tt&gt;#%3$06X&lt;/tt&gt;) ve tahmini arka plan rengine (&lt;tt&gt;#%4$06X&lt;/tt&gt;) dayanır. Bu oranı %2$.2f veya üzerine çıkarmayı düşünün.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">Resmin kontrast oranı %1$.2f. Bu oran, sağlanan ön plan rengine (&lt;tt&gt;#%3$06X&lt;/tt&gt;) ve arka plan rengine (&lt;tt&gt;#%4$06X&lt;/tt&gt;) göre hesaplanır. Bu oranı %2$.2f veya daha yüksek bir değere ayarlamanız önerilir.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">Resmin kontrast oranı %1$.2f. Bu oran, tahmini &lt;tt&gt;#%3$06X&lt;/tt&gt; ön plan rengine ve tahmini &lt;tt&gt;#%4$06X&lt;/tt&gt; arka plan rengine dayanır. Bu oranı, %2$.2f veya üzerinde bir yapılandırılmış orana çıkarmanız önerilir.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">Resmin kontrast oranı %1$.2f. Bu oran, sağlanan ön plan rengine (&lt;tt&gt;#%3$06X&lt;/tt&gt;) ve arka plan rengine (&lt;tt&gt;#%4$06X&lt;/tt&gt;) göre hesaplanır. Bu oranı yapılandırılan orana (%2$.2f) veya daha yüksek bir değere ayarlamanız önerilir.</string>
+  
+  <string name="check_title_redundant_description">Öğe türü etiketi</string>
+  
+  <string name="result_message_english_locale_only">Bu kontrol yalnızca dili İngilizce olarak ayarlı cihazlarda çalışır.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">Bu öğenin &lt;tt&gt;android:contentDescription&lt;/tt&gt; özelliği, gereksiz metin içeriyor olabilir.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">Bu öğenin &lt;tt&gt;android:contentDescription&lt;/tt&gt; özelliği olan \"&lt;tt&gt;%1$s&lt;/tt&gt;\", öğenin türüyle bitiyor.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">Bu öğenin &lt;tt&gt;android:contentDescription&lt;/tt&gt; özelliği olan \"&lt;tt&gt;%1$s&lt;/tt&gt;\", \"&lt;tt&gt;%2$s&lt;/tt&gt;\" öğe türünü içeriyor.</string>
+  
+  <string name="result_message_content_desc_contains_action">Bu öğenin &lt;tt&gt;android:contentDescription&lt;/tt&gt; özelliği olan \"&lt;tt&gt;%1$s&lt;/tt&gt;\" içerisinde \"&lt;tt&gt;%2$s&lt;/tt&gt;\" işlemini barındırıyor.</string>
+  
+  <string name="result_message_content_desc_contains_state">Bu öğenin &lt;tt&gt;android:contentDescription&lt;/tt&gt; özelliği olan \"&lt;tt&gt;%1$s&lt;/tt&gt;\" içerisinde \"&lt;tt&gt;%2$s&lt;/tt&gt;\" durumunu barındırıyor.</string>
+  
+  <string name="button_item_type">düğme</string>
+  
+  <string name="checkbox_item_type">onay kutusu</string>
+  
+  <string name="checkbox_item_type_separate_words">onay kutusu</string>
+  
+  <string name="checked_state">işaretlendi</string>
+  
+  <string name="unchecked_state">işaretlenmedi</string>
+  
+  <string name="selected_state">seçildi</string>
+  
+  <string name="unselected_state">seçilmedi</string>
+  
+  <string name="click_action">tıkla</string>
+  
+  <string name="swipe_action">kaydır</string>
+  
+  <string name="tap_action">dokun</string>
+  
+  <string name="check_title_speakable_text_present">Öğe etiketi</string>
+  
+  <string name="result_message_should_not_focus">Ekran koruyucular bu öğeye odaklanmaz.</string>
+  
+  <string name="result_message_web_content">Web içeriği değerlendirilmedi.</string>
+  
+  <string name="result_message_missing_speakable_text">Bu öğe, ekran okuyucuların okuyabileceği bir etikete sahip olmayabilir.</string>
+  
+  <string name="check_title_text_contrast">Metin kontrastı</string>
+  
+  <string name="result_message_textview_empty">Bu &lt;tt&gt;TextView&lt;/tt&gt; boş.</string>
+  
+  <string name="result_message_could_not_get_text_color">Bu öğenin metin rengi belirlenemedi.</string>
+  
+  <string name="result_message_could_not_get_background_color">Bu öğenin arka plan rengi belirlenemedi.</string>
+  
+  <string name="result_message_text_must_be_opaque">Bu öğenin metin rengi opak değil.</string>
+  
+  <string name="result_message_background_must_be_opaque">Bu öğenin arka plan rengi opak değil.</string>
+  
+  <string name="result_message_addendum_opacity_description">Gerçek opaklığı: %%%1$.2f.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Bu öğenin ön plan - arka plan kontrast oranını artırmayı düşünün.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Bu öğenin metin kontrast oranı %1$.2f. Bu oran, metin rengi (&lt;tt&gt;#%2$06X&lt;/tt&gt;) ve arka plan rengine (&lt;tt&gt;#%3$06X&lt;/tt&gt;) dayanır. Bu öğenin metin kontrast oranını %4$.2f veya üzerine çıkarmayı düşünün.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Bu öğenin metin kontrast oranı %1$.2f. Bu oran, tahmini ön plan rengine (&lt;tt&gt;#%2$06X&lt;/tt&gt;) ve tahmini arka plan rengine (&lt;tt&gt;#%3$06X&lt;/tt&gt;) göre verilir. Küçük metinler için en az %4$.2f, büyük metinler için en az %5$.2f kontrast oranı sağlayan renkler kullanmanız önerilir.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Bu öğenin metin kontrast oranı: %1$.2f. Bu oran, belirtilen ön plan rengine (&lt;tt&gt;#%2$06X&lt;/tt&gt;) ve arka plan rengine (&lt;tt&gt;#%3$06X&lt;/tt&gt;) göre hesaplanır. Küçük metinler için en az %4$.2f, büyük metinler için en az %5$.2f kontrast oranı sağlayan renkler kullanmanız önerilir.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Bu öğenin metin kontrast oranı %1$.2f. Bu oran, tahmini &lt;tt&gt;#%2$06X&lt;/tt&gt; ön plan rengine ve tahmini &lt;tt&gt;#%3$06X&lt;/tt&gt; arka plan rengine dayanır. Bu öğenin metin kontrast oranını, %4$.2f veya üzerinde bir yapılandırılmış orana çıkarmanız önerilir.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Bu öğenin metin kontrast oranı: %1$.2f. Bu oran, belirtilen ön plan rengine (&lt;tt&gt;#%2$06X&lt;/tt&gt;) ve arka plan rengine (&lt;tt&gt;#%3$06X&lt;/tt&gt;) göre hesaplanır. Bu öğenin metin kontrast oranını yapılandırılan orana (%4$.2f) veya daha yüksek bir değere ayarlamanız önerilir.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Algılanan ön plan ve arka plan renkleri doğru mu?</string>
+  
+  <string name="question_option_message_both_correct">İkisi de doğru</string>
+  
+  <string name="question_option_message_foreground_incorrect">Ön plan rengi yanlış</string>
+  
+  <string name="question_option_message_background_incorrect">Arka plan rengi yanlış</string>
+  
+  <string name="question_option_message_both_incorrect">Ön plan ve arka plan renkleri yanlış</string>
+  
+  <string name="question_option_message_unknown">Bilinmiyor</string>
+  
+  <string name="question_id_message_provide_foreground_color">Doğru ön plan rengi nedir?</string>
+  
+  <string name="question_id_message_provide_background_color">Doğru arka plan rengi nedir?</string>
+  
+  <string name="check_title_touch_target_size">Dokunma hedefi</string>
+  
+  <string name="result_message_not_clickable">Bu görünüm tıklanabilir değil.</string>
+  
+  <string name="result_message_brief_small_touch_target">Bu tıklanabilir öğeyi daha büyük yapmayı düşünün.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Bu öğenin boyutu &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Bu dokunma hedefini &lt;tt&gt;%3$ddp&lt;/tt&gt; genişliğinde ve &lt;tt&gt;%4$ddp&lt;/tt&gt; ya da üzeri yüksekliğinde yapmayı düşünün.</string>
+  
+  <string name="result_message_small_touch_target_height">Bu öğenin yüksekliği &lt;tt&gt;%1$ddp&lt;/tt&gt;. Bu dokunma hedefinin yüksekliğini &lt;tt&gt;%2$ddp&lt;/tt&gt; veya üzeri yapmayı düşünün.</string>
+  
+  <string name="result_message_small_touch_target_width">Bu öğenin genişliği &lt;tt&gt;%1$ddp&lt;/tt&gt;. Bu dokunma hedefinin genişliğini &lt;tt&gt;%2$ddp&lt;/tt&gt; veya üzeri yapmayı düşünün.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Bu öğenin boyutu &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Bu dokunma hedefini, en az &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt; değerindeki yapılandırılmış minimum boyuta çıkarmanız önerilir.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">Bu öğenin yüksekliği &lt;tt&gt;%1$ddp&lt;/tt&gt;. Bu dokunma hedefinin yüksekliğini, en az &lt;tt&gt;%2$ddp&lt;/tt&gt; değerindeki yapılandırılmış minimum yüksekliğe çıkarmanız önerilir.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">Bu öğenin genişliği &lt;tt&gt;%1$ddp&lt;/tt&gt;. Bu dokunma hedefinin genişliğini, en az &lt;tt&gt;%2$ddp&lt;/tt&gt; değerindeki yapılandırılmış minimum genişliğe çıkarmanız önerilir.</string>
+  
+  <string name="result_message_addendum_touch_delegate">Bu öğenin üst öğelerinden birinde &lt;tt&gt;TouchDelegate&lt;/tt&gt; tespit edildi. Temsilci yeterli boyuttaysa ve bu öğe için dokunma işlemlerini gerçekleştiriyorsa bu ileti görmezden gelinebilir.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">Bu öğe için &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; boyutlarında bir &lt;tt&gt;TouchDelegate&lt;/tt&gt; algılandı. İsabet bölgesinin boyutunu artırabilirsiniz &lt;tt&gt;Rect&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">Bir üst kapsayıcı bu öğe için dokunma etkinliklerini gerçekleştiriyor olabilir. Daha büyük kapsayıcı seçildiğinde bu öğeyi seçmeyle aynı işlem gerçekleşiyorsa bu öğeyi tıklanamaz olarak tanımlamayı düşünün. Farklı bir işlem gerçekleştirilirse bu öğenin boyutunu artırmayı düşünün.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">Bir üst kapsayıcı, çizim alanı &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; olan bu öğenin boyutunu kırpıyor olabilir. Bu öğenin kırpma üst öğesinin boyutunu artırmayı veya daha büyük bir üst kapsayıcının bu öğe adına işlem yapmasına izin vermeyi düşünün.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Bu öğe, kaydırılabilir container\'larda kısmen görünür olabilir.</string>
+  
+  <string name="check_title_class_name_not_supported">Desteklenmeyen öğe türü</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Bu öğenin türü desteklenmeyebilir.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Bu öğenin türü (&lt;tt&gt;%1$s&lt;/tt&gt;), erişilebilirlik hizmetleri tarafından çözümlenemeyebilir. Android SDK tarafından tanımlanmış bir tür kullanmanız önerilir.</string>
+  
+  <string name="result_message_class_name_is_empty">Bu öğenin türü, erişilebilirlik hizmetlerine bildirilemeyebilir. Android SDK tarafından tanımlanmış bir tür kullanmanız önerilir.</string>
+  
+  <string name="result_message_class_name_is_unknown">Bu öğenin türü belirlenemedi.</string>
+  
+  <string name="check_title_accessibility_traversal">Geçiş sırası</string>
+  
+  <string name="result_message_traversal_cycle">Bu öğe, &lt;tt&gt;%1$s&lt;/tt&gt; özelliği nedeniyle bir geçiş sırası döngüsünün parçası olabilir. Ekran okuyucularda geçiş davranışı tahmin edilemeyebilir.</string>
+  
+  <string name="result_message_traversal_over_constrained">Bu öğenin geçiş sırası, &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; ve &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; özellikleri nedeniyle fazla kısıtlanmış olabilir. Ekran okuyucularda geçiş  davranışı tahmin edilemeyebilir.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Ekran okuyucularda geçiş davranışı tahmin edilemeyebilir.</string>
+  
+  <string name="result_message_disruptive_announcement">Yanıltabilecek erişilebilirlik duyurusu kullanıldı</string>
+  
+  <string name="check_view_banned_word">Yasaklı sözcük</string>
+  
+  <string name="result_message_banned_word">Bu öğenin metni, uygunsuz sözcük içeriyor olabilir (\"&lt;tt&gt;%1$s&lt;/tt&gt;\")</string>
+  
+  <string name="result_message_brief_banned_word">Bu öğenin metninden uygunsuz sözcükleri kaldırmanız önerilir</string>
+  
+  <string name="check_title_text_style">Metin Stili</string>
+  
+  <string name="result_message_styled_text">Bu öğe, uzun bir metin parçası için %1$s yazı tipini kullanıyor olabilir. Okunabilirliği artırmak için yazı tipinden stili kaldırabilirsiniz.</string>
+  
+  <string name="result_message_brief_styled_text">Uzun metin parçalarında %1$s stilini kaldırabilirsiniz.</string>
+  
+  <string name="italic_text">italik</string>
+  
+  <string name="underline_text">altı çizili</string>
+  
+  <string name="italic_underline_text">italik ve altı çizili</string>
+  
+  <string name="result_message_no_typeface_info">Bu öğenin yazı biçimi belirlenemedi.</string>
+  
+  <string name="check_title_link_test">Bağlantı metni</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Bağlantılarda daha açıklayıcı metinler kullanın.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Bağlantı metni (\"&lt;tt&gt;%1$s&lt;/tt&gt;\"), bağlantının amacını tek başına iletmeyebilir.</string>
+  
+  <string name="check_title_reading_score">Okunabilirlik</string>
+  
+  <string name="result_message_low_reading_score">Bu öğedeki metnin okunabilirlik puanı yaklaşık %1$.0f. %2$.0f puanlık önerilen değerden daha düşük. Metnin daha kolay okunabilmesi için daha basit sözcükler ve cümleler kullanmanız önerilir.</string>
+  
+  <string name="result_message_brief_low_reading_score">Bu metnin okunabilirlik puanı düşük olabilir.</string>
+  
+  <string name="result_message_short_text">Bu öğenin metni değerlendirilemeyecek kadar kısa.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">Tüm öğelere erişilebilirlik hizmeti sunulması için bu ekranın manuel olarak incelenmesi gerekiyor.</string>
+  
+  <string name="result_message_has_unexposed_items">Bu ekran, erişilebilirlik hizmeti sunulmayan öğelere sahip olabilir.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">Ekranda konumu belirtilen bölge (&lt;tt&gt;%1$s&lt;/tt&gt;), erişilebilirlik hizmeti sunulmayan en az bir öğe içeriyor.</string>
+  
+  <string name="check_title_item_exposed">Hizmetin sunulduğu öğeler</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Bu bölgedeki öğelere erişilebilirlik hizmeti sunulmasını sağlayabilirsiniz.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Bu ekran, vurgulanmayan önemli öğeler içeriyor mu?</string>
+  
+  <string name="question_message_identify_unexposed_items">Ekranda tanımlanmamış öğelerin yer aldığı bölümleri seçin.</string>
+
+</resources>

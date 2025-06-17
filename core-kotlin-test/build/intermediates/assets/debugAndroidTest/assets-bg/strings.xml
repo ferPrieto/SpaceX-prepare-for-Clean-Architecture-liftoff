@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">Този елемент не е от значение за достъпността.</string>
+  
+  <string name="result_message_no_content_desc">Този елемент няма &lt;tt&gt;android:contentDescription&lt;/tt&gt;.</string>
+  
+  <string name="result_message_not_visible">Този елемент не е видим.</string>
+  
+  <string name="result_message_not_enabled">Този елемент не е активиран.</string>
+  
+  <string name="result_message_not_text_view">Този елемент не е &lt;tt&gt;TextView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_no_screencapture">Екранната снимка не бе извлечена.</string>
+  
+  <string name="result_message_view_not_within_screencapture">Местоположението на този елемент на екрана (&lt;tt&gt;%1$s&lt;/tt&gt;) не бе в рамките на екранната снимка (&lt;tt&gt;%2$s&lt;/tt&gt;).</string>
+  
+  <string name="result_message_screencapture_data_hidden">Екранната снимка за този елемент бе скрита.</string>
+  
+  <string name="result_message_screencapture_uniform_color">Цветът на екранната снимка е еднороден.</string>
+  
+  <string name="clickable">с възможност за кликване</string>
+  
+  <string name="non_clickable">без възможност за кликване</string>
+  
+  <string name="long_clickable">с възможност за продължително кликване</string>
+  
+  <string name="clickable_and_long_clickable">с възможност за кликване и продължително кликване</string>
+  
+  <string name="actionable">с възможност за действие</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Тази проверка не е приложима за устройства с Android %1$s и по-нови версии.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">Този елемент може да бъде скрит от друго съдържание на екрана. Добре е да тествате ръчно контраста на елемента.</string>
+  
+  <string name="check_title_clickablespan">Връзка</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">Типът на този елемент не бе определен.</string>
+  
+  <string name="result_message_urlspan_invalid_url">Проверете дали URL адресът в &lt;tt&gt;URLSpan&lt;/tt&gt; на този елемент е валиден.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">Вместо &lt;tt&gt;ClickableSpan&lt;/tt&gt; този елемент трябва да използва &lt;tt&gt;URLSpan&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">Елементи с възможност за кликване</string>
+  
+  <string name="result_message_brief_same_view_bounds">Няколко елемента %1$s споделят това местоположение на екрана.</string>
+  
+  <string name="result_message_same_view_bounds">Този елемент %1$s е на същото местоположение на екрана (&lt;tt&gt;%2$s&lt;/tt&gt;) като това на други елементи (%3$d) със същите характеристики.</string>
+  
+  <string name="result_message_view_bounds">Местоположението на екрана на този елемент %1$s също е &lt;tt&gt;%2$s&lt;/tt&gt;.</string>
+  
+  <string name="check_title_duplicate_speakable_text">Описания на елементи</string>
+  
+  <string name="result_message_brief_same_speakable_text">Няколко елемента имат едно и също описание.</string>
+  
+  <string name="result_message_same_speakable_text">Текстът за екранен четец „&lt;tt&gt;%2$s&lt;/tt&gt;“ на този елемент %1$s е идентичен с този на други елементи (%3$d).</string>
+  
+  <string name="result_message_speakable_text">Текстът за екранен четец на този елемент %1$s също е „&lt;tt&gt;%2$s&lt;/tt&gt;“.</string>
+  
+  <string name="check_title_editable_content_desc">Етикет на елемент с възможност за редактиране</string>
+  
+  <string name="result_message_editable_textview_content_desc">Този елемент &lt;tt&gt;TextView&lt;/tt&gt; с възможност за редактиране има &lt;tt&gt;android:contentDescription&lt;/tt&gt;. Когато потребителят навигира, този атрибут може да бъде прочетен от екранен четец вместо съдържанието с възможност за редактиране.</string>
+  
+  <string name="result_message_not_editable_textview">Този елемент не е &lt;tt&gt;TextView&lt;/tt&gt; с възможност за редактиране.</string>
+  
+  <string name="check_title_image_contrast">Контраст на изображението</string>
+  
+  <string name="result_message_not_imageview">Този елемент не е &lt;tt&gt;ImageView&lt;/tt&gt;.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">Добре е да увеличите коефициента на контрастност между предния и задния план на това изображение.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">Коефициентът на контрастност на това изображение е %1$.2f. Той е изчислен въз основа на прогнозен цвят на предния план &lt;tt&gt;#%3$06X&lt;/tt&gt; и прогнозен цвят на задния план &lt;tt&gt;#%4$06X&lt;/tt&gt;. Добре е да го увеличите до %2$.2f или повече.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">Коефициентът на контрастност на изображението е %1$.2f. Той е изчислен въз основа на посочения цвят на предния план (&lt;tt&gt;#%3$06X&lt;/tt&gt;) и този на фона (&lt;tt&gt;#%4$06X&lt;/tt&gt;). Добре е да увеличите този коефициент поне до %2$.2f.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">Коефициентът на контрастност на това изображение е %1$.2f. Той е изчислен въз основа на прогнозен цвят на предния план &lt;tt&gt;#%3$06X&lt;/tt&gt; и прогнозен цвят на задния план &lt;tt&gt;#%4$06X&lt;/tt&gt;. Добре е да го увеличите до конфигурирания коефициент %2$.2f или повече.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">Коефициентът на контрастност на изображението е %1$.2f. Той е изчислен въз основа на посочения цвят на предния план (&lt;tt&gt;#%3$06X&lt;/tt&gt;) и този на фона (&lt;tt&gt;#%4$06X&lt;/tt&gt;). Добре е да увеличите този коефициент поне до конфигурираната стойност от %2$.2f.</string>
+  
+  <string name="check_title_redundant_description">Етикет за тип елемент</string>
+  
+  <string name="result_message_english_locale_only">Тази проверка се извършва само на устройства с локали на английски език.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">Възможно е в &lt;tt&gt;android:contentDescription&lt;/tt&gt; на този елемент да се съдържа ненужен текст.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">Атрибутът &lt;tt&gt;android:contentDescription&lt;/tt&gt; на този елемент („&lt;tt&gt;%1$s&lt;/tt&gt;“) завършва с типа на елемента.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">Атрибутът &lt;tt&gt;android:contentDescription&lt;/tt&gt; на този елемент („&lt;tt&gt;%1$s&lt;/tt&gt;“) съдържа типа елемент „&lt;tt&gt;%2$s&lt;/tt&gt;“.</string>
+  
+  <string name="result_message_content_desc_contains_action">Стойността „&lt;tt&gt;%1$s&lt;/tt&gt;“ на атрибута &lt;tt&gt;android:contentDescription&lt;/tt&gt; на този елемент съдържа действието „&lt;tt&gt;%2$s&lt;/tt&gt;“.</string>
+  
+  <string name="result_message_content_desc_contains_state">Стойността „&lt;tt&gt;%1$s&lt;/tt&gt;“ на атрибута &lt;tt&gt;android:contentDescription&lt;/tt&gt; на този елемент съдържа състоянието „&lt;tt&gt;%2$s&lt;/tt&gt;“.</string>
+  
+  <string name="button_item_type">бутон</string>
+  
+  <string name="checkbox_item_type">квадратче за отметка</string>
+  
+  <string name="checkbox_item_type_separate_words">квадратче за отметка</string>
+  
+  <string name="checked_state">с отметка</string>
+  
+  <string name="unchecked_state">без отметка</string>
+  
+  <string name="selected_state">избрано</string>
+  
+  <string name="unselected_state">не е избрано</string>
+  
+  <string name="click_action">кликване</string>
+  
+  <string name="swipe_action">прокарване</string>
+  
+  <string name="tap_action">докосване</string>
+  
+  <string name="check_title_speakable_text_present">Етикет на елемент</string>
+  
+  <string name="result_message_should_not_focus">Този елемент може да бъде пропуснат от екранен четец.</string>
+  
+  <string name="result_message_web_content">Уеб съдържанието не е проверено.</string>
+  
+  <string name="result_message_missing_speakable_text">Възможно е този елемент да няма етикет за прочит от екранен четец.</string>
+  
+  <string name="check_title_text_contrast">Контраст на текста</string>
+  
+  <string name="result_message_textview_empty">Този елемент &lt;tt&gt;TextView&lt;/tt&gt; е празен.</string>
+  
+  <string name="result_message_could_not_get_text_color">Цветът на текста на този елемент не бе определен.</string>
+  
+  <string name="result_message_could_not_get_background_color">Цветът на фона на този елемент не бе определен.</string>
+  
+  <string name="result_message_text_must_be_opaque">Цветът на текста на този елемент не е плътен.</string>
+  
+  <string name="result_message_background_must_be_opaque">Цветът на фона на този елемент не е плътен.</string>
+  
+  <string name="result_message_addendum_opacity_description">Действителната му плътност е %1$.2f%%.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">Добре е да увеличите коефициента на контрастност между предния и задния план на текста на този елемент.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">Коефициентът на контрастност на текста на това изображение е %1$.2f. Той е изчислен въз основа на цвят на текста &lt;tt&gt;#%2$06X&lt;/tt&gt; и цвят на фона &lt;tt&gt;#%3$06X&lt;/tt&gt;. Добре е да го увеличите до %4$.2f или повече.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">Коефициентът на контрастност на текста на този елемент е %1$.2f. Той е изчислен въз основа на прогнозен цвят на предния план &lt;tt&gt;#%2$06X&lt;/tt&gt; и прогнозен цвят на задния план &lt;tt&gt;#%3$06X&lt;/tt&gt;. Добре е да използвате цветове, чрез които се постига коефициент на контрастност над %4$.2f за текст с дребен шрифт или над %5$.2f за такъв с едър.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">Коефициентът на контрастност на текста на този елемент е %1$.2f. Той е изчислен въз основа на посочения цвят на предния план (&lt;tt&gt;#%2$06X&lt;/tt&gt;) и този на фона (&lt;tt&gt;#%3$06X&lt;/tt&gt;). Добре е да използвате цветове, чрез които се постига коефициент на контрастност над %4$.2f за текст с дребен шрифт или над %5$.2f за такъв с едър.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">Коефициентът на контрастност на текста на това изображение е %1$.2f. Той е изчислен въз основа на прогнозен цвят на предния план &lt;tt&gt;#%2$06X&lt;/tt&gt; и прогнозен цвят на задния план &lt;tt&gt;#%3$06X&lt;/tt&gt;. Добре е да го увеличите до конфигурирания коефициент %4$.2f или повече.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">Коефициентът на контрастност на текста на този елемент е %1$.2f. Той е изчислен въз основа на посочения цвят на предния план (&lt;tt&gt;#%2$06X&lt;/tt&gt;) и този на фона (&lt;tt&gt;#%3$06X&lt;/tt&gt;). Добре е да го увеличите до конфигурирания коефициент %4$.2f или по-висок.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">Откритите цветове на предния план и на фона правилни ли са?</string>
+  
+  <string name="question_option_message_both_correct">Двата цвята са правилни</string>
+  
+  <string name="question_option_message_foreground_incorrect">Цветът на предния план е неправилен</string>
+  
+  <string name="question_option_message_background_incorrect">Фонът е неправилен</string>
+  
+  <string name="question_option_message_both_incorrect">Цветовете на предния план и на фона са неправилни</string>
+  
+  <string name="question_option_message_unknown">Не знам</string>
+  
+  <string name="question_id_message_provide_foreground_color">Кой е правилният цвят на предния план?</string>
+  
+  <string name="question_id_message_provide_background_color">Кой е правилния цвят на фона?</string>
+  
+  <string name="check_title_touch_target_size">Елемент за докосване</string>
+  
+  <string name="result_message_not_clickable">Върху този елемент не може да се кликне.</string>
+  
+  <string name="result_message_brief_small_touch_target">Добре е да направите този елемент с възможност за кликване по-голям.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">Размерът на този елемент е &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Добре е да увеличите ширината поне до &lt;tt&gt;%3$ddp&lt;/tt&gt;, а дължината поне до &lt;tt&gt;%4$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_small_touch_target_height">Височината на този елемент е &lt;tt&gt;%1$ddp&lt;/tt&gt;. Добре е да я увеличите до &lt;tt&gt;%2$ddp&lt;/tt&gt; или повече.</string>
+  
+  <string name="result_message_small_touch_target_width">Широчината на този елемент е &lt;tt&gt;%1$ddp&lt;/tt&gt;. Добре е да я увеличите до &lt;tt&gt;%2$ddp&lt;/tt&gt; или повече.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">Размерът на този елемент е &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Добре е да го увеличите поне до конфигурирания минимален размер от &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">Височината на този елемент е &lt;tt&gt;%1$ddp&lt;/tt&gt;. Добре е да я увеличите поне до конфигурираната минимална височина от &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">Широчината на този елемент е &lt;tt&gt;%1$ddp&lt;/tt&gt;. Добре е да я увеличите поне до конфигурираната минимална широчина от &lt;tt&gt;%2$ddp&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_touch_delegate">В една от предишните версии на този елемент е открит &lt;tt&gt;TouchDelegate&lt;/tt&gt;. Това съобщение може да бъде пренебрегнато, ако делегатът е с достатъчно голям размер и обработва докосвания за този елемент.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">За този елемент е открит &lt;tt&gt;TouchDelegate&lt;/tt&gt; с размер &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;. Добре е да увеличите размера на областта за докосване &lt;tt&gt;Rect&lt;/tt&gt;.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">Възможно е докосванията на този елемент да се обработват от родителски контейнер. Ако изборът на по-голям контейнер изпълнява същото действие като избора на този елемент, препоръчваме да определите последния като елемент без възможност за кликване. Ако се изпълнява различно действие, препоръчваме да увеличите размера на елемента.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">Възможно е родителски контейнер да подрязва този елемент с област за изобразяване от &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt;, за да намали размера му. Добре е да увеличите размера на подрязващия родителски контейнер или да разрешите на по-голям родителски контейнер да обработва действията вместо елемента.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">Този елемент може да е видим само частично в контейнер с възможност за превъртане.</string>
+  
+  <string name="check_title_class_name_not_supported">Неподдържан тип елемент</string>
+  
+  <string name="result_message_class_name_not_supported_brief">Възможно е този тип елемент да не се поддържа.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">Възможно е типът елемент &lt;tt&gt;%1$s&lt;/tt&gt; да не се поддържа от услугите за достъпност. Добре е да използвате такъв, определен в комплекта за разработване на софтуер (SDK) за Android.</string>
+  
+  <string name="result_message_class_name_is_empty">Възможно е този тип елемент да не е отчетен от услугите за достъпност. Добре е да използвате такъв, определен в комплекта за разработване на софтуер (SDK) за Android.</string>
+  
+  <string name="result_message_class_name_is_unknown">Този тип елемент не можа да бъде определен.</string>
+  
+  <string name="check_title_accessibility_traversal">Ред на обхождане</string>
+  
+  <string name="result_message_traversal_cycle">Този елемент може да е част от цикъл на обхождане, тъй като съдържа атрибута &lt;tt&gt;%1$s&lt;/tt&gt;. Начинът на обхождане от екранните четци не може да се предвиди.</string>
+  
+  <string name="result_message_traversal_over_constrained">Редът на обхождане за този елемент може да е твърде ограничен поради атрибутите &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; и &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt;. Начинът на обхождане от екранните четци не може да се предвиди.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">Начинът на обхождане от екранните четци не може да се предвиди.</string>
+  
+  <string name="result_message_disruptive_announcement">Използвано е объркващо за потребителя съобщение.</string>
+  
+  <string name="check_view_banned_word">Забранена дума</string>
+  
+  <string name="result_message_banned_word">Текстът на този елемент може да съдържа неподходяща дума – „&lt;tt&gt;%1$s&lt;/tt&gt;“</string>
+  
+  <string name="result_message_brief_banned_word">Добре е да премахнете неподходящите думи от текста на този елемент</string>
+  
+  <string name="check_title_text_style">Стил на текста</string>
+  
+  <string name="result_message_styled_text">Този елемент може да използва %1$s за дълъг откъс от текст. Добре е да премахнете стила на шрифта, за да подобрите четливостта.</string>
+  
+  <string name="result_message_brief_styled_text">Добре е да премахнете стила %1$s за по-дълги откъси от текст.</string>
+  
+  <string name="italic_text">курсив</string>
+  
+  <string name="underline_text">подчертаване</string>
+  
+  <string name="italic_underline_text">курсив и подчертаване</string>
+  
+  <string name="result_message_no_typeface_info">Шрифтът на този елемент не можа да бъде определен.</string>
+  
+  <string name="check_title_link_test">Текст на връзката</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">Добре е да използвате по-описателен текст във връзката.</string>
+  
+  <string name="result_message_link_text_not_descriptive">Текстът на връзката „&lt;tt&gt;%1$s&lt;/tt&gt;“ може да не предава целта на самата връзка.</string>
+  
+  <string name="check_title_reading_score">Четимост</string>
+  
+  <string name="result_message_low_reading_score">Текстът на този елемент е с приблизителна оценка на четимостта %1$.0f, което по-ниско от препоръчителната – %2$.0f. За да постигнете по-добра четимост на текста, добре е да използвате по-опростени думи и изречения.</string>
+  
+  <string name="result_message_brief_low_reading_score">Оценката на четимостта на този текст може да е ниска.</string>
+  
+  <string name="result_message_short_text">Текстът на този елемент е твърде кратък, за да бъде оценен.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">За да проверите дали всички елементи се показват за услугите за достъпност, трябва ръчно да прегледате екрана.</string>
+  
+  <string name="result_message_has_unexposed_items">Възможно е на този екран да има елементи, които не се показват за услугите за достъпност.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">Областта с координати &lt;tt&gt;%1$s&lt;/tt&gt; на екрана съдържа поне един елемент, който не се показва за услугите за достъпност.</string>
+  
+  <string name="check_title_item_exposed">Показани елементи</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">Добре е елементите в тази област да се показват за услугите за достъпност.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">Има ли важни елементи, които не се показват на този екран?</string>
+  
+  <string name="question_message_identify_unexposed_items">Изберете областите с неидентифицирани елементи на екрана.</string>
+
+</resources>

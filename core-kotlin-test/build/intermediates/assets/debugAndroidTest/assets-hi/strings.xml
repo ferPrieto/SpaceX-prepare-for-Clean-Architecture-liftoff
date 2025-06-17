@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  
+  <string name="result_message_not_important_for_accessibility">यह आइटम ऐक्सेस-योग्यता के लिए महत्वपूर्ण नहीं लगा.</string>
+  
+  <string name="result_message_no_content_desc">इस आइटम में कोई &lt;tt&gt;android:contentDescription&lt;/tt&gt; नहीं है.</string>
+  
+  <string name="result_message_not_visible">यह आइटम दृश्यमान नहीं है.</string>
+  
+  <string name="result_message_not_enabled">यह आइटम सक्षम नहीं है.</string>
+  
+  <string name="result_message_not_text_view">यह आइटम एक &lt;tt&gt;TextView&lt;/tt&gt; नहीं है.</string>
+  
+  <string name="result_message_no_screencapture">स्क्रीन कैप्चर डेटा नहीं लिया जा सका.</string>
+  
+  <string name="result_message_view_not_within_screencapture">इस आइटम का ऑन-स्क्रीन स्थान (&lt;tt&gt;%1$s&lt;/tt&gt;), स्क्रीन कैप्चर के ऑन-स्क्रीन स्थान (&lt;tt&gt;%2$s&lt;/tt&gt;) के अंदर नहीं है.</string>
+  
+  <string name="result_message_screencapture_data_hidden">इस आइटम की स्क्रीन कैप्चर जानकारी छिपी हुई थी.</string>
+  
+  <string name="result_message_screencapture_uniform_color">पूरा स्क्रीनशॉट एक ही रंग का है.</string>
+  
+  <string name="clickable">क्लिक करने योग्य</string>
+  
+  <string name="non_clickable">क्लिक नहीं करने योग्य</string>
+  
+  <string name="long_clickable">ज़्यादा देर तक क्लिक करने योग्य</string>
+  
+  <string name="clickable_and_long_clickable">क्लिक करने योग्य और ज़्यादा देर तक क्लिक करने योग्य</string>
+  
+  <string name="actionable">कार्रवाई योग्य</string>
+  
+  <string name="result_message_sdk_version_not_applicable">Android %1$s और उससे ऊपर के वर्शन चला रहे डिवाइस पर यह चेक लागू नहीं है.</string>
+  
+  <string name="result_message_addendum_view_potentially_obscured">स्क्रीन पर दिखने वाली दूसरी सामग्री इस आइटम को छुपा सकती है. इस आइटम के कंट्रास्ट की मैन्युअल टेस्टिंग करके देखें.</string>
+  
+  <string name="check_title_clickablespan">लिंक</string>
+  
+  <string name="result_message_clickablespan_no_determined_type">इस आइटम का प्रकार तय नहीं है.</string>
+  
+  <string name="result_message_urlspan_invalid_url">सत्यापित करें कि इस आइटम के &lt;tt&gt;URLSpan&lt;/tt&gt; में दिया गया URL मान्य है.</string>
+  
+  <string name="result_message_urlspan_not_clickablespan">इस आइटम को &lt;tt&gt;ClickableSpan&lt;/tt&gt; के बजाय एक &lt;tt&gt;URLSpan&lt;/tt&gt; का उपयोग करना चाहिए.</string>
+  
+  <string name="check_title_duplicate_clickable_bounds">क्लिक करने योग्य आइटम</string>
+  
+  <string name="result_message_brief_same_view_bounds">एकाधिक %1$s आइटम स्क्रीन पर यह स्थान शेयर करते हैं.</string>
+  
+  <string name="result_message_same_view_bounds">इस %1$s आइटम का ऑन-स्क्रीन स्थान (&lt;tt&gt;%2$s&lt;/tt&gt;) वही है, जो उन गुणों वाले %3$d अन्य आइटम (आइटमों) का है.</string>
+  
+  <string name="result_message_view_bounds">इस %1$s आइटम का भी &lt;tt&gt;%2$s&lt;/tt&gt; का ऑन-स्क्रीन स्थान है.</string>
+  
+  <string name="check_title_duplicate_speakable_text">आइटम वर्णन</string>
+  
+  <string name="result_message_brief_same_speakable_text">एकाधिक आइटम के एकसमान वर्णन हैं.</string>
+  
+  <string name="result_message_same_speakable_text">इस %1$s आइटम का बोलने योग्य टेक्स्ट: \"&lt;tt&gt;%2$s&lt;/tt&gt;\" उसके %3$d अन्य आइटम के समान हैं.</string>
+  
+  <string name="result_message_speakable_text">इस %1$s आइटम में भी बोलने योग्य टेक्स्ट है: \" &lt;tt&gt;%2$s&lt;/tt&gt; \".</string>
+  
+  <string name="check_title_editable_content_desc">संपादन योग्य आइटम लेबल</string>
+  
+  <string name="result_message_editable_textview_content_desc">इस संपादन योग्य &lt;tt&gt;TextView&lt;/tt&gt; में एक &lt;tt&gt;android:contentDescription&lt;/tt&gt; है. उपयोगकर्ता के नेविगेट करते समय स्क्रीन रीडर संपादन योग्य सामग्री की बजाय इस विशेषता को पढ़ सकता है.</string>
+  
+  <string name="result_message_not_editable_textview">यह आइटम एक संपादन योग्य &lt;tt&gt;TextView&lt;/tt&gt; नहीं है.</string>
+  
+  <string name="check_title_image_contrast">इमेज कंट्रास्ट</string>
+  
+  <string name="result_message_not_imageview">यह आइटम एक &lt;tt&gt;ImageView&lt;/tt&gt; नहीं है.</string>
+  
+  <string name="result_message_brief_image_contrast_not_sufficient">इस इमेज की अग्रभूमि और पृष्ठभूमि के बीच कंट्रास्ट अनुपात बढ़ाएं.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient">इमेज का कंट्रास्ट अनुपात %1$.2f है. यह अनुपात &lt;tt&gt;#%3$06X&lt;/tt&gt; के अनुमानित अग्रभूमि रंग और &lt;tt&gt;#%4$06X&lt;/tt&gt; के अनुमानित पृष्ठभूमि रंग पर आधारित है. इस अनुपात को %2$.2f या उससे ज़्यादा अनुपात तक बढ़ाएं.</string>
+  
+  <string name="result_message_image_contrast_not_sufficient_confirmed">इमेज का कंट्रास्ट %1$.2f के अनुपात में है. यह अनुपात, दिए गए फ़ोरग्राउंड के रंग &lt;tt&gt;#%3$06X&lt;/tt&gt; और बैकग्राउंड के रंग &lt;tt&gt;#%4$06X&lt;/tt&gt; पर आधारित है. इस अनुपात को %2$.2f या इससे ज़्यादा तक बढ़ाएं.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient">इमेज का कंट्रास्ट अनुपात %1$.2f है. यह अनुपात &lt;tt&gt;#%3$06X&lt;/tt&gt; के अनुमानित अग्रभूमि रंग और &lt;tt&gt;#%4$06X&lt;/tt&gt; के अनुमानित पृष्ठभूमि रंग पर आधारित है. इस अनुपात को कॉन्फ़िगर किए गए अनुपात %2$.2f या इससे ज़्यादा अनुपात तक बढ़ाने पर विचार करें.</string>
+  
+  <string name="result_message_image_customized_contrast_not_sufficient_confirmed">इमेज का कंट्रास्ट %1$.2f के अनुपात में है. यह अनुपात, दिए गए फ़ोरग्राउंड के रंग &lt;tt&gt;#%3$06X&lt;/tt&gt; और बैकग्राउंड के रंग &lt;tt&gt;#%4$06X&lt;/tt&gt; पर आधारित है. इस अनुपात को, कॉन्फ़िगर किए गए अनुपात %2$.2f या इससे ज़्यादा तक बढ़ाएं.</string>
+  
+  <string name="check_title_redundant_description">आइटम प्रकार लेबल</string>
+  
+  <string name="result_message_english_locale_only">यह जाँच केवल उन डिवाइस पर चलाई जाती है, जिनकी भाषा अंग्रेज़ी पर सेट है.</string>
+  
+  <string name="result_message_brief_content_desc_contains_redundant_word">इस आइटम के &lt;tt&gt;android:contentDescription&lt;/tt&gt; में अनावश्यक टेक्स्ट हो सकते हैं.</string>
+  
+  <string name="result_message_content_desc_ends_with_view_type">इस आइटम के &lt;tt&gt;android:contentDescription&lt;/tt&gt;, \"&lt;tt&gt;%1$s&lt;/tt&gt;\" आइटम के प्रकार के साथ खत्म होते हैं.</string>
+  
+  <string name="result_message_content_desc_contains_redundant_word">इस आइटम के &lt;tt&gt;android:contentDescription&lt;/tt&gt; विशेषता के, \"&lt;tt&gt;%1$s&lt;/tt&gt;\" में \"&lt;tt&gt;%2$s&lt;/tt&gt;\" जैसा आइटम शामिल है.</string>
+  
+  <string name="result_message_content_desc_contains_action">इस आइटम के &lt;tt&gt;android:contentDescription&lt;/tt&gt; विशेषता,
+    \"&lt;tt&gt;%1$s&lt;/tt&gt;\" में,
+     \"&lt;tt&gt;%2$s&lt;/tt&gt;\" कार्रवाई शामिल है.</string>
+  
+  <string name="result_message_content_desc_contains_state">इस आइटम का &lt;tt&gt;android:contentDescription&lt;/tt&gt; विशेषता,
+    \"&lt;tt&gt;%1$s&lt;/tt&gt;\",
+    \"&lt;tt&gt;%2$s&lt;/tt&gt;\" स्थिति में है.</string>
+  
+  <string name="button_item_type">बटन</string>
+  
+  <string name="checkbox_item_type">चेकबॉक्स</string>
+  
+  <string name="checkbox_item_type_separate_words">चेक बॉक्स</string>
+  
+  <string name="checked_state">चुना गया</string>
+  
+  <string name="unchecked_state">सही का निशान हटाया गया</string>
+  
+  <string name="selected_state">चुना गया</string>
+  
+  <string name="unselected_state">सही का निशान हटाया गया</string>
+  
+  <string name="click_action">क्लिक करें</string>
+  
+  <string name="swipe_action">स्वाइप करें</string>
+  
+  <string name="tap_action">टैप करें</string>
+  
+  <string name="check_title_speakable_text_present">आइटम लेबल</string>
+  
+  <string name="result_message_should_not_focus">इस आइटम को स्क्रीन रीडर से फ़ोकस नहीं किया जाएगा.</string>
+  
+  <string name="result_message_web_content">वेब सामग्री का मूल्यांकन नहीं किया गया है.</string>
+  
+  <string name="result_message_missing_speakable_text">इस आइटम में हो सकता है ऐसा लेबल नहीं हो, जो स्क्रीन रीडर से पढ़ा जा सके.</string>
+  
+  <string name="check_title_text_contrast">टेक्स्ट कंट्रास्ट</string>
+  
+  <string name="result_message_textview_empty">यह &lt;tt&gt;TextView&lt;/tt&gt; खाली है.</string>
+  
+  <string name="result_message_could_not_get_text_color">इस आइटम के टेक्स्ट का रंग तय नहीं किया जा सका.</string>
+  
+  <string name="result_message_could_not_get_background_color">इस आइटम का पृष्ठभूमि रंग तय नहीं किया जा सका.</string>
+  
+  <string name="result_message_text_must_be_opaque">इस आइटम का टेक्स्ट रंग अपारदर्शी नहीं है.</string>
+  
+  <string name="result_message_background_must_be_opaque">इस आइटम का पृष्ठभूमि रंग अपारदर्शी नहीं है.</string>
+  
+  <string name="result_message_addendum_opacity_description">इसकी असल ओपैसिटी %1$.2f%% है.</string>
+  
+  <string name="result_message_brief_text_contrast_not_sufficient">इस आइटम के टेक्स्ट अग्रभूमि और पृष्ठभूमि कंट्रास्ट अनुपात को बढ़ाएं.</string>
+  
+  <string name="result_message_textview_contrast_not_sufficient">आइटम का टेक्स्ट कंट्रास्ट अनुपात %1$.2f है. यह अनुपात &lt;tt&gt;#%2$06X&lt;/tt&gt; के टेक्स्ट रंग और &lt;tt&gt;#%3$06X&lt;/tt&gt; के पृष्ठभूमि रंग पर आधारित है. इस आइटम के टेक्स्ट कंट्रास्ट अनुपात को %4$.2f या इससे ज़्यादा अनुपात तक बढ़ाएं.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient">इस आइटम के टेक्स्ट का कंट्रास्ट अनुपात %1$.2f है. यह अनुपात स्क्रीन पर दिखाई देने वाले रंग&lt;tt&gt;#%2$06X&lt;/tt&gt; और बैकग्राउंड के रंग &lt;tt&gt;#%3$06X&lt;/tt&gt; के अनुमान पर आधारित होता है. उन रंगों का इस्तेमाल करें जिनसे छोटे टेक्स्ट के लिए%4$.2f से ज़्यादा या बड़े टेक्स्ट के लिए %5$.2f का कंट्रास्ट अनुपात मिलता है.</string>
+  
+  <string name="result_message_textview_heuristic_contrast_not_sufficient_confirmed">इस आइटम के टेक्स्ट का कंट्रास्ट अनुपात %1$.2f है. यह अनुपात दिए गए फ़ोरग्राउंड के रंग &lt;tt&gt;#%2$06X&lt;/tt&gt; और बैकग्राउंड के रंग &lt;tt&gt;#%3$06X&lt;/tt&gt; पर आधारित होता है. उन रंगों का इस्तेमाल करें जिनसे छोटे टेक्स्ट के लिए%4$.2f से ज़्यादा या बड़े टेक्स्ट के लिए %5$.2f का कंट्रास्ट अनुपात मिलता है.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient">आइटम का टेक्स्ट कंट्रास्ट अनुपात %1$.2f है. यह अनुपात &lt;tt&gt;#%2$06X&lt;/tt&gt; के अनुमानित अग्रभूमि रंग और &lt;tt&gt;#%3$06X&lt;/tt&gt; के अनुमानित पृष्ठभूमि रंग पर आधारित है. इस आइटम के टेक्स्ट कंट्रास्ट अनुपात को कॉन्फ़िगर किए गए अनुपात %4$.2f या इससे ज़्यादा अनुपात तक बढ़ाने पर विचार करें.</string>
+  
+  <string name="result_message_textview_heuristic_customized_contrast_not_sufficient_confirmed">आइटम के टेक्स्ट का कंट्रास्ट अनुपात %1$.2f है. यह अनुपात दिए गए फ़ोरग्राउंड के रंग &lt;tt&gt;#%2$06X&lt;/tt&gt; और बैकग्राउंड के रंग &lt;tt&gt;#%3$06X&lt;/tt&gt; पर आधारित होता है. इस आइटम के टेक्स्ट का कंट्रास्ट अनुपात कॉन्फ़िगर किए गए अनुपात %4$.2f या इससे ज़्यादा अनुपात तक बढ़ाएं.</string>
+  
+  <string name="question_id_message_confirm_foreground_background_colors">क्या फ़ोरग्राउंड और बैकग्राउंड के रंग की जानकारी सही है?</string>
+  
+  <string name="question_option_message_both_correct">दोनों सही हैं</string>
+  
+  <string name="question_option_message_foreground_incorrect">फ़ोरग्राउंड का रंग गलत है</string>
+  
+  <string name="question_option_message_background_incorrect">बैकग्राउंड का रंग गलत है</string>
+  
+  <string name="question_option_message_both_incorrect">फ़ोरग्राउंड और बैकग्राउंड के रंग गलत हैं</string>
+  
+  <string name="question_option_message_unknown">अज्ञात</string>
+  
+  <string name="question_id_message_provide_foreground_color">फ़ोरग्राउंड का सही रंग क्या है?</string>
+  
+  <string name="question_id_message_provide_background_color">बैकग्राउंड का सही रंग क्या है?</string>
+  
+  <string name="check_title_touch_target_size">स्पर्श लक्ष्य</string>
+  
+  <string name="result_message_not_clickable">यह दृश्य क्लिक करने योग्य नहीं है.</string>
+  
+  <string name="result_message_brief_small_touch_target">इस क्लिक करने योग्य आइटम को बड़ा करें.</string>
+  
+  <string name="result_message_small_touch_target_width_and_height">इस आइटम का आकार &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; है. इस स्पर्श लक्ष्य को &lt;tt&gt;%3$ddp&lt;/tt&gt; चौड़ा और &lt;tt&gt;%4$ddp&lt;/tt&gt; ऊंचा या बड़ा करें.</string>
+  
+  <string name="result_message_small_touch_target_height">इस आइटम की ऊंचाई &lt;tt&gt;%1$ddp&lt;/tt&gt; है. इस स्पर्श लक्ष्य की ऊंचाई &lt;tt&gt;%2$ddp&lt;/tt&gt; या बड़ी करें.</string>
+  
+  <string name="result_message_small_touch_target_width">इस आइटम की चौड़ाई &lt;tt&gt;%1$ddp&lt;/tt&gt; है. इस स्पर्श लक्ष्य की चौड़ाई &lt;tt&gt;%2$ddp&lt;/tt&gt; या बड़ी करें.</string>
+  
+  <string name="result_message_customized_small_touch_target_width_and_height">इस आइटम का आकार &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; है. इस छूने के लक्ष्य आकार को कम से कम कॉन्फ़िगर किए गए कम से कम &lt;tt&gt;%3$ddp&lt;/tt&gt; x &lt;tt&gt;%4$ddp&lt;/tt&gt; तक बढ़ाने पर विचार करें.</string>
+  
+  <string name="result_message_customized_small_touch_target_height">इस आइटम की ऊंचाई &lt;tt&gt;%1$ddp&lt;/tt&gt; है. इस छूने के लक्ष्य आकार की ऊंचाई को कम से कम कॉन्फ़िगर की कम से कम ऊंचाई &lt;tt&gt;%2$ddp&lt;/tt&gt; तक बढ़ाने पर विचार करें.</string>
+  
+  <string name="result_message_customized_small_touch_target_width">इस आइटम की चौड़ाई &lt;tt&gt;%1$ddp&lt;/tt&gt; है. इस छूने के लक्ष्य आकार की ऊंचाई को कम से कम कॉन्फ़िगर की कम से कम चौड़ाई &lt;tt&gt;%2$ddp&lt;/tt&gt; तक बढ़ाने पर विचार करें.</string>
+  
+  <string name="result_message_addendum_touch_delegate">इस आइटम के किसी ऐनसेस्टर में &lt;tt&gt;TouchDelegate&lt;/tt&gt; का पता चला है. अगर डेलिगेट काफ़ी आकार का है और इस आइटम के लिए स्पर्शों को हैंडल करता है, तो इस संदेश को अनदेखा किया जा सकता है.</string>
+  
+  <string name="result_message_addendum_touch_delegate_with_hit_rect">इस आइटम के लिए &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; आकार का &lt;tt&gt;TouchDelegate&lt;/tt&gt; पाया गया. बेहतर नतीजों के लिए इसके हिट एरिया &lt;tt&gt;Rect&lt;/tt&gt; का आकार बढ़ाएं.</string>
+  
+  <string name="result_message_addendum_clickable_ancestor">ऐसा हो सकता है कि पैरेंट कंटेनर इस आइटम के लिए स्पर्श इवेंट को हैंडल कर रहा हो. अगर बड़े कंटेनर को चुनने से वही कार्रवाई पूरी होती है जो इस आइटम को चुनने से होती है, तो इस आइटम को नहीं क्लिक करने योग्य के रूप में परिभाषित करें. अगर कोई भिन्न कार्रवाई पूरी होती है, तो इस आइटम का आकार बढ़ाएं.</string>
+  
+  <string name="result_message_addendum_clipped_by_ancestor">हो सकता है कि पेरेंट कंटेनर इस आइटम के आकार को क्लिप कर रहा हो, जिसका ड्रॉइंग क्षेत्र &lt;tt&gt;%1$ddp&lt;/tt&gt; x &lt;tt&gt;%2$ddp&lt;/tt&gt; है. इस आइटम की ओर से कार्रवाई प्रबंधित करने के लिए आइटम के क्लिपिंग ऐन्सेस्टर का आकार बढ़ाने पर विचार करें या एक बड़े पेरेंट कंटेनर की अनुमति दें.</string>
+  
+  <string name="result_message_addendum_against_scrollable_edge">यह आइटम स्क्रोल किए जाने वाले कंटेनर में शायद पूरा न दिखाई दे.</string>
+  
+  <string name="check_title_class_name_not_supported">काम नहीं करने वाला आइटम प्रकार</string>
+  
+  <string name="result_message_class_name_not_supported_brief">शायद यह आइटम प्रकार काम नहीं करे.</string>
+  
+  <string name="result_message_class_name_not_supported_detail">संभवतः इस आइटम के प्रकार &lt;tt&gt;%1$s&lt;/tt&gt; का सुलभता सेवाओं के ज़रिए हल नहीं किया जा सकता है. Android SDK की ओर से तय प्रकार का इस्तेमाल करने पर विचार करें.</string>
+  
+  <string name="result_message_class_name_is_empty">शायद इस आइटम प्रकार की सुलभता सेवाओं के ज़रिए रिपोर्ट नहीं की जा सकती है. Android SDK की ओर से तय प्रकार का इस्तेमाल करने पर विचार करें.</string>
+  
+  <string name="result_message_class_name_is_unknown">इस आइटम का प्रकार तय नहीं किया जा सका.</string>
+  
+  <string name="check_title_accessibility_traversal">ट्रैवर्सल क्रम</string>
+  
+  <string name="result_message_traversal_cycle">यह आइटम इसकी &lt;tt&gt;%1$s&lt;/tt&gt; विशेषता के चलते ट्रैवर्सल क्रम का भाग हो सकता है. स्क्रीन रीडर के साथ ट्रैवर्सल व्यवहार अप्रत्याशित हो सकता है.</string>
+  
+  <string name="result_message_traversal_over_constrained">इस आइटम की &lt;tt&gt;android:accessibilityTraversalBefore&lt;/tt&gt; और &lt;tt&gt;android:accessibilityTraversalAfter&lt;/tt&gt; विशेषताओं के आधार पर इसका ट्रैवर्सल क्रम अत्यधिक सीमित हो सकता है. स्क्रीन रीडर के साथ ट्रैवर्सल व्यवहार अप्रत्याशित हो सकता है.</string>
+  
+  <string name="result_message_brief_unpredictable_traversal">स्क्रीन रीडर के साथ ट्रैवर्सल व्यवहार अप्रत्याशित हो सकता है.</string>
+  
+  <string name="result_message_disruptive_announcement">एक बाधा पहुंचाने वाली सुलभता घोषणा का इस्तेमाल किया गया है.</string>
+  
+  <string name="check_view_banned_word">प्रतिबंधित शब्द</string>
+  
+  <string name="result_message_banned_word">इस आइटम के टेक्स्ट में एक अनुचित शब्द \"&lt;tt&gt;%1$s&lt;/tt&gt;\" मौजूद हो सकता है</string>
+  
+  <string name="result_message_brief_banned_word">इस आइटम के टेक्स्ट से अनुचित शब्द हटाकर देखें</string>
+  
+  <string name="check_title_text_style">टेक्स्ट की शैली</string>
+  
+  <string name="result_message_styled_text">इस आइटम के टेक्स्ट में एक लंबा पैराग्राफ़ %1$s फ़ॉन्ट में हो सकता है. टेक्स्ट को पढ़ना आसान बनाने के लिए फ़ॉन्ट की शैली को हटाकर देखें.</string>
+  
+  <string name="result_message_brief_styled_text">टेक्स्ट के लंबे पैराग्राफ़ से %1$s शैली को हटाकर देखें.</string>
+  
+  <string name="italic_text">इटैलिक शैली में लिखा हुआ टेक्स्ट</string>
+  
+  <string name="underline_text">अंडरलाइन किया हुआ टेक्स्ट</string>
+  
+  <string name="italic_underline_text">इटैलिक शैली में लिखा और अंडरलाइन किया हुआ टेक्स्ट</string>
+  
+  <string name="result_message_no_typeface_info">इस आइटम के फ़ॉन्ट की पहचान नहीं की जा सकी.</string>
+  
+  <string name="check_title_link_test">लिंक टेक्स्ट</string>
+  
+  <string name="result_message_brief_link_text_not_descriptive">लिंक में ज़्यादा जानकारी देने वाले टेक्स्ट का इस्तेमाल करके देखें.</string>
+  
+  <string name="result_message_link_text_not_descriptive">लिंक का टेक्स्ट \"&lt;tt&gt;%1$s&lt;/tt&gt;\", अकेले लिंक के उद्देश्य को नहीं बता सकता है.</string>
+  
+  <string name="check_title_reading_score">रीडेबिलिटी</string>
+  
+  <string name="result_message_low_reading_score">इस आइटम के टेक्स्ट का पढ़ने-समझने में आसानी (रीडेबिलिटी) का स्कोर करीब %1$.0f है जो सुझाए गए स्कोर %2$.0f से कम है. टेक्स्ट को पढ़ना-समझना आसान बनाने के लिए सरल शब्दों या वाक्यों का इस्तेमाल करें.</string>
+  
+  <string name="result_message_brief_low_reading_score">इस टेक्स्ट का रीडेबिलिटी स्कोर शायद कम है.</string>
+  
+  <string name="result_message_short_text">इस आइटम के टेक्स्ट की जाँच नहीं की जा सकती, क्योंकि इसका आकार बहुत छोटा है.</string>
+  
+  <string name="result_message_item_exposed_needs_manual_assessment">इस स्क्रीन की मैन्युअल तौर पर जांच करने की ज़रूरत है, ताकि यह पक्का किया जा सके कि सुलभता सेवाओं तक सभी आइटम की पहुंच है.</string>
+  
+  <string name="result_message_has_unexposed_items">इस स्क्रीन पर ऐसे आइटम हो सकते हैं जिनकी पहुंच सुलभता सेवाओं तक न हो.</string>
+  
+  <string name="result_message_is_unexposed_item_screen_region">स्क्रीन पर दिखने वाली जगह &lt;tt&gt;%1$s&lt;/tt&gt; में कम से कम एक ऐसा आइटम है जिसकी पहुंच सुलभता सेवाओं तक नहीं है.</string>
+  
+  <string name="check_title_item_exposed">पहुंच वाले आइटम</string>
+  
+  <string name="result_message_brief_is_unexposed_item_screen_region">इस जगह पर मौजूद आइटम को सुलभता सेवाओं की पहुंच देने के बारे में सोचें.</string>
+  
+  <string name="question_message_screen_has_unexposed_items">क्या इस स्क्रीन पर ऐसे ज़रूरी आइटम मौजूद हैं जिन्हें आउटलाइन नहीं किया गया है?</string>
+  
+  <string name="question_message_identify_unexposed_items">स्क्रीन पर उन जगहों को चुनें जिनमें बिना पहचान वाले आइटम हैं.</string>
+
+</resources>

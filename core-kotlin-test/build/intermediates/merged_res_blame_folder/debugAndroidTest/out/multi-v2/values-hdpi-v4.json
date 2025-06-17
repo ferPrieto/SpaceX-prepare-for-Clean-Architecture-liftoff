@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "prieto.fernando.core_android_test.test.core-android-test-mergeDebugAndroidTestResources-16:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/fprieto/.gradle/caches/transforms-3/b6cc50f84462fecf585259e41907f6a6/transformed/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
