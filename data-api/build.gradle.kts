@@ -8,7 +8,7 @@ plugins {
 
 dependencies {
     implementation(project(ProjectModules.data))
-    testImplementation(project(ProjectModules.coreAndroidTest))
+    testImplementation(project(ProjectModules.coreKotlinTest))
 
     api(Dependencies.Retrofit.retrofit)
     api(Dependencies.Retrofit.retrofitConverterGson)

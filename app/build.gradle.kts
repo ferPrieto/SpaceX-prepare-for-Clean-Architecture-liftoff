@@ -6,7 +6,8 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("prieto.fernando.android.plugin")
-    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
     id("shot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
@@ -73,7 +74,7 @@ dependencies {
     implementation(Dependencies.AndroidX.Compose.navigation)
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltAndroidCompiler)
     implementation(Dependencies.Hilt.hiltCompiler)
     implementation(Dependencies.Hilt.hiltNavigationCompose)
 
@@ -88,10 +89,10 @@ dependencies {
     implementation(Dependencies.jodaTime)
 
     testImplementation(Dependencies.jodaTime)
-    testImplementation(project(ProjectModules.coreAndroidTest))
+    testImplementation(project(ProjectModules.coreKotlinTest))
     testImplementation(project(ProjectModules.domain))
 
-    androidTestImplementation(project(ProjectModules.coreAndroidTest))
+    androidTestImplementation(project(ProjectModules.coreKotlinTest))
     androidTestImplementation(TestDependencies.AndroidX.core)
     androidTestImplementation(TestDependencies.AndroidX.coreKtx)
     androidTestImplementation(TestDependencies.AndroidX.runner)
@@ -133,6 +134,7 @@ tasks.named("check").configure {
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     jvmTarget = "1.8"
 }
+
 tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
     jvmTarget = "1.8"
-}
+} 

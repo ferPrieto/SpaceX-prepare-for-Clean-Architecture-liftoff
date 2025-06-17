@@ -5,5 +5,5 @@ object ProjectModules {
     const val api = ":data-api"
     const val data = ":data"
     const val domain = ":domain"
-    const val coreAndroidTest = ":core-android-test"
+    const val coreKotlinTest = ":core-kotlin-test"
 }

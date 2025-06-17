@@ -9,7 +9,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.*
-import prieto.fernando.dependencies.AndroidSettings.minSdk
+import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -67,8 +67,8 @@ open class AndroidPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_11
-                targetCompatibility = JavaVersion.VERSION_11
+                sourceCompatibility = JavaVersion.VERSION_21
+                targetCompatibility = JavaVersion.VERSION_21
             }
 
             buildTypes {
@@ -80,6 +80,7 @@ open class AndroidPlugin : Plugin<Project> {
                     // AGP before 7.3
                     isTestCoverageEnabled = true
                     buildConfigField("Integer", "PORT", "8080")
+                    
                 }
                 getByName("release") {
                     isMinifyEnabled = false
@@ -89,11 +90,16 @@ open class AndroidPlugin : Plugin<Project> {
                     )
                 }
             }
-        }
+        } 
 
         testOptions {
-            unitTests.isReturnDefaultValues = true
             animationsDisabled = true
+            unitTests.isIncludeAndroidResources = true
+            unitTests.all {
+                it.extensions.configure<JacocoTaskExtension> {
+                    isEnabled = true
+                }
+            }
         }
 
         tasks.named("check").configure {
@@ -111,7 +117,7 @@ open class AndroidPlugin : Plugin<Project> {
         fun testImplementation(definition: Any) = "testImplementation"(definition)
         fun androidTestImplementation(definition: Any) = "androidTestImplementation"(definition)
 
-        implementation(kotlin("stdlib-jdk7"))
+       // implementation(kotlin("stdlib-jdk7"))
         testImplementation(kotlin("test"))
 
         implementation(Dependencies.kotlinxCoroutines)

@@ -6,5 +6,5 @@ include(
     ":data-api",
     ":data",
     ":domain",
-    ":core-android-test"
+    ":core-kotlin-test"
 )
