@@ -4,19 +4,30 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.4.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+        classpath("com.android.tools.build:gradle:8.1.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
         classpath("com.karumi:shot:5.13.0")
     }
 }
 
 plugins {
-    id("io.github.gmazzo.test.aggregation.coverage") version "2.2.1"
+    id("io.github.gmazzo.test.aggregation.coverage") version "2.4.4"
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
-    id("com.google.dagger.hilt.android") version "2.51.1" apply false
+    id("com.google.dagger.hilt.android") version "2.47" apply false
 }
 
 allprojects {
+    // Set Java toolchain to JDK 17 for all projects
+    tasks.withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+    }
+    
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
 
     repositories {
         google()

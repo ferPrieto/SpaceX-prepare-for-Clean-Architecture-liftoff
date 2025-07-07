@@ -8,4 +8,6 @@ plugins {
 dependencies {
     implementation(TestDependencies.kotlinxCoroutines)
     implementation(Dependencies.jodaTime)
+    
+    implementation(TestDependencies.JUnit.junit)
 }

@@ -18,6 +18,7 @@ androidPlugin {
 }
 
 android {
+    namespace = "prieto.fernando.spacex"
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
@@ -27,10 +28,16 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.1"
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+        languageVersion = "1.9"
     }
 
     buildTypes {
@@ -75,6 +82,7 @@ dependencies {
 
     implementation(Dependencies.Hilt.hiltAndroid)
     kapt(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltAndroidxCompiler)
     implementation(Dependencies.Hilt.hiltCompiler)
     implementation(Dependencies.Hilt.hiltNavigationCompose)
 

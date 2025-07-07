@@ -1,6 +1,5 @@
 package prieto.fernando.domain.usecase
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -12,8 +11,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.TestRule
-import prieto.fernando.core_android_test.MainCoroutineRule
+import prieto.fernando.core_android_test.TestCoroutineRule
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import javax.inject.Inject
@@ -26,12 +24,9 @@ class GetCompanyInfoImplTest {
     @Inject
     lateinit var spaceXRepository: SpaceXRepository
 
-    @get:Rule
-    var rule: TestRule = InstantTaskExecutorRule()
-
     @JvmField
     @Rule
-    val mainCoroutineRule = MainCoroutineRule()
+    val testCoroutineRule = TestCoroutineRule()
 
     @Before
     fun setUp() {
@@ -41,7 +36,7 @@ class GetCompanyInfoImplTest {
 
     @Test
     fun `When execute then returns expected CompanyInfoUiModel`() {
-        runBlocking {
+        testCoroutineRule.runBlockingTest {
             // Given
             val companyInfoDomainModel = CompanyInfoDomainModel(
                 "name",

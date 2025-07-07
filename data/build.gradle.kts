@@ -9,6 +9,11 @@ dependencies {
     implementation(project(ProjectModules.domain))
     testImplementation(project(ProjectModules.coreKotlinTest))
 
+    implementation(Dependencies.Dagger.dagger)
+    kapt(Dependencies.Dagger.daggerCompiler)
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.hiltCompiler)
+
     implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)
 }

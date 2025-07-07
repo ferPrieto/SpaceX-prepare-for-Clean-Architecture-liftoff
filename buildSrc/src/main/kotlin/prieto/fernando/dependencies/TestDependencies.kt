@@ -32,7 +32,8 @@ object TestDependencies {
 
     object JUnit {
         const val junit =
-            "junit:junit:${Versions.junit}"
+            "junit:junit:${Versions.junit}" 
+
         const val junitPlatformRunner =
             "org.junit.platform:junit-platform-runner:${Versions.junitPlatformRunner}"
     }

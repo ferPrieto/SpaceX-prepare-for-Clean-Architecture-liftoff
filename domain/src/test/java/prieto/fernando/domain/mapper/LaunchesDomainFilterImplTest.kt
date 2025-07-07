@@ -2,7 +2,8 @@ package prieto.fernando.domain.mapper
 
 import org.junit.Before
 import org.junit.Test
-import prieto.fernando.core_android_test.util.buildDate
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 import prieto.fernando.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
@@ -134,3 +135,7 @@ class LaunchesDomainFilterImplTest {
         assertEquals(expected, actualValue)
     }
 }
+
+fun buildDate(dateValue: String): DateTime =
+    DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        .parseDateTime(dateValue.replace("Z", "+0000"))

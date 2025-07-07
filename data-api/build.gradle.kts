@@ -15,8 +15,20 @@ dependencies {
     api(Dependencies.okHttpLoggingInterceptor)
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltAndroidCompiler)
+
+    implementation(Dependencies.kotlinxSerialization)
 
     implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)
 }
+
+android {
+    namespace = "prieto.fernando.spacex.data.api"
+    buildFeatures {
+        buildConfig = true
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+} 

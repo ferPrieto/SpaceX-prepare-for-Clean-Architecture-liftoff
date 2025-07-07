@@ -10,6 +10,7 @@ import prieto.fernando.dependencies.TestDependencies
 open class KotlinPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.configurePlugins()
+        project.configureJavaCompatibility()
         project.configureDependencies()
     }
 
@@ -21,6 +22,26 @@ open class KotlinPlugin : Plugin<Project> {
         )
         println("KotlinPlugin: applying plugins $pluginsToApply")
         pluginsToApply.forEach(plugins::apply)
+
+        // Set the namespace for the project
+        project.extensions.findByName("android")?.let {
+            it.javaClass.getMethod("setNamespace", String::class.java).invoke(it, "prieto.fernando.kotlin")
+        }
+
+        // Configure Kotlin JVM target
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
+            kotlinOptions.jvmTarget = "17"
+        }
+    }
+
+    private fun Project.configureJavaCompatibility() {
+        tasks.withType(org.gradle.api.tasks.compile.JavaCompile::class.java).configureEach {
+            sourceCompatibility = "17"
+            targetCompatibility = "17"
+        }
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
+            kotlinOptions.jvmTarget = "17"
+        }
     }
 
     private fun Project.configureDependencies() = dependencies {

@@ -67,8 +67,8 @@ open class AndroidPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_21
-                targetCompatibility = JavaVersion.VERSION_21
+                sourceCompatibility = JavaVersion.VERSION_17
+                targetCompatibility = JavaVersion.VERSION_17
             }
 
             buildTypes {
@@ -125,10 +125,12 @@ open class AndroidPlugin : Plugin<Project> {
         implementation(Dependencies.timber)
 
         kapt(Dependencies.Dagger.daggerCompiler)
+        kapt(Dependencies.Dagger.daggerCompiler)
         kapt(Dependencies.Dagger.daggerAndroidProcessor)
 
         kapt(Dependencies.Hilt.hiltAndroid)
         kapt(Dependencies.Hilt.hiltAndroidCompiler)
+        kapt(Dependencies.Hilt.hiltAndroidxCompiler)
 
         androidTestImplementation(TestDependencies.AndroidX.core)
         androidTestImplementation(TestDependencies.AndroidX.coreKtx)
@@ -137,7 +139,6 @@ open class AndroidPlugin : Plugin<Project> {
         androidTestImplementation(TestDependencies.AndroidX.espressoCore)
         androidTestImplementation(TestDependencies.AndroidX.espressoContrib)
         androidTestImplementation(TestDependencies.AndroidX.junit)
-        testImplementation(TestDependencies.livedataTesting)
 
         testImplementation(TestDependencies.kotlinxCoroutines)
         androidTestImplementation(TestDependencies.kotlinxCoroutines)
