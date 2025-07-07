@@ -3,18 +3,11 @@ import prieto.fernando.dependencies.ProjectModules
 import prieto.fernando.dependencies.TestDependencies
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
     id("prieto.fernando.android.plugin")
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("shot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
-}
-
-androidPlugin {
-    buildType = prieto.fernando.android.plugin.BuildType.App
 }
 
 android {
@@ -57,6 +50,16 @@ android {
                 file("proguard-rules.pro")
             )
         }
+    }
+}
+
+kapt {
+    includeCompileClasspath = false
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("com.squareup:javapoet:1.13.0")
     }
 }
 
@@ -145,4 +148,4 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
 
 tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
     jvmTarget = "1.8"
-} 
+}

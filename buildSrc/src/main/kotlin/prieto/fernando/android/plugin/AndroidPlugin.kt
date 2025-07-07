@@ -16,7 +16,14 @@ open class AndroidPlugin : Plugin<Project> {
         @Suppress("UnstableApiUsage")
         val extension = project.extensions.create<AndroidPluginExtension>("androidPlugin")
 
-        project.configurePlugins(extension.buildType)
+        // Auto-detect build type based on project name
+        val buildType = when {
+            project.name == "app" -> BuildType.App
+            project.name == "data-api" -> BuildType.AndroidLibrary
+            else -> extension.buildType
+        }
+        
+        project.configurePlugins(buildType)
         project.configureAndroid()
         project.configureDependencies()
     }
@@ -27,7 +34,8 @@ open class AndroidPlugin : Plugin<Project> {
 
     private fun Project.configurePlugins(buildType: BuildType) = listOf(
         when (buildType) {
-            BuildType.AndroidLibrary, BuildType.App -> androidPlugins()
+            BuildType.AndroidLibrary -> listOf("com.android.library") + androidPlugins()
+            BuildType.App -> listOf("com.android.application") + androidPlugins()
             BuildType.Library -> listOf("kotlin")
         },
         listOf("kotlin-kapt"),

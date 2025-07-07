@@ -2,7 +2,6 @@ import prieto.fernando.dependencies.Dependencies
 import prieto.fernando.dependencies.ProjectModules
 
 plugins {
-    id("com.android.library")
     id("prieto.fernando.android.plugin")
 }
 
@@ -27,8 +26,5 @@ android {
     namespace = "prieto.fernando.spacex.data.api"
     buildFeatures {
         buildConfig = true
-    }
-    kotlinOptions {
-        jvmTarget = "17"
     }
 } 
