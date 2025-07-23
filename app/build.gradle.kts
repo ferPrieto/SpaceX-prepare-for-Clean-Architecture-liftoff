@@ -57,11 +57,12 @@ kapt {
     includeCompileClasspath = false
 }
 
-configurations.all {
-    resolutionStrategy {
-        force("com.squareup:javapoet:1.13.0")
-    }
-}
+// Temporarily remove force to see what version gets resolved
+// configurations.all {
+//     resolutionStrategy {
+//         force("com.squareup:javapoet:1.15.0")
+//     }
+// }
 
 dependencies {
     implementation(project(ProjectModules.api))
