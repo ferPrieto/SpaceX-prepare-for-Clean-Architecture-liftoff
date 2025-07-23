@@ -15,7 +15,7 @@ import prieto.fernando.domain.usecase.GetLaunchesImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DomainModule {
+class DomainModule{
     @Provides
     @Reusable
     fun provideGetLaunches(

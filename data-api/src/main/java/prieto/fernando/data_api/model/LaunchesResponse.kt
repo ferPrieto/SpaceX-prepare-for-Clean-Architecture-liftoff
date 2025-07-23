@@ -1,29 +1,33 @@
 package prieto.fernando.data_api.model
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 class LaunchesResponse(
-    @SerializedName("mission_name")
+    @SerialName("mission_name")
     val missionName: String,
-    @SerializedName("launch_date_utc")
+    @SerialName("launch_date_utc")
     val launchDate: String,
     val rocket: RocketResponse,
     val links: LinksResponse,
-    @SerializedName("launch_success")
+    @SerialName("launch_success")
     val launchSuccess: Boolean
 )
 
+@Serializable
 data class RocketResponse(
-    @SerializedName("rocket_name")
+    @SerialName("rocket_name")
     val rocketName: String,
-    @SerializedName("rocket_type")
+    @SerialName("rocket_type")
     val rocketType: String
 )
 
+@Serializable
 data class LinksResponse(
-    @SerializedName("mission_patch_small")
+    @SerialName("mission_patch_small")
     val missionPatchSmall: String?,
     val wikipedia: String?,
-    @SerializedName("video_link")
+    @SerialName("video_link")
     val videoLink: String?
 )

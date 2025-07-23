@@ -45,14 +45,10 @@ object Dependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
 
     object Dagger {
-        const val dagger =
-            "com.google.dagger:dagger:${Versions.dagger}"
+        const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+        const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
         const val daggerAndroid =
-            "com.google.dagger:dagger-android:${Versions.dagger}"
-        const val daggerAndroidSupport =
-            "com.google.dagger:dagger-android-support:${Versions.dagger}"
-        const val daggerCompiler =
-            "com.google.dagger:dagger-compiler:${Versions.dagger}"
+            "com.google.dagger:dagger-android:${Versions.dagger}" 
         const val daggerAndroidProcessor =
             "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     }
@@ -62,10 +58,12 @@ object Dependencies {
             "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltAndroidCompiler =
             "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-        const val hiltCompiler =
+        const val hiltAndroidxCompiler =
             "androidx.hilt:hilt-compiler:${Versions.hiltJetpack}"
         const val hiltNavigationCompose =
             "androidx.hilt:hilt-navigation-compose:${Versions.hiltVM}"
+        const val hilt = "com.google.dagger:hilt-core:${Versions.hilt}"
+        const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
     }
 
     object Retrofit {
@@ -86,4 +84,10 @@ object Dependencies {
 
     const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
     const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
+
+    const val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}"
+
+    object Android {
+        const val connectivityManager = "androidx.core:core:${Versions.core}"
+    }
 }

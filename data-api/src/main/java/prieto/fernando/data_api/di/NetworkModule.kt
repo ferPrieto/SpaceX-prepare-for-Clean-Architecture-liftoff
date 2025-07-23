@@ -10,7 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import prieto.fernando.data_api.BuildConfig
+import prieto.fernando.spacex.data.api.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -22,11 +22,11 @@ const val RETROFIT_TIMEOUT = 10L
 @Module
 open class NetworkModule {
 
-    open fun getBaseUrl () ="https://api.spacexdata.com/v3/"
+    open fun getBaseUrl() = "https://api.spacexdata.com/v3/"
 
     @Provides
     @BaseUrl
-    fun provideBaseUrl() = getBaseUrl ()
+    fun provideBaseUrl() = getBaseUrl()
 
     @Provides
     @Singleton
@@ -39,17 +39,16 @@ open class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpBuilder() =
-        OkHttpClient.Builder().apply {
-            if (BuildConfig.DEBUG) {
-                val httpLoggingInterceptor = HttpLoggingInterceptor()
-                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-                addInterceptor(httpLoggingInterceptor)
-            }
-
-            readTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
-            connectTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
+    fun provideHttpBuilder() = OkHttpClient.Builder().apply {
+        if (BuildConfig.DEBUG) {
+            val httpLoggingInterceptor = HttpLoggingInterceptor()
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            addInterceptor(httpLoggingInterceptor)
         }
+
+        readTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
+        connectTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
+    }
 
     @Provides
     @Singleton

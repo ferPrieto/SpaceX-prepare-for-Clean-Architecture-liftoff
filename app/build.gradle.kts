@@ -3,20 +3,15 @@ import prieto.fernando.dependencies.ProjectModules
 import prieto.fernando.dependencies.TestDependencies
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
     id("prieto.fernando.android.plugin")
-    id("dagger.hilt.android.plugin")
+    id("com.google.dagger.hilt.android")
     id("shot")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
-androidPlugin {
-    buildType = prieto.fernando.android.plugin.BuildType.App
-}
-
 android {
+    namespace = "prieto.fernando.spacex"
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
         minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
@@ -26,10 +21,16 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.1"
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+        languageVersion = "1.9"
     }
 
     buildTypes {
@@ -52,6 +53,17 @@ android {
     }
 }
 
+kapt {
+    includeCompileClasspath = false
+}
+
+// Temporarily remove force to see what version gets resolved
+// configurations.all {
+//     resolutionStrategy {
+//         force("com.squareup:javapoet:1.15.0")
+//     }
+// }
+
 dependencies {
     implementation(project(ProjectModules.api))
     implementation(project(ProjectModules.domain))
@@ -73,7 +85,8 @@ dependencies {
     implementation(Dependencies.AndroidX.Compose.navigation)
 
     implementation(Dependencies.Hilt.hiltAndroid)
-    implementation(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltAndroidxCompiler)
     implementation(Dependencies.Hilt.hiltCompiler)
     implementation(Dependencies.Hilt.hiltNavigationCompose)
 
@@ -88,10 +101,10 @@ dependencies {
     implementation(Dependencies.jodaTime)
 
     testImplementation(Dependencies.jodaTime)
-    testImplementation(project(ProjectModules.coreAndroidTest))
+    testImplementation(project(ProjectModules.coreKotlinTest))
     testImplementation(project(ProjectModules.domain))
 
-    androidTestImplementation(project(ProjectModules.coreAndroidTest))
+    androidTestImplementation(project(ProjectModules.coreKotlinTest))
     androidTestImplementation(TestDependencies.AndroidX.core)
     androidTestImplementation(TestDependencies.AndroidX.coreKtx)
     androidTestImplementation(TestDependencies.AndroidX.runner)
@@ -133,6 +146,7 @@ tasks.named("check").configure {
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     jvmTarget = "1.8"
 }
+
 tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
     jvmTarget = "1.8"
 }

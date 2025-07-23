@@ -9,14 +9,21 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.*
-import prieto.fernando.dependencies.AndroidSettings.minSdk
+import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         @Suppress("UnstableApiUsage")
         val extension = project.extensions.create<AndroidPluginExtension>("androidPlugin")
 
-        project.configurePlugins(extension.buildType)
+        // Auto-detect build type based on project name
+        val buildType = when {
+            project.name == "app" -> BuildType.App
+            project.name == "data-api" -> BuildType.AndroidLibrary
+            else -> extension.buildType
+        }
+        
+        project.configurePlugins(buildType)
         project.configureAndroid()
         project.configureDependencies()
     }
@@ -27,7 +34,8 @@ open class AndroidPlugin : Plugin<Project> {
 
     private fun Project.configurePlugins(buildType: BuildType) = listOf(
         when (buildType) {
-            BuildType.AndroidLibrary, BuildType.App -> androidPlugins()
+            BuildType.AndroidLibrary -> listOf("com.android.library") + androidPlugins()
+            BuildType.App -> listOf("com.android.application") + androidPlugins()
             BuildType.Library -> listOf("kotlin")
         },
         listOf("kotlin-kapt"),
@@ -67,8 +75,8 @@ open class AndroidPlugin : Plugin<Project> {
             }
 
             compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_11
-                targetCompatibility = JavaVersion.VERSION_11
+                sourceCompatibility = JavaVersion.VERSION_17
+                targetCompatibility = JavaVersion.VERSION_17
             }
 
             buildTypes {
@@ -80,6 +88,7 @@ open class AndroidPlugin : Plugin<Project> {
                     // AGP before 7.3
                     isTestCoverageEnabled = true
                     buildConfigField("Integer", "PORT", "8080")
+                    
                 }
                 getByName("release") {
                     isMinifyEnabled = false
@@ -89,11 +98,16 @@ open class AndroidPlugin : Plugin<Project> {
                     )
                 }
             }
-        }
+        } 
 
         testOptions {
-            unitTests.isReturnDefaultValues = true
             animationsDisabled = true
+            unitTests.isIncludeAndroidResources = true
+            unitTests.all {
+                it.extensions.configure<JacocoTaskExtension> {
+                    isEnabled = true
+                }
+            }
         }
 
         tasks.named("check").configure {
@@ -111,7 +125,7 @@ open class AndroidPlugin : Plugin<Project> {
         fun testImplementation(definition: Any) = "testImplementation"(definition)
         fun androidTestImplementation(definition: Any) = "androidTestImplementation"(definition)
 
-        implementation(kotlin("stdlib-jdk7"))
+       // implementation(kotlin("stdlib-jdk7"))
         testImplementation(kotlin("test"))
 
         implementation(Dependencies.kotlinxCoroutines)
@@ -119,10 +133,12 @@ open class AndroidPlugin : Plugin<Project> {
         implementation(Dependencies.timber)
 
         kapt(Dependencies.Dagger.daggerCompiler)
+        kapt(Dependencies.Dagger.daggerCompiler)
         kapt(Dependencies.Dagger.daggerAndroidProcessor)
 
         kapt(Dependencies.Hilt.hiltAndroid)
         kapt(Dependencies.Hilt.hiltAndroidCompiler)
+        kapt(Dependencies.Hilt.hiltAndroidxCompiler)
 
         androidTestImplementation(TestDependencies.AndroidX.core)
         androidTestImplementation(TestDependencies.AndroidX.coreKtx)
@@ -131,7 +147,6 @@ open class AndroidPlugin : Plugin<Project> {
         androidTestImplementation(TestDependencies.AndroidX.espressoCore)
         androidTestImplementation(TestDependencies.AndroidX.espressoContrib)
         androidTestImplementation(TestDependencies.AndroidX.junit)
-        testImplementation(TestDependencies.livedataTesting)
 
         testImplementation(TestDependencies.kotlinxCoroutines)
         androidTestImplementation(TestDependencies.kotlinxCoroutines)

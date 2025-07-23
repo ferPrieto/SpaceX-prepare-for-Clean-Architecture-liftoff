@@ -3,8 +3,8 @@ package prieto.fernando.spacex.di
 import dagger.Module
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
-import prieto.fernando.data_api.BuildConfig
 import prieto.fernando.data_api.di.NetworkModule
+import prieto.fernando.spacex.BuildConfig
 
 @Module
 @TestInstallIn(

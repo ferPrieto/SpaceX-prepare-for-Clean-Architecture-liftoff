@@ -21,7 +21,7 @@
 app/build/
 app/config/
 buildSrc/.gradle/
-core-android-test/build/
+core-kotlin-test/build/
 data-api/build/
 data/build/
 domain/build/

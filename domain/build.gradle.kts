@@ -2,17 +2,16 @@ import prieto.fernando.dependencies.Dependencies
 import prieto.fernando.dependencies.ProjectModules
 
 plugins {
-    id("com.android.library")
-    id("prieto.fernando.android.plugin")
-    kotlin("kapt")
+    id("prieto.fernando.kotlin.plugin")
 }
 
 dependencies {
-    implementation(Dependencies.Dagger.daggerAndroid)
-    testImplementation(project(ProjectModules.coreAndroidTest))
+    testImplementation(project(ProjectModules.coreKotlinTest))
 
-    implementation(Dependencies.Hilt.hiltAndroid)
-    kapt(Dependencies.Hilt.hiltAndroidCompiler)
+    implementation(Dependencies.Dagger.dagger)
+    kapt(Dependencies.Dagger.daggerCompiler)
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.hiltCompiler)
 
     implementation(Dependencies.jodaTime)
     testImplementation(Dependencies.jodaTime)
