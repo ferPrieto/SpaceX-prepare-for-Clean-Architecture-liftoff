@@ -1,0 +1,260 @@
+[versions]
+# Core Android
+core = "1.3.2"
+fragment = "1.2.5"
+constraintLayout = "2.0.4"
+legacySupportV4 = "1.0.0"
+browser = "1.0.0"
+
+# Navigation
+navigation = "2.3.2"
+
+# Compose
+compose = "1.2.1"
+composeSystemUi = "0.21.3-beta"
+composeViewModel = "2.5.1"
+composeNavigation = "2.5.1"
+
+# Lifecycle
+lifecycleLivedataKtx = "2.2.0"
+coreTesting = "2.2.0"
+
+# Dependency Injection
+dagger = "2.48"
+hilt = "2.48"
+hiltJetpack = "1.1.0"
+hiltVM = "1.1.0"
+hiltTest = "2.48"
+
+
+# Kotlin
+kotlin = "1.9.24"
+kotlinxCoroutines = "1.6.4"
+kotlinxSerialization = "1.6.0"
+
+# Network
+retrofit = "2.6.2"
+retrofitConverterGson = "2.4.0"
+okhttpLoggingInterceptor = "4.9.1"
+mockWebServer = "4.9.0"
+
+# UI Libraries
+lottie = "4.2.0"
+lottieCompose = "4.2.1"
+coil = "1.4.0"
+
+# Utilities
+timber = "4.7.1"
+jodaTime = "2.10.8"
+
+# Testing
+androidxTest = "1.4.0"
+espresso = "3.4.0"
+androidxJunit = "1.1.1"
+junit = "4.13.2"
+junitPlatformRunner = "1.0.2"
+mockk = "1.12.2"
+livedataTesting = "1.1.1"
+
+# Build Tools
+gradle = "7.1.0"
+ktlint = "0.43.1"
+
+# Plugins
+androidGradlePlugin = "8.1.0"
+kotlinGradlePlugin = "1.9.24"
+hiltGradlePlugin = "2.48"
+detektGradlePlugin = "1.22.0"
+shotGradlePlugin = "5.13.0"
+testAggregationPlugin = "2.2.0"
+ktlintGradlePlugin = "10.2.1"
+
+[libraries]
+# AndroidX Core
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintLayout" }
+androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+
+# Lifecycle
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "lifecycleLivedataKtx" }
+
+# Navigation
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composeNavigation" }
+
+# Compose
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "compose" }
+androidx-compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "compose" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "compose" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+androidx-compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
+accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "composeSystemUi" }
+
+# Dagger & Hilt
+dagger-dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
+dagger-android = { group = "com.google.dagger", name = "dagger-android", version.ref = "dagger" }
+dagger-android-processor = { group = "com.google.dagger", name = "dagger-android-processor", version.ref = "dagger" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltJetpack" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltVM" }
+
+# Kotlin
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+# Network
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitConverterGson" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingInterceptor" }
+
+# UI Libraries
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+# Utilities
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+joda-time = { group = "joda-time", name = "joda-time", version.ref = "jodaTime" }
+ktlint = { group = "com.pinterest", name = "ktlint", version.ref = "ktlint" }
+
+# Testing - AndroidX
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTest" }
+androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "androidxTest" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTest" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTest" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "coreTesting" }
+
+# Testing - Espresso
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-test-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espresso" }
+
+# Testing - Compose
+androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test", version.ref = "compose" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose" }
+
+# Testing - JUnit & Others
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit-platform-runner = { group = "org.junit.platform", name = "junit-platform-runner", version.ref = "junitPlatformRunner" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+
+# Testing - MockK
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockk-agent-jvm = { group = "io.mockk", name = "mockk-agent-jvm", version.ref = "mockk" }
+
+# Testing - Hilt
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hiltTest" }
+
+# Testing - Network
+mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockWebServer" }
+
+# Testing - LiveData
+livedata-testing = { group = "com.jraska.livedata", name = "testing-ktx", version.ref = "livedataTesting" }
+
+[bundles]
+# AndroidX Core bundle
+androidx-core = [
+    "androidx-core-ktx",
+    "androidx-fragment-ktx",
+    "androidx-constraintlayout",
+    "androidx-legacy-support-v4",
+    "androidx-browser"
+]
+
+# Lifecycle bundle
+androidx-lifecycle = [
+    "androidx-lifecycle-livedata-ktx",
+    "androidx-lifecycle-extensions"
+]
+
+# Navigation bundle
+androidx-navigation = [
+    "androidx-navigation-fragment-ktx",
+    "androidx-navigation-ui-ktx"
+]
+
+# Compose bundle
+compose = [
+    "androidx-compose-ui",
+    "androidx-compose-runtime",
+    "androidx-compose-runtime-livedata",
+    "androidx-compose-material",
+    "androidx-compose-ui-tooling",
+    "androidx-compose-viewmodel",
+    "androidx-navigation-compose",
+    "accompanist-systemuicontroller"
+]
+
+# Hilt bundle
+hilt = [
+    "hilt-android",
+    "androidx-hilt-navigation-compose"
+]
+
+# Network bundle
+network = [
+    "retrofit",
+    "retrofit-converter-gson",
+    "okhttp-logging-interceptor"
+]
+
+# UI libraries bundle
+ui-libraries = [
+    "lottie",
+    "lottie-compose",
+    "coil-compose"
+]
+
+# Testing - AndroidX bundle
+test-androidx = [
+    "androidx-test-core",
+    "androidx-test-core-ktx",
+    "androidx-test-runner",
+    "androidx-test-rules",
+    "androidx-test-ext-junit",
+    "androidx-arch-core-testing"
+]
+
+# Testing - Espresso bundle
+test-espresso = [
+    "androidx-test-espresso-core",
+    "androidx-test-espresso-contrib"
+]
+
+# Testing - Compose bundle
+test-compose = [
+    "androidx-compose-ui-test",
+    "androidx-compose-ui-test-junit4"
+]
+
+# Testing - Core bundle
+test-core = [
+    "junit",
+    "kotlin-test",
+    "kotlinx-coroutines-test",
+    "mockk",
+    "mockk-agent-jvm"
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinGradlePlugin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinGradlePlugin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltGradlePlugin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektGradlePlugin" }
+shot = { id = "com.karumi.shot", version.ref = "shotGradlePlugin" }
+test-aggregation-coverage = { id = "io.github.gmazzo.test.aggregation.coverage", version.ref = "testAggregationPlugin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintGradlePlugin" } 
