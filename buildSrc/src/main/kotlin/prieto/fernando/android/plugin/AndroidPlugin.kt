@@ -1,8 +1,6 @@
 package prieto.fernando.android.plugin
 
 import prieto.fernando.dependencies.AndroidSettings
-import prieto.fernando.dependencies.Dependencies
-import prieto.fernando.dependencies.TestDependencies
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
@@ -10,6 +8,10 @@ import org.gradle.api.Project
 import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.*
 import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
+import org.jetbrains.kotlin.gradle.tasks.KaptGenerateStubs
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 open class AndroidPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -23,9 +25,8 @@ open class AndroidPlugin : Plugin<Project> {
             else -> extension.buildType
         }
         
-        project.configurePlugins(buildType)
-        project.configureAndroid()
-        project.configureDependencies()
+                    project.configurePlugins(buildType)
+            project.configureAndroid()
     }
 
     private fun androidPlugins() = listOf(
@@ -47,6 +48,13 @@ open class AndroidPlugin : Plugin<Project> {
     private fun Project.configureAndroid() = extensions.getByType(BaseExtension::class.java).run {
         compileSdkVersion(AndroidSettings.compileSdk)
         buildToolsVersion(AndroidSettings.buildTools)
+        
+        // Configure JVM toolchain for consistent JDK usage
+        project.extensions.findByType(JavaPluginExtension::class.java)?.let {
+            it.toolchain {
+                languageVersion.set(JavaLanguageVersion.of(17))
+            }
+        }
 
         defaultConfig {
             versionCode = 1
@@ -77,6 +85,13 @@ open class AndroidPlugin : Plugin<Project> {
             compileOptions {
                 sourceCompatibility = JavaVersion.VERSION_17
                 targetCompatibility = JavaVersion.VERSION_17
+            }
+
+            // Configure Kotlin compilation options
+            tasks.withType(KotlinCompile::class.java) {
+                kotlinOptions {
+                    jvmTarget = "17"
+                }
             }
 
             buildTypes {
@@ -117,48 +132,16 @@ open class AndroidPlugin : Plugin<Project> {
                 }
             )
         }
+
+        // Configure kapt tasks separately to ensure JVM target consistency
+        project.tasks.withType(KaptGenerateStubs::class.java) {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
     }
 
-    private fun Project.configureDependencies() = dependencies {
-        fun kapt(definition: Any) = "kapt"(definition)
-        fun implementation(definition: Any) = "implementation"(definition)
-        fun testImplementation(definition: Any) = "testImplementation"(definition)
-        fun androidTestImplementation(definition: Any) = "androidTestImplementation"(definition)
 
-       // implementation(kotlin("stdlib-jdk7"))
-        testImplementation(kotlin("test"))
-
-        implementation(Dependencies.kotlinxCoroutines)
-
-        implementation(Dependencies.timber)
-
-        kapt(Dependencies.Dagger.daggerCompiler)
-        kapt(Dependencies.Dagger.daggerCompiler)
-        kapt(Dependencies.Dagger.daggerAndroidProcessor)
-
-        kapt(Dependencies.Hilt.hiltAndroid)
-        kapt(Dependencies.Hilt.hiltAndroidCompiler)
-        kapt(Dependencies.Hilt.hiltAndroidxCompiler)
-
-        androidTestImplementation(TestDependencies.AndroidX.core)
-        androidTestImplementation(TestDependencies.AndroidX.coreKtx)
-        androidTestImplementation(TestDependencies.AndroidX.runner)
-        androidTestImplementation(TestDependencies.AndroidX.rules)
-        androidTestImplementation(TestDependencies.AndroidX.espressoCore)
-        androidTestImplementation(TestDependencies.AndroidX.espressoContrib)
-        androidTestImplementation(TestDependencies.AndroidX.junit)
-
-        testImplementation(TestDependencies.kotlinxCoroutines)
-        androidTestImplementation(TestDependencies.kotlinxCoroutines)
-
-        testImplementation(TestDependencies.JUnit.junit)
-        testImplementation(TestDependencies.JUnit.junitPlatformRunner)
-
-        testImplementation(TestDependencies.Mockk.mockk)
-        testImplementation(TestDependencies.Mockk.mockkAgentJvm)
-        testImplementation(TestDependencies.AndroidX.coreTesting)
-        testImplementation(Dependencies.jodaTime)
-    }
 }
 
 open class AndroidPluginExtension {
@@ -169,4 +152,4 @@ enum class BuildType {
     Library,
     AndroidLibrary,
     App
-}
+} 

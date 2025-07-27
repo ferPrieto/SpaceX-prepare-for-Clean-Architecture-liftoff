@@ -1,6 +1,5 @@
 package prieto.fernando.data_api.data
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -16,7 +15,6 @@ import prieto.fernando.data_api.mapper.CompanyInfoResponseToRepositoryModelMappe
 import prieto.fernando.data_api.mapper.LaunchesResponseToRepositoryModelMapper
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
 class SpaceXRemoteSourceImpl @Inject constructor(
     private val apiService: ApiService,
     private val companyInfoRepositoryMapper: CompanyInfoResponseToRepositoryModelMapper,

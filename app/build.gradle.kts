@@ -1,21 +1,15 @@
-import prieto.fernando.dependencies.Dependencies
-import prieto.fernando.dependencies.ProjectModules
-import prieto.fernando.dependencies.TestDependencies
-
 plugins {
     id("prieto.fernando.android.plugin")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.hilt)
     id("shot")
-    id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
-    id("io.gitlab.arturbosch.detekt") version "1.22.0"
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.detekt)
 }
 
 android {
     namespace = "prieto.fernando.spacex"
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
-        minSdk = prieto.fernando.dependencies.AndroidSettings.minSdk
-        targetSdk = prieto.fernando.dependencies.AndroidSettings.targetSdk
         testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
     }
 
@@ -25,31 +19,18 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
+        kotlinCompilerExtensionVersion = "1.5.14"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
         jvmTarget = "17"
         languageVersion = "1.9"
-    }
-
-    buildTypes {
-        getByName("debug") {
-            isDebuggable = true
-            // AGP 7.3+
-            enableAndroidTestCoverage = true
-            enableUnitTestCoverage = true
-            // AGP before 7.3
-            isTestCoverageEnabled = true
-            buildConfigField("Integer", "PORT", "8080")
-        }
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                file("proguard-rules.pro")
-            )
-        }
+        freeCompilerArgs += "-Xsuppress-version-warnings"
     }
 }
 
@@ -57,71 +38,52 @@ kapt {
     includeCompileClasspath = false
 }
 
-// Temporarily remove force to see what version gets resolved
-// configurations.all {
-//     resolutionStrategy {
-//         force("com.squareup:javapoet:1.15.0")
-//     }
-// }
-
 dependencies {
-    implementation(project(ProjectModules.api))
-    implementation(project(ProjectModules.domain))
-    implementation(project(ProjectModules.data))
+    implementation(project(":data-api"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
-    implementation(Dependencies.AndroidX.fragmentKtx)
-    implementation(Dependencies.AndroidX.lifecycleLivedataKtx)
-    implementation(Dependencies.AndroidX.Compose.viewModel)
-    kapt(Dependencies.AndroidX.lifecycleCompiler)
-    implementation(Dependencies.AndroidX.archComponents)
-    implementation(Dependencies.AndroidX.browser)
+    implementation(libs.bundles.androidx.core)
+    implementation(libs.bundles.androidx.lifecycle)
+    implementation(libs.bundles.androidx.navigation)
+    kapt(libs.androidx.lifecycle.compiler)
 
-    implementation(Dependencies.AndroidX.Compose.ui)
-    implementation(Dependencies.AndroidX.Compose.systemUiController)
-    implementation(Dependencies.AndroidX.Compose.material)
-    implementation(Dependencies.AndroidX.Compose.uiTooling)
-    implementation(Dependencies.AndroidX.Compose.runtime)
-    implementation(Dependencies.AndroidX.Compose.runtimeLiveData)
-    implementation(Dependencies.AndroidX.Compose.navigation)
+    implementation(libs.bundles.compose)
 
-    implementation(Dependencies.Hilt.hiltAndroid)
-    kapt(Dependencies.Hilt.hiltAndroidCompiler)
-    kapt(Dependencies.Hilt.hiltAndroidxCompiler)
-    implementation(Dependencies.Hilt.hiltCompiler)
-    implementation(Dependencies.Hilt.hiltNavigationCompose)
+    implementation(libs.bundles.hilt)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.hilt.compiler)
 
-    implementation(Dependencies.coilCompose)
-    implementation(Dependencies.lottie)
-    implementation(Dependencies.lottieCompose)
+    implementation(libs.bundles.ui.libraries)
 
-    implementation(Dependencies.AndroidX.constraintlayout)
-    implementation(Dependencies.AndroidX.legacySupport)
-    implementation(Dependencies.AndroidX.Navigation.fragmentKtx)
-    implementation(Dependencies.AndroidX.Navigation.uiKtx)
-    implementation(Dependencies.jodaTime)
+    implementation(libs.timber)
+    implementation(libs.joda.time)
 
-    testImplementation(Dependencies.jodaTime)
-    testImplementation(project(ProjectModules.coreKotlinTest))
-    testImplementation(project(ProjectModules.domain))
+    testImplementation(libs.joda.time)
+    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":domain"))
 
-    androidTestImplementation(project(ProjectModules.coreKotlinTest))
-    androidTestImplementation(TestDependencies.AndroidX.core)
-    androidTestImplementation(TestDependencies.AndroidX.coreKtx)
-    androidTestImplementation(TestDependencies.AndroidX.runner)
-    androidTestImplementation(TestDependencies.AndroidX.rules)
-    androidTestImplementation(TestDependencies.AndroidX.composeUiTest)
-    androidTestImplementation(TestDependencies.AndroidX.composeUiTestJUnit4)
-    debugImplementation(TestDependencies.AndroidX.uiTestManifest)
+    androidTestImplementation(project(":core-kotlin-test"))
+    androidTestImplementation(libs.bundles.test.androidx)
+    androidTestImplementation(libs.bundles.test.compose)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    androidTestImplementation(TestDependencies.mockWebServer)
+    androidTestImplementation(libs.mockwebserver)
 
-    androidTestImplementation(TestDependencies.Hilt.androidTesting)
-    kaptAndroidTest(TestDependencies.Hilt.androidCompiler)
-    androidTestAnnotationProcessor(TestDependencies.Hilt.androidCompiler)
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    androidTestAnnotationProcessor(libs.hilt.android.compiler)
+}
+
+// Workaround for Hilt 2.48 + JavaPoet 1.13.0 compatibility issue
+// Based on: https://github.com/google/dagger/issues/4048
+hilt {
+    enableAggregatingTask = false
 }
 
 detekt {
-    buildUponDefaultConfig = true // preconfigure defaults
+    buildUponDefaultConfig = true  
     allRules = false
 }
 
