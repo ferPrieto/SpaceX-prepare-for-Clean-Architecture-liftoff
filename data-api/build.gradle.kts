@@ -1,30 +1,22 @@
-import prieto.fernando.dependencies.Dependencies
-import prieto.fernando.dependencies.ProjectModules
-
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("prieto.fernando.kotlin.plugin")
 }
 
 dependencies {
-    implementation(project(ProjectModules.data))
-    testImplementation(project(ProjectModules.coreKotlinTest))
+    implementation(project(":data"))
+    testImplementation(project(":core-kotlin-test"))
 
-    api(Dependencies.Retrofit.retrofit)
-    api(Dependencies.Retrofit.retrofitConverterGson)
-    api(Dependencies.okHttpLoggingInterceptor)
+    api(libs.bundles.network)
 
-    implementation(Dependencies.Hilt.hiltAndroid)
-    kapt(Dependencies.Hilt.hiltAndroidCompiler)
+    implementation(libs.hilt.core)
+    kapt(libs.hilt.compiler)
 
-    implementation(Dependencies.kotlinxSerialization)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.timber)
 
-    implementation(Dependencies.jodaTime)
-    testImplementation(Dependencies.jodaTime)
-}
+    implementation(libs.joda.time)
+    testImplementation(libs.joda.time)
 
-android {
-    namespace = "prieto.fernando.spacex.data.api"
-    buildFeatures {
-        buildConfig = true
-    }
+    testImplementation(libs.bundles.test.core)
 } 

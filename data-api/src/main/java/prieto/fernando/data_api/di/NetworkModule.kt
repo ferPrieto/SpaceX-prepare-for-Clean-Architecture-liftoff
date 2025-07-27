@@ -1,7 +1,6 @@
 package prieto.fernando.data_api.di
 
-import android.content.Context
-import android.net.ConnectivityManager
+
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -10,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import prieto.fernando.spacex.data.api.BuildConfig
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -40,7 +39,8 @@ open class NetworkModule {
     @Provides
     @Singleton
     fun provideHttpBuilder() = OkHttpClient.Builder().apply {
-        if (BuildConfig.DEBUG) {
+        val isDebug = System.getProperty("debug")?.toBoolean() ?: true
+        if (isDebug) {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             addInterceptor(httpLoggingInterceptor)
@@ -60,8 +60,5 @@ open class NetworkModule {
         gson: Gson
     ): GsonConverterFactory = GsonConverterFactory.create(gson)
 
-    @Provides
-    @Singleton
-    fun provideConnectivityManager(context: Context): ConnectivityManager =
-        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
 }

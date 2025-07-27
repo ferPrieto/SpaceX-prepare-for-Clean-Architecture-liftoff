@@ -1,13 +1,11 @@
-import prieto.fernando.dependencies.Dependencies
-import prieto.fernando.dependencies.TestDependencies
-
 plugins {
     id("prieto.fernando.kotlin.plugin")
 }
 
 dependencies {
-    implementation(TestDependencies.kotlinxCoroutines)
-    implementation(Dependencies.jodaTime)
+    implementation(libs.kotlinx.coroutines.test)
+    implementation(libs.joda.time)
     
-    implementation(TestDependencies.JUnit.junit)
+    implementation(libs.junit)
+    implementation(libs.kotlin.test)
 }

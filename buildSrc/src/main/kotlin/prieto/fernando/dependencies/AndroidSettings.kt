@@ -6,4 +6,4 @@ object AndroidSettings {
     const val minSdk = 26
     const val targetSdk = 34
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-}
+} 

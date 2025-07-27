@@ -1,19 +1,21 @@
-import prieto.fernando.dependencies.Dependencies
-import prieto.fernando.dependencies.ProjectModules
-
 plugins {
     id("prieto.fernando.kotlin.plugin")
 }
 
 dependencies {
-    implementation(project(ProjectModules.domain))
-    testImplementation(project(ProjectModules.coreKotlinTest))
+    implementation(project(":domain"))
+    testImplementation(project(":core-kotlin-test"))
 
-    implementation(Dependencies.Dagger.dagger)
-    kapt(Dependencies.Dagger.daggerCompiler)
-    implementation(Dependencies.Hilt.hilt)
-    kapt(Dependencies.Hilt.hiltCompiler)
+    implementation(libs.dagger.dagger)
+    kapt(libs.dagger.compiler)
+    implementation(libs.hilt.core)
+    kapt(libs.hilt.compiler)
 
-    implementation(Dependencies.jodaTime)
-    testImplementation(Dependencies.jodaTime)
+    implementation(libs.timber)
+    implementation(libs.kotlinx.coroutines.core)
+
+    implementation(libs.joda.time)
+    testImplementation(libs.joda.time)
+
+    testImplementation(libs.bundles.test.core)
 }
