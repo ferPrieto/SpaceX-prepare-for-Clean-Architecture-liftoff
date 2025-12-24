@@ -14,8 +14,8 @@ class CompanyInfoResponseToRepositoryModelMapperImpl @Inject constructor() :
         CompanyInfoRepositoryModel(
             name = companyInfoResponse.name,
             founder = companyInfoResponse.founder,
-            founded = companyInfoResponse.founded,
-            employees = companyInfoResponse.employees,
+            founded = companyInfoResponse.founded.toString(),
+            employees = companyInfoResponse.employees.toString(),
             launchSites = companyInfoResponse.launchSites,
             valuation = companyInfoResponse.valuation
         )

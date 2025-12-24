@@ -34,7 +34,7 @@ kotlinxSerialization = "1.6.0"
 
 # Network
 retrofit = "2.6.2"
-retrofitConverterGson = "2.4.0"
+retrofitConverterKotlinxSerialization = "1.0.0"
 okhttpLoggingInterceptor = "4.9.1"
 mockWebServer = "4.9.0"
 
@@ -114,7 +114,7 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 
 # Network
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitConverterGson" }
+retrofit-converter-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitConverterKotlinxSerialization" }
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingInterceptor" }
 
 # UI Libraries
@@ -206,7 +206,7 @@ hilt = [
 # Network bundle
 network = [
     "retrofit",
-    "retrofit-converter-gson",
+    "retrofit-converter-kotlinx-serialization",
     "okhttp-logging-interceptor"
 ]
 
@@ -253,6 +253,7 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinGradlePlugin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinGradlePlugin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinGradlePlugin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltGradlePlugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektGradlePlugin" }
 shot = { id = "com.karumi.shot", version.ref = "shotGradlePlugin" }

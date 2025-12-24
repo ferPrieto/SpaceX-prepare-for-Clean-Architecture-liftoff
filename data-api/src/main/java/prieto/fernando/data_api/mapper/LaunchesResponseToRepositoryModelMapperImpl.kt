@@ -24,22 +24,22 @@ class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor(
         return launchesResponse.map { launchResponse ->
 
             val linksRepositoryModel = LinksRepositoryModel(
-                missionPatchSmall = launchResponse.links.missionPatchSmall ?: DEFAULT_PATCH,
-                wikipedia = launchResponse.links.wikipedia.orEmpty(),
-                videoLink = launchResponse.links.videoLink.orEmpty()
+                missionPatchSmall = launchResponse.links?.missionPatchSmall ?: DEFAULT_PATCH,
+                wikipedia = launchResponse.links?.wikipedia.orEmpty(),
+                videoLink = launchResponse.links?.videoLink.orEmpty()
             )
 
             val rocketRepositoryModel = RocketRepositoryModel(
-                rocketName = launchResponse.rocket.rocketName,
-                rocketType = launchResponse.rocket.rocketType
+                rocketName = launchResponse.rocket?.rocketName.orEmpty(),
+                rocketType = launchResponse.rocket?.rocketType.orEmpty()
             )
 
             LaunchRepositoryModel(
-                missionName = launchResponse.missionName,
-                launchDateLocal = dateFormatter.format(launchResponse.launchDate),
+                missionName = launchResponse.missionName.orEmpty(),
+                launchDateLocal = launchResponse.launchDateUtc?.let { dateFormatter.format(it) },
                 rocket = rocketRepositoryModel,
                 links = linksRepositoryModel,
-                launchSuccess = launchResponse.launchSuccess
+                launchSuccess = launchResponse.launchSuccess ?: false
             )
         }
     }

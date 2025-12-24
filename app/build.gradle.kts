@@ -42,6 +42,7 @@ dependencies {
     implementation(project(":data-api"))
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":shared-ui"))
 
     implementation(libs.bundles.androidx.core)
     implementation(libs.bundles.androidx.lifecycle)
@@ -59,6 +60,7 @@ dependencies {
 
     implementation(libs.timber)
     implementation(libs.joda.time)
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.joda.time)
     testImplementation(project(":core-kotlin-test"))

@@ -58,8 +58,8 @@ class SpaceXRemoteSourceImplTest {
         coEvery { apiService.getCompanyInfo() } returns CompanyInfoResponse(
             name = "SpaceX",
             founder = "Ellon",
-            founded = "1999",
-            employees = "Some random employees",
+            founded = 1999,
+            employees = 7000,
             launchSites = 1,
             valuation = 100L
         )
@@ -67,7 +67,7 @@ class SpaceXRemoteSourceImplTest {
             name = "SpaceX",
             founder = "Ellon",
             founded = "1999",
-            employees = "Some random employees",
+            employees = "7000",
             launchSites = 1,
             valuation = 100L
         )
@@ -83,13 +83,26 @@ class SpaceXRemoteSourceImplTest {
     fun `When getAllLaunches then apiService invoked`() = testCoroutineRule.runBlockingTest {
         // Given    
         val linksResponse = LinksResponse(
+            missionPatch = "Some mission patch",
             missionPatchSmall = "Some mission patch",
+            redditCampaign = null,
+            redditLaunch = null,
+            redditRecovery = null,
+            redditMedia = null,
+            presskit = null,
+            articleLink = null,
             wikipedia = "Link to wikipedia",
-            videoLink = "Link to Youtube"
+            videoLink = "Link to Youtube",
+            youtubeId = null,
+            flickrImages = null
         )
         val rocketResponse = RocketResponse(
+            rocketId = "falcon9",
             rocketName = "Rocket first",
-            rocketType = "Type1"
+            rocketType = "Type1",
+            firstStage = null,
+            secondStage = null,
+            fairings = null
         )
         val linksRepositoryModel = LinksRepositoryModel(
             missionPatchSmall = "Some mission patch",
@@ -104,11 +117,30 @@ class SpaceXRemoteSourceImplTest {
         // When
         coEvery { apiService.getAllLaunches() } returns listOf(
             LaunchesResponse(
+                flightNumber = 1,
                 missionName = "First mission",
-                launchDate = "Some date",
+                missionId = null,
+                launchYear = "2020",
+                launchDateUnix = 1609459200L,
+                launchDateUtc = "Some date",
+                launchDateLocal = "Some date",
+                isTentative = false,
+                tentativeMaxPrecision = "hour",
+                tbd = false,
+                launchWindow = 0,
                 rocket = rocketResponse,
+                ships = null,
+                telemetry = null,
+                launchSite = null,
+                launchSuccess = true,
+                launchFailureDetails = null,
                 links = linksResponse,
-                launchSuccess = true
+                details = null,
+                upcoming = false,
+                staticFireDateUtc = null,
+                staticFireDateUnix = null,
+                timeline = null,
+                crew = null
             )
         )
         coEvery { launchesRepositoryMapper.toRepositoryModel(apiService.getAllLaunches()) } returns listOf(

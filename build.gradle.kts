@@ -6,6 +6,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.1.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.9.24")
         classpath("com.karumi:shot:5.13.0")
     }
 }
@@ -16,13 +17,7 @@ plugins {
     alias(libs.plugins.hilt) apply false
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
-    }
-}
+
 
 task("clean") {
     delete(rootProject.layout.buildDirectory)

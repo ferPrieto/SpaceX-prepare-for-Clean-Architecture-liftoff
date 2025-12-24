@@ -22,15 +22,15 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
                     CompanyInfoResponse(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        2002,
+                        7000,
                         1,
                         23
                     ), CompanyInfoRepositoryModel(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        "2002",
+                        "7000",
                         1,
                         23
                     )
@@ -39,15 +39,15 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
                     CompanyInfoResponse(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        2002,
+                        7000,
                         3,
                         27500000000
                     ), CompanyInfoRepositoryModel(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        "2002",
+                        "7000",
                         3,
                         27500000000
                     )
@@ -56,15 +56,15 @@ class CompanyInfoResponseToRepositoryModelMapperImplTest(
                     CompanyInfoResponse(
                         "",
                         "",
-                        "",
-                        "",
+                        0,
+                        0,
                         0,
                         0
                     ), CompanyInfoRepositoryModel(
                         "",
                         "",
-                        "",
-                        "",
+                        "0",
+                        "0",
                         0,
                         0
                     )

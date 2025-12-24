@@ -18,7 +18,7 @@ class LaunchesDomainFilterImpl @Inject constructor() : LaunchesDomainFilter {
         ascendantOrder: Boolean
     ): List<LaunchDomainModel> = if (filterYear > 0) {
         val launches = launchesDomainModel.filter { launchDomainModel ->
-            launchDomainModel.launchDate.year == filterYear
+            launchDomainModel.launchDate?.year == filterYear
         }.filter { launchDomainModel ->
             launchDomainModel.launchSuccess
         }
@@ -32,15 +32,15 @@ class LaunchesDomainFilterImpl @Inject constructor() : LaunchesDomainFilter {
         ascendantOrder: Boolean
     ): List<LaunchDomainModel> = if (ascendantOrder) {
         launches.sortedBy { launchDomainModel ->
-            launchDomainModel.launchDate.monthOfYear
+            launchDomainModel.launchDate?.monthOfYear
         }.sortedBy { launchDomainModel ->
-            launchDomainModel.launchDate.dayOfMonth
+            launchDomainModel.launchDate?.dayOfMonth
         }
     } else {
         launches.sortedByDescending { launchDomainModel ->
-            launchDomainModel.launchDate.monthOfYear
+            launchDomainModel.launchDate?.monthOfYear
         }.sortedByDescending { launchDomainModel ->
-            launchDomainModel.launchDate.dayOfMonth
+            launchDomainModel.launchDate?.dayOfMonth
         }
     }
 }

@@ -1,5 +1,6 @@
 plugins {
     id("prieto.fernando.kotlin.plugin")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {
