@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="company_title">COMPANY</string>
+    <string name="company_data">
+        %s was founded by  %s in  %s. It has now  %s employees,  %s launch sites, and is valued at USD  %s
+    </string>
+</resources>
+
