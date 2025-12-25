@@ -38,7 +38,7 @@ android {
 
 dependencies {
     // Core modules
-    implementation(project(":domain"))
+    implementation(project(":data"))
     
     // Shared modules
     implementation(project(":shared-ui"))

@@ -8,7 +8,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import prieto.fernando.shared.testing.util.buildDate
-import prieto.fernando.domain.model.LaunchDomainModel
+import prieto.fernando.feature.launches.domain.model.LaunchDomainModel
 import prieto.fernando.domain.model.LinksDomainModel
 import prieto.fernando.domain.model.RocketDomainModel
 import prieto.fernando.feature.launches.presentation.LaunchUiModel

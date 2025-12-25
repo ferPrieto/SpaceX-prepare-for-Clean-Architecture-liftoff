@@ -1,6 +1,6 @@
 package prieto.fernando.feature.launches.presentation.mapper
 
-import prieto.fernando.domain.model.LaunchDomainModel
+import prieto.fernando.feature.launches.domain.model.LaunchDomainModel
 import prieto.fernando.feature.launches.presentation.LaunchUiModel
 import prieto.fernando.feature.launches.presentation.LinksUiModel
 import prieto.fernando.feature.launches.presentation.RocketUiModel

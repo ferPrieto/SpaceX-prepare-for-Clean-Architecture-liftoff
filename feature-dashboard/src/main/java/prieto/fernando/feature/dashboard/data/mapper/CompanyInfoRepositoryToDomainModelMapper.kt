@@ -1,6 +1,6 @@
-package prieto.fernando.data.mapper
+package prieto.fernando.feature.dashboard.data.mapper
 
-import prieto.fernando.data.model.CompanyInfoRepositoryModel
+import prieto.fernando.feature.dashboard.data.model.CompanyInfoRepositoryModel
 import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
 import javax.inject.Inject
 
@@ -20,3 +20,4 @@ class CompanyInfoRepositoryToDomainModelMapperImpl @Inject constructor() :
             valuation = companyInfoRepositoryModel.valuation
         )
 }
+

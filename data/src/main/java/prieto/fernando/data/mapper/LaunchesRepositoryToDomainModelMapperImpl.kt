@@ -1,9 +1,9 @@
 package prieto.fernando.data.mapper
 
 import prieto.fernando.data.model.LaunchRepositoryModel
-import prieto.fernando.domain.model.LaunchDomainModel
-import prieto.fernando.domain.model.LinksDomainModel
-import prieto.fernando.domain.model.RocketDomainModel
+import prieto.fernando.feature.launches.domain.model.LaunchDomainModel
+import prieto.fernando.feature.launches.domain.model.LinksDomainModel
+import prieto.fernando.feature.launches.domain.model.RocketDomainModel
 import javax.inject.Inject
 
 interface LaunchesRepositoryToDomainModelMapper {
