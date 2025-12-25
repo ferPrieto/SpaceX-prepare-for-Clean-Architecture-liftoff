@@ -35,9 +35,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.InternalCoroutinesApi
-import prieto.fernando.feature.launches.presentation.LaunchesContract
-import prieto.fernando.feature.launches.presentation.LaunchesScreen
-import prieto.fernando.feature.launches.presentation.LaunchesViewModel
+import prieto.fernando.feature.launches.presentation.vm.LaunchesContract
+import prieto.fernando.feature.launches.presentation.ui.LaunchesScreen
+import prieto.fernando.feature.launches.presentation.vm.LaunchesViewModel
 import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
 import prieto.fernando.shared.ui.theme.SpaceX.LocalTypography
 import androidx.core.net.toUri

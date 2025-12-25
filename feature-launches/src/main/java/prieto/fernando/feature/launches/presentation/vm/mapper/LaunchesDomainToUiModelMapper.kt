@@ -1,9 +1,9 @@
-package prieto.fernando.feature.launches.presentation.mapper
+package prieto.fernando.feature.launches.presentation.vm.mapper
 
 import prieto.fernando.feature.launches.domain.model.LaunchDomainModel
-import prieto.fernando.feature.launches.presentation.LaunchUiModel
-import prieto.fernando.feature.launches.presentation.LinksUiModel
-import prieto.fernando.feature.launches.presentation.RocketUiModel
+import prieto.fernando.feature.launches.presentation.ui.LaunchUiModel
+import prieto.fernando.feature.launches.presentation.ui.LinksUiModel
+import prieto.fernando.feature.launches.presentation.ui.RocketUiModel
 import javax.inject.Inject
 
 interface LaunchesDomainToUiModelMapper {

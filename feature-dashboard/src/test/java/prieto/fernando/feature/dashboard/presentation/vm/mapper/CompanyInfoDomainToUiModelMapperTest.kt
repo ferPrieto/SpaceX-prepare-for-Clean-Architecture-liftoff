@@ -1,11 +1,11 @@
-package prieto.fernando.feature.dashboard.presentation.mapper
+package prieto.fernando.feature.dashboard.presentation.vm.mapper
 
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
-import prieto.fernando.feature.dashboard.presentation.CompanyInfoUiModel
+import prieto.fernando.feature.dashboard.presentation.ui.CompanyInfoUiModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)

@@ -1,10 +1,11 @@
 package prieto.fernando.feature.navigation
 
 import androidx.compose.runtime.Composable
-import prieto.fernando.feature.dashboard.presentation.DashboardScreen
-import prieto.fernando.feature.dashboard.presentation.DashboardViewModel
-import prieto.fernando.feature.launches.presentation.LaunchesScreen
-import prieto.fernando.feature.launches.presentation.LaunchesViewModel
+import androidx.compose.ui.platform.LocalDensity
+import prieto.fernando.feature.dashboard.presentation.ui.DashboardScreen
+import prieto.fernando.feature.dashboard.presentation.vm.DashboardViewModel
+import prieto.fernando.feature.launches.presentation.ui.LaunchesScreen
+import prieto.fernando.feature.launches.presentation.vm.LaunchesViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.BottomSheetScaffoldState
@@ -33,8 +34,12 @@ fun resolveNavKeyToContent(
     NavKey.Launches -> {
         {
             val viewModel: LaunchesViewModel = hiltViewModel()
+            val density = LocalDensity.current
             val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
-                bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
+                bottomSheetState = BottomSheetState(
+                    initialValue = BottomSheetValue.Collapsed,
+                    density = density
+                )
             )
             val coroutineScope = rememberCoroutineScope()
             val youTubeLinkState = remember { mutableStateOf("") }

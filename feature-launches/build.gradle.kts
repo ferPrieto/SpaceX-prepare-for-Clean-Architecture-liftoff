@@ -1,6 +1,7 @@
 plugins {
     id("prieto.fernando.android.plugin")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
@@ -25,9 +26,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
     
     packaging {
         resources {

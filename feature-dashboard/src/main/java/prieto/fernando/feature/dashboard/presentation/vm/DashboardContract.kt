@@ -1,8 +1,9 @@
-package prieto.fernando.feature.dashboard.presentation
+package prieto.fernando.feature.dashboard.presentation.vm
 
 import prieto.fernando.feature.dashboard.presentation.base.ViewEvent
 import prieto.fernando.feature.dashboard.presentation.base.ViewSideEffect
 import prieto.fernando.feature.dashboard.presentation.base.ViewState
+import prieto.fernando.feature.dashboard.presentation.ui.CompanyInfoUiModel
 
 class DashboardContract {
     sealed class Event : ViewEvent

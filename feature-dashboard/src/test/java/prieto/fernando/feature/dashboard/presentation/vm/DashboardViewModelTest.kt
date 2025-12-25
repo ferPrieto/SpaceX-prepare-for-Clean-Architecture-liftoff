@@ -1,4 +1,4 @@
-package prieto.fernando.feature.dashboard.presentation
+package prieto.fernando.feature.dashboard.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery

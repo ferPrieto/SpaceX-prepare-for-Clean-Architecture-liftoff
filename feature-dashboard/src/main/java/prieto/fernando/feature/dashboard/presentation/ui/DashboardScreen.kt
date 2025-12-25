@@ -1,4 +1,4 @@
-package prieto.fernando.feature.dashboard.presentation
+package prieto.fernando.feature.dashboard.presentation.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -19,6 +19,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import prieto.fernando.feature.dashboard.R
+import prieto.fernando.feature.dashboard.presentation.vm.DashboardContract
 import prieto.fernando.shared.ui.components.ErrorAnimation
 import prieto.fernando.shared.ui.components.LoadingAnimation
 import prieto.fernando.shared.ui.theme.SpaceX

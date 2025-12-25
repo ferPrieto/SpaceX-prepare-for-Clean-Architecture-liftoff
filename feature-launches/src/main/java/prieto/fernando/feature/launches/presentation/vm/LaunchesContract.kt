@@ -1,8 +1,10 @@
-package prieto.fernando.feature.launches.presentation
+package prieto.fernando.feature.launches.presentation.vm
 
 import prieto.fernando.feature.launches.presentation.base.ViewEvent
 import prieto.fernando.feature.launches.presentation.base.ViewSideEffect
 import prieto.fernando.feature.launches.presentation.base.ViewState
+import prieto.fernando.feature.launches.presentation.ui.LaunchUiModel
+import prieto.fernando.feature.launches.presentation.ui.LinksUiModel
 
 const val LAUNCH_LISTEN_FOR_EFFECTS = "launch-listen-to-effects"
 
