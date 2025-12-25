@@ -11,7 +11,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import prieto.fernando.core_android_test.TestCoroutineRule
+import prieto.fernando.shared.testing.TestCoroutineRule
 import prieto.fernando.domain.SpaceXRepository
 import prieto.fernando.domain.model.CompanyInfoDomainModel
 import javax.inject.Inject

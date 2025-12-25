@@ -1,4 +1,4 @@
-package prieto.fernando.core_android_test.util
+package prieto.fernando.shared.testing.util
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat

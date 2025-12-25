@@ -1,4 +1,4 @@
-package prieto.fernando.core_android_test
+package prieto.fernando.shared.testing
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

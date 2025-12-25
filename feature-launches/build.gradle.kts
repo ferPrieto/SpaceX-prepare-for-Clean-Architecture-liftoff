@@ -65,7 +65,7 @@ dependencies {
     implementation(libs.joda.time)
     
     // Testing
-    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":shared-testing"))
     testImplementation(libs.bundles.test.core)
     testImplementation(libs.androidx.arch.core.testing)
     testImplementation(libs.mockk)

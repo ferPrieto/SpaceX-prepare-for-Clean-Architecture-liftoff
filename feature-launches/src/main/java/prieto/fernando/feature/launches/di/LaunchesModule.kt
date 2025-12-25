@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
+import prieto.fernando.feature.launches.presentation.mapper.DateTransformer
+import prieto.fernando.feature.launches.presentation.mapper.DateTransformerImpl
 import prieto.fernando.feature.launches.presentation.mapper.LaunchesDomainToUiModelMapper
 import prieto.fernando.feature.launches.presentation.mapper.LaunchesDomainToUiModelMapperImpl
 
@@ -17,4 +19,10 @@ abstract class LaunchesModule {
     abstract fun bindLaunchesDomainToUiModelMapper(
         impl: LaunchesDomainToUiModelMapperImpl
     ): LaunchesDomainToUiModelMapper
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindDateTransformer(
+        impl: DateTransformerImpl
+    ): DateTransformer
 }

@@ -59,6 +59,7 @@ import prieto.fernando.feature.launches.R
 import prieto.fernando.shared.ui.components.ErrorAnimation
 import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
 import prieto.fernando.shared.ui.theme.SpaceX as SpaceX1
+import prieto.fernando.shared.ui.R as SharedUiR
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
@@ -73,16 +74,16 @@ fun LaunchesScreen(
     onLinkClicked: (clickableLinkEffect: LaunchesContract.Effect.LinkClicked) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading_animation))
+    val loadingComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(SharedUiR.raw.loading_animation))
     val loadingProgress by animateLottieCompositionAsState(loadingComposition)
 
-    val errorComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.error_conection))
+    val errorComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(SharedUiR.raw.error_conection))
     val errorProgress by animateLottieCompositionAsState(errorComposition)
 
-    val noResultsComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.no_results_animation))
+    val noResultsComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(SharedUiR.raw.no_results_animation))
     val noResultsProgress by animateLottieCompositionAsState(noResultsComposition)
 
-    val bodyComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.rocket_launched))
+    val bodyComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(SharedUiR.raw.rocket_launched))
     val bodyProgress by animateLottieCompositionAsState(
         bodyComposition,
         restartOnPlay = false
@@ -113,7 +114,11 @@ fun LaunchesScreen(
                 )
             }
             state.isError -> {
-                ErrorAnimation(errorComposition, errorProgress)
+                ErrorAnimation(
+                    errorComposition = errorComposition,
+                    errorProgress = errorProgress,
+                    errorMessageResId = R.string.launches_error_occurred
+                )
             }
             else -> {
                 if (bodyProgress == 1f) {

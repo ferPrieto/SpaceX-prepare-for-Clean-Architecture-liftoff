@@ -9,7 +9,7 @@ import org.joda.time.DateTime
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import prieto.fernando.core_android_test.TestCoroutineRule
+import prieto.fernando.shared.testing.TestCoroutineRule
 import prieto.fernando.data.SpaceXRemoteSource
 import prieto.fernando.data.model.CompanyInfoRepositoryModel
 import prieto.fernando.data.model.LaunchRepositoryModel
