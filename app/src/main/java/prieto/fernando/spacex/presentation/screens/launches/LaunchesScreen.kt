@@ -57,8 +57,8 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.screens.error.ErrorAnimation
-import prieto.fernando.spacex.theme.SpaceX.LocalColors
-import prieto.fernando.spacex.theme.SpaceX as SpaceX1
+import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
+import prieto.fernando.shared.ui.theme.SpaceX as SpaceX1
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi

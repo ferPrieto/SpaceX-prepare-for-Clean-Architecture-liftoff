@@ -20,7 +20,7 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.screens.error.ErrorAnimation
-import prieto.fernando.spacex.theme.SpaceX
+import prieto.fernando.shared.ui.theme.SpaceX
 
 @Composable
 fun DashboardScreen(

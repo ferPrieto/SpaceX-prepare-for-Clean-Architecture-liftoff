@@ -65,10 +65,10 @@ import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
 import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
-import prieto.fernando.spacex.theme.SpaceX.LocalColors
-import prieto.fernando.spacex.theme.SpaceX.LocalTypography
-import prieto.fernando.spacex.theme.darkSpaceXColors
-import prieto.fernando.spacex.theme.lightSpaceXColors
+import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
+import prieto.fernando.shared.ui.theme.SpaceX.LocalTypography
+import prieto.fernando.shared.ui.theme.darkSpaceXColors
+import prieto.fernando.shared.ui.theme.lightSpaceXColors
 
 @InternalCoroutinesApi
 @ExperimentalMaterialApi
