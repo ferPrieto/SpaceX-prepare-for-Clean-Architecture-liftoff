@@ -1,4 +1,4 @@
-package prieto.fernando.feature.launches.presentation.mapper
+package prieto.fernando.feature.launches.presentation.vm.mapper
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.every
@@ -11,7 +11,7 @@ import prieto.fernando.shared.testing.util.buildDate
 import prieto.fernando.feature.launches.domain.model.LaunchDomainModel
 import prieto.fernando.feature.launches.domain.model.LinksDomainModel
 import prieto.fernando.feature.launches.domain.model.RocketDomainModel
-import prieto.fernando.feature.launches.presentation.LaunchUiModel
+import prieto.fernando.feature.launches.presentation.ui.LaunchUiModel
 import prieto.fernando.feature.launches.presentation.LinksUiModel
 import prieto.fernando.feature.launches.presentation.RocketUiModel
 import javax.inject.Inject

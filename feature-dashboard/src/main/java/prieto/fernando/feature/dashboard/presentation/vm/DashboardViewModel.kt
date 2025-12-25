@@ -1,4 +1,4 @@
-package prieto.fernando.feature.dashboard.presentation
+package prieto.fernando.feature.dashboard.presentation.vm
 
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -8,7 +8,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import prieto.fernando.feature.dashboard.domain.usecase.GetCompanyInfo
 import prieto.fernando.feature.dashboard.presentation.base.BaseViewModel
-import prieto.fernando.feature.dashboard.presentation.mapper.CompanyInfoDomainToUiModelMapper
+import prieto.fernando.feature.dashboard.presentation.ui.CompanyInfoUiModel
+import prieto.fernando.feature.dashboard.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
 import timber.log.Timber
 import javax.inject.Inject
 

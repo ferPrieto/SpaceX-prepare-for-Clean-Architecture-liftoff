@@ -1,4 +1,4 @@
-package prieto.fernando.feature.launches.presentation
+package prieto.fernando.feature.launches.presentation.vm
 
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import prieto.fernando.feature.launches.domain.usecase.GetLaunches
-import prieto.fernando.feature.launches.presentation.LaunchesContract
+import prieto.fernando.feature.launches.presentation.vm.LaunchesContract
 import prieto.fernando.feature.launches.presentation.base.BaseViewModel
-import prieto.fernando.feature.launches.presentation.mapper.ClickableLinkProvider
-import prieto.fernando.feature.launches.presentation.mapper.LaunchesDomainToUiModelMapper
+import prieto.fernando.feature.launches.presentation.vm.mapper.ClickableLinkProvider
+import prieto.fernando.feature.launches.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import timber.log.Timber
 import javax.inject.Inject
 

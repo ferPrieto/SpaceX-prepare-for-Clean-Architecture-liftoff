@@ -1,7 +1,7 @@
-package prieto.fernando.feature.dashboard.presentation.mapper
+package prieto.fernando.feature.dashboard.presentation.vm.mapper
 
 import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
-import prieto.fernando.feature.dashboard.presentation.CompanyInfoUiModel
+import prieto.fernando.feature.dashboard.presentation.ui.CompanyInfoUiModel
 import javax.inject.Inject
 
 interface CompanyInfoDomainToUiModelMapper {

@@ -1,6 +1,14 @@
 plugins {
-    id("prieto.fernando.kotlin.plugin")
+    id("prieto.fernando.android.plugin")
     id("org.jetbrains.kotlin.plugin.serialization")
+}
+
+android {
+    namespace = "prieto.fernando.core.network"
+    
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {

@@ -1,8 +1,8 @@
-package prieto.fernando.feature.launches.presentation.mapper
+package prieto.fernando.feature.launches.presentation.vm.mapper
 
 import javax.inject.Inject
-import prieto.fernando.feature.launches.presentation.LaunchesContract
-import prieto.fernando.feature.launches.presentation.LinksUiModel
+import prieto.fernando.feature.launches.presentation.vm.LaunchesContract
+import prieto.fernando.feature.launches.presentation.ui.LinksUiModel
 
 class ClickableLinkProvider @Inject constructor() {
     fun getClickableLink(linksUiModel: LinksUiModel): LaunchesContract.Effect.ClickableLink =

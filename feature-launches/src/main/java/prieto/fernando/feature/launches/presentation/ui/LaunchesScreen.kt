@@ -1,4 +1,4 @@
-package prieto.fernando.feature.launches.presentation
+package prieto.fernando.feature.launches.presentation.ui
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
@@ -56,6 +56,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import prieto.fernando.feature.launches.R
+import prieto.fernando.feature.launches.presentation.vm.LaunchesContract
+import prieto.fernando.feature.launches.presentation.vm.LAUNCH_LISTEN_FOR_EFFECTS
+import prieto.fernando.feature.launches.presentation.ui.LaunchUiModel
 import prieto.fernando.shared.ui.components.ErrorAnimation
 import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
 import prieto.fernando.shared.ui.theme.SpaceX as SpaceX1

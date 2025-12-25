@@ -1,4 +1,4 @@
-package prieto.fernando.feature.dashboard.presentation
+package prieto.fernando.feature.dashboard.presentation.ui
 
 data class CompanyInfoUiModel(
     val name: String,

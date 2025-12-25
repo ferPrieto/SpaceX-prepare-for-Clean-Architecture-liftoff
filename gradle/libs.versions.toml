@@ -10,27 +10,27 @@ browser = "1.0.0"
 navigation = "2.3.2"
 
 # Compose
-compose = "1.2.1"
-composeSystemUi = "0.21.3-beta"
-composeViewModel = "2.5.1"
-composeNavigation = "2.5.1"
+compose = "1.7.6"
+composeSystemUi = "0.36.0"
+composeViewModel = "2.8.7"
+composeNavigation = "2.8.5"
 
 # Lifecycle
 lifecycleLivedataKtx = "2.2.0"
 coreTesting = "2.2.0"
 
 # Dependency Injection
-dagger = "2.48"
-hilt = "2.48"
-hiltJetpack = "1.1.0"
-hiltVM = "1.1.0"
-hiltTest = "2.48"
+dagger = "2.54"
+hilt = "2.54"
+hiltJetpack = "1.2.0"
+hiltVM = "1.2.0"
+hiltTest = "2.54"
 
 
 # Kotlin
-kotlin = "1.9.24"
-kotlinxCoroutines = "1.6.4"
-kotlinxSerialization = "1.6.0"
+kotlin = "2.1.0"
+kotlinxCoroutines = "1.10.1"
+kotlinxSerialization = "1.8.0"
 
 # Network
 retrofit = "2.6.2"
@@ -61,13 +61,13 @@ gradle = "7.1.0"
 ktlint = "0.43.1"
 
 # Plugins
-androidGradlePlugin = "8.1.0"
-kotlinGradlePlugin = "1.9.24"
-hiltGradlePlugin = "2.48"
-detektGradlePlugin = "1.22.0"
-shotGradlePlugin = "5.13.0"
-testAggregationPlugin = "2.2.0"
-ktlintGradlePlugin = "10.2.1"
+androidGradlePlugin = "8.7.3"
+kotlinGradlePlugin = "2.1.0"
+hiltGradlePlugin = "2.54"
+detektGradlePlugin = "1.23.7"
+shotGradlePlugin = "6.1.0"
+testAggregationPlugin = "2.4.0"
+ktlintGradlePlugin = "12.1.2"
 
 [libraries]
 # AndroidX Core
@@ -254,6 +254,7 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinGradlePlugin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinGradlePlugin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinGradlePlugin" }
+kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinGradlePlugin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltGradlePlugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektGradlePlugin" }
 shot = { id = "com.karumi.shot", version.ref = "shotGradlePlugin" }

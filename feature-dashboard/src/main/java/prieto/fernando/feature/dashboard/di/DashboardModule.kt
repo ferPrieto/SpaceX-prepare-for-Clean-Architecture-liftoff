@@ -14,8 +14,8 @@ import prieto.fernando.feature.dashboard.data.repository.CompanyInfoRepositoryIm
 import prieto.fernando.feature.dashboard.domain.repository.CompanyInfoRepository
 import prieto.fernando.feature.dashboard.domain.usecase.GetCompanyInfo
 import prieto.fernando.feature.dashboard.domain.usecase.GetCompanyInfoImpl
-import prieto.fernando.feature.dashboard.presentation.mapper.CompanyInfoDomainToUiModelMapper
-import prieto.fernando.feature.dashboard.presentation.mapper.CompanyInfoDomainToUiModelMapperImpl
+import prieto.fernando.feature.dashboard.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
+import prieto.fernando.feature.dashboard.presentation.vm.mapper.CompanyInfoDomainToUiModelMapperImpl
 import javax.inject.Singleton
 
 @Module

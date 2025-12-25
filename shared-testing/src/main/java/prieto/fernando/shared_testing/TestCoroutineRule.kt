@@ -15,7 +15,7 @@ import org.junit.runners.model.Statement
 
 @ExperimentalCoroutinesApi
 class TestCoroutineRule(
-    val testCoroutineDispatcher: TestDispatcher = UnconfinedTestDispatcher(),
+    val testCoroutineDispatcher: TestDispatcher = UnconfinedTestDispatcher()
 ) : TestRule {
     val testCoroutineScope = TestScope(testCoroutineDispatcher)
 

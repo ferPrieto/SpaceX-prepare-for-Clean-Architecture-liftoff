@@ -1,6 +1,7 @@
 plugins {
     id("prieto.fernando.android.plugin")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlin.compose.compiler)
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
@@ -12,9 +13,6 @@ android {
         buildConfig = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
 
     packaging {
         resources {

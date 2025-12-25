@@ -16,10 +16,10 @@ import prieto.fernando.feature.launches.domain.mapper.LaunchesDomainFilterImpl
 import prieto.fernando.feature.launches.domain.repository.LaunchesRepository
 import prieto.fernando.feature.launches.domain.usecase.GetLaunches
 import prieto.fernando.feature.launches.domain.usecase.GetLaunchesImpl
-import prieto.fernando.feature.launches.presentation.mapper.DateTransformer
-import prieto.fernando.feature.launches.presentation.mapper.DateTransformerImpl
-import prieto.fernando.feature.launches.presentation.mapper.LaunchesDomainToUiModelMapper
-import prieto.fernando.feature.launches.presentation.mapper.LaunchesDomainToUiModelMapperImpl
+import prieto.fernando.feature.launches.presentation.vm.mapper.DateTransformer
+import prieto.fernando.feature.launches.presentation.vm.mapper.DateTransformerImpl
+import prieto.fernando.feature.launches.presentation.vm.mapper.LaunchesDomainToUiModelMapper
+import prieto.fernando.feature.launches.presentation.vm.mapper.LaunchesDomainToUiModelMapperImpl
 import javax.inject.Singleton
 
 @Module

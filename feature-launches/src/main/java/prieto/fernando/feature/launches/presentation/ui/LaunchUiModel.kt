@@ -1,4 +1,4 @@
-package prieto.fernando.feature.launches.presentation
+package prieto.fernando.feature.launches.presentation.ui
 
 data class LaunchUiModel(
     val missionName: String,
