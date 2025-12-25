@@ -43,6 +43,7 @@ dependencies {
     implementation(project(":shared-ui"))
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-launches"))
+    implementation(project(":feature-navigation"))
 
     implementation(libs.bundles.androidx.core)
     implementation(libs.bundles.androidx.lifecycle)

@@ -8,7 +8,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import prieto.fernando.spacex.presentation.EntryPointActivity
+import prieto.fernando.spacex.EntryPointActivity
 
 internal fun launchesScreenRobot(
     composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<EntryPointActivity>, EntryPointActivity>,

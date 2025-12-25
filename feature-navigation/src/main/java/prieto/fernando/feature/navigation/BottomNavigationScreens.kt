@@ -1,8 +1,7 @@
-package prieto.fernando.spacex.presentation.navigation
+package prieto.fernando.feature.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import prieto.fernando.spacex.R
 
 sealed class BottomNavigationScreens(
     val route: String,
