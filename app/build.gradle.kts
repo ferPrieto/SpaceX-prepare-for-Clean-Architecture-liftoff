@@ -44,6 +44,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":shared-ui"))
     implementation(project(":feature-dashboard"))
+    implementation(project(":feature-launches"))
 
     implementation(libs.bundles.androidx.core)
     implementation(libs.bundles.androidx.lifecycle)

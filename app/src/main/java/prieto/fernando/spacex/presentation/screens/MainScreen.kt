@@ -62,9 +62,9 @@ import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
 import prieto.fernando.feature.dashboard.presentation.DashboardScreen
 import prieto.fernando.feature.dashboard.presentation.DashboardViewModel
-import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
-import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
-import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
+import prieto.fernando.feature.launches.presentation.LaunchesContract
+import prieto.fernando.feature.launches.presentation.LaunchesScreen
+import prieto.fernando.feature.launches.presentation.LaunchesViewModel
 import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
 import prieto.fernando.shared.ui.theme.SpaceX.LocalTypography
 import prieto.fernando.shared.ui.theme.darkSpaceXColors
