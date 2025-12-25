@@ -4,7 +4,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.data_api.model.CompanyInfoResponse
+import prieto.fernando.core.network.model.CompanyInfoResponse
 import prieto.fernando.feature.dashboard.data.model.CompanyInfoRepositoryModel
 import kotlin.test.assertEquals
 

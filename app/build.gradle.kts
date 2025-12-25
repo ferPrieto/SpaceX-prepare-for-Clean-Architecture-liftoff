@@ -39,7 +39,7 @@ kapt {
 }
 
 dependencies {
-    implementation(project(":data-api"))
+    implementation(project(":core-network"))
     implementation(project(":shared-ui"))
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-launches"))
@@ -64,7 +64,6 @@ dependencies {
 
     testImplementation(libs.joda.time)
     testImplementation(project(":shared-testing"))
-    testImplementation(project(":domain"))
 
     androidTestImplementation(project(":shared-testing"))
     androidTestImplementation(libs.bundles.test.androidx)

@@ -1,6 +1,6 @@
 package prieto.fernando.feature.dashboard.data.mapper
 
-import prieto.fernando.data_api.model.CompanyInfoResponse
+import prieto.fernando.core.network.model.CompanyInfoResponse
 import prieto.fernando.feature.dashboard.data.model.CompanyInfoRepositoryModel
 import javax.inject.Inject
 

@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.supervisorScope
-import prieto.fernando.data_api.ApiService
+import prieto.fernando.core.network.ApiService
 import prieto.fernando.feature.dashboard.data.mapper.CompanyInfoRepositoryToDomainModelMapper
 import prieto.fernando.feature.dashboard.data.mapper.CompanyInfoResponseToRepositoryMapper
 import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
