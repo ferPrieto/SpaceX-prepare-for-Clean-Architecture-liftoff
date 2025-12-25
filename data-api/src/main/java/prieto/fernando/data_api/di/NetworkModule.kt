@@ -3,64 +3,67 @@ package prieto.fernando.data_api.di
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Converter
+import prieto.fernando.data_api.ApiService
+import prieto.fernando.data_api.mapper.DateFormatter
+import prieto.fernando.data_api.mapper.DateFormatterImpl
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-const val RETROFIT_TIMEOUT = 10L
+private const val BASE_URL = "https://api.spacexdata.com/v3/"
+private const val TIMEOUT_SECONDS = 30L
 
-@InstallIn(SingletonComponent::class)
 @Module
-open class NetworkModule {
-
-    open fun getBaseUrl() = "https://api.spacexdata.com/v3/"
-
-    @Provides
-    @BaseUrl
-    fun provideBaseUrl() = getBaseUrl()
-
-    @Provides
-    @Singleton
-    fun provideRetrofitBuilder(
-        converterFactory: Converter.Factory,
-        @BaseUrl baseUrl: String
-    ): Retrofit.Builder = Retrofit.Builder()
-        .baseUrl(baseUrl)
-        .addConverterFactory(converterFactory)
-
-    @Provides
-    @Singleton
-    fun provideHttpBuilder() = OkHttpClient.Builder().apply {
-        val isDebug = System.getProperty("debug")?.toBoolean() ?: true
-        if (isDebug) {
-            val httpLoggingInterceptor = HttpLoggingInterceptor()
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-            addInterceptor(httpLoggingInterceptor)
-        }
-
-        readTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
-        connectTimeout(RETROFIT_TIMEOUT, TimeUnit.SECONDS)
-    }
+@InstallIn(SingletonComponent::class)
+object NetworkModule {
 
     @Provides
     @Singleton
     fun provideJson(): Json = Json {
         ignoreUnknownKeys = true
         isLenient = true
-        encodeDefaults = true
+        coerceInputValues = true
     }
 
     @Provides
     @Singleton
-    fun provideKotlinSerializationConverterFactory(
-        json: Json
-    ): Converter.Factory = json.asConverterFactory("application/json".toMediaType())
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
 
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .connectTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(okHttpClient: OkHttpClient, json: Json): Retrofit =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiService =
+        retrofit.create(ApiService::class.java)
+
+    @Provides
+    @Reusable
+    fun provideDateFormatter(): DateFormatter =
+        DateFormatterImpl()
 }

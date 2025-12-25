@@ -40,8 +40,6 @@ kapt {
 
 dependencies {
     implementation(project(":data-api"))
-    implementation(project(":domain"))
-    implementation(project(":data"))
     implementation(project(":shared-ui"))
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-launches"))

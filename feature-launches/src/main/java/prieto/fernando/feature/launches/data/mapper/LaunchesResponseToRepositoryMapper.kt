@@ -1,23 +1,21 @@
-package prieto.fernando.data_api.mapper
+package prieto.fernando.feature.launches.data.mapper
 
-import dagger.Reusable
+import prieto.fernando.data_api.mapper.DateFormatter
 import prieto.fernando.data_api.model.LaunchesResponse
-import prieto.fernando.data.model.LaunchRepositoryModel
-import prieto.fernando.data.model.LinksRepositoryModel
-import prieto.fernando.data.model.RocketRepositoryModel
+import prieto.fernando.feature.launches.data.model.LaunchRepositoryModel
+import prieto.fernando.feature.launches.data.model.LinksRepositoryModel
+import prieto.fernando.feature.launches.data.model.RocketRepositoryModel
 import javax.inject.Inject
 
-interface LaunchesResponseToRepositoryModelMapper {
+interface LaunchesResponseToRepositoryMapper {
     fun toRepositoryModel(launchesResponse: List<LaunchesResponse>): List<LaunchRepositoryModel>
 }
 
 const val DEFAULT_PATCH = "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png"
 
-@Reusable
-class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor(
+class LaunchesResponseToRepositoryMapperImpl @Inject constructor(
     private val dateFormatter: DateFormatter
-) :
-    LaunchesResponseToRepositoryModelMapper {
+) : LaunchesResponseToRepositoryMapper {
     override fun toRepositoryModel(
         launchesResponse: List<LaunchesResponse>
     ): List<LaunchRepositoryModel> {
@@ -44,3 +42,4 @@ class LaunchesResponseToRepositoryModelMapperImpl @Inject constructor(
         }
     }
 }
+

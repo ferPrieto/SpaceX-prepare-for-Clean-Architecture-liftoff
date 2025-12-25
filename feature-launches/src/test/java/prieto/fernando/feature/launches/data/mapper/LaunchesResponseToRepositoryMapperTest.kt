@@ -1,4 +1,4 @@
-package prieto.fernando.data_api.mapper
+package prieto.fernando.feature.launches.data.mapper
 
 import io.mockk.impl.annotations.MockK
 import org.joda.time.format.DateTimeFormat
@@ -6,16 +6,18 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.data.model.LaunchRepositoryModel
-import prieto.fernando.data.model.LinksRepositoryModel
-import prieto.fernando.data.model.RocketRepositoryModel
+import prieto.fernando.data_api.mapper.DateFormatter
+import prieto.fernando.data_api.mapper.DateFormatterImpl
 import prieto.fernando.data_api.model.LaunchesResponse
 import prieto.fernando.data_api.model.LinksResponse
 import prieto.fernando.data_api.model.RocketResponse
+import prieto.fernando.feature.launches.data.model.LaunchRepositoryModel
+import prieto.fernando.feature.launches.data.model.LinksRepositoryModel
+import prieto.fernando.feature.launches.data.model.RocketRepositoryModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
-class LaunchesResponseToRepositoryModelMapperImplTest(
+class LaunchesResponseToRepositoryMapperTest(
     private val givenLaunches: List<LaunchesResponse>,
     private val expected: List<LaunchRepositoryModel>
 ) {
@@ -207,7 +209,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
             DateTimeFormat.forPattern("dd-MM-yyyy").parseDateTime(dateValue)
     }
 
-    private lateinit var cut: LaunchesResponseToRepositoryModelMapperImpl
+    private lateinit var cut: LaunchesResponseToRepositoryMapperImpl
 
     @MockK
     lateinit var dateFormatter: DateFormatter
@@ -215,7 +217,7 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
     @Before
     fun setUp() {
         dateFormatter = DateFormatterImpl()
-        cut = LaunchesResponseToRepositoryModelMapperImpl(dateFormatter)
+        cut = LaunchesResponseToRepositoryMapperImpl(dateFormatter)
     }
 
     @Test
@@ -227,3 +229,4 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
         assertEquals(expected, actualValue)
     }
 }
+
