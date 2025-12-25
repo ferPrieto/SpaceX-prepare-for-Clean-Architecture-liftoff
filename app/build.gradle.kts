@@ -43,6 +43,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":shared-ui"))
+    implementation(project(":feature-dashboard"))
 
     implementation(libs.bundles.androidx.core)
     implementation(libs.bundles.androidx.lifecycle)

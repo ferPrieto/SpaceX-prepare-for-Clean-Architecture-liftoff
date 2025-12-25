@@ -60,10 +60,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.InternalCoroutinesApi
 import prieto.fernando.spacex.R
 import prieto.fernando.spacex.presentation.navigation.BottomNavigationScreens
-import prieto.fernando.spacex.presentation.screens.dashboard.DashboardScreen
+import prieto.fernando.feature.dashboard.presentation.DashboardScreen
+import prieto.fernando.feature.dashboard.presentation.DashboardViewModel
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesContract
 import prieto.fernando.spacex.presentation.screens.launches.LaunchesScreen
-import prieto.fernando.spacex.presentation.vm.DashboardViewModel
 import prieto.fernando.spacex.presentation.vm.LaunchesViewModel
 import prieto.fernando.shared.ui.theme.SpaceX.LocalColors
 import prieto.fernando.shared.ui.theme.SpaceX.LocalTypography
