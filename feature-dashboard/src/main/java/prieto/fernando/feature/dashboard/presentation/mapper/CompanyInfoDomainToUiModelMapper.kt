@@ -1,6 +1,6 @@
 package prieto.fernando.feature.dashboard.presentation.mapper
 
-import prieto.fernando.domain.model.CompanyInfoDomainModel
+import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
 import prieto.fernando.feature.dashboard.presentation.CompanyInfoUiModel
 import javax.inject.Inject
 

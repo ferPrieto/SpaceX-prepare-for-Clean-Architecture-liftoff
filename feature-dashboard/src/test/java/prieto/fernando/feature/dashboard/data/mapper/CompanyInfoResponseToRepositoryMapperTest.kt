@@ -1,17 +1,17 @@
-package prieto.fernando.feature.dashboard.presentation.mapper
+package prieto.fernando.feature.dashboard.data.mapper
 
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
-import prieto.fernando.feature.dashboard.presentation.CompanyInfoUiModel
+import prieto.fernando.data_api.model.CompanyInfoResponse
+import prieto.fernando.feature.dashboard.data.model.CompanyInfoRepositoryModel
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
-class CompanyInfoDomainToUiModelMapperTest(
-    private val givenCompanyInfo: CompanyInfoDomainModel,
-    private val expected: CompanyInfoUiModel
+class CompanyInfoResponseToRepositoryMapperTest(
+    private val givenCompanyInfo: CompanyInfoResponse,
+    private val expected: CompanyInfoRepositoryModel
 ) {
     companion object {
         @JvmStatic
@@ -19,55 +19,52 @@ class CompanyInfoDomainToUiModelMapperTest(
         fun data(): Collection<Array<Any>> {
             return listOf(
                 arrayOf(
-                    CompanyInfoDomainModel(
+                    CompanyInfoResponse(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        2002,
+                        7000,
                         1,
                         23
-                    ),
-                    CompanyInfoUiModel(
+                    ), CompanyInfoRepositoryModel(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        "2002",
+                        "7000",
                         1,
                         23
                     )
                 ),
                 arrayOf(
-                    CompanyInfoDomainModel(
+                    CompanyInfoResponse(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        2002,
+                        7000,
                         3,
                         27500000000
-                    ),
-                    CompanyInfoUiModel(
+                    ), CompanyInfoRepositoryModel(
                         "name",
                         "founder",
-                        "founded",
-                        "employees",
+                        "2002",
+                        "7000",
                         3,
                         27500000000
                     )
                 ),
                 arrayOf(
-                    CompanyInfoDomainModel(
-                        "",
-                        "",
+                    CompanyInfoResponse(
                         "",
                         "",
                         0,
+                        0,
+                        0,
                         0
-                    ),
-                    CompanyInfoUiModel(
+                    ), CompanyInfoRepositoryModel(
                         "",
                         "",
-                        "",
-                        "",
+                        "0",
+                        "0",
                         0,
                         0
                     )
@@ -76,17 +73,17 @@ class CompanyInfoDomainToUiModelMapperTest(
         }
     }
 
-    private lateinit var cut: CompanyInfoDomainToUiModelMapperImpl
+    private lateinit var cut: CompanyInfoResponseToRepositoryMapperImpl
 
     @Before
     fun setUp() {
-        cut = CompanyInfoDomainToUiModelMapperImpl()
+        cut = CompanyInfoResponseToRepositoryMapperImpl()
     }
 
     @Test
-    fun `Given companyInfoDomainModel when toUiModel then returns expected result`() {
+    fun `Given companyInfoResponses when toRepositoryModel then returns expected result`() {
         // When
-        val actualValue = cut.toUiModel(givenCompanyInfo)
+        val actualValue = cut.toRepositoryModel(givenCompanyInfo)
 
         // Then
         assertEquals(expected, actualValue)
