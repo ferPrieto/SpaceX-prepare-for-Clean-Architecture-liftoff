@@ -4,7 +4,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.domain.model.CompanyInfoDomainModel
+import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
 import prieto.fernando.feature.dashboard.presentation.CompanyInfoUiModel
 import kotlin.test.assertEquals
 

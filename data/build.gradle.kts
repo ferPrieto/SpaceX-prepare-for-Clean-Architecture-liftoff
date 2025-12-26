@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation(project(":domain"))
-    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":shared-testing"))
 
     implementation(libs.dagger.dagger)
     kapt(libs.dagger.compiler)

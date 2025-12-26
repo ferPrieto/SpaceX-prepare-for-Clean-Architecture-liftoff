@@ -15,8 +15,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import prieto.fernando.domain.model.CompanyInfoDomainModel
-import prieto.fernando.domain.usecase.GetCompanyInfo
+import prieto.fernando.feature.dashboard.domain.model.CompanyInfoDomainModel
+import prieto.fernando.feature.dashboard.domain.usecase.GetCompanyInfo
 import prieto.fernando.feature.dashboard.presentation.mapper.CompanyInfoDomainToUiModelMapper
 import javax.inject.Inject
 

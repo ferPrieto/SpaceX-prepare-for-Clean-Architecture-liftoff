@@ -40,8 +40,6 @@ kapt {
 
 dependencies {
     implementation(project(":data-api"))
-    implementation(project(":domain"))
-    implementation(project(":data"))
     implementation(project(":shared-ui"))
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-launches"))
@@ -65,10 +63,10 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.joda.time)
-    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":shared-testing"))
     testImplementation(project(":domain"))
 
-    androidTestImplementation(project(":core-kotlin-test"))
+    androidTestImplementation(project(":shared-testing"))
     androidTestImplementation(libs.bundles.test.androidx)
     androidTestImplementation(libs.bundles.test.compose)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

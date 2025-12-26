@@ -38,7 +38,7 @@ android {
 
 dependencies {
     // Core modules
-    implementation(project(":domain"))
+    implementation(project(":data-api"))  // For API service and response models
     
     // Shared modules
     implementation(project(":shared-ui"))
@@ -65,7 +65,7 @@ dependencies {
     implementation(libs.joda.time)
     
     // Testing
-    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":shared-testing"))
     testImplementation(libs.bundles.test.core)
     testImplementation(libs.androidx.arch.core.testing)
     testImplementation(libs.mockk)

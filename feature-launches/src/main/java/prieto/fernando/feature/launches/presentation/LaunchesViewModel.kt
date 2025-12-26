@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.domain.usecase.GetLaunches
+import prieto.fernando.feature.launches.domain.usecase.GetLaunches
 import prieto.fernando.feature.launches.presentation.LaunchesContract
 import prieto.fernando.feature.launches.presentation.base.BaseViewModel
 import prieto.fernando.feature.launches.presentation.mapper.ClickableLinkProvider

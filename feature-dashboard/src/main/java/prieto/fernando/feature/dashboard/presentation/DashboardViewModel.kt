@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import prieto.fernando.domain.usecase.GetCompanyInfo
+import prieto.fernando.feature.dashboard.domain.usecase.GetCompanyInfo
 import prieto.fernando.feature.dashboard.presentation.base.BaseViewModel
 import prieto.fernando.feature.dashboard.presentation.mapper.CompanyInfoDomainToUiModelMapper
 import timber.log.Timber

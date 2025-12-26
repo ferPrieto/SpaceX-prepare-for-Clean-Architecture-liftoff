@@ -14,11 +14,11 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import prieto.fernando.core_android_test.util.buildDate
-import prieto.fernando.domain.model.LaunchDomainModel
-import prieto.fernando.domain.model.LinksDomainModel
-import prieto.fernando.domain.model.RocketDomainModel
-import prieto.fernando.domain.usecase.GetLaunches
+import prieto.fernando.shared.testing.util.buildDate
+import prieto.fernando.feature.launches.domain.model.LaunchDomainModel
+import prieto.fernando.feature.launches.domain.model.LinksDomainModel
+import prieto.fernando.feature.launches.domain.model.RocketDomainModel
+import prieto.fernando.feature.launches.domain.usecase.GetLaunches
 import prieto.fernando.feature.launches.presentation.LaunchUiModel
 import prieto.fernando.feature.launches.presentation.LinksUiModel
 import prieto.fernando.feature.launches.presentation.RocketUiModel

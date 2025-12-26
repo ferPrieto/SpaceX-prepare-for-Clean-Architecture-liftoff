@@ -9,7 +9,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpaceX"
 include(":app")
-include(":core-kotlin-test")
+include(":shared-testing")
 include(":data")
 include(":data-api")
 include(":domain")

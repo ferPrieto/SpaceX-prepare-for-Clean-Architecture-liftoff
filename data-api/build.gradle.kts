@@ -4,8 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data"))
-    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":shared-testing"))
 
     api(libs.bundles.network)
 
