@@ -18,7 +18,10 @@ class MockAndShotTestRunner : AndroidJUnitRunner() {
         ComposeScreenshotRunner.onCreate(this)
     }
 
-    override fun finish(resultCode: Int, results: Bundle?) {
+    override fun finish(
+        resultCode: Int,
+        results: Bundle?,
+    ) {
         ComposeScreenshotRunner.onDestroy()
         super.finish(resultCode, results)
     }
@@ -33,8 +36,9 @@ class MockAndShotTestRunner : AndroidJUnitRunner() {
     override fun newApplication(
         cl: ClassLoader?,
         className: String?,
-        context: Context?
+        context: Context?,
     ): Application {
         return super.newApplication(cl, HiltTestApplication::class.java.name, context)
     }
 }
+

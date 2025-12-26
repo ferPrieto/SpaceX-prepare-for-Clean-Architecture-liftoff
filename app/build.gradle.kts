@@ -11,7 +11,8 @@ android {
     namespace = "prieto.fernando.spacex"
     defaultConfig {
         applicationId = "prieto.fernando.spacex"
-        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
+        testInstrumentationRunner = "prieto.fernando.shared.testing.android.webmock.MockAndShotTestRunner"
+        buildConfigField("int", "PORT", "8080")
     }
 
     buildFeatures {
@@ -59,12 +60,12 @@ dependencies {
     
     // Testing
     testImplementation(project(":shared-testing"))
-    androidTestImplementation(project(":shared-testing"))
+    androidTestImplementation(project(":shared-testing-android"))
     androidTestImplementation(libs.bundles.test.androidx)
     androidTestImplementation(libs.bundles.test.compose)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    androidTestImplementation(libs.mockwebserver)
     androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.mockwebserver)
     kaptAndroidTest(libs.hilt.android.compiler)
     androidTestAnnotationProcessor(libs.hilt.android.compiler)
 }

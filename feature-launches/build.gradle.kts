@@ -2,6 +2,7 @@ plugins {
     id("prieto.fernando.android.plugin")
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.compose.compiler)
+    id("shot")
 }
 
 android {
@@ -10,6 +11,8 @@ android {
     
     defaultConfig {
         minSdk = 26
+        testApplicationId = "prieto.fernando.feature.launches.test"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
         vectorDrawables {
             useSupportLibrary = true
@@ -67,5 +70,14 @@ dependencies {
     testImplementation(libs.bundles.test.core)
     testImplementation(libs.androidx.arch.core.testing)
     testImplementation(libs.mockk)
+    
+    // Android Testing
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.androidx.compose.ui.test.manifest) // For createComposeRule
+    androidTestImplementation(project(":shared-ui"))
 }
-

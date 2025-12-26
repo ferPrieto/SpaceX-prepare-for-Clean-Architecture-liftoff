@@ -11,6 +11,8 @@ android {
     defaultConfig {
         minSdk = 26
         
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -64,5 +66,20 @@ dependencies {
     testImplementation(libs.bundles.test.core)
     testImplementation(libs.androidx.arch.core.testing)
     testImplementation(libs.mockk)
+    
+    // Android Testing
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.androidx.compose.ui.test.manifest) // For createComposeRule
+    androidTestImplementation(project(":shared-ui"))
+}
+
+// Workaround for Hilt 2.48+ / JavaPoet compatibility issue
+hilt {
+    enableAggregatingTask = false
 }
 

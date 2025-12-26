@@ -10,6 +10,7 @@ dependencyResolutionManagement {
 rootProject.name = "SpaceX"
 include(":app")
 include(":shared-testing")
+include(":shared-testing-android")
 include(":core-network")
 include(":shared-ui")
 include(":feature-dashboard")
