@@ -1,10 +1,16 @@
-rootProject.name = "SpaceX"
-rootProject.buildFileName = "build.gradle.kts"
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
+    }
+}
 
-include(
-    ":app",
-    ":data-api",
-    ":data",
-    ":domain",
-    ":core-kotlin-test"
-)
+rootProject.name = "SpaceX"
+include(":app")
+include(":core-kotlin-test")
+include(":data")
+include(":data-api")
+include(":domain")
+include(":shared-ui")

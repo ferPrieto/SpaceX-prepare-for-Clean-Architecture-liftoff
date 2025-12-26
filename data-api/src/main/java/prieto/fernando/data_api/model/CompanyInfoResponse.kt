@@ -7,8 +7,8 @@ import kotlinx.serialization.Serializable
 data class CompanyInfoResponse(
     val name: String,
     val founder: String,
-    val founded: String,
-    val employees: String,
+    val founded: Int,
+    val employees: Int,
     @SerialName("launch_sites")
     val launchSites: Int,
     val valuation: Long

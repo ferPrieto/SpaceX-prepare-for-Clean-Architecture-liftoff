@@ -18,7 +18,7 @@
 .vscode/ 
 .gradle/
 .idea/
-app/build/
+app/build/*
 app/config/
 buildSrc/.gradle/
 core-kotlin-test/build/

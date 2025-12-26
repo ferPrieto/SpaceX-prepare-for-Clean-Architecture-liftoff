@@ -18,25 +18,27 @@ class LaunchesDomainToUiModelMapperImpl @Inject constructor(
     override fun toUiModel(
         launchesDomainModel: List<LaunchDomainModel>
     ): List<LaunchUiModel> = launchesDomainModel.map { launchDomainModel ->
-        val linksUiModel = LinksUiModel(
-            missionPatchSmall = launchDomainModel.links.missionPatchSmall,
-            wikipedia = launchDomainModel.links.wikipedia,
-            youTubeLink = launchDomainModel.links.videoLink
-        )
+        with(launchDomainModel) {
+            val linksUiModel = LinksUiModel(
+                missionPatchSmall = links.missionPatchSmall,
+                wikipedia = links.wikipedia,
+                youTubeLink = links.videoLink
+            )
 
-        val rocketUiModel = RocketUiModel(
-            rocketName = launchDomainModel.rocket.rocketName,
-            rocketType = launchDomainModel.rocket.rocketType
-        )
+            val rocketUiModel = RocketUiModel(
+                rocketName = rocket.rocketName,
+                rocketType = rocket.rocketType
+            )
 
-        LaunchUiModel(
-            missionName = launchDomainModel.missionName,
-            launchDate = dateTransformer.dateToDateString(launchDomainModel.launchDate),
-            rocketUiModel = rocketUiModel,
-            linksUiModel = linksUiModel,
-            launchSuccess = launchDomainModel.launchSuccess,
-            isPastLaunch = dateTransformer.isPast(launchDomainModel.launchDate),
-            differenceOfDays = dateTransformer.getDifferenceOfDays(launchDomainModel.launchDate)
-        )
+            LaunchUiModel(
+                missionName = missionName,
+                launchDate = launchDate?.let { dateTransformer.dateToDateString(it) } ?: "",
+                rocketUiModel = rocketUiModel,
+                linksUiModel = linksUiModel,
+                launchSuccess = launchSuccess,
+                isPastLaunch = launchDate?.let { dateTransformer.isPast(it) } ?: false,
+                differenceOfDays = launchDate?.let { dateTransformer.getDifferenceOfDays(it) } ?: ""
+            )
+        }
     }
 }

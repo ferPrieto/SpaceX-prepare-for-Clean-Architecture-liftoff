@@ -1,0 +1,16 @@
+# Gradle build output
+/build/
+/.gradle/
+
+# IntelliJ IDEA
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# Mac OS
+.DS_Store
+
+# Local configuration
+local.properties
+

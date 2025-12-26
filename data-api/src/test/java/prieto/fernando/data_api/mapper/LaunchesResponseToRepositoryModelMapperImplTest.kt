@@ -27,21 +27,98 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
                 arrayOf(
                     listOf(
                         LaunchesResponse(
-                            "missionName",
-                            "2020-12-11T00:00:00.000Z",
-                            RocketResponse("rocketName", "rocketType"),
-                            LinksResponse("patchLink", "wikipediaLink", "videoLink"),
-                            false
+                            flightNumber = 1,
+                            missionName = "missionName",
+                            missionId = null,
+                            launchYear = "2020",
+                            launchDateUnix = 1607644800L,
+                            launchDateUtc = "2020-12-11T00:00:00.000Z",
+                            launchDateLocal = "2020-12-11T00:00:00-05:00",
+                            isTentative = false,
+                            tentativeMaxPrecision = "hour",
+                            tbd = false,
+                            launchWindow = 0,
+                            rocket = RocketResponse(
+                                rocketId = "falcon9",
+                                rocketName = "rocketName",
+                                rocketType = "rocketType",
+                                firstStage = null,
+                                secondStage = null,
+                                fairings = null
+                            ),
+                            ships = null,
+                            telemetry = null,
+                            launchSite = null,
+                            launchSuccess = false,
+                            launchFailureDetails = null,
+                            links = LinksResponse(
+                                missionPatch = "patchLink",
+                                missionPatchSmall = "patchLink",
+                                redditCampaign = null,
+                                redditLaunch = null,
+                                redditRecovery = null,
+                                redditMedia = null,
+                                presskit = null,
+                                articleLink = null,
+                                wikipedia = "wikipediaLink",
+                                videoLink = "videoLink",
+                                youtubeId = null,
+                                flickrImages = null
+                            ),
+                            details = null,
+                            upcoming = false,
+                            staticFireDateUtc = null,
+                            staticFireDateUnix = null,
+                            timeline = null,
+                            crew = null
                         ),
                         LaunchesResponse(
-                            "missionName2",
-                            "2021-01-01T00:00:00.000Z",
-                            RocketResponse("rocketName2", "rocketType2"),
-                            LinksResponse("patchLink2", "wikipediaLink2", "videoLink2"),
-                            false
+                            flightNumber = 2,
+                            missionName = "missionName2",
+                            missionId = null,
+                            launchYear = "2021",
+                            launchDateUnix = 1609459200L,
+                            launchDateUtc = "2021-01-01T00:00:00.000Z",
+                            launchDateLocal = "2021-01-01T00:00:00-05:00",
+                            isTentative = false,
+                            tentativeMaxPrecision = "hour",
+                            tbd = false,
+                            launchWindow = 0,
+                            rocket = RocketResponse(
+                                rocketId = "falcon9",
+                                rocketName = "rocketName2",
+                                rocketType = "rocketType2",
+                                firstStage = null,
+                                secondStage = null,
+                                fairings = null
+                            ),
+                            ships = null,
+                            telemetry = null,
+                            launchSite = null,
+                            launchSuccess = false,
+                            launchFailureDetails = null,
+                            links = LinksResponse(
+                                missionPatch = "patchLink2",
+                                missionPatchSmall = "patchLink2",
+                                redditCampaign = null,
+                                redditLaunch = null,
+                                redditRecovery = null,
+                                redditMedia = null,
+                                presskit = null,
+                                articleLink = null,
+                                wikipedia = "wikipediaLink2",
+                                videoLink = "videoLink2",
+                                youtubeId = null,
+                                flickrImages = null
+                            ),
+                            details = null,
+                            upcoming = false,
+                            staticFireDateUtc = null,
+                            staticFireDateUnix = null,
+                            timeline = null,
+                            crew = null
                         )
-                    )
-                    ,
+                    ),
                     listOf(
                         LaunchRepositoryModel(
                             "missionName",
@@ -62,11 +139,50 @@ class LaunchesResponseToRepositoryModelMapperImplTest(
                 arrayOf(
                     listOf(
                         LaunchesResponse(
-                            "missionName",
-                            "1990-03-01T00:00:00.000Z",
-                            RocketResponse("rocketName", "rocketType"),
-                            LinksResponse(null, null, null),
-                            true
+                            flightNumber = 1,
+                            missionName = "missionName",
+                            missionId = null,
+                            launchYear = "1990",
+                            launchDateUnix = 636249600L,
+                            launchDateUtc = "1990-03-01T00:00:00.000Z",
+                            launchDateLocal = "1990-03-01T00:00:00-05:00",
+                            isTentative = false,
+                            tentativeMaxPrecision = "hour",
+                            tbd = false,
+                            launchWindow = 0,
+                            rocket = RocketResponse(
+                                rocketId = "falcon9",
+                                rocketName = "rocketName",
+                                rocketType = "rocketType",
+                                firstStage = null,
+                                secondStage = null,
+                                fairings = null
+                            ),
+                            ships = null,
+                            telemetry = null,
+                            launchSite = null,
+                            launchSuccess = true,
+                            launchFailureDetails = null,
+                            links = LinksResponse(
+                                missionPatch = null,
+                                missionPatchSmall = null,
+                                redditCampaign = null,
+                                redditLaunch = null,
+                                redditRecovery = null,
+                                redditMedia = null,
+                                presskit = null,
+                                articleLink = null,
+                                wikipedia = null,
+                                videoLink = null,
+                                youtubeId = null,
+                                flickrImages = null
+                            ),
+                            details = null,
+                            upcoming = false,
+                            staticFireDateUtc = null,
+                            staticFireDateUnix = null,
+                            timeline = null,
+                            crew = null
                         )
                     ),
                     listOf(

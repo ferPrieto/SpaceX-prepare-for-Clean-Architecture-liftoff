@@ -1,17 +1,16 @@
 package prieto.fernando.data_api.di
 
-
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-
+import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -30,11 +29,11 @@ open class NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofitBuilder(
-        gsonConverterFactory: GsonConverterFactory,
+        converterFactory: Converter.Factory,
         @BaseUrl baseUrl: String
     ): Retrofit.Builder = Retrofit.Builder()
         .baseUrl(baseUrl)
-        .addConverterFactory(gsonConverterFactory)
+        .addConverterFactory(converterFactory)
 
     @Provides
     @Singleton
@@ -52,13 +51,16 @@ open class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideGson(): Gson = GsonBuilder().create()
+    fun provideJson(): Json = Json {
+        ignoreUnknownKeys = true
+        isLenient = true
+        encodeDefaults = true
+    }
 
     @Provides
     @Singleton
-    fun provideGsonConverterFactory(
-        gson: Gson
-    ): GsonConverterFactory = GsonConverterFactory.create(gson)
-
+    fun provideKotlinSerializationConverterFactory(
+        json: Json
+    ): Converter.Factory = json.asConverterFactory("application/json".toMediaType())
 
 }
