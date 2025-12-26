@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="launches_title">LAUNCHES</string>
+    <string name="launches_item_mission">Mission</string>
+    <string name="launches_item_date_time">Date/time</string>
+    <string name="launches_item_rocket">Rocket</string>
+    <string name="launches_item_days">Days</string>
+    <string name="launches_no_results_found">NO RESULTS FOUND</string>
+    <string name="launches_error_occurred">AN ERROR OCCURRED</string>
+</resources>
+
