@@ -38,7 +38,7 @@ android {
 
 dependencies {
     // Core modules
-    implementation(project(":data"))
+    implementation(project(":data-api"))  // For API service and response models
     
     // Shared modules
     implementation(project(":shared-ui"))

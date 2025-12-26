@@ -4,7 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data"))
     testImplementation(project(":shared-testing"))
 
     api(libs.bundles.network)
