@@ -6,11 +6,11 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import prieto.fernando.data_api.mapper.DateFormatter
-import prieto.fernando.data_api.mapper.DateFormatterImpl
-import prieto.fernando.data_api.model.LaunchesResponse
-import prieto.fernando.data_api.model.LinksResponse
-import prieto.fernando.data_api.model.RocketResponse
+import prieto.fernando.core.network.mapper.DateFormatter
+import prieto.fernando.core.network.mapper.DateFormatterImpl
+import prieto.fernando.core.network.model.LaunchesResponse
+import prieto.fernando.core.network.model.LinksResponse
+import prieto.fernando.core.network.model.RocketResponse
 import prieto.fernando.feature.launches.data.model.LaunchRepositoryModel
 import prieto.fernando.feature.launches.data.model.LinksRepositoryModel
 import prieto.fernando.feature.launches.data.model.RocketRepositoryModel

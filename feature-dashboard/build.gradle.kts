@@ -1,6 +1,7 @@
 plugins {
     id("prieto.fernando.android.plugin")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
@@ -25,9 +26,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
     
     packaging {
         resources {
@@ -38,7 +36,7 @@ android {
 
 dependencies {
     // Core modules
-    implementation(project(":data-api"))  // For API service and response models
+    implementation(project(":core-network"))  // For API service and response models
     
     // Shared modules
     implementation(project(":shared-ui"))

@@ -3,7 +3,7 @@ package prieto.fernando.feature.launches.data.repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
-import prieto.fernando.data_api.ApiService
+import prieto.fernando.core.network.ApiService
 import prieto.fernando.feature.launches.data.mapper.LaunchesRepositoryToDomainModelMapper
 import prieto.fernando.feature.launches.data.mapper.LaunchesResponseToRepositoryMapper
 import prieto.fernando.feature.launches.domain.model.LaunchDomainModel

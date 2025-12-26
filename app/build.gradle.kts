@@ -1,6 +1,7 @@
 plugins {
     id("prieto.fernando.android.plugin")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose.compiler)
     id("shot")
     alias(libs.plugins.ktlint)
     alias(libs.plugins.detekt)
@@ -18,9 +19,6 @@ android {
         buildConfig = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -34,45 +32,38 @@ android {
     }
 }
 
-kapt {
-    includeCompileClasspath = false
-}
 
 dependencies {
-    implementation(project(":data-api"))
-    implementation(project(":shared-ui"))
+    // Core modules
+    implementation(project(":core-network"))
+    
+    // Feature modules - explicit dependencies for Hilt aggregation
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-launches"))
-
-    implementation(libs.bundles.androidx.core)
-    implementation(libs.bundles.androidx.lifecycle)
-    implementation(libs.bundles.androidx.navigation)
-    kapt(libs.androidx.lifecycle.compiler)
-
+    implementation(project(":feature-navigation"))
+    implementation(project(":shared-ui"))
+    
+    // Compose (for setContent and theme)
     implementation(libs.bundles.compose)
-
+    
+    // Hilt (for @HiltAndroidApp and @AndroidEntryPoint)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.android.compiler)
     kapt(libs.androidx.hilt.compiler)
-    implementation(libs.hilt.compiler)
-
-    implementation(libs.bundles.ui.libraries)
-
-    implementation(libs.timber)
-    implementation(libs.joda.time)
+    
+    // Kotlinx Serialization (needed for core-network's Hilt module)
     implementation(libs.kotlinx.serialization.json)
-
-    testImplementation(libs.joda.time)
+    
+    // Activity Compose (for ComponentActivity and setContent)
+    implementation(libs.bundles.androidx.core)
+    
+    // Testing
     testImplementation(project(":shared-testing"))
-    testImplementation(project(":domain"))
-
     androidTestImplementation(project(":shared-testing"))
     androidTestImplementation(libs.bundles.test.androidx)
     androidTestImplementation(libs.bundles.test.compose)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-
     androidTestImplementation(libs.mockwebserver)
-
     androidTestImplementation(libs.hilt.android.testing)
     kaptAndroidTest(libs.hilt.android.compiler)
     androidTestAnnotationProcessor(libs.hilt.android.compiler)

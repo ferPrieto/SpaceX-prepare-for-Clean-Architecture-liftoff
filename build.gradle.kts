@@ -26,7 +26,6 @@ task("clean") {
 testAggregation {
     modules {
         exclude(project(":shared-testing"))
-        exclude(project(":domain"))  // Temporarily exclude domain module due to Hilt compatibility issue  
         exclude(project(":app"))     // Temporarily exclude app module due to Hilt compatibility issue
     }
     coverage {

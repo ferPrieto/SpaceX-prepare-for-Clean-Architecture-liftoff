@@ -1,7 +1,7 @@
 package prieto.fernando.feature.launches.data.mapper
 
-import prieto.fernando.data_api.mapper.DateFormatter
-import prieto.fernando.data_api.model.LaunchesResponse
+import prieto.fernando.core.network.mapper.DateFormatter
+import prieto.fernando.core.network.model.LaunchesResponse
 import prieto.fernando.feature.launches.data.model.LaunchRepositoryModel
 import prieto.fernando.feature.launches.data.model.LinksRepositoryModel
 import prieto.fernando.feature.launches.data.model.RocketRepositoryModel
