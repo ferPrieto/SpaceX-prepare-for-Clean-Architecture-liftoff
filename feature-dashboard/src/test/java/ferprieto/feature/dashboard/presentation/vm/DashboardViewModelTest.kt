@@ -8,7 +8,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -17,7 +17,8 @@ import org.junit.Test
 import org.junit.rules.TestRule
 import ferprieto.feature.dashboard.domain.model.CompanyInfoDomainModel
 import ferprieto.feature.dashboard.domain.usecase.GetCompanyInfo
-import ferprieto.feature.dashboard.presentation.mapper.CompanyInfoDomainToUiModelMapper
+import ferprieto.feature.dashboard.presentation.vm.mapper.CompanyInfoDomainToUiModelMapper
+import ferprieto.feature.dashboard.presentation.ui.CompanyInfoUiModel
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
@@ -78,7 +79,7 @@ class DashboardViewModelTest {
 
     @Test(expected = Throwable::class)
     fun `Given Error When companyInfo Then expected error state`() {
-        runBlockingTest {
+        runTest {
             // Given
             var exceptionThrown = false
 

@@ -7,7 +7,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -20,10 +20,10 @@ import ferprieto.feature.launches.domain.model.LinksDomainModel
 import ferprieto.feature.launches.domain.model.RocketDomainModel
 import ferprieto.feature.launches.domain.usecase.GetLaunches
 import ferprieto.feature.launches.presentation.ui.LaunchUiModel
-import ferprieto.feature.launches.presentation.LinksUiModel
-import ferprieto.feature.launches.presentation.RocketUiModel
-import ferprieto.feature.launches.presentation.mapper.ClickableLinkProvider
-import ferprieto.feature.launches.presentation.mapper.LaunchesDomainToUiModelMapper
+import ferprieto.feature.launches.presentation.ui.LinksUiModel
+import ferprieto.feature.launches.presentation.ui.RocketUiModel
+import ferprieto.feature.launches.presentation.vm.mapper.ClickableLinkProvider
+import ferprieto.feature.launches.presentation.vm.mapper.LaunchesDomainToUiModelMapper
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
@@ -54,7 +54,7 @@ class LaunchesViewModelTest {
 
     @Test
     fun `When launches Then launchUiModelRetrieved with expected result`() {
-        runBlockingTest {
+        runTest {
             // Given
             val launchDomainModels = listOf(
                 LaunchDomainModel(
@@ -117,7 +117,7 @@ class LaunchesViewModelTest {
 
     @Test
     fun `Given Error When launches Then expected error state`() {
-        runBlockingTest {
+        runTest {
             // Given
             var exceptionThrown = true
 

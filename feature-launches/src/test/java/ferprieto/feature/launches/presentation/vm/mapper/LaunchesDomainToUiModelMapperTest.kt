@@ -12,8 +12,8 @@ import ferprieto.feature.launches.domain.model.LaunchDomainModel
 import ferprieto.feature.launches.domain.model.LinksDomainModel
 import ferprieto.feature.launches.domain.model.RocketDomainModel
 import ferprieto.feature.launches.presentation.ui.LaunchUiModel
-import ferprieto.feature.launches.presentation.LinksUiModel
-import ferprieto.feature.launches.presentation.RocketUiModel
+import ferprieto.feature.launches.presentation.ui.LinksUiModel
+import ferprieto.feature.launches.presentation.ui.RocketUiModel
 import javax.inject.Inject
 import kotlin.test.assertEquals
 

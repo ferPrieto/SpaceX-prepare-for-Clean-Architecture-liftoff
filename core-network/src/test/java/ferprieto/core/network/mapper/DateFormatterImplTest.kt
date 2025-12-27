@@ -27,7 +27,7 @@ class DateFormatterImplTest(
         }
 
         private fun buildDate(dateValue: String) =
-            DateTimeFormat.forPattern("dd-MM-yyyy").parseDateTime(dateValue)
+            DateTimeFormat.forPattern("dd-MM-yyyy").withZoneUTC().parseDateTime(dateValue)
     }
 
     private lateinit var cut: DateFormatterImpl

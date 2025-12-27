@@ -10,7 +10,7 @@ interface DateFormatter {
 
 class DateFormatterImpl @Inject constructor() : DateFormatter {
     override fun format(dateValue: String): DateTime {
-        val dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        val dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ").withZoneUTC()
 
         return dateTimeFormatter.parseDateTime(dateValue.replace("Z", "+0000"))
     }
