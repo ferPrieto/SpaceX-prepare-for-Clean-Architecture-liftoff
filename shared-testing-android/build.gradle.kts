@@ -1,10 +1,10 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "prieto.fernando.shared.testing.android"
+    namespace = "ferprieto.shared.testing.android"
     compileSdk = 34
 
     defaultConfig {

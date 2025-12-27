@@ -1,17 +1,17 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.compose.compiler)
     id("shot")
 }
 
 android {
-    namespace = "prieto.fernando.feature.launches"
+    namespace = "ferprieto.feature.launches"
     compileSdk = 35
     
     defaultConfig {
         minSdk = 26
-        testApplicationId = "prieto.fernando.feature.launches.test"
+        testApplicationId = "ferprieto.feature.launches.test"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
         vectorDrawables {
