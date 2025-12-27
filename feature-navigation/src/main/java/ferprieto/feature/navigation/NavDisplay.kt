@@ -47,8 +47,8 @@ import androidx.core.net.toUri
 @Composable
 fun NavDisplay(
     backStack: NavBackStack,
-    paddingValues: PaddingValues = PaddingValues(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    paddingValues: PaddingValues = PaddingValues()
 ) {
     val context = LocalContext.current
     val current = backStack.current

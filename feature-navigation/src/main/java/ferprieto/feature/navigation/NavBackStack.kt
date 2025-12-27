@@ -33,7 +33,7 @@ class NavBackStack(
 
     fun pop(): Boolean {
         return if (_backStack.size > 1) {
-            _backStack.removeLast()
+            _backStack.removeAt(_backStack.lastIndex)
             true
         } else {
             false
@@ -48,7 +48,7 @@ class NavBackStack(
         if (targetIndex < _backStack.size) {
             val itemsToRemove = _backStack.size - targetIndex
             repeat(itemsToRemove) {
-                _backStack.removeLast()
+                _backStack.removeAt(_backStack.lastIndex)
             }
             return true
         }
@@ -57,7 +57,7 @@ class NavBackStack(
 
     fun replace(key: NavKey) {
         if (_backStack.isNotEmpty()) {
-            _backStack.removeLast()
+            _backStack.removeAt(_backStack.lastIndex)
         }
         _backStack.add(key)
     }
