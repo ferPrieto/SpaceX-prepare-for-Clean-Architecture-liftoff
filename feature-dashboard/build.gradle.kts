@@ -1,14 +1,17 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
-    namespace = "prieto.fernando.feature.dashboard"
+    namespace = "ferprieto.feature.dashboard"
     compileSdk = 35
     
     defaultConfig {
         minSdk = 26
+        
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
         vectorDrawables {
             useSupportLibrary = true
@@ -25,9 +28,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
     
     packaging {
         resources {
@@ -38,7 +38,7 @@ android {
 
 dependencies {
     // Core modules
-    implementation(project(":domain"))
+    implementation(project(":core-network"))  // For API service and response models
     
     // Shared modules
     implementation(project(":shared-ui"))
@@ -62,9 +62,24 @@ dependencies {
     implementation(libs.joda.time)
     
     // Testing
-    testImplementation(project(":core-kotlin-test"))
+    testImplementation(project(":shared-testing"))
     testImplementation(libs.bundles.test.core)
     testImplementation(libs.androidx.arch.core.testing)
     testImplementation(libs.mockk)
+    
+    // Android Testing
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.androidx.compose.ui.test.manifest) // For createComposeRule
+    androidTestImplementation(project(":shared-ui"))
+}
+
+// Workaround for Hilt 2.48+ / JavaPoet compatibility issue
+hilt {
+    enableAggregatingTask = false
 }
 

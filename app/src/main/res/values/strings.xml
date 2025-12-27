@@ -5,8 +5,7 @@
     <string name="company_data">
         %s was founded by  %s in  %s. It has now  %s employees,  %s launch sites, and is valued at USD  %s
     </string>
-    <string name="company_data_from">Days from now</string>
-    <string name="company_data_since">Days since now</string>
+
 
     <string name="launches_title">LAUNCHES</string>
     <string name="launches_item_mission">Mission</string>
