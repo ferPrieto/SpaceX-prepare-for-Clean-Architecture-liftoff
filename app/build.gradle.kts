@@ -1,5 +1,5 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.compose.compiler)
     id("shot")
@@ -8,10 +8,10 @@ plugins {
 }
 
 android {
-    namespace = "prieto.fernando.spacex"
+    namespace = "ferprieto.spacex"
     defaultConfig {
-        applicationId = "prieto.fernando.spacex"
-        testInstrumentationRunner = "prieto.fernando.shared.testing.android.webmock.MockAndShotTestRunner"
+        applicationId = "ferprieto.spacex"
+        testInstrumentationRunner = "ferprieto.shared.testing.android.webmock.MockAndShotTestRunner"
         buildConfigField("int", "PORT", "8080")
     }
 
@@ -19,7 +19,6 @@ android {
         compose = true
         buildConfig = true
     }
-
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -33,31 +32,30 @@ android {
     }
 }
 
-
 dependencies {
     // Core modules
     implementation(project(":core-network"))
-    
+
     // Feature modules - explicit dependencies for Hilt aggregation
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-launches"))
     implementation(project(":feature-navigation"))
     implementation(project(":shared-ui"))
-    
+
     // Compose (for setContent and theme)
     implementation(libs.bundles.compose)
-    
+
     // Hilt (for @HiltAndroidApp and @AndroidEntryPoint)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.android.compiler)
     kapt(libs.androidx.hilt.compiler)
-    
+
     // Kotlinx Serialization (needed for core-network's Hilt module)
     implementation(libs.kotlinx.serialization.json)
-    
+
     // Activity Compose (for ComponentActivity and setContent)
     implementation(libs.bundles.androidx.core)
-    
+
     // Testing
     testImplementation(project(":shared-testing"))
     androidTestImplementation(project(":shared-testing-android"))
@@ -77,7 +75,7 @@ hilt {
 }
 
 detekt {
-    buildUponDefaultConfig = true  
+    buildUponDefaultConfig = true
     allRules = false
 }
 
@@ -95,7 +93,7 @@ tasks.named("check").configure {
     this.setDependsOn(
         this.dependsOn.filterNot {
             it is TaskProvider<*> && it.name == "detekt"
-        }
+        },
     )
 }
 

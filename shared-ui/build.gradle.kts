@@ -1,10 +1,10 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
-    namespace = "prieto.fernando.shared.ui"
+    namespace = "ferprieto.shared.ui"
     compileSdk = 35
     
     defaultConfig {

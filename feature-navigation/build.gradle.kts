@@ -1,12 +1,12 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     id("com.google.dagger.hilt.android")
     alias(libs.plugins.kotlin.compose.compiler)
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
-    namespace = "prieto.fernando.feature.navigation"
+    namespace = "ferprieto.feature.navigation"
 
     buildFeatures {
         compose = true

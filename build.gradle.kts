@@ -26,7 +26,7 @@ task("clean") {
 testAggregation {
     modules {
         exclude(project(":shared-testing"))
-        exclude(project(":app"))     // Temporarily exclude app module due to Hilt compatibility issue
+        exclude(project(":app"))    
     }
     coverage {
         exclude(
@@ -59,10 +59,10 @@ testAggregation {
                 //remove what we don't test
                 "androidTest/**/*.*",
                 "test/**/*.*",
-                "**/prieto/fernando/spacex/theme/**",
-                "**/prieto/fernando/spacex/presentation/screens/**",
-                "**/prieto/fernando/spacex/",
-                "**/prieto/fernando/spacex/presentation/navigation/"
+                "**/ferprieto/spacex/theme/**",
+                "**/ferprieto/spacex/presentation/screens/**",
+                "**/ferprieto/spacex/",
+                "**/ferprieto/spacex/presentation/navigation/"
             )
         )
     }

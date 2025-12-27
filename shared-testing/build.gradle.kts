@@ -1,5 +1,5 @@
 plugins {
-    id("prieto.fernando.kotlin.plugin")
+    id("ferprieto.kotlin.plugin")
 }
 
 dependencies {

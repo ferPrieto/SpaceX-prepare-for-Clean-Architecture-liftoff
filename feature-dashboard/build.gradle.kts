@@ -1,11 +1,11 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
-    namespace = "prieto.fernando.feature.dashboard"
+    namespace = "ferprieto.feature.dashboard"
     compileSdk = 35
     
     defaultConfig {
