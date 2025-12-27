@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_title_dashboard">Dashboard</string>
+    <string name="tab_title_launches">Launches</string>
+</resources>
+

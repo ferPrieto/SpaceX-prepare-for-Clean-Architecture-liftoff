@@ -1,25 +1,23 @@
 plugins {
-    id("prieto.fernando.android.plugin")
+    id("ferprieto.android.plugin")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose.compiler)
     id("shot")
     alias(libs.plugins.ktlint)
     alias(libs.plugins.detekt)
 }
 
 android {
-    namespace = "prieto.fernando.spacex"
+    namespace = "ferprieto.spacex"
     defaultConfig {
-        applicationId = "prieto.fernando.spacex"
-        testInstrumentationRunner = "prieto.fernando.spacex.webmock.MockAndShotTestRunner"
+        applicationId = "ferprieto.spacex"
+        testInstrumentationRunner = "ferprieto.shared.testing.android.webmock.MockAndShotTestRunner"
+        buildConfigField("int", "PORT", "8080")
     }
 
     buildFeatures {
         compose = true
         buildConfig = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
     }
 
     compileOptions {
@@ -34,46 +32,38 @@ android {
     }
 }
 
-kapt {
-    includeCompileClasspath = false
-}
-
 dependencies {
-    implementation(project(":data-api"))
-    implementation(project(":domain"))
-    implementation(project(":data"))
+    // Core modules
+    implementation(project(":core-network"))
+
+    // Feature modules - explicit dependencies for Hilt aggregation
+    implementation(project(":feature-dashboard"))
+    implementation(project(":feature-launches"))
+    implementation(project(":feature-navigation"))
     implementation(project(":shared-ui"))
 
-    implementation(libs.bundles.androidx.core)
-    implementation(libs.bundles.androidx.lifecycle)
-    implementation(libs.bundles.androidx.navigation)
-    kapt(libs.androidx.lifecycle.compiler)
-
+    // Compose (for setContent and theme)
     implementation(libs.bundles.compose)
 
+    // Hilt (for @HiltAndroidApp and @AndroidEntryPoint)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.android.compiler)
     kapt(libs.androidx.hilt.compiler)
-    implementation(libs.hilt.compiler)
 
-    implementation(libs.bundles.ui.libraries)
-
-    implementation(libs.timber)
-    implementation(libs.joda.time)
+    // Kotlinx Serialization (needed for core-network's Hilt module)
     implementation(libs.kotlinx.serialization.json)
 
-    testImplementation(libs.joda.time)
-    testImplementation(project(":core-kotlin-test"))
-    testImplementation(project(":domain"))
+    // Activity Compose (for ComponentActivity and setContent)
+    implementation(libs.bundles.androidx.core)
 
-    androidTestImplementation(project(":core-kotlin-test"))
+    // Testing
+    testImplementation(project(":shared-testing"))
+    androidTestImplementation(project(":shared-testing-android"))
     androidTestImplementation(libs.bundles.test.androidx)
     androidTestImplementation(libs.bundles.test.compose)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-
-    androidTestImplementation(libs.mockwebserver)
-
     androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.mockwebserver)
     kaptAndroidTest(libs.hilt.android.compiler)
     androidTestAnnotationProcessor(libs.hilt.android.compiler)
 }
@@ -85,7 +75,7 @@ hilt {
 }
 
 detekt {
-    buildUponDefaultConfig = true  
+    buildUponDefaultConfig = true
     allRules = false
 }
 
@@ -103,7 +93,7 @@ tasks.named("check").configure {
     this.setDependsOn(
         this.dependsOn.filterNot {
             it is TaskProvider<*> && it.name == "detekt"
-        }
+        },
     )
 }
 

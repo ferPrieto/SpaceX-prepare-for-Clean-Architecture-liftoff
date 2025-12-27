@@ -9,8 +9,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpaceX"
 include(":app")
-include(":core-kotlin-test")
-include(":data")
-include(":data-api")
-include(":domain")
+include(":shared-testing")
+include(":shared-testing-android")
+include(":core-network")
 include(":shared-ui")
+include(":feature-dashboard")
+include(":feature-launches")
+include(":feature-navigation")
